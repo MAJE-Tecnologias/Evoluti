@@ -151,9 +151,9 @@ body{
   }
   /* --------------------------------------------------------- */
 
-  /* Section "Nosso propósito" */
+  /* Section "Nossas Soluções" */
 
-  .proposito{
+  .solucao{
     width: 100%;
     height: 100vh;
     display: flex;
@@ -162,6 +162,30 @@ body{
     padding: 0px 10%;
     background: linear-gradient(to bottom, var(--green), var(--lightgreen));
 }
+
+.solu-text{
+    text-align: center;
+}
+
+.solu-titulo{
+    font-size: 2.0rem;
+}
+
+.barrinha{
+        content: '';
+        width: 70px;
+        height: 2px;
+        display: block;
+        margin: 11px auto 34px;
+        background: black;
+}
+.flutuar.hexagonos{
+width:100%; 
+margin-top: -100px; 
+display: block;
+}
+
+
 /* --------------------------------------------------------- */
 
   /* Section "Login" */
@@ -371,5 +395,25 @@ display: block;
     background-color: var(--lightgreen);
 }
 
+.flutuar.hexagonos{
+    padding-top: 100px;
+}
+
 }
 /* --------------------------------------------------------- */
+
+/* Animações */
+
+.flutuar { 
+    animation-name: flutuar;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+ 
+@keyframes flutuar {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 15px); }
+    100%   { transform: translate(0, -0px); }   
+}
+
