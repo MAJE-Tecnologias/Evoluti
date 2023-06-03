@@ -126,8 +126,8 @@ body{
 }
 
 .home-img img{
-    width: 400px;
-    position: relative;
+    width: 600px;
+    position: static;
     z-index: -2;
 }
 
@@ -155,7 +155,7 @@ body{
 
   .solucao{
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -179,10 +179,16 @@ body{
         margin: 11px auto 34px;
         background: black;
 }
-.flutuar.hexagonos{
-width:100%; 
-margin-top: -100px; 
-display: block;
+.hexagonos{
+width: 300px;
+margin: 20px;
+margin-top: 80px; 
+display: inline-block;
+transition: all .2s ease-in-out;
+}
+
+.hexagonos:hover{
+	transform: scale(1.1);
 }
 
 
@@ -192,13 +198,57 @@ display: block;
 
   .Login{
     /* width: 100%; */
+    width: 100%;
     height: 100vh;
-    display: flex;
+    display:flex;
     align-items: center;
-    justify-content: space-between;
     padding: 0px 10%;
     background: linear-gradient(to bottom, var(--blue), var(--lightblue));
 }
+
+/* .login-img{
+    position: relative;
+    top: 65px;
+    width: 500px;
+    display: flex;
+    z-index: 0;
+    vertical-align: bottom;
+
+} */
+
+.login-text{
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+    display: block;
+}
+
+.login-titulo{
+    font-size: 2.0rem;
+}
+
+.divLoginBtn{
+    align-items: center;
+    display: inline-block;
+    justify-content: space-evenly;
+    padding-top: 10vh;
+}
+
+.login-btn{
+    
+    padding: 15px 100px;
+    background-color: var(--dark);
+    color: var(--white);
+    border-radius: 10px;
+    font-weight: 700;
+    transition: all 0.5s;
+    margin: 20px;
+}
+
+.login-btn:hover{
+    background-color: darkblue;
+}
+
 /* --------------------------------------------------------- */
 
   /* Section "Quem Somos?" */
@@ -222,7 +272,7 @@ h1{
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 100vh;
+    padding-top: 40px;
   }
 
 .column{
@@ -248,6 +298,7 @@ h1{
     border-radius: 40px;
     padding-bottom: 15px;
     margin-bottom: 20px;
+    min-width: 300px;
 }
 
 .title{
@@ -399,21 +450,168 @@ display: block;
     padding-top: 100px;
 }
 
+/* Section "Nossas Soluções" */
+
+
+  .solucao{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10%;
+    background: linear-gradient(to bottom, var(--green), var(--lightgreen));
 }
+
+.solu-text{
+    text-align: center;
+}
+
+.solu-titulo{
+    font-size: 2.0rem;
+}
+
+.barrinha{
+        content: '';
+        width: 70px;
+        height: 2px;
+        display: block;
+        margin: 11px auto 34px;
+        background: black;
+}
+.hexagonos{
+width: 300px;
+margin: 20px;
+margin-top: 80px; 
+display: inline-block;
+transition: all .2s ease-in-out;
+}
+
+.hexagonos:hover{
+	transform: scale(1.1);
+}
+
+/* --------------------------------------------------------- */
+
+/* Section Login */
+
+.Login{
+    /* width: 100%; */
+    width: 100%;
+    height: 100vh;
+    display:grid;
+    align-items: center;
+    padding: 0px 10%;
+    background: linear-gradient(to bottom, var(--blue), var(--lightblue));
+}
+
+.login-text{
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.login-titulo{
+    font-size: 2.0rem;
+}
+
+.divLoginBtn{
+    align-items: center;
+    display: inline-block;
+    padding-top: 10vh;
+}
+
+.login-btn{
+    
+    padding: 15px 50px;
+    background-color: var(--dark);
+    color: var(--white);
+    border-radius: 10px;
+    font-weight: 700;
+    transition: all 0.5s;
+    margin: 20px;
+}
+
+
+/* --------------------------------------------------------- */
+
+/* Section Quem somos */
+
+.QuemSomos{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, var(--green), var(--lightgreen));
+}
+
+
+h1{
+    margin-top: 2px;
+}
+
+.center-screen {
+    display: block;
+    align-items: center;
+    text-align: center;
+    margin: 20px;
+    
+  }
+
+.column{
+    width: 100%;
+}
+
+.row::after{
+    content: "";
+    clear: both;
+}
+
+
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    background-color: white;
+    text-align: center;
+    border-radius: 40px;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.title{
+    color: gray;
+    font-size: 18px;
+}
+
+.botaoCards{
+    border: none;
+    padding: 8px;
+    display: inline-block;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    width: 70%;
+    border-radius: 20px;
+    font-size: 18px;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
+
+a:hover,button:hover{
+    opacity: 0.6;
+}
+
+/* --------------------------------------------------------- */
+
+}
+
 /* --------------------------------------------------------- */
 
 /* Animações */
-
-.flutuar { 
-    animation-name: flutuar;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-}
- 
-@keyframes flutuar {
-    0% { transform: translate(0,  0px); }
-    50%  { transform: translate(0, 15px); }
-    100%   { transform: translate(0, -0px); }   
-}
-
