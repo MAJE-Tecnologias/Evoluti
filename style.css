@@ -269,7 +269,7 @@ transition: all .2s ease-in-out;
 
   .QuemSomos{
     width: 100%;
-    height: 100vh;
+    height: 150vh;
     display: inline-block;
     align-items: center;
     justify-content: space-between;
@@ -293,29 +293,27 @@ h1{
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding-top: 40px;
   }
 
   .container_Cards{
     display: flex;
-    margin: 20px;
     width: 100%;
-    height: 600px;
-    border: 2px solid black;
+    justify-content: center;
+    margin: 20px;
+  }
+  
+  #icones{
+    font-size: 40px;
+    color: #D7D588;
+    margin: 10px;
   }
 
 .coluna{
+    position: relative;
+    text-align: center;
     align-items: center;
-    width:25%;
     float:left;
-    padding: 0px 10px;
-}
-
-.column{
-    align-items: center;
-    width:20%;
-    float:left;
-    padding: 0px 10px;
+    width: 100%;
 }
 
 .row::after{
@@ -324,17 +322,72 @@ h1{
     clear: both;
 }
 
+.card1{
+    width: 90%;
+}
 
-.card{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    margin: auto;
-    background: linear-gradient(to bottom, var(--green), var(--lightgreen));
-    text-align: center;
-    border-radius: 40px;
-    padding-bottom: 15px;
-    margin-bottom: 20px;
-    min-width: 300px;
+.textoCard1 h1{
+    font-size: 19px;
+}
+
+.textoCard1 p{
+    font-size: 14px;
+}
+
+.card2{
+   position: relative;
+   top: 20%;
+   width: 90%;
+}
+
+.textoCard2{
+    position: relative;
+    top: 20%;
+}
+
+.textoCard2 h1{
+    font-size: 19px;
+}
+
+.textoCard2 p{
+    font-size: 14px;
+}
+
+.card3{
+    position: relative;
+    top: 40%;
+    width: 90%;
+ }
+
+ .textoCard3{
+    position: relative;
+    top: 40%;
+}
+
+.textoCard3 h1{
+    font-size: 19px;
+}
+
+.textoCard3 p{
+    font-size: 14px;
+}
+
+ .card4{
+    position: relative;
+    top: 60%;
+    width: 90%;
+ }
+ .textoCard4{
+    position: relative;
+    top: 60%;
+}
+
+.textoCard4 h1{
+    font-size: 19px;
+}
+
+.textoCard4 p{
+    font-size: 14px;
 }
 
 .title{
