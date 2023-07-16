@@ -11,11 +11,12 @@
     
     <!-- ÍCONES -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- -------------------------------------------------------------------------------------------------------- -->
 
     <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="/Javascript/script.js"></script>
     <!-- -------------------------------------- -->
 
@@ -62,32 +63,44 @@
             <p>Analise o progresso dos seus pacientes mergulhando em gráficos e dados que revelam insights valiosos.</p>
             <a href="#" class="home-btn">Começar</a>
         </div>
-        <div class="home-img">
-            <img src="/Imagens/imgfisio.png" alt="fisio">
-        </div> 
+    <div class="home-img-container">
+            <img src="/Imagens/imgfisio.png" alt="fisio" class="home-img">
+    </div>
     </section>
 
     <!-- Nossas Soluções -->
 
-    <section class="solucao" id="solucao">
-        <div class="solu-text">
-        <h1 class="solu-titulo">Nossas Soluções</h1>
-        <h2 class="barrinha"></h2>
-        <p>Nossa plataforma foi projetada com recursos específicos para atender às necessidades da área de reabilitação, visando melhorar os 
-            resultados e oferecer uma experiência excepcional para os profissionais e seus pacientes.</p>
+    <section class="servicos" id="servicos">
+        <h1 class="serv-titulo"><b>Serviços</b> que oferecem o melhor <b>ecossistema</b> para seu dia-a-dia</h1>
+        <h2 class="barrinha" id="barrinha_serv"></h2>
 
-        <div>
-            <img src="/Imagens/Hexagonos/HexagonoCadPaciente.png" alt="Hexagonos" class="hexagonos">
-            <img src="/Imagens/Hexagonos/HexagonoAtendimento.png" alt="Hexagonos" class="hexagonos">
-            <img src="/Imagens/Hexagonos/HexagonaRelatorios.png" alt="Hexagonos" class="hexagonos">
+        <div class="servicos_conteudo">
+            <div class="slides"></div>
+            <div class="botoes_slides">
+
+                <div class="servicos_text">
+                <h1><a class="botao_slide"><i class="fa-regular fa-circle"></a></i> Prontuário eletrônico</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum euismod eros, ut tristique enim tincidunt ut.</p>
+                </div>
+
+                <div class="servicos_text">
+                    <h1><a class="botao_slide"><i class="fa-regular fa-circle"></a></i> Prontuário eletrônico</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum euismod eros, ut tristique enim tincidunt ut.</p>
+                </div>
+
+                <div class="servicos_text">
+                    <h1><a class="botao_slide"><i class="fa-regular fa-circle"></a></i> Prontuário eletrônico</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum euismod eros, ut tristique enim tincidunt ut.</p>
+                </div>
+
+                <div class="servicos_text">
+                    <h1><a class="botao_slide"><i class="fa-regular fa-circle"></a></i> Prontuário eletrônico</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum euismod eros, ut tristique enim tincidunt ut.</p>
+                </div>
+
+            </div>
         </div>
 
-            <img src="/Imagens/Hexagonos/HexagonoDocumentacao.png" alt="Hexagonos" class="hexagonos">
-            <img src="/Imagens/Hexagonos/HexagonoProntuario.png" alt="Hexagonos" class="hexagonos">
-            <img src="/Imagens/Hexagonos/HexagonoLGPD.png" alt="Hexagonos" class="hexagonos">
-
-
-        </div>
     </section>
 
     <!-- Login -->
@@ -118,7 +131,7 @@
 
                 <div class="container_Cards">
                     	<div class="coluna">                   
-                            <img src="/Imagens/background_img_Card.png" alt="backgroundCard1" class="card1">
+                            <img src="/Imagens/QuemSomos/Pielich.png" alt="backgroundCard1" class="card1">
                             <div class="textoCard1">
                             <h1>Eduardo Pielich</h1>
                             <p>- Programador Back-End</p>
@@ -129,7 +142,7 @@
                         </div>
                         </div>
                         <div class="coluna">
-                            <img src="/Imagens/background_img_Card.png" alt="backgroundCard2" class="card2">
+                            <img src="/Imagens/QuemSomos/Juliana.png" alt="backgroundCard2" class="card2">
                             <div class="textoCard2">
                             <h1>Juliana Araujo</h1>
                             <p>- Gerente de Projetos</p>
@@ -141,7 +154,7 @@
                             </div>
                         </div>
                         <div class="coluna">
-                            <img src="/Imagens/background_img_Card.png" alt="backgroundCard3" class="card3">
+                            <img src="/Imagens/QuemSomos/Morgueto.png" alt="backgroundCard3" class="card3">
                             <div class="textoCard3">
                             <h1>Lucas Morgueto</h1>
                             <p>- Analista de Qualidade</p>
@@ -151,7 +164,7 @@
                             </div>
                         </div>
                         <div class="coluna">
-                            <img src="/Imagens/background_img_Card.png" alt="backgroundCard4" class="card4">
+                            <img src="/Imagens/QuemSomos/Renato.png" alt="backgroundCard4" class="card4">
                             <div class="textoCard4">
                             <h1>Renato Carvalho</h1>
                             <p>- Programador Front-End</p>
@@ -166,15 +179,41 @@
             </div>
         
     </section>
-    <div class="rodape">
-
-
-    </div>
-    <div class="rodape2">
-        <div class="rodape2_text">
-
+    <div class="rodape"></div>
+    <section class="rodape2">
+        <div class="rodape2_conteudo">
+            <p class="logo_rodape" alt="Logotipo"><img src="/Imagens/Logo.jpeg" class="logotipo_rodape"></img></p>
+            <div class="listas_rodape">
+            <ul class="texto_rodape">
+                <h1><li>Explorar</li></h1>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#Login">Nosso propósito</a></li>
+                <li><a href="#Sobre">Quem somos</a></li>
+            </ul>
+            <ul class="texto_rodape">
+                <h1><li>Termos</li></h1>
+                <li><a href="">Legais</a></li>
+                <li><a href="">Privacidade</a></li>
+            </ul>
+            <ul class="texto_rodape">
+                <h1><li>Contato</li></h1>
+                <li><a href=""><i class="fa-solid fa-envelope"></i> projeto.integrador6@gmail.com</a></li>
+                <li><a href=""><i class="fa-solid fa-phone"></i> (11) 95280-4623</a></li>
+            </ul>
+            </div>
         </div>
-    </div>
+
+        <h2 class="barrinha_rodape"></h2>
+
+        <div class="redes_rodape">
+            <h2 class="redes_text"><a href=""><i class="fa fa-twitter" id="iconesRodape"></i></a><a><i class="fa fa-linkedin" id="iconesRodape"></i></a><a><i class="fa fa-instagram" id="iconesRodape"></i></a></h2>
+        </div>
+
+        <div class="trademark_rodape">
+            <p>© 2023 Evoluti. Todos os direitos reservados.</p>
+        </div>
+    </section>
 </main>
 </body>
 </html>

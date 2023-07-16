@@ -89,6 +89,7 @@ body{
 /* SECTION HOME */
 .home{
     width: 100%;
+    top: 11vh;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -154,24 +155,35 @@ body{
   }
   /* --------------------------------------------------------- */
 
-  /* Section "Nossas Soluções" */
+  /* Section "Serviços" */
 
-  .solucao{
+  .servicos{
     width: 100%;
-    height: 100%;
-    display: flex;
+    height: 111vh;
+    display: inline-block;
     align-items: center;
     justify-content: space-between;
     padding: 0px 10%;
     background: linear-gradient(270.62deg, #51F680 21.15%, #46D794 92.94%, #45D496 99.46%);;
 }
 
-.solu-text{
+.serv-titulo{
+    width: 100%;
     text-align: center;
+    padding-top: 5%;
+    display: block;
+    color: #F1F1F1;
+    font-size: 26px;
+    font-weight: 400;
 }
 
-.solu-titulo{
-    font-size: 2.0rem;
+#barrinha_serv{
+    content: '';
+    width: 70px;
+    height: 2px;
+    display: block;
+    margin: 11px auto 34px;
+    background: white;
 }
 
 .barrinha{
@@ -182,12 +194,39 @@ body{
         margin: 11px auto 34px;
         background: black;
 }
-.hexagonos{
-width: 300px;
-margin: 20px;
-margin-top: 80px; 
-display: inline-block;
-transition: all .2s ease-in-out;
+
+.servicos_conteudo{
+    display: flex;
+}
+
+.slides{
+    width: 320px;
+    height: 440px;
+
+border-radius: 9px;
+background: rgba(217, 217, 217, 0.10);
+box-shadow: -25.07836151123047px 25.07836151123047px 25.07836151123047px 0px rgba(255, 255, 255, 0.10) inset, 25.07836151123047px -25.07836151123047px 25.07836151123047px 0px rgba(165, 165, 165, 0.10) inset;
+backdrop-filter: blur(25.07836151123047px);
+margin-right: 120px;
+}
+
+.botoes_slides{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao_slide{
+    color: white;
+}
+
+.botao_slide:hover{
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.servicos_text{
+    color: white;
 }
 
 .hexagonos:hover{
@@ -297,7 +336,7 @@ h1{
 
   .container_Cards{
     display: flex;
-    width: 100%;
+    width: 70%;
     justify-content: center;
     margin: 20px;
   }
@@ -314,6 +353,7 @@ h1{
     align-items: center;
     float:left;
     width: 100%;
+    margin: 10px;
 }
 
 .row::after{
@@ -323,7 +363,7 @@ h1{
 }
 
 .card1{
-    width: 90%;
+    width: 100%;
 }
 
 .textoCard1 h1{
@@ -336,13 +376,13 @@ h1{
 
 .card2{
    position: relative;
-   top: 20%;
-   width: 90%;
+   width: 100%;
+   top: 13%;
 }
 
 .textoCard2{
     position: relative;
-    top: 20%;
+    top: 13%;
 }
 
 .textoCard2 h1{
@@ -355,13 +395,13 @@ h1{
 
 .card3{
     position: relative;
-    top: 40%;
-    width: 90%;
+    width: 100%;
+    top: 32%;
  }
 
  .textoCard3{
     position: relative;
-    top: 40%;
+    top: 32%;
 }
 
 .textoCard3 h1{
@@ -374,12 +414,12 @@ h1{
 
  .card4{
     position: relative;
-    top: 60%;
-    width: 90%;
+    top: 48%;
+    width: 100%;
  }
  .textoCard4{
     position: relative;
-    top: 60%;
+    top: 48%;
 }
 
 .textoCard4 h1{
@@ -425,12 +465,87 @@ a:hover,button:hover{
 }
 
 .rodape2{
-    height: 500px;
+    height: 50vh;
     width: 100%;
 }
 
-.rodape2_text{
+.rodape2_conteudo{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+}
 
+.logotipo_rodape{
+    width: 300px;
+}
+
+.listas_rodape{
+    display: flex;
+    justify-content: center;
+}
+
+.listas_rodape ul{
+    margin: 20px;
+}
+
+.listas_rodape{
+}
+
+.listas_rodape ul{
+    margin: 40px;
+}
+
+.listas_rodape h1{
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.listas_rodape ul li a{
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.barrinha_rodape{
+    content: '';
+    width:90%;
+    height: 3px;
+    display: block;
+    margin: 0 auto 34px;
+    border-radius: 500px;
+    background: #45D496;
+}
+
+.redes_rodape{
+    width: 100%;
+    justify-content: space-evenly;
+    text-align: center;
+    
+}
+
+#iconesRodape{
+    font-size: 40px;
+    color: #45D496;
+    margin: 10px;
+    padding: 0 50px;
+}
+
+.trademark_rodape{
+
+    text-align: center;
+    padding-top: 34px;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 /* --------------------------------------------------------- */
@@ -496,7 +611,7 @@ a:hover,button:hover{
         padding: 0px 10%;
     }
     .home-text{
-        max-width: 37rem;
+        max-width: 27rem;
     }
     .home-text .text-h4{
         font-size: 1rem;
@@ -504,9 +619,9 @@ a:hover,button:hover{
         margin-bottom: 0.50rem;
     }
     .home-text .text-h1{
-        font-size: 3.20rem;
+        font-size: 2.00rem;
         margin-bottom: 1rem;
-        line-height: 3.25rem;
+        line-height: 2.25rem;
     }
     .home-text p{
         font-size: 0.80rem;
@@ -538,10 +653,15 @@ a:hover,button:hover{
         background-color: var(--lightgreen);
     }
     
-    .home-img img{
-        min-width: 400px;
+    .home-img-container{
+        width: 100%;
+        display: block;
         position: relative;
-        z-index: -2;
+    }
+
+    .home-img{
+        width: 100%;
+        
     }
 }
 
