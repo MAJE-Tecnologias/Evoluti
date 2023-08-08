@@ -1,0 +1,64 @@
+{
+	"sqltools.connections": [
+		{
+			"mysqlOptions": {
+				"authProtocol": "default",
+				"enableSsl": "Disabled"
+			},
+			"previewLimit": 50,
+			"server": "localhost",
+			"port": 3306,
+			"driver": "MySQL",
+			"name": "EVOLUTI",
+			"database": "EVOLUTI",
+			"username": "ADMIN"
+		},
+		{
+			"mysqlOptions": {
+				"authProtocol": "default",
+				"enableSsl": "Disabled"
+			},
+			"previewLimit": 50,
+			"server": "localhost",
+			"port": 3306,
+			"driver": "MySQL",
+			"name": "bd",
+			"database": "Evoluti",
+			"username": "Admin"
+		},
+		{
+			"mysqlOptions": {
+				"authProtocol": "default",
+				"enableSsl": "Disabled"
+			},
+			"previewLimit": 50,
+			"server": "localhost",
+			"port": 3306,
+			"driver": "MySQL",
+			"name": "BD",
+			"database": "Evoluti",
+			"username": "admin",
+			"password": ""
+		},
+		{
+			"mysqlOptions": {
+				"authProtocol": "default",
+				"enableSsl": "Disabled"
+			},
+			"previewLimit": 50,
+			"server": "localhost",
+			"port": 3306,
+			"driver": "MySQL",
+			"name": "banco",
+			"database": "evoluti",
+			"username": "root",
+			"password": ""
+		}
+	],
+	"liveServer.settings.useWebExt": true,
+	"liveServer.settings.proxy": {
+		"enable": true,
+		"baseUri": "/",
+		"proxyUri": "http://127.0.0.1:80"
+	}
+}
