@@ -327,9 +327,8 @@ footer {
 .proposito {
     width: 100%;
     height: fit-content;
-    display: flex;
+    display: grid;
     align-items: center;
-    justify-content: space-between;
     background: white;
 }
 
@@ -364,8 +363,8 @@ footer {
 }
 
 .bloco {
-    position: absolute;
-    right: 0px;
+    position: relative;
+    margin-left: 10%;
     width: 90%;
     height: fit-content;
     border-radius: 9.16px;
@@ -440,8 +439,8 @@ footer {
 
 .bloco1 {
     position: relative;
-    margin-top: 20px;
     width: 100%;
+    margin-top: 20px;
     height: fit-content;
     bottom: 0px;
     border-radius: 9.16px;
@@ -630,6 +629,7 @@ h1 {
 .rodape2 {
     height: 50vh;
     width: 100%;
+    display: none;
 }
 
 .rodape2_conteudo {
