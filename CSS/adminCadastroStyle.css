@@ -1,0 +1,100 @@
+/* --------------------------------------------------------- */
+/* IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* --------------------------------------------------------- */
+/* INÍCIO */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    list-style: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+:root{
+    /* CORES */
+    --green:#51f680;
+    --white:#fff;
+    --dark:#1e1c2a;
+    --lightgreen:#95ffb3;
+    --blue: #3AB1FD;
+    --lightblue:#46FADF;
+    --fundo: #F1F1F1
+
+    
+    /* TRANSIÇÕES */
+    --transicao-0: all 0.2s ease;
+    --transicao-1: all 0.3s ease;
+    --transicao-2: all 0.4s ease;
+    --transicao-3: all 0.5s ease;
+}
+
+body{
+    height: 100vh;
+    color: var(--dark);
+    background: var(--fundo);
+}
+
+/*------------------------------------------------
+Funcionario Nav bar
+--------------------------------------------------*/
+
+.nav_func{
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    width: 63%;
+    height: 5%;
+    display: flex;
+    background-color: var(--white);
+}
+
+.nav_func li{
+    text-align: center;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+}
+
+/* TELA USUARIOS */
+
+.container_cadastroUser{
+    display: block;
+    width: 100%;
+    position: relative;
+    height: 100%;
+}
+
+.container_view{
+    width: 100%;
+    height: 100%;
+    padding-left: 190px;
+    padding-right: 100px;
+    padding-top: 150px;
+}
+
+.container_form{
+    border-radius: 13.16px;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08), 0px 6px 24px 0px rgba(0, 0, 0, 0.05);
+    padding: 5%;
+    width: 100%;
+    height: 100%;
+}
+
+/* FORMS */
+
+.labelForms{
+    font-weight: 700;
+}
+
+input[type=text] {
+    width: 100%;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08), 0px 6px 24px 0px rgba(0, 0, 0, 0.05);
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
