@@ -85,16 +85,69 @@ Funcionario Nav bar
 
 /* FORMS */
 
+.grid_forms {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 0px;
+    }
+
+.grid1_forms { grid-area: 1 / 1 / 2 / 2; }
+.grid2_forms { grid-area: 1 / 2 / 2 / 3; }
+
+.container_foto_forms{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+
+.foto_forms{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: black;
+}
+
+.form{
+    width: 100%;
+    display: flex;
+}
+
+.campos{
+    display: flex;
+    width: calc(100% / 2 -15px);
+    flex-direction: column;
+}
+
 .labelForms{
     font-weight: 700;
 }
 
 input[type=text] {
-    width: 100%;
     border-radius: 5px;
     background: white;
     box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08), 0px 6px 24px 0px rgba(0, 0, 0, 0.05);
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
+  }
+
+  input[type=date] {
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08), 0px 6px 24px 0px rgba(0, 0, 0, 0.05);
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  #cadastroNome{
+    
+  }
+
+  #dtNasc{
+
   }
