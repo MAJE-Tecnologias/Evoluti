@@ -16,11 +16,13 @@
 }
 :root{
     /* CORES */
+    --btn_green:#45D496;
     --green:#51f680;
     --white:#fff;
     --dark:#1e1c2a;
     --lightgreen:#95ffb3;
     --blue: #3AB1FD;
+    --bege: #D7D588;
     --lightblue:#46FADF;
     --fundo: #F1F1F1
 
@@ -76,49 +78,94 @@ Funcionario Nav bar
 }
 
 .container_form{
+    display: flex;
+    column-gap: 20px;
     border-radius: 13.16px;
     box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08), 0px 6px 24px 0px rgba(0, 0, 0, 0.05);
-    padding: 5%;
+    padding: 2%;
     width: 100%;
-    height: 100%;
+    height: fit-content;
 }
 
 /* FORMS */
 
-.grid_forms {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr;
-    grid-column-gap: 10px;
-    grid-row-gap: 0px;
-    }
-
-.grid1_forms { grid-area: 1 / 1 / 2 / 2; }
-.grid2_forms { grid-area: 1 / 2 / 2 / 3; }
-
 .container_foto_forms{
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
+    width: fit-content;
 }
 
+.container_grid2{
+    width: 100%;
+    height: 100%;
+}
+
+.titulo1{
+padding-bottom: 20px;
+}
+
+.labelTitulos{
+    font-size: 21px;
+    color: var(--bege);
+    font-weight: 700;
+}
 
 .foto_forms{
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    background: black;
+    background-image: url("https://picsum.photos/150/150");
 }
 
-.form{
-    width: 100%;
+.linhas{
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.linha1{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    column-gap: 20px;
+}
+
+.linha2{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    width: 100%;  
+    column-gap: 20px;
+}
+
+.linha2_semMargem{
+    display: flex;
+    flex-direction: row;
+    width: 100%;  
+    column-gap: 20px;
+}
+
+.linha3{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-content: center;
+}
+
+.linha4{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-content: center;
+}
+
+.barrinha{
+    background-color: lightgrey;
+    width: 100%;
+    height: 2px;
 }
 
 .campos{
     display: flex;
-    width: calc(100% / 2 -15px);
+    width: 100%;
     flex-direction: column;
 }
 
@@ -126,7 +173,7 @@ Funcionario Nav bar
     font-weight: 700;
 }
 
-input[type=text] {
+input{
     border-radius: 5px;
     background: white;
     box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08), 0px 6px 24px 0px rgba(0, 0, 0, 0.05);
@@ -135,19 +182,25 @@ input[type=text] {
     box-sizing: border-box;
   }
 
-  input[type=date] {
+select{
+    border-color: black;
     border-radius: 5px;
     background: white;
     box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08), 0px 6px 24px 0px rgba(0, 0, 0, 0.05);
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-  }
+}
 
-  #cadastroNome{
-    
-  }
+#cadastroCidade{
+    width: calc(100% / 3);
+}
 
-  #dtNasc{
-
-  }
+.btn_cadastrar{
+    border-color: var(--btn_green);
+    background-color: var(--btn_green);
+    border-radius: 5px;
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 700;
+}

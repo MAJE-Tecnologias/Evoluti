@@ -43,7 +43,7 @@ include '../MySQL/conecta.php';
                 <li class="nav-item"><a href="#Sobre">Quem somos?</a></li>
 
             </ul>
-            <a href="login.html" class="nav-btn">Entrar</a>
+            <a href="login.php" class="nav-btn">Entrar</a>
             <div class="menuResponsivoIcone">
                 <button onclick="mostrarMenu()"><i class="fa fa-bars"></i></button>
             </div>
