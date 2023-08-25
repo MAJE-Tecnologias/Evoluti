@@ -204,3 +204,10 @@ select{
     font-size: 16px;
     font-weight: 700;
 }
+
+.active,
+.active .icone,
+.active .menu_texto{
+    background: #57d8a0;
+    color: black;
+}
