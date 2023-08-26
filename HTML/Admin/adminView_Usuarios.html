@@ -11,12 +11,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../CSS/adminCadastroStyle.css">
-    <link rel="stylesheet" href="../../CSS/navBarStyle.css">
-    <link rel="stylesheet" href="../../CSS/CardsUsuarios.css">
-
+    <link rel="stylesheet" href="/CSS/navStyle.css">
+    <link rel="stylesheet" href="/CSS/adminUsuarioStyle.css">
     <!-- -------------------------------------- -->
-
 
 
     <!-- ÍCONES -->
@@ -32,16 +29,144 @@
 
 <body>
 
-    <nav class="navigation">
+    <nav class="navigation" style="position: fixed; z-index: 1;">
 
 
     </nav>
 
-    <nav class="menuLateral">
+    <div class="container_usuarios">
+        <div class="container_view">
+            <div class="container_pesquisa">
+                <div class="grid_pesquisa">
+
+                        <div class="vazio2"></div>
+
+
+                        <div class="vazio1"></div>
+
+
+                        <div class="pesquisa linha"><input type="text" placeholder="Pesquise um usuário"><i class='bx bxs-user-rectangle iconepesquisa'></i></div> 
+
+                </div>
+            </div>
+            <div class="container_conteudo">
+                <div class="grid1">
+                    <a href="">
+                        <div class="tipo1 tipos">Tudo</div>
+                    </a>
+                    <a href="">
+                        <div class="tipo2 tipos">Administrador</div>
+                    </a>
+                    <a href="">
+                        <div class="tipo3 tipos">Fisioterapeuta</div>
+                    </a>
+                    <a href="">
+                        <div class="tipo4 tipos">Estagiário</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container_form">
+                <div class="container_card">
+                    <div class="info">
+                        <img src="https://picsum.photos/150" alt="">
+                        <div>
+                            <h4>Eduardo Pielich Sanchez</h4>
+                            <h3>Fisioterapeuta</h3>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <img src="https://picsum.photos/150" alt="">
+                        <div>
+                            <h4>Eduardo Pielich Sanchez</h4>
+                            <h3>Fisioterapeuta</h3>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <img src="https://picsum.photos/150" alt="">
+                        <div>
+                            <h4>Eduardo Pielich Sanchez</h4>
+                            <h3>Fisioterapeuta</h3>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <img src="https://picsum.photos/150" alt="">
+                        <div>
+                            <h4>Eduardo Pielich Sanchez</h4>
+                            <h3>Fisioterapeuta</h3>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <img src="https://picsum.photos/150" alt="">
+                        <div>
+                            <h4>Eduardo Pielich Sanchez</h4>
+                            <h3>Fisioterapeuta</h3>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <img src="https://picsum.photos/150" alt="">
+                        <div>
+                            <h4>Eduardo Pielich Sanchez</h4>
+                            <h3>Fisioterapeuta</h3>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <img src="https://picsum.photos/150" alt="">
+                        <div>
+                            <h4>Eduardo Pielich Sanchez</h4>
+                            <h3>Fisioterapeuta</h3>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <img src="https://picsum.photos/150" alt="">
+                        <div>
+                            <h4>Eduardo Pielich Sanchez</h4>
+                            <h3>Fisioterapeuta</h3>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <img src="https://picsum.photos/150" alt="">
+                        <div>
+                            <h4>Eduardo Pielich Sanchez</h4>
+                            <h3>Fisioterapeuta</h3>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <img src="https://picsum.photos/150" alt="">
+                        <div>
+                            <h4>Eduardo Pielich Sanchez</h4>
+                            <h3>Fisioterapeuta</h3>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <img src="https://picsum.photos/150" alt="">
+                        <div>
+                            <h4>Eduardo Pielich Sanchez</h4>
+                            <h3>Fisioterapeuta</h3>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <img src="https://picsum.photos/150" alt="">
+                        <div>
+                            <h4>Eduardo Pielich Sanchez</h4>
+                            <h3>Fisioterapeuta</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- MENU LATERAL (DEIXAR SEMPRE POR ÚLTIMO) -->
+
+    <nav class="menuLateral" style="z-index: 2;">
         <header>
             <div class="imagem-texto">
                 <span class="imagem">
-                    <img src="../../Imagens/LogoBranco.png" class="logotipo"></img>
+                    <img src="/Imagens/LogoBranco.png" class="logotipo"></img>
                 </span>
             </div>
 
@@ -100,137 +225,6 @@
         </div>
 
     </nav>
-
-
-    <main>
-        <nav class="container_tipo">
-            <ul class="tipo">
-                <li><a href="">Tudo</a></li>
-                <li><a href="">Administrador</a></li>
-                <li><a href="">Fisioterapeutas</a></li>
-                <li><a href="">Estagios</a></li>
-            </ul>
-        </nav>
-        <div class="container_card">
-            <div class="info">
-                <img src="https://picsum.photos/150" alt="">
-                <div>
-                    <h4>Eduardo Pielich Sanchez</h4>
-                </div>
-            </div>
-            <div class="info">
-                <img src="https://picsum.photos/150" alt="">
-                <div>
-                    <h4>Eduardo Pielich Sanchez</h4>
-                </div>
-            </div>
-            <div class="info">
-                <img src="https://picsum.photos/150" alt="">
-                <div>
-                    <h4>Eduardo Pielich Sanchez</h4>
-                </div>
-            </div>
-            <div class="info">
-                <img src="https://picsum.photos/150" alt="">
-                <div>
-                    <h4>Eduardo Pielich Sanchez</h4>
-                </div>
-            </div>
-            <div class="info">
-                <img src="https://picsum.photos/150" alt="">
-                <div>
-                    <h4>Eduardo Pielich Sanchez</h4>
-                </div>
-            </div>
-            <div class="info">
-                <img src="https://picsum.photos/150" alt="">
-                <div>
-                    <h4>Eduardo Pielich Sanchez</h4>
-                </div>
-            </div>
-            <div class="info">
-                <img src="https://picsum.photos/150" alt="">
-                <div>
-                    <h4>Eduardo Pielich Sanchez</h4>
-                </div>
-            </div>            <div class="info">
-                <img src="https://picsum.photos/150" alt="">
-                <div>
-                    <h4>Eduardo Pielich Sanchez</h4>
-                </div>
-            </div>            <div class="info">
-                <img src="https://picsum.photos/150" alt="">
-                <div>
-                    <h4>Eduardo Pielich Sanchez</h4>
-                </div>
-            </div>            <div class="info">
-                <img src="https://picsum.photos/150" alt="">
-                <div>
-                    <h4>Eduardo Pielich Sanchez</h4>
-                </div>
-            </div>            <div class="info">
-                <img src="https://picsum.photos/150" alt="">
-                <div>
-                    <h4>Eduardo Pielich Sanchez</h4>
-                </div>
-            </div>            <div class="info">
-                <img src="https://picsum.photos/150" alt="">
-                <div>
-                    <h4>Eduardo Pielich Sanchez</h4>
-                </div>
-            </div>            <div class="info">
-                <img src="https://picsum.photos/150" alt="">
-                <div>
-                    <h4>Eduardo Pielich Sanchez</h4>
-                </div>
-            </div>            <div class="info">
-                <img src="https://picsum.photos/150" alt="">
-                <div>
-                    <h4>Eduardo Pielich Sanchez</h4>
-                </div>
-            </div>            <div class="info">
-                <img src="https://picsum.photos/150" alt="">
-                <div>
-                    <h4>Eduardo Pielich Sanchez</h4>
-                </div>
-            </div>            <div class="info">
-                <img src="https://picsum.photos/150" alt="">
-                <div>
-                    <h4>Eduardo Pielich Sanchez</h4>
-                </div>
-            </div>            <div class="info">
-                <img src="https://picsum.photos/150" alt="">
-                <div>
-                    <h4>Eduardo Pielich Sanchez</h4>
-                </div>
-            </div>            <div class="info">
-                <img src="https://picsum.photos/150" alt="">
-                <div>
-                    <h4>Eduardo Pielich Sanchez</h4>
-                </div>
-            </div>            <div class="info">
-                <img src="https://picsum.photos/150" alt="">
-                <div>
-                    <h4>Eduardo Pielich Sanchez</h4>
-                </div>
-            </div>            <div class="info">
-                <img src="https://picsum.photos/150" alt="">
-                <div>
-                    <h4>Eduardo Pielich Sanchez</h4>
-                </div>
-            </div>            <div class="info">
-                <img src="https://picsum.photos/150" alt="">
-                <div>
-                    <h4>Eduardo Pielich Sanchez</h4>
-                </div>
-            </div>            <div class="info">
-                <img src="https://picsum.photos/150" alt="">
-                <div>
-                    <h4>Eduardo Pielich Sanchez</h4>
-                </div>
-            </div>
-        </div>
-    </main>
 
     <footer>
 

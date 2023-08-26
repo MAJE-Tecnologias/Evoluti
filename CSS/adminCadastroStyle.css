@@ -24,7 +24,7 @@
     --blue: #3AB1FD;
     --bege: #D7D588;
     --lightblue:#46FADF;
-    --fundo: #F1F1F1
+    --fundo: #F1F1F1;
 
     
     /* TRANSIÇÕES */
@@ -35,29 +35,9 @@
 }
 
 body{
-    height: 100vh;
+    height: fit-content;
     color: var(--dark);
     background: var(--fundo);
-}
-
-/*------------------------------------------------
-Funcionario Nav bar
---------------------------------------------------*/
-
-.nav_func{
-    position: absolute;
-    top: 20%;
-    left: 30%;
-    width: 63%;
-    height: 5%;
-    display: flex;
-    background-color: var(--white);
-}
-
-.nav_func li{
-    text-align: center;
-    padding-left: 2.5%;
-    padding-right: 2.5%;
 }
 
 /* TELA USUARIOS */
@@ -77,15 +57,61 @@ Funcionario Nav bar
     padding-top: 150px;
 }
 
+.container_conteudo {
+    display: flex;
+    background: var(--white);
+    border-radius: 5px;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08), 0px 6px 24px 0px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    height: fit-content;
+}
+
 .container_form{
     display: flex;
     column-gap: 20px;
+    margin-top: 20px;
     border-radius: 13.16px;
     box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08), 0px 6px 24px 0px rgba(0, 0, 0, 0.05);
     padding: 2%;
     width: 100%;
-    height: fit-content;
+    height: 100%;
 }
+
+.grid_escolherForm {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    width: 100%;
+    text-align: center;
+    }
+    
+    .grid1 { grid-area: 1 / 1 / 2 / 2; }
+    .grid2 { grid-area: 1 / 2 / 2 / 3; }
+    .grid3 { grid-area: 1 / 3 / 2 / 4; }
+
+    .tipos{
+        padding: 5px;
+        border-radius: 5px;
+        color: #686868;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .tipos:hover{
+        background: var(--btn_green);
+        color: white;
+        font-weight: 700;
+        transition: 0.5s;
+    }
+
+    .ativo{
+        background: var(--btn_green);
+        color: var(--white);
+        font-weight: 700;
+    }
 
 /* FORMS */
 
@@ -153,7 +179,6 @@ padding-bottom: 20px;
 .linha4{
     display: flex;
     flex-direction: row;
-    width: 100%;
     align-content: center;
 }
 
@@ -180,6 +205,7 @@ input{
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
+    width: calc(100%);
   }
 
 select{
