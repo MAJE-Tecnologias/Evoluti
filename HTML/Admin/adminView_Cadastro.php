@@ -37,18 +37,18 @@ session_start();
 
     </nav>
 
-    <div class="container_cadastroUser">
+    <div id="containerPrincipal" class="container_cadastroUser">
         <div class="container_view">
 
             <div class="container_conteudo">
                 <div class="grid_escolherForm">
-                    <a href="">
+                    <a id="botaoAdm" href="#" onclick="buttonAdministrador();return false;">
                         <div class="grid1 tipos ativo">Administrador</div>
                     </a>
-                    <a href="">
+                    <a  id="botaoFisio" href="#" onclick="buttonFisioterapeuta();return false;">
                         <div class="grid2 tipos">Fisioterapeuta</div>
                     </a>
-                    <a href="">
+                    <a id="botaoEstag" href="#" onclick="buttonEstagiario();return false;">
                         <div class="grid3 tipos">Estagiário</div>
                     </a>
                 </div>
@@ -197,7 +197,7 @@ session_start();
                     </li>
 
                     <li class="nav_link">
-                        <a href="#">
+                        <a href="adminView_Pacientes.html">
                             <i class='bx bxs-group icone'></i>
                             <span class="menu_texto">Pacientes</span>
                         </a>
@@ -259,6 +259,7 @@ session_start();
     <!-- Javascript -->
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="/Javascript/scriptAdm.js"></script>
+    <!-- <script src="/Javascript/scriptAdmCadastro.js"></script> -->
     <!-- -------------------------------------- -->
 
 </body>
