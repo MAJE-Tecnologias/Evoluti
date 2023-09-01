@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="Pt-br">
 
@@ -63,27 +66,27 @@
 
                             <div class="campos">
                                 <label class="labelForms" for="cadastroNome">Nome completo</label>
-                                <input type="text" id="cadastroNome" placeholder="Digite o nome completo">
+                                <input type="text" name="nome" id="cadastroNome" placeholder="Digite o nome completo">
                             </div>
                             <div class="campos">
                                 <label class="labelForms" for="dtNasc">Data de nascimento</label>
-                                <input type="date" id="dtNasc">
+                                <input type="date" name="nasc" id="dtNasc">
                             </div>
 
                         </div>
                         <div class="linha2">
                             <div class="campos">
                                 <label class="labelForms" for="cadastroCPF">CPF</label>
-                                <input type="text" id="cadastroCPF" placeholder="Digite o CPF">
+                                <input type="text" name="cpf" id="cadastroCPF" placeholder="Digite o CPF">
                             </div>
                             <div class="campos">
                                 <label class="labelForms" for="cadastroRG">RG</label>
-                                <input type="text" id="cadastroRG" placeholder="Digite o RG">
+                                <input type="text" name="rg" id="cadastroRG" placeholder="Digite o RG">
                             </div>
                             <div class="campos">
                                 <label class="labelForms" for="cadastroGenero">Gênero</label>
-                                <select id="cadastroGenero">
-                                    <option selected value="0">Selecione o gênero</option>
+                                <select id="cadastroGenero" name="genero">
+                                    <option selected value="">Selecione o gênero</option>
                                     <option value="1">Masculino</option>
                                     <option value="2">Feminino</option>
                                     <option value="3">Outro</option>
@@ -172,7 +175,7 @@
         </div>
     </div>
 
-    <nav class="menuLateral" style="z-index: 2;">
+    <nav class="menuLateral fecharMenu" style="z-index: 2;">
         <header>
             <div class="imagem-texto">
                 <span class="imagem">
@@ -261,3 +264,24 @@
 </body>
 
 </html>
+
+<?php
+include '../../MySql/conecta.php';
+
+$nome = $_POST['nome'];
+$senha = $_POST['senha'];
+$telefone = $_POST['telefone'];
+$email = $_POST['email'];
+$cpf = $_POST['cpf'];
+$rg = $_POST['rg'];
+$genero = $_POST['genero'];
+
+$rua = $_POST['rua'];
+$numer = $_POST['numero'];
+$bairro = $_POST['bairro'];
+$cidade = $_POST['cidade'];
+
+
+
+
+?>

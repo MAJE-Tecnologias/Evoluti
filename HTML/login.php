@@ -1,3 +1,9 @@
+<?php
+session_start();
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="Pt-br">
 
@@ -56,13 +62,46 @@
 include '../MySQL/conecta.php';
 
 if (isset($_POST['btn'])) {
-	$select = $conn->query("SELECT * FROM clinica WHERE EMAIL = '" . $_POST['email'] . "' AND SENHA = '" . $_POST['senha'] . "'");
+	$selectAdm = $conn->query("SELECT * FROM admin WHERE EMAIL = '" . $_POST['email'] . "' AND SENHA = '" . $_POST['senha'] . "'");
+	$selectFisio = $conn->query("SELECT * FROM fisio WHERE EMAIL = '" . $_POST['email'] . "' AND SENHA = '" . $_POST['senha'] . "'");
+	$selectEsta = $conn->query("SELECT * FROM estagiario WHERE EMAIL = '" . $_POST['email'] . "' AND SENHA = '" . $_POST['senha'] . "'");
 
-	if ($select->num_rows == 1) {
-		header("Location: Admin/adminView.html");
-	} else if ($select->num_rows > 1) {
-		echo "Mais de um resultado no banco de dados";
-	} else {
-		echo "Usuário ou senha incorreto";
-	};
+
+	for ($i = 0; $i < 3; $i++) {
+		if ($i == 0){
+			// Checagem no banco de dados para achar Administrator
+			if ($selectAdm->num_rows == 1) {
+				$_SESSION['id'] = $selectAdm[0];
+				$_SESSION['nivel'] = 0;
+				header("Location: Admin/adminView.html");
+			} else if ($select->num_rows > 1) {
+				echo "Mais de um resultado no banco de dados";
+			} else {
+				echo "Não encontrado no banco de dados";
+			}
+		} else if ($i == 1){
+			// Checagem no banco de dados para achar Fisio
+			if ($selectFisio->num_rows == 1) {
+				header("Location: Admin/adminView.html");
+				$_SESSION['id'] = $selectFisio[0];
+				$_SESSION['nivel'] = 1;
+			} else if ($select->num_rows > 1) {
+				echo "Mais de um resultado no banco de dados";
+			} else {
+				echo "Não encontrado no banco de dados";
+			}
+		} else if ($i == 2){
+			// Checagem no banco de dados para achar Estagiario
+			if ($selectEsta->num_rows == 1) {
+				$_SESSION['id'] = $selectEsta[0];
+				$_SESSION['nivel'] = 2;
+				header("Location: Admin/adminView.html");
+			} else if ($select->num_rows > 1) {
+				echo "Mais de um resultado no banco de dados";
+			} else {
+				echo "Não encontrado no banco de dados";
+			}
+		}
+	}
+
 };
