@@ -38,14 +38,14 @@ session_start();
     </nav>
 
     <div id="containerPrincipal" class="container_cadastroUser">
-        <div class="container_view">
+        <div class="container_view" data="interno/a.html">
 
             <div class="container_conteudo">
                 <div class="grid_escolherForm">
                     <a id="botaoAdm" href="#" onclick="buttonAdministrador();return false;">
                         <div class="grid1 tipos ativo">Administrador</div>
                     </a>
-                    <a  id="botaoFisio" href="#" onclick="buttonFisioterapeuta();return false;">
+                    <a id="botaoFisio" href="#" onclick="buttonFisioterapeuta();return false;">
                         <div class="grid2 tipos">Fisioterapeuta</div>
                     </a>
                     <a id="botaoEstag" href="#" onclick="buttonEstagiario();return false;">
@@ -105,22 +105,22 @@ session_start();
 
                             <div class="campos">
                                 <label class="labelForms" for="cadastroEmail">E-mail</label>
-                                <input type="email" id="cadastroEmail" placeholder="Digite o e-mail">
+                                <input type="email" name="email" id="cadastroEmail" placeholder="Digite o e-mail">
                             </div>
                             <div class="campos">
                                 <label class="labelForms" for="cadastroNomeUser">Nome de usuário</label>
-                                <input type="text" id="cadastroNomeUser" placeholder="Crie um nome de usuário">
+                                <input type="text" name="nomeUser" id="cadastroNomeUser" placeholder="Crie um nome de usuário">
                             </div>
 
                         </div>
                         <div class="linha2">
                             <div class="campos">
                                 <label class="labelForms" for="cadastroCPF">Telefone</label>
-                                <input type="text" id="cadastroCPF" placeholder="(00) 0000-0000">
+                                <input type="text" name="telefone" id="cadastroCPF" placeholder="(00) 0000-0000">
                             </div>
                             <div class="campos">
                                 <label class="labelForms" for="cadastroRG">Senha</label>
-                                <input type="password" id="cadastroRG" placeholder="Crie uma senha">
+                                <input type="password" name="senha" id="cadastroRG" placeholder="Crie uma senha">
                             </div>
                         </div>
 
@@ -135,37 +135,38 @@ session_start();
 
                             <div class="campos">
                                 <label class="labelForms" for="cadastroRua">Rua</label>
-                                <input type="text" id="cadastroRua" placeholder="Digite a rua">
+                                <input type="text" id="cadastroRua" name="rua" placeholder="Digite a rua">
                             </div>
                             <div class="campos">
                                 <label class="labelForms" for="cadastroCEP">CEP</label>
-                                <input type="text" id="cadastroCEP" placeholder="Digite o CEP">
+                                <input type="text" id="cadastroCEP" name="cep" placeholder="Digite o CEP">
                             </div>
 
                         </div>
                         <div class="linha2_semMargem">
                             <div class="campos">
                                 <label class="labelForms" for="cadastroNum">Número</label>
-                                <input type="number" id="cadastroNum" placeholder="Digite o número da residência">
+                                <input type="number" id="cadastroNum" name="numero" placeholder="Digite o número da residência">
                             </div>
                             <div class="campos">
                                 <label class="labelForms" for="cadastroComplemento">Complemento</label>
-                                <input type="text" id="cadastroComplemento" placeholder="Digite o complemento">
+                                <input type="text" id="cadastroComplemento" name="complemento" placeholder="Digite o complemento">
                             </div>
                             <div class="campos">
                                 <label class="labelForms" for="cadastroBairro">Bairro</label>
-                                <input type="text" id="cadastroBairro" placeholder="Digite o bairro">
+                                <input type="text" id="cadastroBairro" name="bairro" placeholder="Digite o bairro">
                             </div>
                         </div>
                         <div class="linha3">
                             <div class="campos">
                                 <label class="labelForms" for="cadastroCidade">Cidade</label>
-                                <input type="text" id="cadastroCidade" placeholder="Digite a cidade">
+                                <input type="text" id="cadastroCidade" name="cidade" placeholder="Digite a cidade">
                             </div>
                         </div>
+                        <input type="number" name="flag" value="0" style="display: none;">
                         <div class="container_btn_cadastro">
                             <div class="linha4">
-                                <input type="submit" class="btn_cadastrar" value="Cadastrar"></input>
+                                <input type="submit" class="btn_cadastrar" name="cadastrar" value="Cadastrar"></input>
                             </div>
                         </div>
                     </div>
@@ -259,7 +260,7 @@ session_start();
     <!-- Javascript -->
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="/Javascript/scriptAdm.js"></script>
-    <!-- <script src="/Javascript/scriptAdmCadastro.js"></script> -->
+    <script src="/Javascript/scriptAdmCadastro.js"></script>
     <!-- -------------------------------------- -->
 
 </body>
@@ -269,20 +270,53 @@ session_start();
 <?php
 include '../../MySql/conecta.php';
 
-$nome = $_POST['nome'];
-$senha = $_POST['senha'];
-$telefone = $_POST['telefone'];
-$email = $_POST['email'];
-$cpf = $_POST['cpf'];
-$rg = $_POST['rg'];
-$genero = $_POST['genero'];
+if (isset($_POST['cadastrar'])) {
 
-$rua = $_POST['rua'];
-$numer = $_POST['numero'];
-$bairro = $_POST['bairro'];
-$cidade = $_POST['cidade'];
+    //Dados Gerais de Cadastro
+    $nome = $_POST['nome'];
+    $nasc = $_POST['nasc'];
 
+    $cpf = $_POST['cpf'];
+    $rg = $_POST['rg'];
+    $genero = $_POST['genero'];
+    $email = $_POST['email'];
+    $nomeUser = $_POST['nomeUser'];
+    $telefone = $_POST['telefone'];
+    $senha = $_POST['senha'];
 
+    //Dados gerais de endereço
 
+    $rua = $_POST['rua'];
+    $cep = $_POST['cep'];
+    $numero = $_POST['numero'];
+    $complemento = $_POST['complemento'];
+    $bairro = $_POST['bairro'];
+    $cidade = $_POST['cidade'];
 
+    //Indicativo de Função a ser cadastrada
+
+    $flag = $_POST['flag'];
+ 
+    //Adicionando Endereço a base de dados
+
+    $insertEndereco = $conn->query("SELECT InserirEndereco('".$rua."', '".$numero."','".$bairro."','".$cidade."','".$cep."')");
+    
+
+    if ($flag == 0 ){
+        //Inserindo Adm
+        $insertAdm = $conn->query("CALL InsertAdminProcedure()");
+    } elseif ($flag == 1){
+        //Inserindo Fisio
+        $crefito = $_POST['crefito'];
+        $dtEmissao = $_POST['dtEmissao'];
+        $especialidades = $_POST['especialidades'];
+        $insertFisio = $conn->query("CALL InsertFisioProcedure()");
+    } else{
+        //Inserindo Estagiario
+        $instituicao = $_POST['instituicao'];
+        $dtInicioContrato = $_POST['dtInicioContrato'];
+        $dtFimContrato = $_POST['dtFimContrato'];
+        $insertEstagio = $conn->query("CALL InsertEstagiarioProcedure()");
+    }
+}
 ?>

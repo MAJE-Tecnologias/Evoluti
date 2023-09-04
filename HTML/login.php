@@ -73,6 +73,7 @@ if (isset($_POST['btn'])) {
 			if ($selectAdm->num_rows == 1) {
 				$_SESSION['id'] = $selectAdm[0];
 				$_SESSION['nivel'] = 0;
+				$_SESSION['clinica'] = $selectAdm[9];
 				header("Location: Admin/adminView.html");
 			} else if ($select->num_rows > 1) {
 				echo "Mais de um resultado no banco de dados";
@@ -85,6 +86,7 @@ if (isset($_POST['btn'])) {
 				header("Location: Admin/adminView.html");
 				$_SESSION['id'] = $selectFisio[0];
 				$_SESSION['nivel'] = 1;
+				$_SESSION['clinica'] = $selectFisio[12];
 			} else if ($select->num_rows > 1) {
 				echo "Mais de um resultado no banco de dados";
 			} else {
@@ -95,6 +97,7 @@ if (isset($_POST['btn'])) {
 			if ($selectEsta->num_rows == 1) {
 				$_SESSION['id'] = $selectEsta[0];
 				$_SESSION['nivel'] = 2;
+				$_SESSION['clinica'] = $selectEsta[12];
 				header("Location: Admin/adminView.html");
 			} else if ($select->num_rows > 1) {
 				echo "Mais de um resultado no banco de dados";

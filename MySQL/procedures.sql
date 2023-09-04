@@ -134,14 +134,17 @@ END $$ DELIMITER;
 -- Criar endereço
 
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `InserirEndereco`(
+CREATE DEFINER=`root`@`localhost` FUNCTION `InserirEndereco`(
     p_rua VARCHAR(255),
     p_numero INT,
     p_bairro VARCHAR(255),
     p_cidade VARCHAR(255),
     p_cep CHAR(9)
 )
+RETURNS INT
 BEGIN
+    DECLARE endereco_id INT;
+    
     INSERT INTO ENDERECO (
         RUA,
         NUMERO,
@@ -156,5 +159,9 @@ BEGIN
         p_cidade,
         p_cep
     );
+
+    SET endereco_id = LAST_INSERT_ID();
+
+    RETURN endereco_id;
 END$$
 DELIMITER ;
