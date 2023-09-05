@@ -296,27 +296,27 @@ if (isset($_POST['cadastrar'])) {
     //Indicativo de Função a ser cadastrada
 
     $flag = $_POST['flag'];
- 
+
     //Adicionando Endereço a base de dados
 
-    $insertEndereco = $conn->query("SELECT InserirEndereco('".$rua."', '".$numero."','".$bairro."','".$cidade."','".$cep."')");
-    
+    $insertEndereco = $conn->query("SELECT InserirEndereco('" . $rua . "', '" . $numero . "','" . $bairro . "','" . $cidade . "','" . $cep . "')");
+    $idEndereco = $insertEndereco->fetch_assoc();
 
-    if ($flag == 0 ){
+    if ($flag == 0) {
         //Inserindo Adm
-        $insertAdm = $conn->query("CALL InsertAdminProcedure()");
-    } elseif ($flag == 1){
-        //Inserindo Fisio
+        $insertAdm = $conn->query("CALL InsertAdminProcedure('" . $nome . "','" . $nomeUser . "', '" . $senha . "', '" . $telefone . "', '" . $email . "','" . $cpf . "', '" . $rg . "','" . $genero . "', '" . $idEndereco . "', '" . $_SESSION['clinica'] . "')");
+    } elseif ($flag == 1) {
+        //Inserindo Fisio   
         $crefito = $_POST['crefito'];
         $dtEmissao = $_POST['dtEmissao'];
         $especialidades = $_POST['especialidades'];
-        $insertFisio = $conn->query("CALL InsertFisioProcedure()");
-    } else{
+        $insertFisio = $conn->query("CALL InsertFisioProcedure('" . $nome . "','" . $nomeUser . "', '" . $senha . "', '" . $telefone . "', '" . $email . "','" . $cpf . "', '" . $rg . "','" . $genero . "', '" . $insertEndereco . "', '" . $_SESSION['clinica'] . "', '" . $crefito . "', '" . $dtEmissao . "', '" . $especialidades . "')");
+    } else {
         //Inserindo Estagiario
         $instituicao = $_POST['instituicao'];
         $dtInicioContrato = $_POST['dtInicioContrato'];
         $dtFimContrato = $_POST['dtFimContrato'];
-        $insertEstagio = $conn->query("CALL InsertEstagiarioProcedure()");
+        $insertEstagio = $conn->query("CALL InsertEstagiarioProcedure('" . $nome . "','" . $nomeUser . "', '" . $senha . "', '" . $telefone . "', '" . $email . "','" . $cpf . "', '" . $rg . "','" . $genero . "', '" . $insertEndereco . "', '" . $_SESSION['clinica'] . "', '" . $instituicao . "', '" . $dtInicioContrato . "', '" . $dtFimContrato . "')");
     }
 }
 ?>
