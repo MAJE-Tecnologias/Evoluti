@@ -1,3 +1,23 @@
+<?php
+include '../../MySql/conecta.php';
+
+session_start();
+
+$_SESSION['clinica'] = 1;
+
+$funcsAdmin = $conn->query("SELECT * FROM evoluti.admin WHERE FK_CLINICA = '" . $_SESSION['clinica'] . "';");
+
+$funcsFisio = $conn->query("SELECT * FROM evoluti.fisio WHERE FK_CLINICA = '" . $_SESSION['clinica'] . "';");
+
+$funcsEstagio = $conn->query("SELECT * FROM evoluti.estagiario WHERE FK_CLINICA = '" . $_SESSION['clinica'] . "';");
+
+for ($setAdmin = array(); $rowAdmin = $funcsAdmin->fetch_assoc(); $setAdmin[] = $rowAdmin['NOME']);
+
+for ($setFisio = array(); $rowFisio = $funcsFisio->fetch_assoc(); $setFisio[] = $rowFisio['NOME']);
+
+for ($setEstagio = array(); $rowEstagio = $funcsEstagio->fetch_assoc(); $setEstagio[] = $rowEstagio['NOME']);
+
+?>
 <!DOCTYPE html>
 <html lang="Pt-br">
 
@@ -39,13 +59,13 @@
             <div class="container_pesquisa">
                 <div class="grid_pesquisa">
 
-                        <div class="vazio2"></div>
+                    <div class="vazio2"></div>
 
 
-                        <div class="vazio1"></div>
+                    <div class="vazio1"></div>
 
 
-                        <div class="pesquisa linha"><input type="text" placeholder="Pesquise um usuário"><i class='bx bxs-user-rectangle iconepesquisa'></i></div> 
+                    <div class="pesquisa linha"><input type="text" placeholder="Pesquise um usuário"><i class='bx bxs-user-rectangle iconepesquisa'></i></div>
 
                 </div>
             </div>
@@ -68,90 +88,44 @@
 
             <div class="container_form">
                 <div class="container_card">
-                    <div class="info">
-                        <img src="https://picsum.photos/150" alt="">
-                        <div>
-                            <h4>Eduardo Pielich Sanchez</h4>
-                            <h3>Fisioterapeuta</h3>
-                        </div>
-                    </div>
-                    <div class="info">
-                        <img src="https://picsum.photos/150" alt="">
-                        <div>
-                            <h4>Eduardo Pielich Sanchez</h4>
-                            <h3>Fisioterapeuta</h3>
-                        </div>
-                    </div>
-                    <div class="info">
-                        <img src="https://picsum.photos/150" alt="">
-                        <div>
-                            <h4>Eduardo Pielich Sanchez</h4>
-                            <h3>Fisioterapeuta</h3>
-                        </div>
-                    </div>
-                    <div class="info">
-                        <img src="https://picsum.photos/150" alt="">
-                        <div>
-                            <h4>Eduardo Pielich Sanchez</h4>
-                            <h3>Fisioterapeuta</h3>
-                        </div>
-                    </div>
-                    <div class="info">
-                        <img src="https://picsum.photos/150" alt="">
-                        <div>
-                            <h4>Eduardo Pielich Sanchez</h4>
-                            <h3>Fisioterapeuta</h3>
-                        </div>
-                    </div>
-                    <div class="info">
-                        <img src="https://picsum.photos/150" alt="">
-                        <div>
-                            <h4>Eduardo Pielich Sanchez</h4>
-                            <h3>Fisioterapeuta</h3>
-                        </div>
-                    </div>
-                    <div class="info">
-                        <img src="https://picsum.photos/150" alt="">
-                        <div>
-                            <h4>Eduardo Pielich Sanchez</h4>
-                            <h3>Fisioterapeuta</h3>
-                        </div>
-                    </div>
-                    <div class="info">
-                        <img src="https://picsum.photos/150" alt="">
-                        <div>
-                            <h4>Eduardo Pielich Sanchez</h4>
-                            <h3>Fisioterapeuta</h3>
-                        </div>
-                    </div>
-                    <div class="info">
-                        <img src="https://picsum.photos/150" alt="">
-                        <div>
-                            <h4>Eduardo Pielich Sanchez</h4>
-                            <h3>Fisioterapeuta</h3>
-                        </div>
-                    </div>
-                    <div class="info">
-                        <img src="https://picsum.photos/150" alt="">
-                        <div>
-                            <h4>Eduardo Pielich Sanchez</h4>
-                            <h3>Fisioterapeuta</h3>
-                        </div>
-                    </div>
-                    <div class="info">
-                        <img src="https://picsum.photos/150" alt="">
-                        <div>
-                            <h4>Eduardo Pielich Sanchez</h4>
-                            <h3>Fisioterapeuta</h3>
-                        </div>
-                    </div>
-                    <div class="info">
-                        <img src="https://picsum.photos/150" alt="">
-                        <div>
-                            <h4>Eduardo Pielich Sanchez</h4>
-                            <h3>Fisioterapeuta</h3>
-                        </div>
-                    </div>
+                    <?php
+                    for ($i = 0; $i < mysqli_num_rows($funcsAdmin); $i++) {
+                        printf("
+                            <div class='info'>                    
+                            <img src='https://picsum.photos/150' alt=''>
+                            <div>
+                                <h4>%s</h4>
+                                <h3>Admin</h3>
+                            </div>
+                            </div>
+                            ", $setAdmin[$i]);
+                    }
+
+                    for ($i = 0; $i < mysqli_num_rows($funcsFisio); $i++) {
+                        printf("
+                              <div class='info'>                    
+                              <img src='https://picsum.photos/150' alt=''>
+                              <div>
+                                  <h4>%s</h4>
+                                  <h3>Fisio</h3>
+                              </div>
+                              </div>
+                              ", $setFisio[$i]);
+                    }
+
+                    for ($i = 0; $i < mysqli_num_rows($funcsEstagio); $i++) {
+                        printf("
+                              <div class='info'>                    
+                              <img src='https://picsum.photos/150' alt=''>
+                              <div>
+                                  <h4>%s</h4>
+                                  <h3>Estagio</h3>
+                              </div>
+                              </div>
+                              ", $setEstagio[$i]);
+                    }
+
+                    ?>
                 </div>
             </div>
         </div>

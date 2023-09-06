@@ -135,7 +135,7 @@ function buttonAdministrador(){
                 <input type="number" name="flag" value="0" style="display: none;">
                 <div class="container_btn_cadastro">
                     <div class="linha4">
-                        <input type="submit" class="btn_cadastrar" value="Cadastrar"></input>
+                        <input type="submit" class="btn_cadastrar" name="cadastrar" value="Cadastrar"></input>
                     </div>
                 </div>
             </div>
@@ -301,7 +301,7 @@ function buttonFisioterapeuta(){
                 <input type="number" name="flag" value="1" style="display: none;">
                 <div class="container_btn_cadastro">
                     <div class="linha4">
-                        <input type="submit" class="btn_cadastrar" value="Cadastrar"></input>
+                    <input type="submit" class="btn_cadastrar" name="cadastrar" value="Cadastrar"></input>
                     </div>
                 </div>
             </div>
@@ -465,7 +465,7 @@ function buttonEstagiario(){
                 <input type="number" name="flag" value="2" style="display: none;">
                 <div class="container_btn_cadastro">
                     <div class="linha4">
-                        <input type="submit" class="btn_cadastrar" value="Cadastrar"></input>
+                    <input type="submit" class="btn_cadastrar" name="cadastrar" value="Cadastrar"></input>
                     </div>
                 </div>
             </div>
