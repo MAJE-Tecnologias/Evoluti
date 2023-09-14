@@ -27,6 +27,7 @@ session_start();
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script> -->
 
 	<main>
+		<div class="tela_inteira">
 		<div id="container">
 			<div id="login">
 				<div id="login_conteudo">
@@ -37,7 +38,7 @@ session_start();
 						<div><i class="fa fa-envelope" id="icone_senha"></i><input type="text" name="email" id="campo_email" placeholder="E-mail" /></div>
 						<div><i class="fa fa-lock" id="icone_senha"></i><input type="text" name="senha" id="campo_senha" placeholder="Senha" /></div>
 						<a href="">Esqueceu sua senha?</a>
-						<div><input type="submit" name="btn"></div>
+						<div><input type="submit" name="btn" class="btn_login"></div>
 					</form>
 				</div>
 			</div>
@@ -53,6 +54,7 @@ session_start();
 				<a href="cadastro.php">Cadastre-se</a>
 			</div>
 		</div>
+</div>
 	</main>
 </body>
 
