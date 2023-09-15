@@ -1,0 +1,87 @@
+/* --------------------------------------------------------- */
+/* IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* --------------------------------------------------------- */
+/* INÍCIO */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    list-style: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+:root{
+    /* CORES */
+    --btn_green:#45D496;
+    --green:#51f680;
+    --white:#fff;
+    --dark:#1e1c2a;
+    --lightgreen:#95ffb3;
+    --blue: #3AB1FD;
+    --bege: #D7D588;
+    --lightblue:#46FADF;
+    --fundo: #F1F1F1;
+
+    
+    /* TRANSIÇÕES */
+    --transicao-0: all 0.2s ease;
+    --transicao-1: all 0.3s ease;
+    --transicao-2: all 0.4s ease;
+    --transicao-3: all 0.5s ease;
+}
+
+body{
+    max-height: 100%;
+    color: var(--dark);
+    background: var(--fundo);
+}
+
+/* TELA */
+
+.container_cadastroEscolha{
+    width: 100%;
+    height: 100%;
+    background: #1A334E;
+}
+
+.container_view{
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    padding-left: 90px;
+    padding-top: 78.42px;
+}
+
+.imgNovoPaci{
+    overflow: hidden;
+    max-width: 100%;
+    transition: transform .5s ease;
+}
+
+.imgNovoUser{
+    max-width: 100%;
+    overflow: hidden;
+    transition: transform .5s ease;
+}
+
+.imgNovoPaci:hover{
+    transform: scale(1.5);
+}
+
+.imgNovoUser:hover{
+    transform: scale(1.5);
+}
+
+
+
+/* Icone Ativo */
+.active,
+.active .icone,
+.active .menu_texto{
+    background: #57d8a0;
+    color: black;
+}

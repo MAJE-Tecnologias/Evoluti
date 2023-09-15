@@ -11,6 +11,8 @@ session_start();
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" href="/Imagens/Icon.png">
+
 	<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="/CSS/style.css" />
@@ -45,11 +47,7 @@ session_start();
 			<div id="cadastro">
 				<h1>Registre sua clinica</h1>
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing
-					elit. Doloremque, cumque amet. Consequuntur voluptatem
-					reprehenderit, temporibus sapiente vel sint dicta natus
-					non obcaecati quibusdam facilis labore architecto? Quam
-					animi minima autem.
+					Não perca tempo e otimize sua gestão fisioterápica
 				</p>
 				<a href="cadastro.php">Cadastre-se</a>
 			</div>

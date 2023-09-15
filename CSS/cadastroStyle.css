@@ -1,3 +1,12 @@
+/* --------------------------------------------------------- */
+
+.tela_inteira{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #213040;
+}
+
 /* CONTAINER */
 #container {
     position: absolute;
@@ -18,6 +27,9 @@
 #login {
     background-image: linear-gradient(to right, #45D496, #51F680);
     position: absolute;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
     width: 50%;
     height: 100%;
     border-radius: 15px;
@@ -29,25 +41,27 @@
 }
 
 #login h1 {
-    position: absolute;
-    top: 5%;
+    position: relative;
+    margin-top: 5%;
     width: 100%;
 }
 
 #login p {
-    position: absolute;
+    position: relative;
+    display: flex;
     text-align: justify;
+    justify-content: center;
     width: 100%;
-    padding: 50px;
-    top: 20%;
+    padding: 25px;
+    text-overflow: ellipsis;
+    color: #000;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 400;
 }
 
 #login a {
-    position: absolute;
-    top: 85%;
-    left: 0;
-    right: 0;
-    margin: auto;
+    position: relative;
     width: 50%;
     border-radius: 2px;
     border: 2px solid;
@@ -89,7 +103,7 @@
     margin-bottom: 25px;
 }
 
-#cadastro input {
+#cadastro input[type=text] {
     background-color: #d9d9d9;
     border: 0 solid;
     position: relative;
@@ -106,13 +120,13 @@
     text-decoration-line: underline;
 }
 
-#cadastro button {
-    border-color: #51F680;
-    background-color: #51F680;
+.btn_cadastro{
+    background: #45D496;
     position: relative;
     border-radius: 5px;
+    border: 0;
     margin: 50px;
-    padding: 10px;
+    padding: 6.5px 24px;
     width: 30%;
     font-size: 16px;
     font-weight: 700;
