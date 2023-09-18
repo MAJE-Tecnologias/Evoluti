@@ -1,0 +1,54 @@
+#LinhaComMargem{
+    margin-bottom: 20px;
+}
+
+input[type=file]{
+
+    display: none;
+}
+
+#container_view_pacientes{
+    padding-top: 100px;
+}
+
+.titulo{
+    display: flex;
+    column-gap: 10px;
+    font-weight: 700;
+    font-size: 35px;
+    color: #45D496;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.texto_Arquivo{
+    font-size: 24px;
+    height: 100%;
+   z-index: 1;
+}
+
+.texto_Arquivo2{
+    font-size: 16px;
+    height: 100%;
+}
+
+.icone_Arquivo{
+    font-size: 50px;
+    height: 100%;
+}
+
+.Selecionar_Arquivo{
+    display: flex;
+    cursor: pointer;
+    z-index: 2;
+    justify-content: center;
+    flex-direction: column;
+    color: #D7D588;
+    text-align: center;
+    font-weight: 700;
+    height: 150px;
+    border-radius: 7px;
+    border: 7px solid #D7D588;
+    background: var(--Azul-Marinho, #1A334E);
+}

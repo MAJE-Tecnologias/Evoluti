@@ -54,17 +54,18 @@ body{
     justify-content: space-between;
     padding-left: 90px;
     padding-top: 78.42px;
+    overflow: hidden;
 }
 
 .imgNovoPaci{
-    overflow: hidden;
     max-width: 100%;
+    height: 100%;
     transition: transform .5s ease;
 }
 
 .imgNovoUser{
     max-width: 100%;
-    overflow: hidden;
+    height: 100%;
     transition: transform .5s ease;
 }
 

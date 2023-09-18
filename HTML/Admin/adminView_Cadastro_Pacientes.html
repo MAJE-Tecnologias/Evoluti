@@ -1,8 +1,3 @@
-<?php
-session_start();
-
-$_SESSION['clinica'] = 1;
-?>
 <!DOCTYPE html>
 <html lang="Pt-br">
 
@@ -18,6 +13,7 @@ $_SESSION['clinica'] = 1;
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/CSS/navStyle.css">
     <link rel="stylesheet" href="/CSS/adminCadastroStyle.css">
+    <link rel="stylesheet" href="/CSS/adminCadastroPacienteStyle.css">
     <!-- -------------------------------------- -->
 
 
@@ -40,22 +36,11 @@ $_SESSION['clinica'] = 1;
     </nav>
 
     <div id="containerPrincipal" class="container_cadastroUser">
-        <div class="container_view" data="interno/a.html">
-
-            <div class="container_conteudo">
-                <div class="grid_escolherForm">
-                    <a id="botaoAdm" href="#" onclick="buttonAdministrador();return false;">
-                        <div class="grid1 tipos ativo">Administrador</div>
-                    </a>
-                    <a id="botaoFisio" href="#" onclick="buttonFisioterapeuta();return false;">
-                        <div class="grid2 tipos">Fisioterapeuta</div>
-                    </a>
-                    <a id="botaoEstag" href="#" onclick="buttonEstagiario();return false;">
-                        <div class="grid3 tipos">Estagiário</div>
-                    </a>
-                </div>
+        <div class="container_view" data="interno/a.html" id="container_view_pacientes">
+            <div class="titulo">
+            <i class='bx bxs-user-plus'></i>
+            <p>Novo Paciente</p>
             </div>
-
             <div class="container_form">
 
                 <div class="container_foto_forms">
@@ -103,32 +88,22 @@ $_SESSION['clinica'] = 1;
 
                     <div class="titulo1"><label class="labelTitulos">Contato</label></div>
                     <div class="linhas">
-                        <div class="linha1">
+                        <div class="linha2">
 
                             <div class="campos">
-                                <label class="labelForms" for="cadastroEmail">E-mail</label>
+                                <label class="labelForms" for="cadastroEmail">E-mail</la>
                                 <input type="email" name="email" id="cadastroEmail" placeholder="Digite o e-mail">
                             </div>
-                            <div class="campos">
-                                <label class="labelForms" for="cadastroNomeUser">Nome de usuário</label>
-                                <input type="text" name="nomeUser" id="cadastroNomeUser" placeholder="Crie um nome de usuário">
-                            </div>
 
-                        </div>
-                        <div class="linha2">
+                        
                             <div class="campos">
                                 <label class="labelForms" for="cadastroCPF">Telefone</label>
                                 <input type="text" name="telefone" id="cadastroCPF" placeholder="(00) 0000-0000">
                             </div>
-                            <div class="campos">
-                                <label class="labelForms" for="cadastroRG">Senha</label>
-                                <input type="password" name="senha" id="cadastroRG" placeholder="Crie uma senha">
-                            </div>
                         </div>
 
-                        <div class="barrinha">
+                        <div class="barrinha"></div>
 
-                        </div>
                     </div>
 
                     <div class="titulo1"><label class="labelTitulos">Endereço</label></div>
@@ -159,12 +134,31 @@ $_SESSION['clinica'] = 1;
                                 <input type="text" id="cadastroBairro" name="bairro" placeholder="Digite o bairro">
                             </div>
                         </div>
-                        <div class="linha3">
+                        <div class="linha3" id="LinhaComMargem">
                             <div class="campos">
                                 <label class="labelForms" for="cadastroCidade">Cidade</label>
                                 <input type="text" id="cadastroCidade" name="cidade" placeholder="Digite a cidade">
                             </div>
                         </div>
+
+                        <div class="barrinha"></div>
+
+                        <div class="linha4">
+                            <div class="campos">
+                                <label for="cadastroArquivo" class="Selecionar_Arquivo">
+
+                                <input type="file" id="cadastroArquivo" name="arquivo">
+                                
+                                <span class="texto_Arquivo">Anexar documentos</span>
+
+                                <i class='bx bxs-file icone_Arquivo'></i>    
+
+                                <span class="texto_Arquivo2" id="nome_arquivo">Selecione ou arraste documentos relevantes</s>
+
+                                </label>
+                            </div>
+                        </div>
+
                         <input type="number" name="flag" value="0" id="flag" style="display: none;">
                         <div class="container_btn_cadastro">
                             <div class="linha4">
@@ -263,67 +257,20 @@ $_SESSION['clinica'] = 1;
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="/Javascript/scriptAdm.js"></script>
     <script src="/Javascript/scriptAdmCadastro.js"></script>
+
+
+    <script>
+        let input = document.getElementById("cadastroArquivo");
+        let nome_arquivo = document.getElementById("nome_arquivo")
+
+        input.addEventListener("change", ()=>{
+            let arquivoInserido = document.querySelector("input[type=file]").files[0];
+
+            nome_arquivo.innerText = arquivoInserido.name;
+        })
+    </script>
     <!-- -------------------------------------- -->
 
 </body>
 
 </html>
-
-<?php
-include '../../MySql/conecta.php';
-
-if (isset($_POST['cadastrar'])) {
-
-    //Dados Gerais de Cadastro
-    $nome = $_POST['nome'];
-    $nasc = $_POST['nasc'];
-
-    $cpf = $_POST['cpf'];
-    $rg = $_POST['rg'];
-    $genero = $_POST['genero'];
-    $email = $_POST['email'];
-    $nomeUser = $_POST['nomeUser'];
-    $telefone = $_POST['telefone'];
-    $senha = $_POST['senha'];
-
-    //Dados gerais de endereço
-
-    $rua = $_POST['rua'];
-    $cep = $_POST['cep'];
-    $numero = $_POST['numero'];
-    $complemento = $_POST['complemento'];
-    $bairro = $_POST['bairro'];
-    $cidade = $_POST['cidade'];
-
-    //Indicativo de Função a ser cadastrada
-
-    $flag = $_POST['flag'];
-
-    echo $flag;
-
-    //Adicionando Endereço a base de dados
-
-    $insertEndereco = $conn->query("SELECT InserirEndereco('" . $rua . "', '" . $numero . "','" . $bairro . "','" . $cidade . "','" . $cep . "')");
-    $idEndereco = mysqli_fetch_array($insertEndereco);
-
-    if ($flag == 0) {
-        //Inserindo Adm
-        $insertAdm = $conn->query("CALL InsertAdminProcedure('" . $nome . "','" . $nomeUser . "', '" . $senha . "', '" . $telefone . "', '" . $email . "','" . $cpf . "', '" . $rg . "','" . $genero . "', '" . $idEndereco[0] . "', '" . $_SESSION['clinica'] . "')");
-        echo "<script type='javascript'>alert('Admin adicionado com sucesso');";
-    } elseif ($flag == 1) {
-        //Inserindo Fisio   
-        $crefito = $_POST['crefito'];
-        $dtEmissao = $_POST['dtEmissao'];
-        $especialidades = $_POST['especialidades'];
-        $insertFisio = $conn->query("CALL InsertFisioProcedure('" . $nome . "','" . $nomeUser . "', '" . $senha . "', '" . $telefone . "', '" . $email . "','" . $cpf . "', '" . $rg . "','" . $genero . "', '" . $idEndereco[0] . "', '" . $_SESSION['clinica'] . "', '" . $crefito . "', '" . $dtEmissao . "', '" . $especialidades . "')");
-        echo "<script type='javascript'>alert('Fisio adicionado com sucesso');";
-    } else {
-        //Inserindo Estagiario
-        $instituicao = $_POST['instituicao'];
-        $dtInicioContrato = $_POST['dtInicioContrato'];
-        $dtFimContrato = $_POST['dtFimContrato'];
-        $insertEstagio = $conn->query("CALL InsertEstagiarioProcedure('" . $nome . "','" . $nomeUser . "', '" . $senha . "', '" . $telefone . "', '" . $email . "','" . $cpf . "', '" . $rg . "','" . $genero . "', '" . $idEndereco[0] . "', '" . $_SESSION['clinica'] . "', '" . $instituicao . "', '" . $dtInicioContrato . "', '" . $dtFimContrato . "')");
-        echo "<script type='javascript'>alert('Estagio adicionado com sucesso');";
-    }
-}
-?>

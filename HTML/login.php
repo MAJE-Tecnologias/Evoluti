@@ -71,11 +71,12 @@ if (isset($_POST['btn'])) {
 		if ($i == 0){
 			// Checagem no banco de dados para achar Administrator
 			if ($selectAdm->num_rows == 1) {
-				$_SESSION['id'] = $selectAdm[0];
+				$admArray = $selectAdm->fetch_array(MYSQLI_ASSOC);
+				$_SESSION['id'] = $admArray['ID_ADMIN'];
 				$_SESSION['nivel'] = 0;
-				$_SESSION['clinica'] = $selectAdm[9];
-				header("Location: Admin/adminView.html");
-			} else if ($select->num_rows > 1) {
+				$_SESSION['clinica'] = $admArray['FK_CLINICA'];
+				header("Location: Admin/adminView.php");
+			} else if ($selectAdm->num_rows > 1) {
 				echo "Mais de um resultado no banco de dados";
 			} else {
 				echo "Não encontrado no banco de dados";
@@ -83,11 +84,12 @@ if (isset($_POST['btn'])) {
 		} else if ($i == 1){
 			// Checagem no banco de dados para achar Fisio
 			if ($selectFisio->num_rows == 1) {
-				header("Location: Admin/adminView.html");
-				$_SESSION['id'] = $selectFisio[0];
+				$fisioArray = $selectFisio->fetch_array(MYSQLI_ASSOC);
+				$_SESSION['id'] = $fisioArray['ID_FISIO'];
 				$_SESSION['nivel'] = 1;
-				$_SESSION['clinica'] = $selectFisio[12];
-			} else if ($select->num_rows > 1) {
+				$_SESSION['clinica'] = $fisioArray['FK_CLINICA'];
+				header("Location: Admin/adminView.php");
+			} else if ($selectFisio->num_rows > 1) {
 				echo "Mais de um resultado no banco de dados";
 			} else {
 				echo "Não encontrado no banco de dados";
@@ -95,11 +97,12 @@ if (isset($_POST['btn'])) {
 		} else if ($i == 2){
 			// Checagem no banco de dados para achar Estagiario
 			if ($selectEsta->num_rows == 1) {
-				$_SESSION['id'] = $selectEsta[0];
+				$estaArray = $selectEsta->fetch_array(MYSQLI_ASSOC);
+				$_SESSION['id'] = $estaArray['ID_ESTAGIARIO'];
 				$_SESSION['nivel'] = 2;
-				$_SESSION['clinica'] = $selectEsta[12];
-				header("Location: Admin/adminView.html");
-			} else if ($select->num_rows > 1) {
+				$_SESSION['clinica'] = $estaArray['FK_CLINICA'];
+				header("Location: Admin/adminView.php");
+			} else if ($selectEsta->num_rows > 1) {
 				echo "Mais de um resultado no banco de dados";
 			} else {
 				echo "Não encontrado no banco de dados";

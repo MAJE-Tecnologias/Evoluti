@@ -131,9 +131,6 @@ for ($setEstagio = array(); $rowEstagio = $funcsEstagio->fetch_assoc(); $setEsta
         </div>
     </div>
 
-
-
-
     <!-- MENU LATERAL (DEIXAR SEMPRE POR ÚLTIMO) -->
 
     <nav class="menuLateral fecharMenu" style="z-index: 2;">
@@ -151,7 +148,7 @@ for ($setEstagio = array(); $rowEstagio = $funcsEstagio->fetch_assoc(); $setEsta
             <div class="menu">
                 <ul class="menu_links">
                     <li class="nav_link">
-                        <a href="adminView_Cadastro.php">
+                        <a href="adminView_Cadastro_Inicio.php">
                             <i class='bx bxs-plus-circle icone'></i>
                             <span class="menu_texto">Cadastros</span>
                         </a>

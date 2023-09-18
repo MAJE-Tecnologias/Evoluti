@@ -1,7 +1,17 @@
 <?php
+
+include '../../MySql/conecta.php';
+
 session_start();
 
-$_SESSION['clinica'] = 1;
+$selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ADMIN = '" . $_SESSION['id'] . "'");
+
+$nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
+
+printf("
+    <h4>%s</h4>
+", $nomeArray['NOME']);
+
 ?>
 <!DOCTYPE html>
 <html lang="Pt-br">
@@ -16,9 +26,11 @@ $_SESSION['clinica'] = 1;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/CSS/navStyle.css">
-    <link rel="stylesheet" href="/CSS/adminCadastroInicialStyle.css">
+    <link rel="stylesheet" href="../../CSS/adminStyle.css">
+    <link rel="stylesheet" href="../../CSS/navBarStyle.css">
+
     <!-- -------------------------------------- -->
+
 
 
     <!-- ÍCONES -->
@@ -34,24 +46,23 @@ $_SESSION['clinica'] = 1;
 
 <body>
 
-    <nav class="navigation" style="position: fixed; z-index: 1;">
+    <nav class="navigation">
 
-
-    </nav>
-
-    <div id="containerPrincipal" class="container_cadastroEscolha">
-        <div class="container_view">
-            <a href=""><img src="/Imagens/NovoUsuario_Opac.png" class="imgNovoUser" alt="NovoUsuario"></a>
-            <a href=""><img src="/Imagens/NovoPaciente_Opac.png" class="imgNovoPaci" alt="NovoPaciente"></a>
+    <div class="foto_perfil_usuario">
+        <img src="https://picsum.photos/150" alt="foto_perfil">
+        <div class="nome_perfil_usuario">
+            <p id="Nome">Renato Alexandre de Carvalho</p>
+            <p id="Funcao">Fisioterapeuta</p>
         </div>
     </div>
 
+    </nav>
 
-    <nav class="menuLateral fecharMenu" style="z-index: 2;">
+    <nav class="menuLateral fecharMenu">
         <header>
             <div class="imagem-texto">
                 <span class="imagem">
-                    <img src="/Imagens/LogoBranco.png" class="logotipo"></img>
+                    <img src="../../Imagens/LogoBranco.png" class="logotipo"></img>
                 </span>
             </div>
 
@@ -62,7 +73,7 @@ $_SESSION['clinica'] = 1;
             <div class="menu">
                 <ul class="menu_links">
                     <li class="nav_link">
-                        <a href="#" class="active">
+                        <a href="adminView_Cadastro_Inicio.php">
                             <i class='bx bxs-plus-circle icone'></i>
                             <span class="menu_texto">Cadastros</span>
                         </a>
@@ -113,14 +124,6 @@ $_SESSION['clinica'] = 1;
 
 
     <main>
-        <!-- <nav class="container_nav_func">
-            <ul class="nav_func">
-                <li><a href="">Tudo</a></li>
-                <li><a href="">Fisioterapeuta</a></li>
-                <li><a href="">Administrador</a></li>
-                <li><a href="">Estagiário</a></li>
-            </ul>
-        </nav> -->
 
     </main>
 
@@ -131,7 +134,6 @@ $_SESSION['clinica'] = 1;
     <!-- Javascript -->
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="/Javascript/scriptAdm.js"></script>
-    <script src="/Javascript/scriptAdmCadastro.js"></script>
     <!-- -------------------------------------- -->
 
 </body>
