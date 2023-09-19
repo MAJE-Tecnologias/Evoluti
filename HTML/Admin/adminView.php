@@ -7,12 +7,8 @@ session_start();
 $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ADMIN = '" . $_SESSION['id'] . "'");
 
 $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
-
-printf("
-    <h4>%s</h4>
-", $nomeArray['NOME']);
-
 ?>
+
 <!DOCTYPE html>
 <html lang="Pt-br">
 
@@ -57,6 +53,20 @@ printf("
     </div>
 
     </nav>
+
+    <div class="container_principal">
+        <div class="container_view">
+            <img src="\Imagens\Logo_Sem_fundo.png" alt="LogoAnimado" class="LogoAnimado">
+            <span class="TextoLogo"><h1>Seja bem-vindo(a) a sua tela inicial!</h1> <p>Sinta-se livre para abrir o menu lateral e escolher uma opção, ou escolha um dos atalhos abaixo:</p></span>
+            
+            <div class="divInterna_Botoes">
+                <a href="#" class="estiloBotoes"><i class='bx bxs-help-circle' ></i> <p>TUTORIAIS</p></a>
+                <a href="#" class="estiloBotoes">a</a>
+                <a href="#" class="estiloBotoes">a</a>
+                <a href="#" class="estiloBotoes">a</a>
+            </div>
+        </div>
+    </div>
 
     <nav class="menuLateral fecharMenu">
         <header>
@@ -110,6 +120,12 @@ printf("
             </div>
 
             <div class="menu_embaixo">
+            <li class="">
+                    <a href="#" class="toggle-switch">
+                        <i class='bx bx-sun icone'></i>
+                        <span class="menu_texto">Alterar Modo</span>
+                    </a>
+                </li>
                 <li class="">
                     <a href="#">
                         <i class='bx bx-cog icone'></i>

@@ -557,12 +557,10 @@ h1 {
 .card2 {
     position: relative;
     width: 100%;
-    top: 13%;
 }
 
 .textoCard2 {
     position: relative;
-    top: 13%;
 }
 
 .textoCard2 h1 {
@@ -576,12 +574,10 @@ h1 {
 .card3 {
     position: relative;
     width: 100%;
-    top: 32%;
 }
 
 .textoCard3 {
     position: relative;
-    top: 32%;
 }
 
 .textoCard3 h1 {
@@ -594,13 +590,11 @@ h1 {
 
 .card4 {
     position: relative;
-    top: 48%;
     width: 100%;
 }
 
 .textoCard4 {
     position: relative;
-    top: 48%;
 }
 
 .textoCard4 h1 {

@@ -38,6 +38,12 @@ body {
     background: #E4E9F7;
 }
 
+.escuro{
+    transition: 0.5s;
+    background: #18191A;
+    color: var(--white);
+}
+
 #Nome{
     font-weight: 700;
 }
@@ -56,4 +62,86 @@ body {
 .nome_perfil_usuario{
     display: flex;
     flex-direction: column;
+}
+
+.container_principal {
+    display: block;
+    width: 100%;
+    position: relative;
+    height: 100%;
+}
+
+.container_view {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 45px;
+    width: 100%;
+    height: 100%;
+    padding-left: 190px;
+    padding-right: 100px;
+    padding-top: 78.42px;
+}
+
+.LogoAnimado{
+
+    animation-name: flutuar;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+
+    width: 50%;
+}
+
+.divInterna_Botoes{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 15%;
+    column-gap: 20px;
+}
+
+.estiloBotoes{
+    border: solid 2px #45D496;
+    font-size: 35px;
+    font-weight: 700;
+    background-color: white;
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5);
+    width: 30%;
+    height: 100%;
+    border-radius: 5px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+    overflow: none;
+    padding: 20px;
+    transition: 0.5s;
+}
+
+.estiloBotoes:hover{
+    background-color: #45D496;
+    scale: 1;
+    color: white;
+}
+
+.TextoLogo{
+    text-align: center;
+}
+
+@keyframes flutuar {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 15px); }
+    100%   { transform: translate(0, -0px); }   
+}
+
+.active,
+.active .icone,
+.active .menu_texto{
+    background: #57d8a0;
+    color: black;
 }

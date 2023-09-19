@@ -52,6 +52,20 @@ body{
     position: fixed;
     z-index: -1;
 }
+
+.escuroNav{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 10px 100px;
+    height: 78.42px;
+    width: 100%;
+    background: #242526;
+    transition: 0.5s;
+    position: fixed;
+    z-index: -1;
+    color: white;
+}
 /* --------------------------------------------------------- */
 
 .menuLateral{
