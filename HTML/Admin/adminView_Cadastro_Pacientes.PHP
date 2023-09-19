@@ -38,8 +38,8 @@
     <div id="containerPrincipal" class="container_cadastroUser">
         <div class="container_view" data="interno/a.html" id="container_view_pacientes">
             <div class="titulo">
-            <i class='bx bxs-user-plus'></i>
-            <p>Novo Paciente</p>
+                <i class='bx bxs-user-plus'></i>
+                <p>Novo Paciente</p>
             </div>
             <div class="container_form">
 
@@ -92,10 +92,10 @@
 
                             <div class="campos">
                                 <label class="labelForms" for="cadastroEmail">E-mail</la>
-                                <input type="email" name="email" id="cadastroEmail" placeholder="Digite o e-mail">
+                                    <input type="email" name="email" id="cadastroEmail" placeholder="Digite o e-mail">
                             </div>
 
-                        
+
                             <div class="campos">
                                 <label class="labelForms" for="cadastroCPF">Telefone</label>
                                 <input type="text" name="telefone" id="cadastroCPF" placeholder="(00) 0000-0000">
@@ -147,13 +147,13 @@
                             <div class="campos">
                                 <label for="cadastroArquivo" class="Selecionar_Arquivo">
 
-                                <input type="file" id="cadastroArquivo" name="arquivo">
-                                
-                                <span class="texto_Arquivo">Anexar documentos</span>
+                                    <input type="file" id="cadastroArquivo" name="arquivo">
 
-                                <i class='bx bxs-file icone_Arquivo'></i>    
+                                    <span class="texto_Arquivo">Anexar documentos</span>
 
-                                <span class="texto_Arquivo2" id="nome_arquivo">Selecione ou arraste documentos relevantes</s>
+                                    <i class='bx bxs-file icone_Arquivo'></i>
+
+                                    <span class="texto_Arquivo2" id="nome_arquivo">Selecione ou arraste documentos relevantes</s>
 
                                 </label>
                             </div>
@@ -263,7 +263,7 @@
         let input = document.getElementById("cadastroArquivo");
         let nome_arquivo = document.getElementById("nome_arquivo")
 
-        input.addEventListener("change", ()=>{
+        input.addEventListener("change", () => {
             let arquivoInserido = document.querySelector("input[type=file]").files[0];
 
             nome_arquivo.innerText = arquivoInserido.name;
@@ -274,3 +274,40 @@
 </body>
 
 </html>
+
+<?PHP
+include '../../MySql/conecta.php';
+
+if (isset($_POST['cadastrar'])) {
+
+    //Dados Gerais de Cadastro
+    $nome = $_POST['nome'];
+    $nasc = $_POST['nasc'];
+
+    $cpf = $_POST['cpf'];
+    $rg = $_POST['rg'];
+    $genero = $_POST['genero'];
+    $email = $_POST['email'];
+    $telefone = $_POST['telefone'];
+
+    //Dados gerais de endereço
+
+    $rua = $_POST['rua'];
+    $cep = $_POST['cep'];
+    $numero = $_POST['numero'];
+    $complemento = $_POST['complemento'];
+    $bairro = $_POST['bairro'];
+    $cidade = $_POST['cidade'];
+
+    //Adicionando Endereço a base de dados
+
+    $insertEndereco = $conn->query("SELECT InserirEndereco('" . $rua . "', '" . $numero . "','" . $bairro . "','" . $cidade . "','" . $cep . "')");
+    $idEndereco = mysqli_fetch_array($insertEndereco);
+
+    $insertAdm = $conn->query("CALL INSERIR_PACIENTE('" . $nome . "','" . $nasc . "', '" . $telefone . "', '" . $email . "','" . $cpf . "', '" . $rg . "','" . $genero . "', '" . $idEndereco[0] . "')");
+    echo "<script type='javascript'>alert('Admin adicionado com sucesso');";
+}
+
+
+
+?>

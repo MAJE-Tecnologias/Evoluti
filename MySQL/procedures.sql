@@ -189,3 +189,32 @@ BEGIN
 END//
 
 DELIMITER ;
+
+DELIMITER //
+
+CREATE FUNCTION INSERIR_PACIENTE(
+    p_nome VARCHAR(100),
+    p_datanasc DATE,
+    p_telefone INT,
+    p_email VARCHAR(120),
+    p_cpf BIGINT,
+    p_rg BIGINT,
+    p_genero VARCHAR(100),
+    p_fk_endereco INT
+)
+RETURNS INT
+BEGIN
+    DECLARE v_id_paciente INT;
+
+    INSERT INTO PACIENTE(NOME, DATANASC, TELEFONE, EMAIL, CPF, RG, GENERO, FK_ENDERECO)
+    VALUES (p_nome, p_datanasc, p_telefone, p_email, p_cpf, p_rg, p_genero, p_fk_endereco);
+
+    SET v_id_paciente = LAST_INSERT_ID();
+
+    RETURN v_id_paciente;
+END;
+//
+
+DELIMITER ;
+
+

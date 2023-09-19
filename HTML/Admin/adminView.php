@@ -4,7 +4,16 @@ include '../../MySql/conecta.php';
 
 session_start();
 
-$selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ADMIN = '" . $_SESSION['id'] . "'");
+if ($_SESSION['nivel'] == 0) {
+    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ADMIN = '" . $_SESSION['id'] . "'");
+    $prof = "Administrador";
+} elseif ($_SESSION['nivel'] == 1) {
+    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_FISIO = '" . $_SESSION['id'] . "'");
+    $prof = "Fisioterapia";
+} else {
+    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ESTAGIARIO = '" . $_SESSION['id'] . "'");
+    $prof = "Estagiario";
+}
 
 $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 ?>
@@ -43,24 +52,31 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 <body>
 
     <nav class="navigation">
+        <?php
+        printf('    <div class="foto_perfil_usuario">
+<img src="https://picsum.photos/150" alt="foto_perfil">
+<div class="nome_perfil_usuario">
+    <p id="Nome">%s</p>
+    <p id="Funcao">%s</p>
+</div>
+</div>', $nomeArray['NOME'], $prof)
 
-    <div class="foto_perfil_usuario">
-        <img src="https://picsum.photos/150" alt="foto_perfil">
-        <div class="nome_perfil_usuario">
-            <p id="Nome">Renato Alexandre de Carvalho</p>
-            <p id="Funcao">Fisioterapeuta</p>
-        </div>
-    </div>
+        ?>
 
     </nav>
 
     <div class="container_principal">
         <div class="container_view">
             <img src="\Imagens\Logo_Sem_fundo.png" alt="LogoAnimado" class="LogoAnimado">
-            <span class="TextoLogo"><h1>Seja bem-vindo(a) a sua tela inicial!</h1> <p>Sinta-se livre para abrir o menu lateral e escolher uma opção, ou escolha um dos atalhos abaixo:</p></span>
-            
+            <span class="TextoLogo">
+                <h1>Seja bem-vindo(a) a sua tela inicial!</h1>
+                <p>Sinta-se livre para abrir o menu lateral e escolher uma opção, ou escolha um dos atalhos abaixo:</p>
+            </span>
+
             <div class="divInterna_Botoes">
-                <a href="#" class="estiloBotoes"><i class='bx bxs-help-circle' ></i> <p>TUTORIAIS</p></a>
+                <a href="#" class="estiloBotoes"><i class='bx bxs-help-circle'></i>
+                    <p>TUTORIAIS</p>
+                </a>
                 <a href="#" class="estiloBotoes">a</a>
                 <a href="#" class="estiloBotoes">a</a>
                 <a href="#" class="estiloBotoes">a</a>
@@ -120,7 +136,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
             </div>
 
             <div class="menu_embaixo">
-            <li class="">
+                <li class="">
                     <a href="#" class="toggle-switch">
                         <i class='bx bx-sun icone'></i>
                         <span class="menu_texto">Alterar Modo</span>
