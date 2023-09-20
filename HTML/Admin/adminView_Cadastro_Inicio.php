@@ -2,6 +2,19 @@
 session_start();
 
 $_SESSION['clinica'] = 1;
+
+if ($_SESSION['nivel'] == 0) {
+    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ADMIN = '" . $_SESSION['id'] . "'");
+    $prof = "Administrador";
+} elseif ($_SESSION['nivel'] == 1) {
+    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_FISIO = '" . $_SESSION['id'] . "'");
+    $prof = "Fisioterapia";
+} else {
+    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ESTAGIARIO = '" . $_SESSION['id'] . "'");
+    $prof = "Estagiario";
+}
+
+$nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="Pt-br">
@@ -34,10 +47,11 @@ $_SESSION['clinica'] = 1;
 
 <body>
 
-    <nav class="navigation" style="position: fixed; z-index: 1;">
+<?php
 
+include 'adminNavPerfil.php'
 
-    </nav>
+?>
 
     <div id="containerPrincipal" class="container_cadastroEscolha">
         <div class="container_view">

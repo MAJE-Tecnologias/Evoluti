@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="Pt-br">
 
@@ -30,10 +33,11 @@
 
 <body>
 
-    <nav class="navigation" style="position: fixed; z-index: 1;">
+<?php
 
+include 'adminNavPerfil.php'
 
-    </nav>
+?>
 
     <div class="container_usuarios">
         <div class="container_view">

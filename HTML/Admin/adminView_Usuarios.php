@@ -17,6 +17,18 @@ for ($setFisio = array(); $rowFisio = $funcsFisio->fetch_assoc(); $setFisio[] = 
 
 for ($setEstagio = array(); $rowEstagio = $funcsEstagio->fetch_assoc(); $setEstagio[] = $rowEstagio['NOME']);
 
+if ($_SESSION['nivel'] == 0) {
+    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ADMIN = '" . $_SESSION['id'] . "'");
+    $prof = "Administrador";
+} elseif ($_SESSION['nivel'] == 1) {
+    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_FISIO = '" . $_SESSION['id'] . "'");
+    $prof = "Fisioterapia";
+} else {
+    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ESTAGIARIO = '" . $_SESSION['id'] . "'");
+    $prof = "Estagiario";
+}
+
+$nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="Pt-br">
@@ -49,10 +61,11 @@ for ($setEstagio = array(); $rowEstagio = $funcsEstagio->fetch_assoc(); $setEsta
 
 <body>
 
-    <nav class="navigation" style="position: fixed; z-index: 1;">
+<?php
 
+include 'adminNavPerfil.php'
 
-    </nav>
+?>
 
     <div class="container_usuarios">
         <div class="container_view">
