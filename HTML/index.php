@@ -75,8 +75,11 @@ include '../MySQL/conecta.php';
                 </p>
                 <a href="#" class="home-btn">Começar</a>
             </div>
+            <div class="teste">
+            <img src="/Imagens/Família.png" alt="fisio" class="home-img">
+            </div>
             <div class="home-img-container">
-                <img src="/Imagens/imgfisio.png" alt="fisio" class="home-img">
+
             </div>
         </section>
 
@@ -87,18 +90,24 @@ include '../MySQL/conecta.php';
             <h2 class="barrinha" id="barrinha_serv"></h2>
 
             <div class="servicos_conteudo">
-                <div class="slides"></div>
+                <div class="slides">
+                    <div id="itens">
+                    <img id="slide1" src="/Imagens/Serviços/Card_Img.png" alt="carousel1" class="img_slide">
+                    <img id="slide2" src="/Imagens/Serviços/Card_Img2.png" alt="carousel1" class="img_slide">
+                    <img id="slide3" src="/Imagens/Serviços/Card_Img3.png" alt="carousel1" class="img_slide">
+                    </div>
+                </div>
                 <div class="botoes_slides">
 
                     <div class="servicos_text">
-                        <h1><a class="botao_slide"><i class="fa-regular fa-circle"></a></i> Prontuário eletrônico
+                        <h1><a href="#slide1" class="botao_slide"><i class="bx bxs-circle"></a></i> Prontuário eletrônico
                         </h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum euismod eros, ut
                             tristique enim tincidunt ut.</p>
                     </div>
 
                     <div class="servicos_text">
-                        <h1><a class="botao_slide"><i class="fa-regular fa-circle"></a></i> Marcação de pontos de
+                        <h1><a href="#slide2" class="botao_slide"><i class="bx bxs-circle"></a></i> Marcação de pontos de
                             dor
                         </h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum euismod eros, ut
@@ -106,13 +115,13 @@ include '../MySQL/conecta.php';
                     </div>
 
                     <div class="servicos_text">
-                        <h1><a class="botao_slide"><i class="fa-regular fa-circle"></a></i> Documentação</h1>
+                        <h1><a href="#slide3" class="botao_slide"><i class="bx bxs-circle"></a></i> Documentação</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum euismod eros, ut
                             tristique enim tincidunt ut.</p>
                     </div>
 
                     <div class="servicos_text">
-                        <h1><a class="botao_slide"><i class="fa-regular fa-circle"></a></i> Relatórios</h1>
+                        <h1><a href="#slide1" class="botao_slide"><i class="bx bxs-circle"></a></i> Relatórios</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum euismod eros, ut
                             tristique enim tincidunt ut.</p>
                     </div>
@@ -214,7 +223,7 @@ include '../MySQL/conecta.php';
             <div class="quemS-text">
 
                 <h1 class="login-titulo">Quem somos?</h1>
-                <h2 class="barrinha"></h2>
+                <h2 class="barrinhaQS"></h2>
                 <p>A MAJE Tecnologias é uma empresa inovadora especializada no desenvolvimento de software, com foco
                     na
                     criação de soluções tecnológicas.</p>
@@ -264,6 +273,18 @@ include '../MySQL/conecta.php';
                         <img src="/Imagens/QuemSomos/Renato.png" alt="backgroundCard4" class="card4">
                         <div class="textoCard4">
                             <h1>Renato Carvalho</h1>
+                            <p>- Programador Front-End</p>
+                            <p>- Designer</p>
+                            <a href="https://www.linkedin.com/in/carolina-pavan-570a0a215/"><i class="fa fa-linkedin"
+                                    id="icones"></i></a>
+                            <a href="https://github.com/RenatoAC2004"><i class="fa fa-github" id="icones"></i></a>
+                            <a href="l1nk.dev/linkedinlucas"><i class="fa fa-instagram" id="icones"></i></a>
+                        </div>
+                    </div>
+                    <div class="coluna5">
+                        <img src="/Imagens/QuemSomos/Bruno.png" alt="backgroundCard4" class="card4">
+                        <div class="textoCard4">
+                            <h1>Bruno Carvalho</h1>
                             <p>- Programador Front-End</p>
                             <p>- Designer</p>
                             <a href="https://www.linkedin.com/in/carolina-pavan-570a0a215/"><i class="fa fa-linkedin"

@@ -176,12 +176,7 @@ footer {
 .servicos {
     width: 100%;
     height: 111vh;
-    display: inline-block;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px 10%;
-    background: linear-gradient(270.62deg, #51F680 21.15%, #46D794 92.94%, #45D496 99.46%);
-    ;
+    background: linear-gradient(93deg, #51F680 -57.5%, #1A334E 102.88%);
 }
 
 .serv-titulo {
@@ -215,42 +210,57 @@ footer {
 .servicos_conteudo {
     justify-content: center;
     display: flex;
+    column-gap: 100px;
 }
 
 .slides {
-    width: 320px;
-    height: 440px;
+    display: flex;
+    width: 420px;
+    height: 540px;
+    padding: 20px;
 
     border-radius: 9px;
     background: rgba(217, 217, 217, 0.10);
     box-shadow: -25.07836151123047px 25.07836151123047px 25.07836151123047px 0px rgba(255, 255, 255, 0.10) inset, 25.07836151123047px -25.07836151123047px 25.07836151123047px 0px rgba(165, 165, 165, 0.10) inset;
     backdrop-filter: blur(25.07836151123047px);
-    margin-right: 120px;
+}
+
+#itens{
+    overflow-x: hidden;
+    display: flex;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    aspect-ratio: 16/9;
+    border-radius: 0.5rem;
+}
+
+#itens img{
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
 }
 
 .botoes_slides {
     display: grid;
     align-items: center;
     justify-content: center;
+    width: 50%;
 }
 
 .botao_slide {
     color: white;
+    opacity: 0.75;
+    transition: opacity ease 250ms;
 }
 
 .botao_slide:hover {
-    font-size: 30px;
+    opacity: 1;
     cursor: pointer;
 }
 
 .servicos_text {
     color: white;
 }
-
-.hexagonos:hover {
-    transform: scale(1.1);
-}
-
 
 /* --------------------------------------------------------- */
 
@@ -337,6 +347,7 @@ footer {
     position: relative;
     height: 100%;
     padding-top: 10%;
+    padding-bottom: 10%;
 }
 
 .proposito_container_blocos {
@@ -369,6 +380,7 @@ footer {
     height: fit-content;
     border-radius: 9.16px;
     background: #45D496;
+
 }
 
 .bloco_principal_container {
@@ -443,7 +455,7 @@ footer {
     margin-top: 20px;
     height: fit-content;
     bottom: 0px;
-    border-radius: 9.16px;
+    border-radius: 9.16px 9.16px 0 0;
     background: #DEDFA4;
     z-index: 2;
     display: flex;
@@ -508,11 +520,11 @@ footer {
 
 .QuemSomos {
     width: 100%;
-    height: 160vh;
+    height: 150vh;
     display: inline-block;
     align-items: center;
     justify-content: space-between;
-    background: white;
+    background: #132941;
 }
 
 .quemS-text {
@@ -520,8 +532,17 @@ footer {
     text-align: center;
     padding-top: 20px;
     display: block;
+    color: var(--white);
 }
 
+.barrinhaQS {
+    content: '';
+    width: 70px;
+    height: 2px;
+    display: block;
+    margin: 11px auto 34px;
+    background: var(--white);
+}
 
 h1 {
     margin-top: 2px;
@@ -529,6 +550,7 @@ h1 {
 
 .center-screen {
     margin-top: 20px;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -546,6 +568,10 @@ h1 {
     width: 100%;
 }
 
+.textoCard1{
+    color: var(--white);
+}
+
 .textoCard1 h1 {
     font-size: 19px;
 }
@@ -561,6 +587,7 @@ h1 {
 
 .textoCard2 {
     position: relative;
+    color: var(--white);
 }
 
 .textoCard2 h1 {
@@ -578,6 +605,7 @@ h1 {
 
 .textoCard3 {
     position: relative;
+    color: var(--white);
 }
 
 .textoCard3 h1 {
@@ -595,6 +623,7 @@ h1 {
 
 .textoCard4 {
     position: relative;
+    color: var(--white);
 }
 
 .textoCard4 h1 {
@@ -623,7 +652,6 @@ h1 {
 .rodape2 {
     height: 50vh;
     width: 100%;
-    display: none;
 }
 
 .rodape2_conteudo {
@@ -632,6 +660,7 @@ h1 {
     align-items: center;
     justify-content: space-between;
     padding: 0 10%;
+    overflow: hidden;
 }
 
 .logotipo_rodape {
