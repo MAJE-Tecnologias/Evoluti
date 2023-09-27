@@ -99,20 +99,32 @@ nav a.ativo {
 /* SECTION HOME */
 .home {
     width: 100%;
-    top: 11vh;
+    padding-top: 79.41px;
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0px 10%;
+    justify-content: center;
 }
 
 .home-text {
-    max-width: 37rem;
+    width: 100%;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.home_container1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    box-shadow: 25px 0 10px 0 rgba(255, 255, 255, 0.5);
+    clip-path: inset(0px -100px 0px 0px);
 }
 
 .home-text .text-h4 {
-    font-size: 1rem;
+    font-size: 1.5rem;
+    font-weight: 800;
     color: var(--green);
     margin-bottom: 0.50rem;
 }
@@ -124,13 +136,14 @@ nav a.ativo {
 }
 
 .home-text p {
-    font-size: 0.80rem;
+    font-weight: 400;
+    font-size: 1.00rem;
     margin-bottom: 2.75rem;
     max-width: 35rem;
 }
 
 .home-btn {
-    padding: 15px 115px;
+    padding: 10px 115px;
     background-color: var(--green);
     color: var(--white);
     border-radius: 10px;
@@ -156,8 +169,16 @@ nav a.ativo {
     background-color: var(--lightgreen);
 }
 
-.home-img img {
-    min-width: 600px;
+.teste{
+    width: 100%;
+    height: 100%;
+
+}
+
+.home-img{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
     position: relative;
     z-index: -2;
 }
@@ -174,6 +195,10 @@ footer {
 /* Section "Serviços" */
 
 .servicos {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
     height: 111vh;
     background: linear-gradient(93deg, #51F680 -57.5%, #1A334E 102.88%);
@@ -182,16 +207,15 @@ footer {
 .serv-titulo {
     width: 100%;
     text-align: center;
-    padding-top: 5%;
     display: block;
     color: #F1F1F1;
-    font-size: 26px;
+    font-size: 32px;
     font-weight: 400;
 }
 
 #barrinha_serv {
     content: '';
-    width: 70px;
+    width: 200px;
     height: 2px;
     display: block;
     margin: 11px auto 34px;
@@ -207,9 +231,24 @@ footer {
     background: black;
 }
 
+.servicos_wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+}
+
+.servicos_teste{
+    position: relative;
+    height: 100%;
+}
+
 .servicos_conteudo {
     justify-content: center;
+    align-items: center;
     display: flex;
+    height: fit-content;
     column-gap: 100px;
 }
 
@@ -241,10 +280,18 @@ footer {
 }
 
 .botoes_slides {
-    display: grid;
-    align-items: center;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
     width: 50%;
+}
+
+.botoes_slides2{
+    display: none;
+}
+
+.texto_mobile{
+    display: none;
 }
 
 .botao_slide {
@@ -271,10 +318,11 @@ footer {
     width: 100%;
     height: 100vh;
     align-items: center;
-    padding: 0px 10%;
+    padding: 0px 20%;
     background-image: url("/Imagens/Idoso.png");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 
 /* .login-img{
@@ -291,13 +339,15 @@ footer {
     position: relative;
     color: #F1F1F1;
     top: 50%;
+    padding: 20px;
     text-align: center;
-    padding-top: 20px;
     box-sizing: border-box;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.24);
-    border: 0.707292px solid rgba(255, 255, 255, 0.01);
+    border-radius: 9.164px;
+    background: rgba(217, 217, 217, 0.10);
+    box-shadow: -10.53841px 10.53841px 10.53841px 0px rgba(255, 255, 255, 0.10) inset, 10.53841px -10.53841px 10.53841px 0px rgba(165, 165, 165, 0.10) inset;
+    backdrop-filter: blur(10.538409233093262px);
     backdrop-filter: blur(8px);
+    font-weight: 700;
 }
 
 #barrinha_login {
@@ -305,7 +355,7 @@ footer {
 }
 
 .login-titulo {
-    font-size: 2.0rem;
+    font-size: 1.6rem;
 }
 
 .divLoginBtn {
@@ -496,9 +546,9 @@ footer {
 
 .colunas_container_QS {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 50px;
     grid-row-gap: 0px;
 }
 
@@ -512,27 +562,44 @@ footer {
 
 .coluna3 {
     grid-area: 1 / 3 / 2 / 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .coluna4 {
-    grid-area: 1 / 4 / 2 / 5;
+    grid-area: 2 / 1 / 3 / 2;
+    position: relative;
 }
+
+.coluna5 { grid-area: 2 / 2 / 3 / 3; }
+.coluna6 { grid-area: 2 / 3 / 3 / 4; }
 
 .QuemSomos {
     width: 100%;
-    height: 150vh;
+    position: relative;
+    height: fit-content;
     display: inline-block;
     align-items: center;
     justify-content: space-between;
     background: #132941;
+    padding: 100px;
 }
 
 .quemS-text {
     width: 100%;
-    text-align: center;
-    padding-top: 20px;
     display: block;
     color: var(--white);
+}
+
+.quemS-text h1{
+    text-align: right;
+    color: #45D496;
+    font-size: 40px;
+}
+
+.quemS-text p{
+    text-align: justify;
 }
 
 .barrinhaQS {
@@ -565,7 +632,7 @@ h1 {
 
 
 .card1 {
-    width: 100%;
+    width: 75%;
 }
 
 .textoCard1{
@@ -582,7 +649,7 @@ h1 {
 
 .card2 {
     position: relative;
-    width: 100%;
+    width: 75%;
 }
 
 .textoCard2 {
@@ -600,7 +667,7 @@ h1 {
 
 .card3 {
     position: relative;
-    width: 100%;
+    width: 75%;
 }
 
 .textoCard3 {
@@ -618,7 +685,7 @@ h1 {
 
 .card4 {
     position: relative;
-    width: 100%;
+    width: 75%;
 }
 
 .textoCard4 {
@@ -637,6 +704,10 @@ h1 {
 .title {
     color: gray;
     font-size: 18px;
+}
+
+.coluna_mobile{
+    display: none;
 }
 
 /* --------------------------------------------------------- */
@@ -744,6 +815,14 @@ button:hover {
     opacity: 0.6;
 }
 
+.logo_rodape2{
+    display: none;
+}
+
+.barrinha_rodape2{
+    display: none;
+}
+
 /* --------------------------------------------------------- */
 
 @media screen and (max-width: 1024px) {
@@ -751,7 +830,7 @@ button:hover {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 10px 70px;
+        padding: 10px 30px;
         box-shadow: 0 0.1rem 0.5rem #ccc;
         width: 100%;
         background: var(--white);
@@ -762,7 +841,7 @@ button:hover {
 
     /* RESTO DA NAVBAR E LOGOTIPO */
     .logotipo {
-        position: relative;
+        display: flex;
         width: 100px;
         left: 0px;
         background-size: contain;
@@ -774,80 +853,67 @@ button:hover {
         font-weight: 600;
     }
 
-    .logo span {
-        color: var(--green);
-    }
-
-    .navigation ul {
-        display: flex;
-        align-items: center;
-        gap: 5rem;
-    }
-
-    .navigation ul li a {
-        color: var(--dark);
-        font-size: 17px;
-        font-weight: 500;
-        transition: all 0.5s;
-    }
-
-    .navigation ul li a:hover,
-    nav a.ativo {
-        color: var(--green);
-    }
-
-    .navigation i {
-        cursor: pointer;
-        font-size: 1.5rem;
-    }
-
     /* --------------------------------------------------------- */
 
     /* SECTION HOME */
     .home {
         width: 100%;
+        padding-top: 69.42px;
         height: 100vh;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0px 10%;
     }
-
+    
     .home-text {
-        max-width: 27rem;
+        width: 100%;
+        padding-left: 60px;
+        padding-right: 60px;
     }
-
+    
+    .home_container1{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        box-shadow: 25px 0 10px 0 rgba(255, 255, 255, 0.5);
+        clip-path: inset(0px -100px 0px 0px);
+    }
+    
     .home-text .text-h4 {
-        font-size: 1rem;
+        font-size: 1.5rem;
+        font-weight: 800;
         color: var(--green);
         margin-bottom: 0.50rem;
     }
-
+    
     .home-text .text-h1 {
-        font-size: 2.00rem;
+        font-size: 2rem;
         margin-bottom: 1rem;
-        line-height: 2.25rem;
+        line-height: 3.25rem;
     }
-
+    
     .home-text p {
-        font-size: 0.80rem;
+        font-weight: 400;
+        font-size: 1.00rem;
         margin-bottom: 2.75rem;
         max-width: 35rem;
     }
-
+    
     .home-btn {
-        padding: 15px 115px;
+        padding: 10px 115px;
         background-color: var(--green);
         color: var(--white);
         border-radius: 10px;
         font-weight: 700;
         transition: all 0.5s;
     }
-
+    
     .home-btn:hover {
         background-color: var(--lightgreen);
     }
-
+    
     .nav-btn {
         padding: 5px 20px;
         background-color: var(--green);
@@ -857,22 +923,62 @@ button:hover {
         font-weight: 500;
         transition: all 0.5s;
     }
-
+    
     .nav-btn:hover {
         background-color: var(--lightgreen);
     }
-
-    .home-img-container {
+    
+    .teste{
         width: 100%;
-        display: block;
+        height: 100%;
+    
+    }
+    
+    .home-img{
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
         position: relative;
+        z-index: -2;
     }
 
-    .home-img {
-        width: 100%;
 
+/* --------------------------------------------------------- */
+
+/* --------------------------------------------------------- */
+
+    /* SECTION SERVIÇOS */
+    .servicos_wrapper{
+        padding: 30px;
     }
 
+    #barrinha_serv {
+        content: '';
+        width: 100px;
+        height: 2px;
+        display: block;
+        margin: 11px auto 34px;
+        background: white;
+    }
+
+    .botoes_slides {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        width: 50%;
+    }
+
+    .slides {
+        display: flex;
+        width: 320px;
+        height: 440px;
+        padding: 20px;
+    
+        border-radius: 9px;
+        background: rgba(217, 217, 217, 0.10);
+        box-shadow: -25.07836151123047px 25.07836151123047px 25.07836151123047px 0px rgba(255, 255, 255, 0.10) inset, 25.07836151123047px -25.07836151123047px 25.07836151123047px 0px rgba(165, 165, 165, 0.10) inset;
+        backdrop-filter: blur(25.07836151123047px);
+    }
 
 /* --------------------------------------------------------- */
 
@@ -917,7 +1023,7 @@ button:hover {
 }
 
 .bloco {
-    position: absolute;
+    position: relative;
     right: 0px;
     width: 90%;
     height: 612px;
@@ -991,10 +1097,24 @@ button:hover {
     }
 }
 
+.proposito {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+}
+
+.bloco{
+    position: relative;
+    height: fit-content;
+}
+
 .bloco1 {
     position: relative;
     width: 100%;
-    height: 600px;
+    height: fit-content;
     bottom: 0px;
     border-radius: 9.16px;
     background: #DEDFA4;
@@ -1027,6 +1147,159 @@ button:hover {
     text-align: justify;
 }
 
+/* --------------------------------------------------------- */
+
+/* SECTION QUEM SOMOS */
+
+.colunas_container_QS {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 50px;
+    grid-row-gap: 0px;
+}
+
+.coluna1 {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.coluna2 {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.coluna3 {
+    grid-area: 1 / 3 / 2 / 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coluna4 {
+    grid-area: 2 / 1 / 3 / 2;
+    position: relative;
+}
+
+.coluna5 { grid-area: 2 / 2 / 3 / 3; }
+.coluna6 { grid-area: 2 / 3 / 3 / 4; }
+
+.QuemSomos {
+    width: 100%;
+    position: relative;
+    height: fit-content;
+    display: inline-block;
+    align-items: center;
+    justify-content: space-between;
+    background: #132941;
+    padding: 100px;
+}
+
+.quemS-text {
+    width: 100%;
+    display: block;
+    color: var(--white);
+}
+
+.quemS-text h1{
+    text-align: right;
+    color: #45D496;
+    font-size: 30px;
+}
+
+.quemS-text p{
+    font-size: 15px;
+    text-align: justify;
+}
+
+.card1 {
+    width: 100%;
+}
+
+.card2 {
+    position: relative;
+    width: 100%;
+}
+
+.card3 {
+    position: relative;
+    width: 100%;
+}
+
+.card4 {
+    position: relative;
+    width: 100%;
+}
+
+/* FOOTER */
+
+.rodape2_conteudo {
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.logotipo_rodape {
+    width: 250px;
+}
+
+.listas_rodape ul {
+    margin: 20px;
+}
+
+}
+
+/* --------------------------------------------------------- */
+
+/* DESIGN RESPONSIVO PARA TABLETS/TELAS PEQUENAS */
+
+@media screen and (max-width: 768px) {
+
+/* --------------------------------------------------------- */
+
+/* NAVIGATION */
+
+.navigation ul{
+    gap: 2rem;
+}
+
+/* SEÇÃO... esqueci o nome :/ (É A QUE TEM O BLOCO VERDE GIGANTE) */
+
+.proposito_container_blocos {
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 0px;
+    align-items: end;
+}
+
+.bloco1 {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    bottom: 0px;
+    border-radius: 9.16px;
+    background: #DEDFA4;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}
+
+/* --------------------------------------------------------- */
+
+/* SEÇÃO QUEM SOMOS */
+
+.quemS-text h1 {
+    text-align: right;
+    color: #45D496;
+    font-size: 20px;
+}
+
+.quemS-text p {
+    font-size: 13px;
+    text-align: justify;
+}
+
+/* --------------------------------------------------------- */
 }
 
 /* DESIGN RESPONSIVO PARA DISPOSTIVOS MOBILE */
@@ -1081,7 +1354,7 @@ button:hover {
         display: block;
         position: absolute;
         right: 0;
-        top: 70px;
+        top: 58px;
         left: 0;
     }
 
@@ -1089,8 +1362,18 @@ button:hover {
         display: none;
     }
 
+    /* SEÇÃO HOME */
+
     .home {
-        display: inline;
+        display: flex;
+        flex-direction: column;
+        padding-top: 59.42px;
+        height: 100vh;
+    }
+
+    .home_container1{
+        box-shadow: none;
+        clip-path: none;
     }
 
     .home-img img {
@@ -1106,11 +1389,7 @@ button:hover {
     }
 
     .home-text {
-
-        margin: 20px;
-        margin-top: 50px;
         align-items: center;
-
     }
 
     .home-text .text-h4 {
@@ -1153,128 +1432,161 @@ button:hover {
         background-color: var(--lightgreen);
     }
 
-    .flutuar.hexagonos {
-        padding-top: 100px;
-    }
-
-    /* Section "Nossas Soluções" */
-
-
-    .solucao {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0px 10%;
-        background: linear-gradient(to bottom, var(--green), var(--lightgreen));
-    }
-
-    .solu-text {
-        text-align: center;
-    }
-
-    .solu-titulo {
-        font-size: 2.0rem;
-    }
-
-    .barrinha {
-        content: '';
-        width: 70px;
-        height: 2px;
-        display: block;
-        margin: 11px auto 34px;
-        background: black;
-    }
-
-    .hexagonos {
-        width: 300px;
-        margin: 20px;
-        margin-top: 80px;
-        display: inline-block;
-        transition: all .2s ease-in-out;
-    }
-
-    .hexagonos:hover {
-        transform: scale(1.1);
-    }
 
     /* --------------------------------------------------------- */
 
-    /* Section Login */
+    /* Section Servicos */
 
-    .Login {
-        /* width: 100%; */
-        width: 100%;
+    .servicos{
         height: 100vh;
-        display: grid;
-        align-items: center;
-        padding: 0px 10%;
-        background: linear-gradient(to bottom, var(--blue), var(--lightblue));
     }
 
-    .login-text {
+    .servicos_wrapper{
+        height: 100%;
+    }
+
+    .botoes_slides {
         display: none;
     }
 
-    .login-titulo {
-        font-size: 2.0rem;
-    }
-
-    .divLoginBtn {
-        align-items: center;
-        display: inline-block;
-        padding-top: 10vh;
-    }
-
-    .login-btn {
-
-        padding: 15px 50px;
-        background-color: var(--dark);
+    .texto_mobile{
+        display: flex;
+        text-align: center;
+        width: 100%;
+        flex-direction: column;
         color: var(--white);
-        border-radius: 10px;
-        font-weight: 700;
-        transition: all 0.5s;
-        margin: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .h1_texto_mobile{
+        font-size: 32px;
+    }
+
+    .botoes_slides2{
+        display: flex;
+        margin-top: 20px;
+        justify-content: center;
+        column-gap: 50px;
+        width: 100%;
+        bottom: 0;
+        align-self: flex-end;
+
     }
 
 
     /* --------------------------------------------------------- */
 
-    /* Section Quem somos */
+    /* SEÇÃO DO BLOCÃO VERDE */
 
-    .QuemSomos {
+    .bloco{
+        width: 90%;
+        margin-left: 10%;
+    }
+
+    .proposito_container_blocos {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
         width: 100%;
-        height: 100%;
+
+    }
+
+    .bloco_1_container{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .bloco_2_container{
+        display: none;
+    }
+
+    .bloco_interno_container {
+        display: grid;
+        width: 100%;
+        height: fit-content;
+        padding: 20px;
+        border-radius: 9.16px;
         align-items: center;
-        justify-content: space-between;
-        background: linear-gradient(to bottom, var(--green), var(--lightgreen));
+        position: relative;
     }
 
-    .quemS-text {
-        width: 100%;
-        text-align: center;
-        padding-top: 20px;
+    .bloco_interno_text {
+        font-size: 20px;
+        padding: 15px;
     }
 
+    /* SEÇÃO QUEM SOMOS */
 
-    h1 {
-        margin-top: 2px;
+    .QuemSomos{
+        display: flex;
+        flex-direction: column;
     }
 
     .center-screen {
-        display: block;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
         text-align: center;
-        margin: 20px;
-
     }
 
+    .colunas_container_QS {
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+    }
 
-    /* --------------------------------------------------------- */
+    .coluna_mobile{
+        display: flex;
+        flex-direction: column;
+    }
 
+    .coluna_mobile h1{
+        color: #45D496;
+        font-size: 50px;
+        text-align: right;
+    }
+
+    .coluna_mobile p{
+        color: var(--white);
+        font-size: 15px;
+        text-align: justify;
+    }
+
+    .coluna3{
+        display: none;
+    }
+
+    /* FOOTER */
+
+    .logo_rodape{
+        display: none;
+    }
+
+    .logo_rodape2{
+        display: flex;
+        justify-content: center;
+    }
+
+    .logotipo_rodape2{
+        width: 250px;
+    }
+
+    .barrinha_rodape{
+        margin: 0 auto 17px;
+    }
+
+    .barrinha_rodape2{
+        content: '';
+        width: 90%;
+        height: 3px;
+        display: block;
+        margin: 17px auto 17px;
+        border-radius: 500px;
+        background: #45D496;
+    }
 }
 
 /* --------------------------------------------------------- */
-
-/* Animações */

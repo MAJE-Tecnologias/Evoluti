@@ -51,7 +51,7 @@ include '../MySQL/conecta.php';
             <div class="menuResponsivoItens">
                 <ul class="navMobile">
                     <li class="nav-item2"><a href="#home">Início</a></li>
-                    <li class="nav-item2"><a href="#solucao">Serviços</a></li>
+                    <li class="nav-item2"><a href="#servicos">Serviços</a></li>
                     <li class="nav-item2"><a href="#Login">Nosso propósito</a></li>
                     <li class="nav-item2"><a href="#Sobre">Quem somos?</a></li>
                 </ul>
@@ -67,6 +67,7 @@ include '../MySQL/conecta.php';
         <!-- Home -->
 
         <section class="home" id="home">
+            <div class="home_container1">
             <div class="home-text">
                 <h4 class="text-h4">Seu software de Evolução Fisioterapêutica</h4>
                 <h1 class="text-h1">Reinventando o cuidado, uma vida de cada vez.</h1>
@@ -74,6 +75,7 @@ include '../MySQL/conecta.php';
                     valiosos.
                 </p>
                 <a href="#" class="home-btn">Começar</a>
+            </div>
             </div>
             <div class="teste">
             <img src="/Imagens/Família.png" alt="fisio" class="home-img">
@@ -86,9 +88,11 @@ include '../MySQL/conecta.php';
         <!-- Nossas Soluções -->
 
         <section class="servicos" id="servicos">
+        <div class="servicos_wrapper">
             <h1 class="serv-titulo"><b>Serviços</b> que oferecem o melhor <b>ecossistema</b> para seu dia-a-dia</h1>
             <h2 class="barrinha" id="barrinha_serv"></h2>
 
+        <div class="servicos_teste">
             <div class="servicos_conteudo">
                 <div class="slides">
                     <div id="itens">
@@ -129,6 +133,29 @@ include '../MySQL/conecta.php';
                 </div>
             </div>
 
+
+        </div>
+        <div class="texto_mobile">
+        <h1 class="h1_texto_mobile">Lorem ipsum</h1>
+        <p class="p_texto_mobile">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum euismod eros, ut
+                            tristique enim tincidunt ut.</p>
+        </div>
+        <div class="botoes_slides2">
+                    <div class="servicos_text">
+                        <a href="#slide3" class="botao_slide"><i class="bx bxs-circle"></a></i>
+                    </div>
+                    <div class="servicos_text">
+                        <a href="#slide3" class="botao_slide"><i class="bx bxs-circle"></a></i>
+                    </div>
+                    <div class="servicos_text">
+                        <a href="#slide3" class="botao_slide"><i class="bx bxs-circle"></a></i>
+                    </div>
+                    <div class="servicos_text">
+                        <a href="#slide3" class="botao_slide"><i class="bx bxs-circle"></a></i>
+                    </div>
+            </div>
+    </div>
+
         </section>
 
         <!-- Login -->
@@ -139,7 +166,6 @@ include '../MySQL/conecta.php';
 
                 <h1 class="login-titulo">Possibilitando você a guiar o paciente à plenitude de uma vida <span
                         style="color: #D7D588">sem limitações.</span></h1>
-                <h2 class="barrinha" id="barrinha_login"></h2>
             </div>
 
         </section>
@@ -220,32 +246,19 @@ include '../MySQL/conecta.php';
         <!-- Quem somos? -->
 
         <section class="QuemSomos" id="Sobre">
-            <div class="quemS-text">
-
-                <h1 class="login-titulo">Quem somos?</h1>
-                <h2 class="barrinhaQS"></h2>
-                <p>A MAJE Tecnologias é uma empresa inovadora especializada no desenvolvimento de software, com foco
-                    na
-                    criação de soluções tecnológicas.</p>
-
-            </div>
 
             <div class="center-screen">
 
                 <div class="colunas_container_QS">
-                    <div class="coluna1">
-                        <img src="/Imagens/QuemSomos/Pielich.png" alt="backgroundCard1" class="card1">
-                        <div class="textoCard1">
-                            <h1>Eduardo Pielich</h1>
-                            <p>- Programador Back-End</p>
-                            <p>- Especialista em Banco de Dados</p>
-                            <a href="https://www.linkedin.com/in/carolina-pavan-570a0a215/"><i class="fa fa-linkedin"
-                                    id="icones"></i></a>
-                            <a href="https://github.com/RenatoAC2004"><i class="fa fa-github" id="icones"></i></a>
-                            <a href="l1nk.dev/linkedinlucas"><i class="fa fa-instagram" id="icones"></i></a>
+
+                        <div class="coluna_mobile">
+                            <h1>MAJE Tecnologias</h1>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                Quisque ac purus ut ipsum elementum consectetur at et leo. 
+                                Nulla sit amet rutrum tortor, eu faucibus urna.</p>
                         </div>
-                    </div>
-                    <div class="coluna2">
+
+                    <div class="coluna1">
                         <img src="/Imagens/QuemSomos/Juliana.png" alt="backgroundCard2" class="card2">
                         <div class="textoCard2">
                             <h1>Juliana Araujo</h1>
@@ -258,7 +271,7 @@ include '../MySQL/conecta.php';
                             <a href="l1nk.dev/linkedinlucas"><i class="fa fa-instagram" id="icones"></i></a>
                         </div>
                     </div>
-                    <div class="coluna3">
+                    <div class="coluna2">
                         <img src="/Imagens/QuemSomos/Morgueto.png" alt="backgroundCard3" class="card3">
                         <div class="textoCard3">
                             <h1>Lucas Morgueto</h1>
@@ -269,7 +282,20 @@ include '../MySQL/conecta.php';
                             <a href="l1nk.dev/linkedinlucas"><i class="fa fa-instagram" id="icones"></i></a>
                         </div>
                     </div>
+
+                    <div class="coluna3">
+                        <div class="quemS-text ">
+                            <div>
+                            <h1>MAJE Tecnologias</h1>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                Quisque ac purus ut ipsum elementum consectetur at et leo. 
+                                Nulla sit amet rutrum tortor, eu faucibus urna.</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="coluna4">
+
                         <img src="/Imagens/QuemSomos/Renato.png" alt="backgroundCard4" class="card4">
                         <div class="textoCard4">
                             <h1>Renato Carvalho</h1>
@@ -280,19 +306,33 @@ include '../MySQL/conecta.php';
                             <a href="https://github.com/RenatoAC2004"><i class="fa fa-github" id="icones"></i></a>
                             <a href="l1nk.dev/linkedinlucas"><i class="fa fa-instagram" id="icones"></i></a>
                         </div>
+
                     </div>
+
                     <div class="coluna5">
-                        <img src="/Imagens/QuemSomos/Bruno.png" alt="backgroundCard4" class="card4">
-                        <div class="textoCard4">
-                            <h1>Bruno Carvalho</h1>
-                            <p>- Programador Front-End</p>
-                            <p>- Designer</p>
+                        <img src="/Imagens/QuemSomos/Pielich.png" alt="backgroundCard1" class="card1">
+                        <div class="textoCard1">
+                            <h1>Eduardo Pielich</h1>
+                            <p>- Programador Back-End</p>
                             <a href="https://www.linkedin.com/in/carolina-pavan-570a0a215/"><i class="fa fa-linkedin"
                                     id="icones"></i></a>
                             <a href="https://github.com/RenatoAC2004"><i class="fa fa-github" id="icones"></i></a>
                             <a href="l1nk.dev/linkedinlucas"><i class="fa fa-instagram" id="icones"></i></a>
                         </div>
                     </div>
+
+                    <div class="coluna6">
+                        <img src="/Imagens/QuemSomos/Bruno.png" alt="backgroundCard4" class="card4">
+                        <div class="textoCard4">
+                            <h1>Bruno Carvalho</h1>
+                            <p>- Especialista em Banco de Dados</p>
+                            <a href="https://www.linkedin.com/in/carolina-pavan-570a0a215/"><i class="fa fa-linkedin"
+                                    id="icones"></i></a>
+                            <a href="https://github.com/RenatoAC2004"><i class="fa fa-github" id="icones"></i></a>
+                            <a href="l1nk.dev/linkedinlucas"><i class="fa fa-instagram" id="icones"></i></a>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -332,6 +372,8 @@ include '../MySQL/conecta.php';
         </div>
 
         <h2 class="barrinha_rodape"></h2>
+        <p class="logo_rodape2" alt="Logotipo"><img src="/Imagens/Logo.jpeg" class="logotipo_rodape2"></img></p>
+        <h2 class="barrinha_rodape2"></h2>
 
         <div class="redes_rodape">
             <h2 class="redes_text"><a href=""><i class="fa fa-twitter" id="iconesRodape"></i></a><a href=""><i
