@@ -1,5 +1,22 @@
 <?php
 
+include '../../MySql/conecta.php';
+
+session_start();
+
+if ($_SESSION['nivel'] == 0) {
+    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ADMIN = '" . $_SESSION['id'] . "'");
+    $prof = "Administrador";
+} elseif ($_SESSION['nivel'] == 1) {
+    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_FISIO = '" . $_SESSION['id'] . "'");
+    $prof = "Fisioterapia";
+} else {
+    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ESTAGIARIO = '" . $_SESSION['id'] . "'");
+    $prof = "Estagiario";
+}
+
+$nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="Pt-br">
@@ -258,7 +275,7 @@ include 'adminNavPerfil.php'
                     </li>
 
                     <li class="nav_link">
-                        <a href="adminView_Pacientes.html" class="active">
+                        <a href="adminView_Pacientes.php" class="active">
                             <i class='bx bxs-group icone'></i>
                             <span class="menu_texto">Pacientes</span>
                         </a>

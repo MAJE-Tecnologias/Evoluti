@@ -1,3 +1,19 @@
+.foto_perfil_usuario{
+    display: flex;
+    column-gap: 20px;
+}
+
+.foto_perfil_usuario img{
+    position: relative;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.nome_perfil_usuario{
+    display: flex;
+    flex-direction: column;
+}
+
 #LinhaComMargem{
     margin-bottom: 20px;
 }

@@ -3,6 +3,9 @@ session_start();
 
 $_SESSION['clinica'] = 1;
 
+include '../../MySql/conecta.php';
+
+
 if ($_SESSION['nivel'] == 0) {
     $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ADMIN = '" . $_SESSION['id'] . "'");
     $prof = "Administrador";
@@ -214,7 +217,7 @@ include 'adminNavPerfil.php'
                     </li>
 
                     <li class="nav_link">
-                        <a href="adminView_Pacientes.html">
+                        <a href="adminView_Pacientes.php">
                             <i class='bx bxs-group icone'></i>
                             <span class="menu_texto">Pacientes</span>
                         </a>
@@ -235,7 +238,7 @@ include 'adminNavPerfil.php'
                     </li>
 
                     <li class="nav_link">
-                        <a href="adminView_Usuarios.html">
+                        <a href="adminView_Usuarios.php">
                             <i class='bx bx-user-plus icone'></i>
                             <span class="menu_texto">Usuários</span>
                         </a>
@@ -322,21 +325,21 @@ if (isset($_POST['cadastrar'])) {
 
     if ($flag == 0) {
         //Inserindo Adm
-        $insertAdm = $conn->query("CALL InsertAdminProcedure('" . $nome . "','" . $nomeUser . "', '" . $senha . "', '" . $telefone . "', '" . $email . "','" . $cpf . "', '" . $rg . "','" . $genero . "', '" . $idEndereco[0] . "', '" . $_SESSION['clinica'] . "')");
+        $insertAdm = $conn->query("CALL InserirAdmin('" . $nome . "','" . $nomeUser . "', '" . $senha . "', '" . $telefone . "', '" . $email . "','" . $cpf . "', '" . $rg . "','" . $genero . "', '" . $idEndereco[0] . "', '" . $_SESSION['clinica'] . "')");
         echo "<script type='javascript'>alert('Admin adicionado com sucesso');";
     } elseif ($flag == 1) {
         //Inserindo Fisio   
         $crefito = $_POST['crefito'];
         $dtEmissao = $_POST['dtEmissao'];
         $especialidades = $_POST['especialidades'];
-        $insertFisio = $conn->query("CALL InsertFisioProcedure('" . $nome . "','" . $nomeUser . "', '" . $senha . "', '" . $telefone . "', '" . $email . "','" . $cpf . "', '" . $rg . "','" . $genero . "', '" . $idEndereco[0] . "', '" . $_SESSION['clinica'] . "', '" . $crefito . "', '" . $dtEmissao . "', '" . $especialidades . "')");
+        $insertFisio = $conn->query("CALL InserirFisio('" . $nome . "','" . $nomeUser . "', '" . $senha . "', '" . $telefone . "', '" . $email . "','" . $cpf . "', '" . $rg . "','" . $genero . "', '" . $idEndereco[0] . "', '" . $_SESSION['clinica'] . "', '" . $crefito . "', '" . $dtEmissao . "', '" . $especialidades . "')");
         echo "<script type='javascript'>alert('Fisio adicionado com sucesso');";
     } else {
         //Inserindo Estagiario
         $instituicao = $_POST['instituicao'];
         $dtInicioContrato = $_POST['dtInicioContrato'];
         $dtFimContrato = $_POST['dtFimContrato'];
-        $insertEstagio = $conn->query("CALL InsertEstagiarioProcedure('" . $nome . "','" . $nomeUser . "', '" . $senha . "', '" . $telefone . "', '" . $email . "','" . $cpf . "', '" . $rg . "','" . $genero . "', '" . $idEndereco[0] . "', '" . $_SESSION['clinica'] . "', '" . $instituicao . "', '" . $dtInicioContrato . "', '" . $dtFimContrato . "')");
+        $insertEstagio = $conn->query("CALL InserirEstagiario('" . $nome . "','" . $nomeUser . "', '" . $senha . "', '" . $telefone . "', '" . $email . "','" . $cpf . "', '" . $rg . "','" . $genero . "', '" . $idEndereco[0] . "', '" . $_SESSION['clinica'] . "', '" . $instituicao . "', '" . $dtInicioContrato . "', '" . $dtFimContrato . "')");
         echo "<script type='javascript'>alert('Estagio adicionado com sucesso');";
     }
 }

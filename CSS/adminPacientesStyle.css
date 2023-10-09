@@ -49,3 +49,19 @@
     font-size: 15px;
     font-weight: 700;
 }
+
+.foto_perfil_usuario{
+    display: flex;
+    column-gap: 20px;
+}
+
+.foto_perfil_usuario img{
+    position: relative;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.nome_perfil_usuario{
+    display: flex;
+    flex-direction: column;
+}

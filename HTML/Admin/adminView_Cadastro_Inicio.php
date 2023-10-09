@@ -3,6 +3,9 @@ session_start();
 
 $_SESSION['clinica'] = 1;
 
+include '../../MySql/conecta.php';
+
+
 if ($_SESSION['nivel'] == 0) {
     $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ADMIN = '" . $_SESSION['id'] . "'");
     $prof = "Administrador";
@@ -84,7 +87,7 @@ include 'adminNavPerfil.php'
                     </li>
     
                     <li class="nav_link">
-                        <a href="adminView_Pacientes.html">
+                        <a href="adminView_Pacientes.php">
                             <i class='bx bxs-group icone'></i>
                             <span class="menu_texto">Pacientes</span>
                         </a>

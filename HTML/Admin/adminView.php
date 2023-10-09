@@ -98,7 +98,7 @@ include 'adminNavPerfil.php'
                     </li>
 
                     <li class="nav_link">
-                        <a href="adminView_Pacientes.html">
+                        <a href="adminView_Pacientes.php">
                             <i class='bx bxs-group icone'></i>
                             <span class="menu_texto">Pacientes</span>
                         </a>
