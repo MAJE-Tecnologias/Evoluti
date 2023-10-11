@@ -11,6 +11,10 @@ body {
     z-index: 2;
 }
 
+.escuroNav{
+    z-index: 2;
+}
+
 .menuLateral{
     z-index: 3;
 }
@@ -38,8 +42,23 @@ body {
 .escuro .container_form {
     background: #242526;
     box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.08), 0px 6px 24px 0px rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
 }
 
+.escuro .Avaliacoes{
+    background: #18191A;
+    transition: 0.3s;
+}
+
+.escuro .Avaliacoes button{
+    background: #242526;
+    color: white;
+    transition: 0.3s;
+}
+
+.escuro .container_parte_inferior{
+    background: #18191A;
+}
 /* FORMULÁRIO DE ATENDIMENTOS */
 
 .wrapper_formulario {
@@ -94,6 +113,17 @@ body {
 
 summary{
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.texto_summary{
+    font-weight: 500;
+}
+
+.right{
+    margin-left: auto;
 }
 
 .Avaliacoes {
@@ -129,8 +159,117 @@ summary{
     text-align: left;
 }
 
+/* MEIO */
+
+.container_formulario_meio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.formulario_meio{
+    height: 75%;
+    width: 6px;
+    border-radius: 40px;
+    background: #45D496;
+}
+
+/* PARTE DA DIREITA */
+
+.formulario_direita{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .textArea_Form{
     resize: none;
     width: 100%;
-    height: 50%;
+    height: 100%;
+    border-radius: 0px 0px 20px 20px;
+}
+
+.faixa_escolha{
+    display: flex;
+    column-gap: 20px;
+}
+
+.texto_escolha{
+    font-weight: 700;
+}
+
+.selecionado{
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    color: #45D496;
+    border-color: rgb(118, 118, 118), rgb(133, 133, 133);
+}
+
+.dia_avaliacao{
+    text-align: right;
+    font-weight: 700;
+    padding: 3px;
+    border: 1px solid;
+}
+
+.container_parte_inferior{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+    border-radius: 20px;
+    margin-top: 10px;
+    row-gap: 20px;
+    padding: 2%;
+    background-color: white;
+}
+
+.container_texto_anexos{
+    display: flex;
+    justify-content: center;
+}
+
+.texto_anexos{
+    font-weight: 700;
+}
+
+.container_anexoArquivos{
+    display: flex;
+    column-gap: 20px;
+    justify-content: center;
+}
+
+.anexoItem{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    width: 20%;
+    height: 120px;
+    border: 0;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08), 0px 6px 24px 0px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    font-size: 30px;
+    color: white;
+    background: #45D496;
+    cursor: pointer;
+}
+
+.anexoItemText{
+    font-size: 16px;
+}
+
+.container_BarraPesquisa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.barraPesquisa{
+    width: 70%;
+    background: #efefef;
+    border: 0px;
+    padding: 10px;
+    border-radius: 10px;
 }

@@ -73,19 +73,24 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                         </div>
                         <div class="Dropdowns">
                             <details>
-                                <summary>Receitas <i class='bx bx-chevron-down'></i></summary>
+                                <summary>Receitas <i class='bx bx-chevron-down'> </i><i class='bx bxs-capsule right'></i></summary>
+                                <p class="texto_summary">O paciente não possui nenhuma receita anexada!</p>
                             </details>
                             <details>
-                                <summary>Pedido de exame <i class='bx bx-chevron-down'></i></summary>
+                                <summary>Pedido de exame <i class='bx bx-chevron-down'></i><i class="fa-solid fa-stethoscope right"></i></summary>
+                                <p class="texto_summary">O paciente não possui nenhum pedido de exame anexado!</p>
                             </details>
                             <details>
-                                <summary>Atestados <i class='bx bx-chevron-down'></i></summary>
+                                <summary>Atestados <i class='bx bx-chevron-down'></i><i class="fa-regular fa-clipboard right"></i></summary>
+                                <p class="texto_summary">O paciente não possui nenhum atestado anexado!</p>
                             </details>
                             <details>
                                 <summary>Diagnosticos <i class='bx bx-chevron-down'></i></summary>
+                                <p class="texto_summary">O paciente não possui nenhum diagnóstico anexado!</p>
                             </details>
                             <details>
-                                <summary>Arquivos atrelados <i class='bx bx-chevron-down'></i></summary>
+                                <summary>Arquivos atrelados <i class='bx bx-chevron-down'></i><i class="fa-solid fa-paperclip right"></i></summary>
+                                <p class="texto_summary">O paciente não possui nenhum arquivo adicional anexado!</p>
                             </details>
                         </div>
                         <div class="Avaliacoes">
@@ -103,10 +108,54 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                             <button>03/10/2023</button>
                         </div>
                     </div>
+
+                    <div class="container_formulario_meio">
+                        <div class="formulario_meio"></div>
+                    </div>
+
                     <div class="formulario_direita">
+                        <div class="faixa_escolha">
+                            <span class="texto_escolha selecionado">Avaliação</span>
+                            <span class="texto_escolha">Evolução</span>
+                        </div>
+                        <div class="dia_avaliacao">
+                            <p id="dia"></p>
+                        </div>
                         <div>
                             <textarea name="" id="textarea" cols="100" rows="30" class="textArea_Form"></textarea>
                         </div>
+                    <div class="container_parte_inferior">
+                        <div class="container_texto_anexos"> 
+                            <p class="texto_anexos">Selecione qual arquivo deseja anexar:</p>
+                        </div>
+
+                        <div class="container_anexoArquivos">
+                            <button class="anexoItem">
+                                <i class='bx bxs-capsule'></i>
+                                <p class="anexoItemText">Receitas</p>
+                            </button>
+
+                            <button class="anexoItem">
+                                <i class="fa-solid fa-stethoscope"></i>
+                                <p class="anexoItemText">Exames</p>
+                            </button>
+
+                            <button class="anexoItem">
+                                <i class="fa-regular fa-clipboard"></i>
+                                <p class="anexoItemText">Atestados</p>
+                            </button>
+
+                            <button class="anexoItem">
+                                <i class="fa-solid fa-paperclip"></i>
+                                <p class="anexoItemText">Outros</p>
+                            </button>
+
+                            
+                        </div>
+                        <div class="container_BarraPesquisa">
+                        <input type="text" placeholder="Diagnóstico" class="barraPesquisa"></input>
+                        <div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -187,6 +236,15 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     <!-- Javascript -->
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="/Javascript/scriptAdm.js"></script>
+
+    <script>
+
+    var tempoAtual = new Date();
+    var dataAtual = tempoAtual.toLocaleString();
+
+
+    document.getElementById("dia").innerHTML = dataAtual;
+    </script>
     <!-- -------------------------------------- -->
 
 </body>
