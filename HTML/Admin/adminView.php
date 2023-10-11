@@ -53,7 +53,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
 <?php
 
-include 'adminNavPerfil.php'
+include '../Componentes Gerais/NavPerfil.php'
 
 ?>
 

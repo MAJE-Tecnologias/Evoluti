@@ -1,0 +1,194 @@
+<?php
+
+include '../../MySql/conecta.php';
+
+session_start();
+
+if ($_SESSION['nivel'] == 0) {
+    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ADMIN = '" . $_SESSION['id'] . "'");
+    $prof = "Administrador";
+} elseif ($_SESSION['nivel'] == 1) {
+    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_FISIO = '" . $_SESSION['id'] . "'");
+    $prof = "Fisioterapia";
+} else {
+    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ESTAGIARIO = '" . $_SESSION['id'] . "'");
+    $prof = "Estagiario";
+}
+
+$nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
+?>
+
+<!DOCTYPE html>
+<html lang="Pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/Imagens/Icon.png">
+
+    <!-- CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../CSS/adminStyle.css">
+    <link rel="stylesheet" href="../../CSS/navBarStyle.css">
+    <link rel="stylesheet" href="../../CSS/fisioAtendimentoInterno.css">
+
+    <!-- -------------------------------------- -->
+
+
+
+    <!-- ÍCONES -->
+
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- -------------------------------------------------------------------------------------------------------- -->
+
+    <title>Evoluti</title>
+</head>
+
+<body>
+
+    <?php
+
+    include '../Componentes Gerais/NavPerfil.php'
+
+    ?>
+
+    <div class="container_principal">
+        <div class="container_view">
+            <div class="container_form">
+                <div class="wrapper_formulario">
+                    <div class="formulario_esquerda">
+                        <div class="formulario_paciente_container">
+                            <img src="https://picsum.photos/150" alt="foto_perfil_paciente" class="foto_paciente">
+                            <div class="formulario_paciente">
+                                <h1>Nome</h1>
+                                <span>Data de Nascimento: </span>
+                                <span>Cpf: </span>
+                            </div>
+                        </div>
+                        <div class="Dropdowns">
+                            <details>
+                                <summary>Receitas <i class='bx bx-chevron-down'></i></summary>
+                            </details>
+                            <details>
+                                <summary>Pedido de exame <i class='bx bx-chevron-down'></i></summary>
+                            </details>
+                            <details>
+                                <summary>Atestados <i class='bx bx-chevron-down'></i></summary>
+                            </details>
+                            <details>
+                                <summary>Diagnosticos <i class='bx bx-chevron-down'></i></summary>
+                            </details>
+                            <details>
+                                <summary>Arquivos atrelados <i class='bx bx-chevron-down'></i></summary>
+                            </details>
+                        </div>
+                        <div class="Avaliacoes">
+                            <button>03/10/2023</button>
+                            <button>03/10/2023</button>
+                            <button>03/10/2023</button>
+                            <button>03/10/2023</button>
+                            <button>03/10/2023</button>
+                            <button>03/10/2023</button>
+                            <button>03/10/2023</button>
+                            <button>03/10/2023</button>
+                            <button>03/10/2023</button>
+                            <button>03/10/2023</button>
+                            <button>03/10/2023</button>
+                            <button>03/10/2023</button>
+                        </div>
+                    </div>
+                    <div class="formulario_direita">
+                        <div>
+                            <textarea name="" id="textarea" cols="100" rows="30" class="textArea_Form"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="menuLateral fecharMenu">
+        <header>
+            <div class="imagem-texto">
+                <span class="imagem">
+                    <img src="../../Imagens/LogoBranco.png" class="logotipo"></img>
+                </span>
+            </div>
+
+            <i class="bx bx-chevron-right toggle"></i>
+        </header>
+
+        <div class="menu_container">
+            <div class="menu">
+                <ul class="menu_links"></ul>
+                <li class="nav_link">
+                    <a href="fisioView_Atendimento.html" class="active">
+                        <i class='bx bxs-plus-circle icone'></i>
+                        <span class="menu_texto">Atendimento</span>
+                    </a>
+                </li>
+
+                <li class="nav_link">
+                    <a href="fisioView_Pacientes.html">
+                        <i class='bx bxs-group icone'></i>
+                        <span class="menu_texto">Pacientes</span>
+                    </a>
+                </li>
+
+                <li class="nav_link">
+                    <a href="#">
+                        <i class='bx bx-file icone'></i>
+                        <span class="menu_texto">Documentos</span>
+                    </a>
+                </li>
+
+                <li class="nav_link">
+                    <a href="#">
+                        <i class='bx bx-line-chart icone'></i>
+                        <span class="menu_texto">Relatórios</span>
+                    </a>
+                </li>
+                </ul>
+            </div>
+
+            <div class="menu_embaixo">
+                <li class="">
+                    <a href="#" class="toggle-switch">
+                        <i class='bx bx-sun icone'></i>
+                        <span class="menu_texto">Alterar Modo</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#">
+                        <i class='bx bx-cog icone'></i>
+                        <span class="menu_texto">Configurações</span>
+                    </a>
+                </li>
+
+            </div>
+        </div>
+
+    </nav>
+
+
+    <main>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="/Javascript/scriptAdm.js"></script>
+    <!-- -------------------------------------- -->
+
+</body>
+
+</html>
