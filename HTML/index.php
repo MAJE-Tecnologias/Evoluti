@@ -106,28 +106,30 @@ include '../MySQL/conecta.php';
                     <div class="servicos_text">
                         <h1><a href="#slide1" class="botao_slide"><i class="bx bxs-circle"></a></i> Prontuário eletrônico
                         </h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum euismod eros, ut
-                            tristique enim tincidunt ut.</p>
+                        <p>Nosso software de evolução fisioterapêutica prioriza a organização e o acesso rápido às informações clínicas. 
+                            Os prontuários eletrônicos fornecem uma solução digital e segura para armazenar e gerenciar todas as informações 
+                            essenciais do paciente.</p>
                     </div>
 
                     <div class="servicos_text">
                         <h1><a href="#slide2" class="botao_slide"><i class="bx bxs-circle"></a></i> Marcação de pontos de
                             dor
                         </h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum euismod eros, ut
-                            tristique enim tincidunt ut.</p>
+                        <p>Nossa plataforma oferece uma ferramenta de marcação de pontos de dor, permitindo que os fisioterapeutas registrem 
+                            com precisão a localização e a intensidade da dor dos pacientes.</p>
                     </div>
 
                     <div class="servicos_text">
                         <h1><a href="#slide3" class="botao_slide"><i class="bx bxs-circle"></a></i> Documentação</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum euismod eros, ut
-                            tristique enim tincidunt ut.</p>
+                        <p>O software de evolução fisioterapêutica simplifica a documentação clínica. Os fisioterapeutas podem registrar o 
+                            progresso do paciente, anotar observações importantes, detalhar os exercícios recomendados e acompanhar as respostas 
+                            aos tratamentos.</p>
                     </div>
 
                     <div class="servicos_text">
                         <h1><a href="#slide1" class="botao_slide"><i class="bx bxs-circle"></a></i> Relatórios</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum euismod eros, ut
-                            tristique enim tincidunt ut.</p>
+                        <p>Nossos relatórios são projetados para serem claros e informativos, contribuindo para uma melhor tomada de decisões clínicas 
+                            e uma experiência mais envolvente para os pacientes.</p>
                     </div>
 
                 </div>
@@ -181,18 +183,12 @@ include '../MySQL/conecta.php';
                         <div class="bloco_principal_container">
                             <p class="proposito_titulo">Muito além da fisioterapia...</p>
                             <p class="proposito_titulo2" id="animacao">a autonomia</p>
-                            <p class="bloco_principal_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Quisque ac purus ut ipsum elementum consectetur at et leo. Nulla sit amet rutrum
-                                tortor,
-                                eu faucibus urna. Suspendisse pretium enim ac justo dignissim, nec ullamcorper felis
-                                finibus.
-                                Proin lobortis sapien ac nulla dictum, sed lacinia leo dictum. Fusce nec arcu nec
-                                metus
-                                pharetra lacinia.
-                                Vivamus semper justo sed tellus commodo, sed aliquam felis tincidunt. Aliquam
-                                vestibulum
-                                pellentesque dolor,
-                                in egestas felis semper ac.</p>
+                            <p class="bloco_principal_text">O que torna o Evoluti único é a fusão 
+                                perfeita entre a experiência clínica e a tecnologia avançada. Com ele, 
+                                oferecemos a você a capacidade de controlar a reabilitação de seus pacientes, 
+                                tornando o processo mais prático e adaptado às suas necessidades individuais. 
+                                Tudo isso, a qualquer momento e em qualquer lugar, proporcionando maior 
+                                flexibilidade e conveniência.</p>
                         </div>
 
 
@@ -253,9 +249,9 @@ include '../MySQL/conecta.php';
 
                         <div class="coluna_mobile">
                             <h1>MAJE Tecnologias</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                Quisque ac purus ut ipsum elementum consectetur at et leo. 
-                                Nulla sit amet rutrum tortor, eu faucibus urna.</p>
+                            <p>Nosso compromisso com a excelência clínica é inabalável. Trabalhamos em estreita colaboração 
+                                com fisioterapeutas e profissionais de saúde para garantir que nossos métodos e recursos sejam 
+                                baseados nas melhores práticas da área. </p>
                         </div>
 
                     <div class="coluna1">
@@ -287,9 +283,9 @@ include '../MySQL/conecta.php';
                         <div class="quemS-text ">
                             <div>
                             <h1>MAJE Tecnologias</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                Quisque ac purus ut ipsum elementum consectetur at et leo. 
-                                Nulla sit amet rutrum tortor, eu faucibus urna.</p>
+                            <p>Nosso compromisso com a excelência clínica é inabalável. Trabalhamos em estreita colaboração 
+                                com fisioterapeutas e profissionais de saúde para garantir que nossos métodos e recursos sejam 
+                                baseados nas melhores práticas da área. </p>
                             </div>
                         </div>
                     </div>
