@@ -34,6 +34,8 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     <link rel="stylesheet" href="../../CSS/adminStyle.css">
     <link rel="stylesheet" href="../../CSS/navBarStyle.css">
     <link rel="stylesheet" href="../../CSS/fisioAtendimentoInterno.css">
+    <link rel="stylesheet" href="../../CSS/fisio_ProntuarioEletronicoStyle.css">
+    
 
     <!-- -------------------------------------- -->
 
@@ -114,14 +116,12 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                     </div>
 
                     <div class="formulario_direita">
-
-                        <img src="https://s1.static.brasilescola.uol.com.br/be/conteudo/images/sistema-muscular.jpg" alt="pontosDor1"></img>
-                    
-                    </div>
+                        <img src="/Imagens/musculaturaFront.png" alt="pontosDor1" type="image/webp"></img>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <nav class="menuLateral fecharMenu">
@@ -200,12 +200,11 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     <script src="/Javascript/scriptAdm.js"></script>
 
     <script>
+        var tempoAtual = new Date();
+        var dataAtual = tempoAtual.toLocaleString();
 
-    var tempoAtual = new Date();
-    var dataAtual = tempoAtual.toLocaleString();
 
-
-    document.getElementById("dia").innerHTML = dataAtual;
+        document.getElementById("dia").innerHTML = dataAtual;
     </script>
     <!-- -------------------------------------- -->
 
