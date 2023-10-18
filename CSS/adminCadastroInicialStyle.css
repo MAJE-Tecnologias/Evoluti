@@ -93,6 +93,29 @@ body{
     transform: scale(1.5);
 }
 
+.lado_Esquerdo{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+}
+
+.lado_Direito{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+}
+
+.texto_CadastroUsuario{
+    display: flex;
+    position: absolute;
+    font-size: 60px;
+    font-weight: 700;
+    color: #D7D588;
+    bottom: 0;
+}
+
 
 
 /* Icone Ativo */

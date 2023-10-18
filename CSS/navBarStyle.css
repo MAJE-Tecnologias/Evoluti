@@ -37,6 +37,18 @@ body{
     background: #E4E9F7;
 }
 
+.escuro{
+    transition: 0.5s;
+    background: #18191A;
+    color: var(--white);
+}
+
+.escuro .container_form {
+    background: #242526;
+    box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.08), 0px 6px 24px 0px rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
+}
+
 /* --------------------------------------------------------- */
 /* NAVBAR */
 .navigation{
@@ -50,7 +62,7 @@ body{
     background: var(--white);
     transition: 0.5s;
     position: fixed;
-    z-index: -1;
+    z-index: 2;
 }
 
 .escuroNav{
@@ -63,7 +75,7 @@ body{
     background: #242526;
     transition: 0.5s;
     position: fixed;
-    z-index: -1;
+    z-index: 2;
     color: white;
 }
 /* --------------------------------------------------------- */
@@ -77,6 +89,7 @@ body{
     padding: 20px 14px;
     background: #45D496;
     transition: var(--transicao-1);
+    z-index: 3;
 }
 
 .menuLateral.fecharMenu{

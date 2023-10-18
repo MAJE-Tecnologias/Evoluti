@@ -10,10 +10,10 @@ if ($_SESSION['nivel'] == 0) {
     $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ADMIN = '" . $_SESSION['id'] . "'");
     $prof = "Administrador";
 } elseif ($_SESSION['nivel'] == 1) {
-    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_FISIO = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT NOME FROM fisio WHERE ID_FISIO = '" . $_SESSION['id'] . "'");
     $prof = "Fisioterapia";
 } else {
-    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ESTAGIARIO = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT NOME FROM estagiario WHERE ID_ESTAGIARIO = '" . $_SESSION['id'] . "'");
     $prof = "Estagiario";
 }
 
@@ -32,7 +32,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/CSS/navStyle.css">
+    <link rel="stylesheet" href="/CSS/navBarStyle.css">
     <link rel="stylesheet" href="/CSS/adminCadastroStyle.css">
     <!-- -------------------------------------- -->
 
@@ -60,15 +60,15 @@ include '../Componentes Gerais/NavPerfil.php'
         <div class="container_view" data="interno/a.html">
 
             <div class="container_conteudo">
-                <div class="grid_escolherForm">
+                <div class="grid_escolherForm" >
                     <a id="botaoAdm" href="#" onclick="buttonAdministrador();return false;">
-                        <div class="grid1 tipos ativo">Administrador</div>
+                        <div class="grid1 tipos ativo" id="botaoAtivoAdm">Administrador</div>
                     </a>
                     <a id="botaoFisio" href="#" onclick="buttonFisioterapeuta();return false;">
-                        <div class="grid2 tipos">Fisioterapeuta</div>
+                        <div class="grid2 tipos" id="botaoAtivoFisio">Fisioterapeuta</div>
                     </a>
                     <a id="botaoEstag" href="#" onclick="buttonEstagiario();return false;">
-                        <div class="grid3 tipos">Estagiário</div>
+                        <div class="grid3 tipos" id="botaoAtivoEstagi">Estagiário</div>
                     </a>
                 </div>
             </div>
@@ -148,6 +148,11 @@ include '../Componentes Gerais/NavPerfil.php'
                         </div>
                     </div>
 
+                    <div id="adicional">
+
+                    </div>
+
+
                     <div class="titulo1"><label class="labelTitulos">Endereço</label></div>
                     <div class="linhas">
                         <div class="linha1">
@@ -182,7 +187,9 @@ include '../Componentes Gerais/NavPerfil.php'
                                 <input type="text" id="cadastroCidade" name="cidade" placeholder="Digite a cidade">
                             </div>
                         </div>
+                        <div style="display: none;" id="div_flag">
                         <input type="number" name="flag" value="0" id="flag" style="display: none;">
+                        </div>
                         <div class="container_btn_cadastro">
                             <div class="linha4">
                                 <input type="submit" class="btn_cadastrar" name="cadastrar" value="Cadastrar"></input>
@@ -247,6 +254,12 @@ include '../Componentes Gerais/NavPerfil.php'
             </div>
 
             <div class="menu_embaixo">
+                <li class="">
+                    <a href="#" class="toggle-switch">
+                        <i class='bx bx-sun icone'></i>
+                        <span class="menu_texto">Alterar Modo</span>
+                    </a>
+                </li>
                 <li class="">
                     <a href="#">
                         <i class='bx bx-cog icone'></i>
@@ -332,14 +345,14 @@ if (isset($_POST['cadastrar'])) {
         $crefito = $_POST['crefito'];
         $dtEmissao = $_POST['dtEmissao'];
         $especialidades = $_POST['especialidades'];
-        $insertFisio = $conn->query("CALL InserirFisio('" . $nome . "','" . $nomeUser . "', '" . $senha . "', '" . $telefone . "', '" . $email . "','" . $cpf . "', '" . $rg . "','" . $genero . "', '" . $idEndereco[0] . "', '" . $_SESSION['clinica'] . "', '" . $crefito . "', '" . $dtEmissao . "', '" . $especialidades . "')");
+        $insertFisio = $conn->query("CALL InserirFisio('" . $nome . "','" . $nomeUser . "', '" . $senha . "', '" . $telefone . "', '" . $email . "','" . $cpf . "', '" . $rg . "','" . $genero . "', '" . $crefito . "', '" . $dtEmissao . "', '" . $especialidades . "', '" . $idEndereco[0] . "', '" . $_SESSION['clinica'] . "')");
         echo "<script type='javascript'>alert('Fisio adicionado com sucesso');";
     } else {
         //Inserindo Estagiario
         $instituicao = $_POST['instituicao'];
         $dtInicioContrato = $_POST['dtInicioContrato'];
         $dtFimContrato = $_POST['dtFimContrato'];
-        $insertEstagio = $conn->query("CALL InserirEstagiario('" . $nome . "','" . $nomeUser . "', '" . $senha . "', '" . $telefone . "', '" . $email . "','" . $cpf . "', '" . $rg . "','" . $genero . "', '" . $idEndereco[0] . "', '" . $_SESSION['clinica'] . "', '" . $instituicao . "', '" . $dtInicioContrato . "', '" . $dtFimContrato . "')");
+        $insertEstagio = $conn->query("CALL InserirEstagiario('" . $nome . "','" . $nomeUser . "', '" . $senha . "', '" . $telefone . "', '" . $email . "','" . $cpf . "', '" . $rg . "','" . $genero . "', '" . $instituicao . "', '" . $dtInicioContrato . "', '" . $dtFimContrato . "', '" . $idEndereco[0] . "', '" . $_SESSION['clinica'] . "')");
         echo "<script type='javascript'>alert('Estagio adicionado com sucesso');";
     }
 }

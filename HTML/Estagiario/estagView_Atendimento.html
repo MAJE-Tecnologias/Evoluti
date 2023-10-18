@@ -8,10 +8,10 @@ if ($_SESSION['nivel'] == 0) {
     $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ADMIN = '" . $_SESSION['id'] . "'");
     $prof = "Administrador";
 } elseif ($_SESSION['nivel'] == 1) {
-    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_FISIO = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT NOME FROM fisio WHERE ID_FISIO = '" . $_SESSION['id'] . "'");
     $prof = "Fisioterapia";
 } else {
-    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ESTAGIARIO = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT NOME FROM estagiario WHERE ID_ESTAGIARIO = '" . $_SESSION['id'] . "'");
     $prof = "Estagiario";
 }
 
@@ -75,7 +75,13 @@ include 'adminNavPerfil.php'
 
             </div>
         </div>
-
+        <div class="titulo">
+            <i class='bx bxs-user-plus'></i>
+            <p>Novo Atendimento</p>
+        </div>
+        <div class="subTitulo">
+            <p>Selecione um paciente para realizar o atendimento:</p>
+        </div>
         <div class="container_form">
             <div class="container_card">
                 <a href="" class="info2">

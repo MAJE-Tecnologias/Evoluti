@@ -21,10 +21,10 @@ if ($_SESSION['nivel'] == 0) {
     $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ADMIN = '" . $_SESSION['id'] . "'");
     $prof = "Administrador";
 } elseif ($_SESSION['nivel'] == 1) {
-    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_FISIO = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT NOME FROM fisio WHERE ID_FISIO = '" . $_SESSION['id'] . "'");
     $prof = "Fisioterapia";
 } else {
-    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ESTAGIARIO = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT NOME FROM estagiario WHERE ID_ESTAGIARIO = '" . $_SESSION['id'] . "'");
     $prof = "Estagiario";
 }
 
@@ -43,7 +43,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/CSS/navStyle.css">
+    <link rel="stylesheet" href="/CSS/navBarStyle.css">
     <link rel="stylesheet" href="/CSS/adminUsuarioStyle.css">
     <!-- -------------------------------------- -->
 
@@ -198,6 +198,12 @@ include '../Componentes Gerais/NavPerfil.php'
             </div>
 
             <div class="menu_embaixo">
+                <li class="">
+                    <a href="#" class="toggle-switch">
+                        <i class='bx bx-sun icone'></i>
+                        <span class="menu_texto">Alterar Modo</span>
+                    </a>
+                </li>
                 <li class="">
                     <a href="#">
                         <i class='bx bx-cog icone'></i>

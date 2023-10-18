@@ -114,65 +114,9 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                     </div>
 
                     <div class="formulario_direita">
-                        <div class="faixa_escolha">
-                            <span class="texto_escolha selecionado">Avaliação</span>
-                            <span class="texto_escolha">Evolução</span>
-                        </div>
-                        <div class="dia_avaliacao">
-                            <p id="dia"></p>
-                        </div>
 
-                    <form action="/fisioView_AtendimentoInterno.php" method="post">
-
-                        <div>
-                            <textarea name="" id="textarea" cols="100" rows="30" class="textArea_Form"></textarea>
-                        </div>
-                    <div class="container_parte_inferior">
-                        <div class="container_texto_anexos"> 
-                            <p class="texto_anexos">Selecione qual arquivo deseja anexar:</p>
-                        </div>
-
-                        <div class="container_anexoArquivos">
-                            <label for="anexarReceitas" class="anexoItem">
-
-                                <input type="file" id="anexarReceitas">
-                                    <i class='bx bxs-capsule'></i>
-                                    <p class="anexoItemText">Receitas</p>
-                                </input>
-
-                            </label>
-
-                            <label for="anexarExames" class="anexoItem">
-                                <input type="file" id="anexarExames">
-                                    <i class="fa-solid fa-stethoscope"></i>
-                                    <p class="anexoItemText">Exames</p>
-                                </input>
-                            </label>
-
-                            <label for="anexarAtestados" class="anexoItem">
-                                <input type="file" id="anexarAtestados">
-                                    <i class="fa-regular fa-clipboard"></i>
-                                    <p class="anexoItemText">Atestados</p>
-                                </input>
-                            </label>
-
-                            <label for="anexarOutros" class="anexoItem">
-                                <input type="file" id="anexarOutros">
-                                    <i class="fa-solid fa-paperclip"></i>
-                                    <p class="anexoItemText">Outros</p>
-                                </input>
-                            </label>
-                            
-                        </div>
-                        <div class="container_BarraPesquisa">
-                        <input type="text" placeholder="Diagnóstico" class="barraPesquisa"></input>
-                        </div>
-
-                        <div class="btn_salvar_container">
-                            <input type="submit" name="btn_salvar" value="Salvar" id="btn_salvar"></input>
-                        </div>
-
-                    </form>
+                        <img src="https://s1.static.brasilescola.uol.com.br/be/conteudo/images/sistema-muscular.jpg" alt="pontosDor1"></img>
+                    
                     </div>
                     </div>
                 </div>
@@ -195,14 +139,14 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
             <div class="menu">
                 <ul class="menu_links"></ul>
                 <li class="nav_link">
-                    <a href="fisioView_Atendimento.php" class="active">
+                    <a href="fisioView_Atendimento.html" class="active">
                         <i class='bx bxs-plus-circle icone'></i>
                         <span class="menu_texto">Atendimento</span>
                     </a>
                 </li>
 
                 <li class="nav_link">
-                    <a href="fisioView_Pacientes.php">
+                    <a href="fisioView_Pacientes.html">
                         <i class='bx bxs-group icone'></i>
                         <span class="menu_texto">Pacientes</span>
                     </a>

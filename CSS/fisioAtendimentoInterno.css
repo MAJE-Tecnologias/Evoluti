@@ -273,3 +273,28 @@ summary{
     padding: 10px;
     border-radius: 10px;
 }
+
+.btn_salvar_container{
+    display: flex;
+    justify-content: center;
+}
+
+#btn_salvar{
+    display: flex;
+    width: 150px;
+    padding: 6px 24px;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;
+    gap: 4.5px;
+    color: white;
+    border: 0;
+
+    border-radius: 4.5px;
+    background: #45D496;
+}
+
+input[type=file]{
+
+    display: none;
+}

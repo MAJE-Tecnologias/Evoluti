@@ -15,6 +15,10 @@ if ($_SESSION['nivel'] == 0) {
     $prof = "Estagiario";
 }
 
+$pacientes = $conn->query("SELECT * FROM evoluti.paciente;");
+
+for ($setPacientes = array(); $rowPacientes = $pacientes->fetch_assoc(); $setPacientes[] = $rowPacientes['NOME']);
+
 $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 ?>
 
@@ -33,6 +37,8 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../CSS/adminStyle.css">
     <link rel="stylesheet" href="../../CSS/navBarStyle.css">
+    <link rel="stylesheet" href="/CSS/adminUsuarioStyle.css">
+    <link rel="stylesheet" href="../../CSS/fisioAtendimento.css">
 
     <!-- -------------------------------------- -->
 
@@ -51,24 +57,49 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
 <body>
 
-<?php
+    <?php
 
-include '../Componentes Gerais/NavPerfil.php'
+    include '../Componentes Gerais/NavPerfil.php'
 
-?>
+    ?>
 
-    <div class="container_principal">
+    <div class="container_usuarios">
         <div class="container_view">
-            <img src="\Imagens\Logo_Sem_fundo.png" alt="LogoAnimado" class="LogoAnimado">
-            <span class="TextoLogo">
-                <h1>Seja bem-vindo(a) a sua tela inicial!</h1>
-                <p>Sinta-se livre para abrir o menu lateral e escolher uma opção, ou clique no botão abaixo para ver os tutoriais das telas:</p>
-            </span>
+            <div class="container_pesquisa">
+                <div class="grid_pesquisa">
 
-            <div class="divInterna_Botoes">
-                <a href="#" class="estiloBotoes"><i class='bx bxs-help-circle'></i>
-                    <p>TUTORIAIS</p>
-                </a>
+                    <div class="vazio2"></div>
+
+
+                    <div class="vazio1"></div>
+
+
+                    <div class="pesquisa linha"><input type="text" placeholder="Pesquise um usuário"><i class='bx bxs-user-rectangle iconepesquisa'></i></div>
+
+                </div>
+            </div>
+            <div class="titulo">
+                <i class='bx bxs-user'></i>
+                <p>Pacientes</p>
+            </div>
+            <div class="subTitulo">
+                <p>Selecione um paciente para verificar seu prontuário eletrônico:</p>
+            </div>
+            <div class="container_form">
+                <div class="container_card">
+                    <?php
+                    for ($i = 0; $i < mysqli_num_rows($pacientes); $i++) {
+                        printf("
+                        <a href='' class='info2'>
+                        <div>
+                            <img src='https://picsum.photos/150' alt=''>
+                            <h4>%s</h4>
+                        </div>
+                    </a>
+                            ", $setPacientes[$i]);
+                    }
+                    ?>
+                </div>
             </div>
         </div>
     </div>
@@ -88,14 +119,14 @@ include '../Componentes Gerais/NavPerfil.php'
             <div class="menu">
                 <ul class="menu_links">
                     <li class="nav_link">
-                        <a href="adminView_Cadastro_Inicio.php">
+                        <a href="fisioView_Atendimento.php">
                             <i class='bx bxs-plus-circle icone'></i>
-                            <span class="menu_texto">Cadastros</span>
+                            <span class="menu_texto">Atendimento</span>
                         </a>
                     </li>
 
                     <li class="nav_link">
-                        <a href="adminView_Pacientes.php">
+                        <a href="fisioView_Pacientes.php" class="active">
                             <i class='bx bxs-group icone'></i>
                             <span class="menu_texto">Pacientes</span>
                         </a>
@@ -112,13 +143,6 @@ include '../Componentes Gerais/NavPerfil.php'
                         <a href="#">
                             <i class='bx bx-line-chart icone'></i>
                             <span class="menu_texto">Relatórios</span>
-                        </a>
-                    </li>
-
-                    <li class="nav_link">
-                        <a href="adminView_Usuarios.php">
-                            <i class='bx bx-user-plus icone'></i>
-                            <span class="menu_texto">Usuários</span>
                         </a>
                     </li>
                 </ul>

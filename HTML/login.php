@@ -88,7 +88,7 @@ if (isset($_POST['btn'])) {
 				$_SESSION['id'] = $fisioArray['ID_FISIO'];
 				$_SESSION['nivel'] = 1;
 				$_SESSION['clinica'] = $fisioArray['FK_CLINICA'];
-				header("Location: Admin/adminView.php");
+				header("Location: Fisio/fisioView.php");
 			} else if ($selectFisio->num_rows > 1) {
 				echo "Mais de um resultado no banco de dados";
 			} else {

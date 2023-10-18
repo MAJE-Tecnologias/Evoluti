@@ -1,3 +1,7 @@
+.navigation{
+    z-index: 2;
+}
+
 .foto_perfil_usuario{
     display: flex;
     column-gap: 20px;
@@ -24,6 +28,7 @@ input[type=file]{
 }
 
 #container_view_pacientes{
+    z-index: 1;
     padding-top: 100px;
 }
 

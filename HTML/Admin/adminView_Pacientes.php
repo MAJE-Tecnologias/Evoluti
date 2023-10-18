@@ -8,12 +8,16 @@ if ($_SESSION['nivel'] == 0) {
     $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ADMIN = '" . $_SESSION['id'] . "'");
     $prof = "Administrador";
 } elseif ($_SESSION['nivel'] == 1) {
-    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_FISIO = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT NOME FROM fisio WHERE ID_FISIO = '" . $_SESSION['id'] . "'");
     $prof = "Fisioterapia";
 } else {
-    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ESTAGIARIO = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT NOME FROM estagiario WHERE ID_ESTAGIARIO = '" . $_SESSION['id'] . "'");
     $prof = "Estagiario";
 }
+
+$pacientes = $conn->query("SELECT * FROM evoluti.paciente;");
+
+for ($setPacientes = array(); $rowPacientes = $pacientes->fetch_assoc(); $setPacientes[] = $rowPacientes['NOME']);
 
 $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
@@ -31,7 +35,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/CSS/navStyle.css">
+    <link rel="stylesheet" href="/CSS/navBarStyle.css">
     <link rel="stylesheet" href="/CSS/adminUsuarioStyle.css">
     <link rel="stylesheet" href="/CSS/adminPacientesStyle.css">
     <!-- -------------------------------------- -->
@@ -50,11 +54,11 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
 <body>
 
-<?php
+    <?php
 
-include '../Componentes Gerais/NavPerfil.php'
+    include '../Componentes Gerais/NavPerfil.php'
 
-?>
+    ?>
 
     <div class="container_usuarios">
         <div class="container_view">
@@ -67,182 +71,25 @@ include '../Componentes Gerais/NavPerfil.php'
                     <div class="vazio1"></div>
 
 
-                    <div class="pesquisa linha"><input type="text" placeholder="Pesquise um usuário"><i
-                            class='bx bxs-user-rectangle iconepesquisa'></i></div>
+                    <div class="pesquisa linha"><input type="text" placeholder="Pesquise um usuário"><i class='bx bxs-user-rectangle iconepesquisa'></i></div>
 
                 </div>
             </div>
 
             <div class="container_form">
                 <div class="container_card">
-                    <a href="" class="info2">
+                    <?php
+                    for ($i = 0; $i < mysqli_num_rows($pacientes); $i++) {
+                        printf("
+                        <a href='' class='info2'>
                         <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
+                            <img src='https://picsum.photos/150' alt=''>
+                            <h4>%s</h4>
                         </div>
                     </a>
-                    <a href="" class="info2">
-                        <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
-                        </div>
-                    </a>
-                    <a href="" class="info2">
-                        <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
-                        </div>
-                    </a>
-                    <a href="" class="info2">
-                        <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
-                        </div>
-                    </a>
-                    <a href="" class="info2">
-                        <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
-                        </div>
-                    </a>
-                    <a href="" class="info2">
-                        <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
-                        </div>
-                    </a>
-                    <a href="" class="info2">
-                        <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
-                        </div>
-                    </a>
-                    <a href="" class="info2">
-                        <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
-                        </div>
-                    </a>
-                    <a href="" class="info2">
-                        <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
-                        </div>
-                    </a>
-                    <a href="" class="info2">
-                        <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
-                        </div>
-                    </a>
-                    <a href="" class="info2">
-                        <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
-                        </div>
-                    </a>
-                    <a href="" class="info2">
-                        <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
-                        </div>
-                    </a>
-                    <a href="" class="info2">
-                        <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
-                        </div>
-                    </a>
-                    <a href="" class="info2">
-                        <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
-                        </div>
-                    </a>
-                    <a href="" class="info2">
-                        <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
-                        </div>
-                    </a>
-                    <a href="" class="info2">
-                        <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
-                        </div>
-                    </a>
-                    <a href="" class="info2">
-                        <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
-                        </div>
-                    </a>
-                    <a href="" class="info2">
-                        <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
-                        </div>
-                    </a>
-                    <a href="" class="info2">
-                        <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
-                        </div>
-                    </a>
-                    <a href="" class="info2">
-                        <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
-                        </div>
-                    </a>
-                    <a href="" class="info2">
-                        <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
-                        </div>
-                    </a>
-                    <a href="" class="info2">
-                        <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
-                        </div>
-                    </a>
-                    <a href="" class="info2">
-                        <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
-                        </div>
-                    </a>
-                    <a href="" class="info2">
-                        <div>
-                            <img src="https://picsum.photos/150" alt="">
-                            <h4>Eduardo Pielich Sanchez</h4>
-
-                        </div>
-                    </a>
+                            ", $setPacientes[$i]);
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -305,6 +152,12 @@ include '../Componentes Gerais/NavPerfil.php'
             </div>
 
             <div class="menu_embaixo">
+                <li class="">
+                    <a href="#" class="toggle-switch">
+                        <i class='bx bx-sun icone'></i>
+                        <span class="menu_texto">Alterar Modo</span>
+                    </a>
+                </li>
                 <li class="">
                     <a href="#">
                         <i class='bx bx-cog icone'></i>

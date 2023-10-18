@@ -10,10 +10,10 @@ if ($_SESSION['nivel'] == 0) {
     $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ADMIN = '" . $_SESSION['id'] . "'");
     $prof = "Administrador";
 } elseif ($_SESSION['nivel'] == 1) {
-    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_FISIO = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT NOME FROM fisio WHERE ID_FISIO = '" . $_SESSION['id'] . "'");
     $prof = "Fisioterapia";
 } else {
-    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ESTAGIARIO = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT NOME FROM estagiario WHERE ID_ESTAGIARIO = '" . $_SESSION['id'] . "'");
     $prof = "Estagiario";
 }
 
@@ -58,8 +58,14 @@ include '../Componentes Gerais/NavPerfil.php'
 
     <div id="containerPrincipal" class="container_cadastroEscolha">
         <div class="container_view">
-            <a href="adminView_Cadastro.php"><img src="/Imagens/NovoUsuario_Opac.png" class="imgNovoUser" alt="NovoUsuario"></a>
-            <a href="adminView_Cadastro_Paciente.html"><img src="/Imagens/NovoPaciente_Opac.png" class="imgNovoPaci" alt="NovoPaciente"></a>
+            <a href="adminView_Cadastro.php" class="lado_Esquerdo">
+                <p class="texto_CadastroUsuario">Novo Usuário</p>
+                <img src="/Imagens/NovoUsuario_Opac.png" class="imgNovoUser" alt="NovoUsuario">
+            </a>
+            <a href="adminView_Cadastro_Pacientes.php" class="lado_Direito">
+            <p class="texto_CadastroUsuario">Novo Paciente</p>
+                <img src="/Imagens/NovoPaciente_Opac.png" class="imgNovoPaci" alt="NovoPaciente">
+            </a>
         </div>
     </div>
 

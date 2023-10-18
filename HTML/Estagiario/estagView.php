@@ -53,7 +53,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
 <?php
 
-include '../Componentes Gerais/NavPerfil.php'
+include 'adminNavPerfil.php'
 
 ?>
 
@@ -88,14 +88,14 @@ include '../Componentes Gerais/NavPerfil.php'
             <div class="menu">
                 <ul class="menu_links">
                     <li class="nav_link">
-                        <a href="adminView_Cadastro_Inicio.php">
+                        <a href="#">
                             <i class='bx bxs-plus-circle icone'></i>
-                            <span class="menu_texto">Cadastros</span>
+                            <span class="menu_texto">Atendimento</span>
                         </a>
                     </li>
 
                     <li class="nav_link">
-                        <a href="adminView_Pacientes.php">
+                        <a href="#">
                             <i class='bx bxs-group icone'></i>
                             <span class="menu_texto">Pacientes</span>
                         </a>
@@ -103,22 +103,8 @@ include '../Componentes Gerais/NavPerfil.php'
 
                     <li class="nav_link">
                         <a href="#">
-                            <i class='bx bx-file icone'></i>
-                            <span class="menu_texto">Documentos</span>
-                        </a>
-                    </li>
-
-                    <li class="nav_link">
-                        <a href="#">
                             <i class='bx bx-line-chart icone'></i>
                             <span class="menu_texto">Relatórios</span>
-                        </a>
-                    </li>
-
-                    <li class="nav_link">
-                        <a href="adminView_Usuarios.php">
-                            <i class='bx bx-user-plus icone'></i>
-                            <span class="menu_texto">Usuários</span>
                         </a>
                     </li>
                 </ul>

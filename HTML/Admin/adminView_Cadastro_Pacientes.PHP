@@ -8,10 +8,10 @@ if ($_SESSION['nivel'] == 0) {
     $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ADMIN = '" . $_SESSION['id'] . "'");
     $prof = "Administrador";
 } elseif ($_SESSION['nivel'] == 1) {
-    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_FISIO = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT NOME FROM fisio WHERE ID_FISIO = '" . $_SESSION['id'] . "'");
     $prof = "Fisioterapia";
 } else {
-    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ESTAGIARIO = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT NOME FROM estagiario WHERE ID_ESTAGIARIO = '" . $_SESSION['id'] . "'");
     $prof = "Estagiario";
 }
 
@@ -30,7 +30,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/CSS/navStyle.css">
+    <link rel="stylesheet" href="/CSS/navBarStyle.css">
     <link rel="stylesheet" href="/CSS/adminCadastroStyle.css">
     <link rel="stylesheet" href="/CSS/adminCadastroPacienteStyle.css">
     <!-- -------------------------------------- -->
@@ -49,11 +49,11 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
 <body>
 
-<?php
+    <?php
 
-include '../Componentes Gerais/NavPerfil.php'
+    include '../Componentes Gerais/NavPerfil.php'
 
-?>
+    ?>
 
     <div id="containerPrincipal" class="container_cadastroUser">
         <div class="container_view" data="interno/a.html" id="container_view_pacientes">
@@ -66,7 +66,7 @@ include '../Componentes Gerais/NavPerfil.php'
                 <div class="container_foto_forms">
                     <div class="foto_forms"></div>
                 </div>
-                <form action="" method="POST">
+                <form action="" method="POST" enctype="multipart/form-data">
                     <div class="titulo1"><label class="labelTitulos">Dados pessoais</label></div>
                     <div class="linhas">
                         <div class="linha1">
@@ -167,13 +167,13 @@ include '../Componentes Gerais/NavPerfil.php'
                             <div class="campos">
                                 <label for="cadastroArquivo" class="Selecionar_Arquivo">
 
-                                    <input type="file" id="cadastroArquivo" name="arquivo">
+                                    <input type="file" id="cadastroArquivo" name="Arquivos">
 
                                     <span class="texto_Arquivo">Anexar documentos</span>
 
                                     <i class='bx bxs-file icone_Arquivo'></i>
 
-                                    <span class="texto_Arquivo2" id="nome_arquivo">Selecione ou arraste documentos relevantes</s>
+                                    <span class="texto_Arquivo2" id="nome_arquivo">Selecione ou arraste documentos relevantes</span>
 
                                 </label>
                             </div>
@@ -244,6 +244,12 @@ include '../Componentes Gerais/NavPerfil.php'
             </div>
 
             <div class="menu_embaixo">
+                <li class="">
+                    <a href="#" class="toggle-switch">
+                        <i class='bx bx-sun icone'></i>
+                        <span class="menu_texto">Alterar Modo</span>
+                    </a>
+                </li>
                 <li class="">
                     <a href="#">
                         <i class='bx bx-cog icone'></i>
@@ -325,6 +331,36 @@ if (isset($_POST['cadastrar'])) {
 
     $insertAdm = $conn->query("CALL INSERIR_PACIENTE('" . $nome . "','" . $nasc . "', '" . $telefone . "', '" . $email . "','" . $cpf . "', '" . $rg . "','" . $genero . "', '" . $idEndereco[0] . "')");
     echo "<script type='javascript'>alert('Admin adicionado com sucesso');";
+
+    $target_dir = "../../Imagens/imagensBd/";
+    $target_file = $target_dir . basename($_FILES["Arquivos"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    $allowTypes = array('docx', 'png', 'jpeg', 'xlxs', 'txt', 'pdf');
+
+    // Check if file already exists
+    if (file_exists($target_file)) {
+        echo "Sorry, file already exists.";
+        $uploadOk = 0;
+    }
+
+    // Check file size
+    if ($_FILES["Arquivos"]["size"] > 500000) {
+        echo "Sorry, your file is too large.";
+        $uploadOk = 0;
+    }
+
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+        // if everything is ok, try to upload file
+    } else {
+        if (move_uploaded_file($_FILES["Arquivos"]["tmp_name"], $target_file)) {
+            echo "The file " . htmlspecialchars(basename($_FILES["Arquivos"]["name"])) . " has been uploaded.";
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+    }
 }
 
 
