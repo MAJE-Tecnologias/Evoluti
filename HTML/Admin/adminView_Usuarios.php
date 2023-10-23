@@ -1,30 +1,30 @@
 <?php
-include '../../MySql/conecta.php';
+include '../../MySQL/conecta.php';
 
 session_start();
 
 $_SESSION['clinica'] = 1;
 
-$funcsAdmin = $conn->query("SELECT * FROM evoluti.admin WHERE FK_CLINICA = '" . $_SESSION['clinica'] . "';");
+$funcsAdmin = $conn->query("SELECT * FROM admin WHERE fk_clinica = '" . $_SESSION['clinica'] . "';");
 
-$funcsFisio = $conn->query("SELECT * FROM evoluti.fisio WHERE FK_CLINICA = '" . $_SESSION['clinica'] . "';");
+$funcsFisio = $conn->query("SELECT * FROM fisio WHERE fk_clinica = '" . $_SESSION['clinica'] . "';");
 
-$funcsEstagio = $conn->query("SELECT * FROM evoluti.estagiario WHERE FK_CLINICA = '" . $_SESSION['clinica'] . "';");
+$funcsEstagio = $conn->query("SELECT * FROM estagiario WHERE fk_clinica = '" . $_SESSION['clinica'] . "';");
 
-for ($setAdmin = array(); $rowAdmin = $funcsAdmin->fetch_assoc(); $setAdmin[] = $rowAdmin['NOME']);
+for ($setAdmin = array(); $rowAdmin = $funcsAdmin->fetch_assoc(); $setAdmin[] = $rowAdmin['nome']);
 
-for ($setFisio = array(); $rowFisio = $funcsFisio->fetch_assoc(); $setFisio[] = $rowFisio['NOME']);
+for ($setFisio = array(); $rowFisio = $funcsFisio->fetch_assoc(); $setFisio[] = $rowFisio['nome']);
 
-for ($setEstagio = array(); $rowEstagio = $funcsEstagio->fetch_assoc(); $setEstagio[] = $rowEstagio['NOME']);
+for ($setEstagio = array(); $rowEstagio = $funcsEstagio->fetch_assoc(); $setEstagio[] = $rowEstagio['nome']);
 
 if ($_SESSION['nivel'] == 0) {
-    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ADMIN = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT nome FROM admin WHERE id_admin = '" . $_SESSION['id'] . "'");
     $prof = "Administrador";
 } elseif ($_SESSION['nivel'] == 1) {
-    $selectNome = $conn->query("SELECT NOME FROM fisio WHERE ID_FISIO = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT nome FROM fisio WHERE id_fisio = '" . $_SESSION['id'] . "'");
     $prof = "Fisioterapia";
 } else {
-    $selectNome = $conn->query("SELECT NOME FROM estagiario WHERE ID_ESTAGIARIO = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT nome FROM estagiario WHERE id_estagiario = '" . $_SESSION['id'] . "'");
     $prof = "Estagiario";
 }
 

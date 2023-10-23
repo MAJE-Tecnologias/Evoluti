@@ -6,7 +6,7 @@
     <p id="Nome">%s</p>
     <p id="Funcao">%s</p>
 </div>
-</div>', $nomeArray['NOME'], $prof)
+</div>', $nomeArray['nome'], $prof)
 
         ?>
 

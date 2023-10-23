@@ -1,26 +1,37 @@
 <?php
 
-include '../../MySql/conecta.php';
+include '../../MySQL/conecta.php';
 
 session_start();
 
 if ($_SESSION['nivel'] == 0) {
-    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ADMIN = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT nome FROM admin WHERE id_admin = '" . $_SESSION['id'] . "'");
     $prof = "Administrador";
 } elseif ($_SESSION['nivel'] == 1) {
-    $selectNome = $conn->query("SELECT NOME FROM fisio WHERE ID_FISIO = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT nome FROM fisio WHERE id_fisio = '" . $_SESSION['id'] . "'");
     $prof = "Fisioterapia";
 } else {
-    $selectNome = $conn->query("SELECT NOME FROM estagiario WHERE ID_ESTAGIARIO = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT nome FROM estagiario WHERE id_estagiario = '" . $_SESSION['id'] . "'");
     $prof = "Estagiario";
 }
 
-$pacientes = $conn->query("SELECT * FROM evoluti.paciente;");
+$pacientes = $conn->query("SELECT * FROM paciente;");
 
-for ($setPacientes = array(); $rowPacientes = $pacientes->fetch_assoc(); $setPacientes[] = $rowPacientes['NOME']);
+for ($setPacientes = array(); $rowPacientes = $pacientes->fetch_assoc(); $setPacientes[] = $rowPacientes['nome']);
 
 $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
+
+if (isset($_GET['nice'])) {
+
+    $filtrar = $_GET['poggers'];
+
+    if (!empty($filtrar)) {
+        $pacientes = $conn->query("SELECT * FROM paciente where (`nome` like '" . $filtrar . '%' . "');");
+
+        for ($setPacientes = array(); $rowPacientes = $pacientes->fetch_assoc(); $setPacientes[] = $rowPacientes['nome']);
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="Pt-br">
@@ -64,15 +75,15 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
         <div class="container_view">
             <div class="container_pesquisa">
                 <div class="grid_pesquisa">
+                    <div class="pesquisa linha">
+                        
+                        <form method="_GET">
+                            <input type="text" placeholder="Pesquise um usuário" name="poggers">
+                            <i class='bx bxs-user-rectangle iconepesquisa'> </i>
+                            <input type="submit" name="nice">
+                        </form>
 
-                    <div class="vazio2"></div>
-
-
-                    <div class="vazio1"></div>
-
-
-                    <div class="pesquisa linha"><input type="text" placeholder="Pesquise um usuário"><i class='bx bxs-user-rectangle iconepesquisa'></i></div>
-
+                    </div>
                 </div>
             </div>
 

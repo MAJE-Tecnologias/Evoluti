@@ -59,12 +59,12 @@ session_start();
 </html>
 
 <?php
-include '../MySQL/conecta.php';
+include 'MySQL/conecta.php';
 
 if (isset($_POST['btn'])) {
-	$selectAdm = $conn->query("SELECT * FROM admin WHERE EMAIL = '" . $_POST['email'] . "' AND SENHA = '" . $_POST['senha'] . "'");
-	$selectFisio = $conn->query("SELECT * FROM fisio WHERE EMAIL = '" . $_POST['email'] . "' AND SENHA = '" . $_POST['senha'] . "'");
-	$selectEsta = $conn->query("SELECT * FROM estagiario WHERE EMAIL = '" . $_POST['email'] . "' AND SENHA = '" . $_POST['senha'] . "'");
+	$selectAdm = $conn->query("SELECT * FROM admin WHERE EMAIL = '" . $_POST['email'] . "' AND senha = '" . $_POST['senha'] . "'");
+	$selectFisio = $conn->query("SELECT * FROM fisio WHERE EMAIL = '" . $_POST['email'] . "' AND senha = '" . $_POST['senha'] . "'");
+	$selectEsta = $conn->query("SELECT * FROM estagiario WHERE EMAIL = '" . $_POST['email'] . "' AND senha = '" . $_POST['senha'] . "'");
 
 
 	for ($i = 0; $i < 3; $i++) {
@@ -72,10 +72,10 @@ if (isset($_POST['btn'])) {
 			// Checagem no banco de dados para achar Administrator
 			if ($selectAdm->num_rows == 1) {
 				$admArray = $selectAdm->fetch_array(MYSQLI_ASSOC);
-				$_SESSION['id'] = $admArray['ID_ADMIN'];
+				$_SESSION['id'] = $admArray['id_admin'];
 				$_SESSION['nivel'] = 0;
-				$_SESSION['clinica'] = $admArray['FK_CLINICA'];
-				header("Location: Admin/adminView.php");
+				$_SESSION['clinica'] = $admArray['fk_clinica'];
+				echo"<script>window.location.href = '/HTML/Admin/adminView.php';</script>";
 			} else if ($selectAdm->num_rows > 1) {
 				echo "Mais de um resultado no banco de dados";
 			} else {
@@ -85,10 +85,10 @@ if (isset($_POST['btn'])) {
 			// Checagem no banco de dados para achar Fisio
 			if ($selectFisio->num_rows == 1) {
 				$fisioArray = $selectFisio->fetch_array(MYSQLI_ASSOC);
-				$_SESSION['id'] = $fisioArray['ID_FISIO'];
+				$_SESSION['id'] = $fisioArray['id_fisio'];
 				$_SESSION['nivel'] = 1;
-				$_SESSION['clinica'] = $fisioArray['FK_CLINICA'];
-				header("Location: Fisio/fisioView.php");
+				$_SESSION['clinica'] = $fisioArray['fk_clinica'];
+				echo"<script>window.location.href = '/HTML/Fisio/fisioView.php';</script>";
 			} else if ($selectFisio->num_rows > 1) {
 				echo "Mais de um resultado no banco de dados";
 			} else {
@@ -98,10 +98,10 @@ if (isset($_POST['btn'])) {
 			// Checagem no banco de dados para achar Estagiario
 			if ($selectEsta->num_rows == 1) {
 				$estaArray = $selectEsta->fetch_array(MYSQLI_ASSOC);
-				$_SESSION['id'] = $estaArray['ID_ESTAGIARIO'];
+				$_SESSION['id'] = $estaArray['id_estagiario'];
 				$_SESSION['nivel'] = 2;
-				$_SESSION['clinica'] = $estaArray['FK_CLINICA'];
-				header("Location: Admin/adminView.php");
+				$_SESSION['clinica'] = $estaArray['fk_clinica'];
+				echo"<script>window.location.href = '/HTML/Estagiario/estagView.php';</script>";
 			} else if ($selectEsta->num_rows > 1) {
 				echo "Mais de um resultado no banco de dados";
 			} else {

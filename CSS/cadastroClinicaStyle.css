@@ -1,0 +1,121 @@
+#container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    border-radius: 0;
+
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.container_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    padding: 50px;
+    background-color: white;
+}
+
+.logotipoClinica{
+    position: relative;
+    width: 150px;
+    background-size: contain;
+}
+
+/* FORMS */
+
+.formSuperior{
+    width: 100%;
+}
+
+.superiorRow{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    column-gap: 60px;
+    margin-top: 20px;
+}
+
+.label1{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
+
+.Label_Forms{
+    font-weight: 700;
+}
+
+.barrinhaClinica{
+    width: 100%;
+    margin: 10px 10px;
+    border: 1px solid rgba(104, 104, 104, 0.20);;
+    border-radius: 20px;
+}
+
+.formInferior{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    justify-content: center;
+}
+
+.linha{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    row-gap: 20px;
+}
+
+.linha1{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    column-gap: 20px;
+    height: fit-content;
+    justify-content: space-between;
+}
+
+.linha2{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    column-gap: 20px;
+    height: fit-content;
+    justify-content: space-evenly;
+}
+
+.camposInferior{
+    width: 100%;
+}
+
+input{
+    border-radius: 5px;
+    border: 0;
+    background: #D9D9D9;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08), 0px 6px 24px 0px rgba(0, 0, 0, 0.05);
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    width: calc(100%);
+  }
+
+select{
+    border-radius: 5px;
+    border: 0;
+    background: #D9D9D9;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08), 0px 6px 24px 0px rgba(0, 0, 0, 0.05);
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    width: calc(100%);
+}
