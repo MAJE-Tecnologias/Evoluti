@@ -109,6 +109,9 @@ include '../MySQL/conecta.php';
                             </div>
 				</div>
 
+				<div class="linha3">
+				<input type="submit" name="botaoCadastroClinica" id="btnCadastroClinica" value="Cadastrar"></input>
+				</div>
 			</div>
 			</form>
 

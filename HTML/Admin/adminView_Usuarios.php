@@ -17,6 +17,28 @@ for ($setFisio = array(); $rowFisio = $funcsFisio->fetch_assoc(); $setFisio[] = 
 
 for ($setEstagio = array(); $rowEstagio = $funcsEstagio->fetch_assoc(); $setEstagio[] = $rowEstagio['nome']);
 
+
+if (isset($_GET['nice'])) {
+
+    $filtrar = $_GET['poggers'];
+
+    if (!empty($filtrar)) {
+        $pacientes = $conn->query("SELECT * FROM paciente where (`nome` like '" . $filtrar . '%' . "');");
+
+        $funcsAdmin = $conn->query("SELECT * FROM admin WHERE fk_clinica = '" . $_SESSION['clinica'] . "' AND (`nome` like '" . $filtrar . '%' . "');");
+
+        $funcsFisio = $conn->query("SELECT * FROM fisio WHERE fk_clinica = '" . $_SESSION['clinica'] . "' AND (`nome` like '" . $filtrar . '%' . "');");
+
+        $funcsEstagio = $conn->query("SELECT * FROM estagiario WHERE fk_clinica = '" . $_SESSION['clinica'] . "' AND (`nome` like '" . $filtrar . '%' . "');");
+
+        for ($setAdmin = array(); $rowAdmin = $funcsAdmin->fetch_assoc(); $setAdmin[] = $rowAdmin['nome']);
+
+        for ($setFisio = array(); $rowFisio = $funcsFisio->fetch_assoc(); $setFisio[] = $rowFisio['nome']);
+
+        for ($setEstagio = array(); $rowEstagio = $funcsEstagio->fetch_assoc(); $setEstagio[] = $rowEstagio['nome']);
+    }
+}
+
 if ($_SESSION['nivel'] == 0) {
     $selectNome = $conn->query("SELECT nome FROM admin WHERE id_admin = '" . $_SESSION['id'] . "'");
     $prof = "Administrador";
@@ -28,7 +50,10 @@ if ($_SESSION['nivel'] == 0) {
     $prof = "Estagiario";
 }
 
+
 $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="Pt-br">
@@ -61,11 +86,11 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
 <body>
 
-<?php
+    <?php
 
-include '../Componentes Gerais/NavPerfil.php'
+    include '../Componentes Gerais/NavPerfil.php'
 
-?>
+    ?>
 
     <div class="container_usuarios">
         <div class="container_view">
@@ -77,8 +102,11 @@ include '../Componentes Gerais/NavPerfil.php'
 
                     <div class="vazio1"></div>
 
-
-                    <div class="pesquisa linha"><input type="text" placeholder="Pesquise um usuário"><i class='bx bxs-user-rectangle iconepesquisa'></i></div>
+                    <form method="_GET">
+                        <input type="text" placeholder="Pesquise um usuário" name="poggers">
+                        <i class='bx bxs-user-rectangle iconepesquisa'> </i>
+                        <input type="submit" name="nice">
+                    </form>
 
                 </div>
             </div>
@@ -102,41 +130,49 @@ include '../Componentes Gerais/NavPerfil.php'
             <div class="container_form">
                 <div class="container_card">
                     <?php
-                    for ($i = 0; $i < mysqli_num_rows($funcsAdmin); $i++) {
-                        printf("
-                            <div class='info'>                    
-                            <img src='https://picsum.photos/150' alt=''>
-                            <div>
-                                <h4>%s</h4>
-                                <h3>Admin</h3>
-                            </div>
-                            </div>
-                            ", $setAdmin[$i]);
-                    }
 
-                    for ($i = 0; $i < mysqli_num_rows($funcsFisio); $i++) {
-                        printf("
-                              <div class='info'>                    
-                              <img src='https://picsum.photos/150' alt=''>
-                              <div>
-                                  <h4>%s</h4>
-                                  <h3>Fisio</h3>
-                              </div>
-                              </div>
-                              ", $setFisio[$i]);
-                    }
+        switch ($fil{tro){
 
-                    for ($i = 0; $i < mysqli_num_rows($funcsEstagio); $i++) {
-                        printf("
-                              <div class='info'>                    
-                              <img src='https://picsum.photos/150' alt=''>
-                              <div>
-                                  <h4>%s</h4>
-                                  <h3>Estagio</h3>
-                              </div>
-                              </div>
-                              ", $setEstagio[$i]);
-                    }
+            case 1{}
+                for ($i = 0; $i < mysqli_num_rows($funcsAdmin); $i++) {
+                    printf("
+                        <div class='info'>                    
+                        <img src='https://picsum.photos/150' alt=''>
+                        <div>
+                            <h4>%s</h4>
+                            <h3>Admin</h3>
+                        </div>
+                        </div>
+                        ", $setAdmin[$i]);
+                };
+
+                for ($i = 0; $i < mysqli_num_rows($funcsFisio); $i++) {
+                    printf("
+                          <div class='info'>                    
+                          <img src='https://picsum.photos/150' alt=''>
+                          <div>
+                              <h4>%s</h4>
+                              <h3>Fisio</h3>
+                          </div>
+                          </div>
+                          ", $setFisio[$i]);
+                };
+
+                for ($i = 0; $i < mysqli_num_rows($funcsEstagio); $i++) {
+                    printf("
+                          <div class='info'>                    
+                          <img src='https://picsum.photos/150' alt=''>
+                          <div>
+                              <h4>%s</h4>
+                              <h3>Estagio</h3>
+                          </div>
+                          </div>
+                          ", $setEstagio[$i]);
+                }
+                break}
+        }
+
+                    
 
                     ?>
                 </div>

@@ -78,7 +78,7 @@ if (isset($_GET['nice'])) {
                     <div class="pesquisa linha">
                         
                         <form method="_GET">
-                            <input type="text" placeholder="Pesquise um usuário" name="poggers">
+                            <input type="text" placeholder="Pesquise um paciente" name="poggers">
                             <i class='bx bxs-user-rectangle iconepesquisa'> </i>
                             <input type="submit" name="nice">
                         </form>
