@@ -58,6 +58,18 @@ include '../Componentes Gerais/NavPerfil.php'
 ?>
 
     <div class="container_principal">
+
+        <dialog class="modal" id="modal">
+            <div class="containerModal">
+            <h2>TUTORIAIS</h2>
+            <p>Olá <b>Administrador!</b> se você clicou nesse botão, é por que precisa de um tutorial sobre a plataforma. Selecione uma das opções abaixo para entender mais sobre a tela em questão!</p>
+            <p>Lorem ipsum dolor sit amet consectet</p>
+            <div class="botaoFechar">
+            <button class="botao-fechar">Fechar</button>
+            </div>
+            </div>
+        </dialog>
+
         <div class="container_view">
             <img src="\Imagens\Logo_Sem_fundo.png" alt="LogoAnimado" class="LogoAnimado">
             <span class="TextoLogo">
@@ -66,9 +78,7 @@ include '../Componentes Gerais/NavPerfil.php'
             </span>
 
             <div class="divInterna_Botoes">
-                <a href="#" class="estiloBotoes"><i class='bx bxs-help-circle'></i>
-                    <p>TUTORIAIS</p>
-                </a>
+                <button type="button" class="estiloBotoes botao-abrir"><i class='bx bxs-help-circle icone'></i>TUTORIAIS</button>
             </div>
         </div>
     </div>

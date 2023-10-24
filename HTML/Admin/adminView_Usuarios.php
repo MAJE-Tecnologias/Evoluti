@@ -5,37 +5,53 @@ session_start();
 
 $_SESSION['clinica'] = 1;
 
+// Pesquisa no bd para buscar todos os usuarios
+
 $funcsAdmin = $conn->query("SELECT * FROM admin WHERE fk_clinica = '" . $_SESSION['clinica'] . "';");
 
 $funcsFisio = $conn->query("SELECT * FROM fisio WHERE fk_clinica = '" . $_SESSION['clinica'] . "';");
 
 $funcsEstagio = $conn->query("SELECT * FROM estagiario WHERE fk_clinica = '" . $_SESSION['clinica'] . "';");
 
-for ($setAdmin = array(); $rowAdmin = $funcsAdmin->fetch_assoc(); $setAdmin[] = $rowAdmin['nome']);
+// Trasformando em um só array para armazenar nome e função do usuario
 
-for ($setFisio = array(); $rowFisio = $funcsFisio->fetch_assoc(); $setFisio[] = $rowFisio['nome']);
+$setFunc = array();
 
-for ($setEstagio = array(); $rowEstagio = $funcsEstagio->fetch_assoc(); $setEstagio[] = $rowEstagio['nome']);
+for ($setFunc; $rowAdmin = $funcsAdmin->fetch_assoc(); $setFunc[] = $rowAdmin['nome'], $setFunc[] = 'Admin');
 
+for ($setFunc; $rowFisio = $funcsFisio->fetch_assoc(); $setFunc[] = $rowFisio['nome'], $setFunc[] = 'Fisio');
 
-if (isset($_GET['nice'])) {
+for ($setFunc; $rowEstagio = $funcsEstagio->fetch_assoc(); $setFunc[] = $rowEstagio['nome'], $setFunc[] = 'Estagiario');
 
-    $filtrar = $_GET['poggers'];
+// Declarando a quantidade de registros
 
-    if (!empty($filtrar)) {
-        $pacientes = $conn->query("SELECT * FROM paciente where (`nome` like '" . $filtrar . '%' . "');");
+$numRows = (mysqli_num_rows($funcsAdmin) + mysqli_num_rows($funcsEstagio) + mysqli_num_rows($funcsFisio)) * 2;
 
-        $funcsAdmin = $conn->query("SELECT * FROM admin WHERE fk_clinica = '" . $_SESSION['clinica'] . "' AND (`nome` like '" . $filtrar . '%' . "');");
+if (isset($_GET['enviarFiltro'])) {
 
-        $funcsFisio = $conn->query("SELECT * FROM fisio WHERE fk_clinica = '" . $_SESSION['clinica'] . "' AND (`nome` like '" . $filtrar . '%' . "');");
+    $filtroNome = $_GET['filtroNome'];
 
-        $funcsEstagio = $conn->query("SELECT * FROM estagiario WHERE fk_clinica = '" . $_SESSION['clinica'] . "' AND (`nome` like '" . $filtrar . '%' . "');");
+    if (!empty($filtroNome)) {
+        for ($i = 0; $i < $numRows; $i = $i + 2) {
+            $pos = str_contains($setFunc[$i], $filtroNome);
+            if ($pos !== true) {
+                array_splice($setFunc, $i);
+                array_splice($setFunc, $i + 1);
+                $numRows = $numRows - 2;
+            }
+        }
+    }
 
-        for ($setAdmin = array(); $rowAdmin = $funcsAdmin->fetch_assoc(); $setAdmin[] = $rowAdmin['nome']);
+    $filtroCat = $_GET['filtroCat'];
 
-        for ($setFisio = array(); $rowFisio = $funcsFisio->fetch_assoc(); $setFisio[] = $rowFisio['nome']);
-
-        for ($setEstagio = array(); $rowEstagio = $funcsEstagio->fetch_assoc(); $setEstagio[] = $rowEstagio['nome']);
+    switch ($filtroCat) {
+        case 1:
+            for ($i = 1; $i < $numRows; $i = $i + 2) {
+                if (strpos($setFunc[$i], 'Fisio') !== true) {
+                    unset($setFunc[$i]);
+                    unset($setFunc[$i - 1]);
+                }
+            }
     }
 }
 
@@ -102,81 +118,73 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
                     <div class="vazio1"></div>
 
-                    <form method="_GET">
-                        <input type="text" placeholder="Pesquise um usuário" name="poggers">
-                        <i class='bx bxs-user-rectangle iconepesquisa'> </i>
-                        <input type="submit" name="nice">
-                    </form>
+
 
                 </div>
             </div>
-            <div class="container_conteudo">
-                <div class="grid1">
-                    <a href="">
-                        <div class="tipo1 tipos">Tudo</div>
-                    </a>
-                    <a href="">
-                        <div class="tipo2 tipos">Administrador</div>
-                    </a>
-                    <a href="">
-                        <div class="tipo3 tipos">Fisioterapeuta</div>
-                    </a>
-                    <a href="">
-                        <div class="tipo4 tipos">Estagiário</div>
-                    </a>
-                </div>
+
+            <dialog class="modal" id="modal">
+                <form method="get">
+                    <select name="filtroCat">
+                        <option value="0">
+                            <div class="tipo1 tipos">Tudo</div>
+                        </option>
+                        <option value="1">
+                            <div class="tipo2 tipos">Administrador</div>
+                        </option>
+                        <option value="2">
+                            <div class="tipo3 tipos">Fisioterapeuta</div>
+                        </option>
+                        <option value="3">
+                            <div class="tipo4 tipos">Estagiário</div>
+                        </option>
+                    </select>
+                    <input type="text" placeholder="Pesquise um usuário" name="filtroNome">
+                    <button type="submit" name="enviarFiltro" value="1">
+                        <i class='bx bxs-user-rectangle iconepesquisa'> </i>
+                    </button>
+                </form>
+            </dialog>
+
+            <div class="titulo">
+                <i class='bx bx-user'></i>
+                <p>Usuários</p>
+            </div>
+            <div class="subTitulo">
+                <p>Visualize os usuários que existem no sistema</p>
+            </div>
+
+            <div class="filtro_Container">
+                <button type="button" class="botao-abrir">
+                    <i class='bx bx-filter-alt'></i>
+                    <p class="filtrarTexto">Filtrar</p>
+                </button>
             </div>
 
             <div class="container_form">
+
+
+
                 <div class="container_card">
                     <?php
-
-        switch ($fil{tro){
-
-            case 1{}
-                for ($i = 0; $i < mysqli_num_rows($funcsAdmin); $i++) {
-                    printf("
+                    for ($i = 0; $i < $numRows; $i = $i + 2) {
+                        printf("
                         <div class='info'>                    
                         <img src='https://picsum.photos/150' alt=''>
                         <div>
                             <h4>%s</h4>
-                            <h3>Admin</h3>
+                            <h3>%s</h3>
                         </div>
                         </div>
-                        ", $setAdmin[$i]);
-                };
+                        ", $setFunc[$i], $setFunc[$i + 1]);
+                    };
 
-                for ($i = 0; $i < mysqli_num_rows($funcsFisio); $i++) {
-                    printf("
-                          <div class='info'>                    
-                          <img src='https://picsum.photos/150' alt=''>
-                          <div>
-                              <h4>%s</h4>
-                              <h3>Fisio</h3>
-                          </div>
-                          </div>
-                          ", $setFisio[$i]);
-                };
 
-                for ($i = 0; $i < mysqli_num_rows($funcsEstagio); $i++) {
-                    printf("
-                          <div class='info'>                    
-                          <img src='https://picsum.photos/150' alt=''>
-                          <div>
-                              <h4>%s</h4>
-                              <h3>Estagio</h3>
-                          </div>
-                          </div>
-                          ", $setEstagio[$i]);
-                }
-                break}
-        }
-
-                    
 
                     ?>
                 </div>
             </div>
+
         </div>
     </div>
 

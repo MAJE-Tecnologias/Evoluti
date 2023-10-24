@@ -39,8 +39,6 @@ mudarModo = body.querySelector(".toggle-switch")
     })
 
 
-
-
 // Não sei fazer isso ainda vvvvv
 
 // function botao_ativado(elemento){

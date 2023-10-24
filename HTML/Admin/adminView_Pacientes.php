@@ -76,11 +76,12 @@ if (isset($_GET['nice'])) {
             <div class="container_pesquisa">
                 <div class="grid_pesquisa">
                     <div class="pesquisa linha">
-                        
+
                         <form method="_GET">
                             <input type="text" placeholder="Pesquise um paciente" name="poggers">
-                            <i class='bx bxs-user-rectangle iconepesquisa'> </i>
-                            <input type="submit" name="nice">
+                            <button type="submit" name="nice">
+                                <i class='bx bxs-user-rectangle iconepesquisa'> </i>
+                            </button>
                         </form>
 
                     </div>

@@ -5,6 +5,12 @@ toggle = body.querySelector(".toggle")
 mudarModo = body.querySelector(".toggle-switch")
 
 
+const modal = document.querySelector("#modal");
+const abrirModal = document.querySelector(".botao-abrir");
+const fecharModal = document.querySelector(".botao-fechar");
+
+
+
     toggle.addEventListener("click", () =>{
         menuLateral.classList.toggle("fecharMenu");
     });
@@ -27,4 +33,12 @@ mudarModo = body.querySelector(".toggle-switch")
             <span class="menu_texto">Alterar Modo</span>`
         }
     })
+    
 
+    abrirModal.addEventListener('click', () => {
+        modal.showModal();
+    })
+
+    fecharModal.addEventListener("click", () => {
+        modal.close();
+      });

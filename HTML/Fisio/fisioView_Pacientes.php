@@ -21,6 +21,17 @@ $pacientes = $conn->query("SELECT * FROM paciente;");
 for ($setPacientes = array(); $rowPacientes = $pacientes->fetch_assoc(); $setPacientes[] = $rowPacientes['nome']);
 
 $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
+
+if (isset($_GET['nice'])) {
+
+    $filtrar = $_GET['poggers'];
+
+    if (!empty($filtrar)) {
+        $pacientes = $conn->query("SELECT * FROM paciente where (`nome` like '" . $filtrar . '%' . "');");
+
+        for ($setPacientes = array(); $rowPacientes = $pacientes->fetch_assoc(); $setPacientes[] = $rowPacientes['nome']);
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -75,7 +86,14 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                     <div class="vazio1"></div>
 
 
-                    <div class="pesquisa linha"><input type="text" placeholder="Pesquise um usuário"><i class='bx bxs-user-rectangle iconepesquisa'></i></div>
+                    <div class="pesquisa linha">
+                        <form method="_GET">
+                            <input type="text" placeholder="Pesquise um paciente" name="poggers">
+                            <button type="submit" name="nice">
+                                <i class='bx bxs-user-rectangle iconepesquisa'> </i>
+                            </button>
+                        </form>
+                    </div>
 
                 </div>
             </div>
