@@ -9,6 +9,9 @@ const modal = document.querySelector("#modal");
 const abrirModal = document.querySelector(".botao-abrir");
 const fecharModal = document.querySelector(".botao-fechar");
 
+const modal2 = document.querySelector("#modal2");
+const abrirModal2 = document.querySelector(".botao-abrir2");
+const fecharModal2 = document.querySelector(".botao-fechar2");
 
 
     toggle.addEventListener("click", () =>{
@@ -21,6 +24,7 @@ const fecharModal = document.querySelector(".botao-fechar");
         navbar.classList.toggle("escuroNav");
         mudarModo.classList.toggle("active");
         modal.classList.toggle("modalEscuro");
+        modal2.classList.toggle("modalEscuro")
 
         if (mudarModo.classList.contains("active")) {
         
@@ -42,4 +46,12 @@ const fecharModal = document.querySelector(".botao-fechar");
 
     fecharModal.addEventListener("click", () => {
         modal.close();
+      });
+
+      abrirModal2.addEventListener('click', () => {
+        modal2.showModal();
+    })
+
+    fecharModal2.addEventListener("click", () => {
+        modal2.close();
       });

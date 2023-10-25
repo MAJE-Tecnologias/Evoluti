@@ -70,7 +70,7 @@ include '../Componentes Gerais/NavPerfil.php'
             <div class="modal_conteudo">
                 <div class="label_botao">
                     <label>Cadastro de Pacientes</label>
-                    <button type="button" class="botaoModalSelecao"><i class='bx bxs-user-plus' ></i></button>
+                    <button type="button" class="botaoModalSelecao botao-abrir2"><i class='bx bxs-user-plus' ></i></button>
                 </div>
                 <div class="label_botao">
                     <label>Cadastro de Usuários</label>
@@ -84,6 +84,33 @@ include '../Componentes Gerais/NavPerfil.php'
 
             <div class="botaoFechar">
             <button class="botao-fechar">Fechar tutorial</button>
+            </div>
+            </div>
+        </dialog>
+
+        <dialog class="modal2" id="modal2">
+            <div class="containerModal2">
+            <h2>Cadastro de Paciente</h2>
+            <div class="modal_texto">
+            <p>Para cadastrar um paciente é necessário: </p>
+
+            <div class="modal2_texto2">
+
+            <p>1. Selecionar a aba cadastros no menu lateral;</p>
+            <p>2. Selecionar novo paciente.</p>
+
+            <div class="barrinha"> </div>
+
+            <p>1. Selecionar a aba pacientes no menu lateral;</p>
+            <p>2. Selecionar ícone de adição de novos pacientes. <i class="bx bx-user-plus icone"></i></p>
+
+            </div>
+
+            </div>
+
+
+            <div class="botaoFechar">
+            <button class="botao-fechar2">Voltar</button>
             </div>
             </div>
         </dialog>
