@@ -33,6 +33,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     <link rel="stylesheet" href="/CSS/navBarStyle.css">
     <link rel="stylesheet" href="/CSS/adminCadastroStyle.css">
     <link rel="stylesheet" href="/CSS/adminCadastroPacienteStyle.css">
+    <link rel="stylesheet" href="/CSS/adminPacienteInternoStyle.css">
     <!-- -------------------------------------- -->
 
 
@@ -58,40 +59,42 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     <div id="containerPrincipal" class="container_cadastroUser">
         <div class="container_view" data="interno/a.html" id="container_view_pacientes">
             <div class="titulo">
-                <i class='bx bxs-user-plus'></i>
-                <p>Novo Paciente</p>
+                <i class='bx bxs-user'></i>
+                <p>Visualização de Paciente</p>
             </div>
             <div class="container_form">
 
+
+                <form action="" method="POST" enctype="multipart/form-data" class="forms">
+                <div class="container_voltar">
+                    
+                        <a href="adminView_Pacientes.php" class="botao_voltar"><i class='bx bx-left-arrow-circle' ></i> Voltar</a>
+                    </div>
                 <div class="container_foto_forms">
                     <div class="foto_forms"></div>
+                    <p class="nomePaciente">Nome completo</p>
                 </div>
-                <form action="" method="POST" enctype="multipart/form-data">
+                
+
                     <div class="titulo1"><label class="labelTitulos">Dados pessoais</label></div>
                     <div class="linhas">
                         <div class="linha1">
 
                             <div class="campos">
-                                <label class="labelForms" for="cadastroNome">Nome completo</label>
-                                <p>Nome completo</p>
-                            </div>
-                            <div class="campos">
-                                <label class="labelForms" for="dtNasc">Data de nascimento</label>
+                                <label class="labelForms">Data de nascimento</label>
                                 <p>Data de Nascimento</p>
                             </div>
 
-                        </div>
-                        <div class="linha2">
                             <div class="campos">
-                                <label class="labelForms" for="cadastroCPF">CPF</label>
+                                <label class="labelForms">CPF</label>
                                 <p>CPF</p>
                             </div>
                             <div class="campos">
-                                <label class="labelForms" for="cadastroRG">RG</label>
+                                <label class="labelForms">RG</label>
                                 <p>RG</p>
                             </div>
                             <div class="campos">
-                                <label class="labelForms" for="cadastroGenero">Gênero</label>
+                                <label class="labelForms">Gênero</label>
                                 <p>Gênero</p>
                             </div>
                         </div>
@@ -106,13 +109,13 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                         <div class="linha2">
 
                             <div class="campos">
-                                <label class="labelForms" for="cadastroEmail">E-mail</la>
+                                <label class="labelForms">E-mail</label>
                                     <p>E-mail</p>
                             </div>
 
 
                             <div class="campos">
-                                <label class="labelForms" for="cadastroCPF">Telefone</label>
+                                <label class="labelForms">Telefone</label>
                                 <p>Telefone</p>
                             </div>
                         </div>
@@ -126,62 +129,56 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                         <div class="linha1">
 
                             <div class="campos">
-                                <label class="labelForms" for="cadastroRua">Rua</label>
+                                <label class="labelForms">CEP</label>
+                                <p>CEP</p>
+                            </div>
+                            <div class="campos">
+                                <label class="labelForms">Rua</label>
                                 <p>Rua</p>
                             </div>
                             <div class="campos">
-                                <label class="labelForms" for="cadastroCEP">CEP</label>
-                                <p>CEP</p>
+                                <label class="labelForms">Bairro</label>
+                                <p>Bairro</p>
                             </div>
 
                         </div>
                         <div class="linha2_semMargem">
+
                             <div class="campos">
-                                <label class="labelForms" for="cadastroNum">Número</label>
+                                <label class="labelForms">Número</label>
                                 <p>Número</p>
                             </div>
                             <div class="campos">
-                                <label class="labelForms" for="cadastroComplemento">Complemento</label>
+                                <label class="labelForms">Complemento</label>
                                 <p>Complemento</p>
                             </div>
+
                             <div class="campos">
-                                <label class="labelForms" for="cadastroBairro">Bairro</label>
-                                <p>Bairro</p>
-                            </div>
-                        </div>
-                        <div class="linha3" id="LinhaComMargem">
-                            <div class="campos">
-                                <label class="labelForms" for="cadastroCidade">Cidade</label>
+                                <label class="labelForms">Cidade</label>
                                 <p>Cidade</p>
                             </div>
                         </div>
 
+
+
                         <div class="barrinha"></div>
 
                         <div class="linha4">
-                            <div class="campos">
-                                <label for="cadastroArquivo" class="Selecionar_Arquivo">
 
-                                    <span class="texto_Arquivo">Anexar documentos</span>
-
+                                <div class="Selecionar_Arquivo">
+                                    <div class="container_TextoArquivo">
                                     <i class='bx bxs-file icone_Arquivo'></i>
+                                    <span class="texto_Arquivo">Documentos</span>
+                                    </div>
+                                </div>
 
-                                    <span class="texto_Arquivo2" id="nome_arquivo">Selecione ou arraste documentos relevantes</span>
-
-                                </label>
-                            </div>
                         </div>
 
-                        <input type="number" name="flag" value="0" id="flag" style="display: none;">
-                        <div class="container_btn_cadastro">
-                            <div class="linha4">
-                                <input type="submit" class="btn_cadastrar" name="cadastrar" value="Cadastrar"></input>
-                            </div>
-                        </div>
                     </div>
                 </form>
-
+                <div class="container_editar"> <button type="button" class="botaoEditar"> Editar<i class='bx bxs-pencil iconeEditar'></i> </button> </div>
             </div>
+
         </div>
     </div>
 
@@ -214,8 +211,3 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 </body>
 
 </html>
-
-
-
-PIELICH, ta ai? Ó, acho que vc não tem mais nada pra fazer, então acho que é melhor vc só commitar e eu
-fazer aqui localmente o resto das coisas, q tal?

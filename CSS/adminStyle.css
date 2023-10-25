@@ -141,21 +141,77 @@ body {
 
 .modal{
 
-    width: 50%;
-    height: 50%;
+    width: 70%;
+    height: 70%;
 
     margin: auto;
 
     border-radius: 20px;
     
-    padding: 1em;
+    padding: 3em;
     text-align: justify;
+
 
     & > *{
         margin: 0 0 0.5rem 0;
     }
 
 
+}
+
+.modal_texto{
+    margin-top: 20px;
+}
+
+.modal_conteudo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    column-gap: 30px;
+    width: 100%;
+    height: 100%;
+
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.label_botao{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #45D496;
+    font-weight: 700;
+    text-wrap: nowrap;
+}
+
+.label_botao label{
+    font-size: 20px;
+}
+
+.botaoModalSelecao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.10);
+    transition: 0.4s;
+    cursor: pointer;
+
+    padding: 70px 70px;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    background: 0;
+}
+
+.botaoModalSelecao:hover{
+    color: var(--white);
+    background: #45D496;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
 }
 
 .modal::backdrop{
@@ -169,28 +225,41 @@ body {
     justify-content: center;
     align-items: center;
 
-    margin-top: auto;
+
 }
 
 .botao-fechar{
     border-radius: 5px;
-    border: 0;
+    border: 2px solid #45D496;
     box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08), 0px 6px 24px 0px rgba(0, 0, 0, 0.05);
-    padding: 12px 20px;
     margin: 8px 0;
     width: auto;
     font-weight: 700;
-    display: inline-flex;
-    padding: 6.995px 25.648px;
-    align-items: flex-start;
-    gap: 4.663px;
-    border-radius: 4.663px;
+    padding: 7px 26px;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.botao-fechar:hover{
+    border: 2px solid transparent;
     background: #45D496;
 }
 
 .modalEscuro{
     background:#242526;
     color: white;
+}
+
+.modalEscuro .botao-fechar{
+    background: #242526;
+    color: var(--white);
+}
+
+.modalEscuro .botao-fechar:hover{
+    background: #45D496;
+    color: black;
 }
 
 .modalEscuro .estiloBotao{
@@ -202,10 +271,36 @@ body {
     border: 2px solid transparent;
 }
 
+.modalEscuro .botaoModalSelecao{
+    background: white;
+}
+
+.modalEscuro .botaoModalSelecao:hover{
+    background: #45D496;
+    color: var(--white);
+    box-shadow: 0px 0px 20px 0px rgba(255,255,255,0.75);
+}
+
 
 
 .containerModal{
+    display: flex;
+    flex-direction: column;
 
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    margin: 0;
+}
+
+.containerModal h2{
+    justify-content: center;
+    text-align: center;
+    color: #46D794;
+}
+
+.containerModal p{
+    text-align: center;
 }
 
 @keyframes flutuar {

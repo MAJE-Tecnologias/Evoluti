@@ -58,6 +58,36 @@ include '../Componentes Gerais/NavPerfil.php'
 ?>
 
     <div class="container_principal">
+
+    <dialog class="modal" id="modal">
+            <div class="containerModal">
+            <h2>Seja bem-vindo Administrador!</h2>
+            <div class="modal_texto">
+            <p>Se você clicou nesse botão, é por que precisa de um tutorial sobre a plataforma. </p>
+            <p>Selecione uma das opções abaixo para entender mais sobre a tela em questão!</p>
+            </div>
+
+            <div class="modal_conteudo">
+                <div class="label_botao">
+                    <label>Cadastro de Pacientes</label>
+                    <button type="button" class="botaoModalSelecao"><i class='bx bxs-user-plus' ></i></button>
+                </div>
+                <div class="label_botao">
+                    <label>Cadastro de Usuários</label>
+                    <button type="button" class="botaoModalSelecao"><i class='bx bxs-user-plus' ></i></button>
+                </div>
+                <div class="label_botao">
+                    <label>Busca de Usuários</label>
+                    <button type="button" class="botaoModalSelecao"><i class='bx bx-search-alt-2' ></i></button>
+                </div>
+            </div>
+
+            <div class="botaoFechar">
+            <button class="botao-fechar">Fechar tutorial</button>
+            </div>
+            </div>
+        </dialog>
+
         <div class="container_view">
             <img src="\Imagens\Logo_Sem_fundo.png" alt="LogoAnimado" class="LogoAnimado">
             <span class="TextoLogo">
@@ -66,9 +96,7 @@ include '../Componentes Gerais/NavPerfil.php'
             </span>
 
             <div class="divInterna_Botoes">
-                <a href="#" class="estiloBotoes"><i class='bx bxs-help-circle'></i>
-                    <p>TUTORIAIS</p>
-                </a>
+                <button type="button" class="estiloBotoes botao-abrir"><i class='bx bxs-help-circle icone'></i>TUTORIAIS</button>
             </div>
         </div>
     </div>

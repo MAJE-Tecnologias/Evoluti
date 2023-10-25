@@ -61,11 +61,29 @@ include '../Componentes Gerais/NavPerfil.php'
 
         <dialog class="modal" id="modal">
             <div class="containerModal">
-            <h2>TUTORIAIS</h2>
-            <p>Olá <b>Administrador!</b> se você clicou nesse botão, é por que precisa de um tutorial sobre a plataforma. Selecione uma das opções abaixo para entender mais sobre a tela em questão!</p>
-            <p>Lorem ipsum dolor sit amet consectet</p>
+            <h2>Seja bem-vindo Administrador!</h2>
+            <div class="modal_texto">
+            <p>Se você clicou nesse botão, é por que precisa de um tutorial sobre a plataforma. </p>
+            <p>Selecione uma das opções abaixo para entender mais sobre a tela em questão!</p>
+            </div>
+
+            <div class="modal_conteudo">
+                <div class="label_botao">
+                    <label>Cadastro de Pacientes</label>
+                    <button type="button" class="botaoModalSelecao"><i class='bx bxs-user-plus' ></i></button>
+                </div>
+                <div class="label_botao">
+                    <label>Cadastro de Usuários</label>
+                    <button type="button" class="botaoModalSelecao"><i class='bx bxs-user-plus' ></i></button>
+                </div>
+                <div class="label_botao">
+                    <label>Busca de Usuários</label>
+                    <button type="button" class="botaoModalSelecao"><i class='bx bx-search-alt-2' ></i></button>
+                </div>
+            </div>
+
             <div class="botaoFechar">
-            <button class="botao-fechar">Fechar</button>
+            <button class="botao-fechar">Fechar tutorial</button>
             </div>
             </div>
         </dialog>
