@@ -188,6 +188,22 @@ body {
     background: #45D496;
 }
 
+.modalEscuro{
+    background:#242526;
+    color: white;
+}
+
+.modalEscuro .estiloBotao{
+    background:white;
+}
+
+.modalEscuro .estiloBotao:hover{
+    background: #45D496;
+    border: 2px solid transparent;
+}
+
+
+
 .containerModal{
 
 }

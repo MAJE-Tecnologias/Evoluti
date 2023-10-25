@@ -33,8 +33,7 @@ if (isset($_GET['enviarFiltro'])) {
 
     if (!empty($filtroNome)) {
         for ($i = 0; $i < $numRows; $i = $i + 2) {
-            $pos = str_contains($setFunc[$i], $filtroNome);
-            if ($pos !== true) {
+            if (str_contains($setFunc[$i], $filtroNome) !== true) {
                 array_splice($setFunc, $i);
                 array_splice($setFunc, $i + 1);
                 $numRows = $numRows - 2;
@@ -47,11 +46,32 @@ if (isset($_GET['enviarFiltro'])) {
     switch ($filtroCat) {
         case 1:
             for ($i = 1; $i < $numRows; $i = $i + 2) {
-                if (strpos($setFunc[$i], 'Fisio') !== true) {
-                    unset($setFunc[$i]);
-                    unset($setFunc[$i - 1]);
+                if (str_contains($setFunc[$i], 'Admin') !== true) {
+                    array_splice($setFunc, $i);
+                    array_splice($setFunc, $i + 1);
+                    $numRows = $numRows - 2;
                 }
             }
+            break;
+        case 2:
+            for ($i = 1; $i < $numRows; $i = $i + 2) {
+                if (str_contains($setFunc[$i], 'Fisio') !== true) {
+                    array_splice($setFunc, $i);
+                    array_splice($setFunc, $i + 1);
+                    $numRows = $numRows - 2;
+                }
+            }
+            break;
+
+        case 3:
+            for ($i = 1; $i < $numRows; $i = $i + 2) {
+                if (str_contains($setFunc[$i], 'Estagiario') !== true) {
+                    array_splice($setFunc, $i);
+                    array_splice($setFunc, $i + 1);
+                    $numRows = $numRows - 2;
+                }
+            }
+            break;
     }
 }
 
@@ -124,26 +144,45 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
             </div>
 
             <dialog class="modal" id="modal">
-                <form method="get">
-                    <select name="filtroCat">
-                        <option value="0">
-                            <div class="tipo1 tipos">Tudo</div>
-                        </option>
-                        <option value="1">
-                            <div class="tipo2 tipos">Administrador</div>
-                        </option>
-                        <option value="2">
-                            <div class="tipo3 tipos">Fisioterapeuta</div>
-                        </option>
-                        <option value="3">
-                            <div class="tipo4 tipos">Estagiário</div>
-                        </option>
-                    </select>
-                    <input type="text" placeholder="Pesquise um usuário" name="filtroNome">
-                    <button type="submit" name="enviarFiltro" value="1">
-                        <i class='bx bxs-user-rectangle iconepesquisa'> </i>
-                    </button>
-                </form>
+                <div class="container_Modal">
+                    <form method="get">
+                        <div class="TituloESubtitulo">
+                        <div class="titulo">
+                            <i class='bx bx-filter-alt'></i>
+                            <p>Filtrar</p>
+                        </div>
+                        <div class="subTitulo">
+                            <p>Filtre os usuários do sistema para encontrar exatamente quem você procura!</p>
+                        </div>
+                        </div>
+                        <div class="container_Modal_Interno">
+                            <select name="filtroCat" class="dropdownFiltro">
+                                <option value="0">
+                                    <div class="tipo1 tipos">Tudo</div>
+                                </option>
+                                <option value="1">
+                                    <div class="tipo2 tipos">Administrador</div>
+                                </option>
+                                <option value="2">
+                                    <div class="tipo3 tipos">Fisioterapeuta</div>
+                                </option>
+                                <option value="3">
+                                    <div class="tipo4 tipos">Estagiário</div>
+                                </option>
+                            </select>
+                            <input type="text" placeholder="Pesquise um usuário" name="filtroNome">
+                        </div>
+                        <div class="modal_botoes">
+                        <button type="submit" name="enviarFiltro" value="1" class="estiloBotao">
+                            Aplicar filtro
+                        </button>
+                        <button type="button" class="estiloBotao botao-fechar">
+                            Voltar
+                        </button>
+                        </div>
+                    </form>
+
+                </div>
             </dialog>
 
             <div class="titulo">

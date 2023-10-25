@@ -20,6 +20,7 @@ const fecharModal = document.querySelector(".botao-fechar");
         navbar.classList.toggle("navigation");
         navbar.classList.toggle("escuroNav");
         mudarModo.classList.toggle("active");
+        modal.classList.toggle("modalEscuro");
 
         if (mudarModo.classList.contains("active")) {
         

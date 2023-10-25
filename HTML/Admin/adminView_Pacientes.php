@@ -17,7 +17,7 @@ if ($_SESSION['nivel'] == 0) {
 
 $pacientes = $conn->query("SELECT * FROM paciente;");
 
-for ($setPacientes = array(); $rowPacientes = $pacientes->fetch_assoc(); $setPacientes[] = $rowPacientes['nome']);
+for ($setPacientes = array(); $rowPacientes = $pacientes->fetch_assoc(); $setPacientes[] = $rowPacientes['nome'], $setPacientes[] = $rowPacientes['id_paciente']);
 
 $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
@@ -93,13 +93,13 @@ if (isset($_GET['nice'])) {
                     <?php
                     for ($i = 0; $i < mysqli_num_rows($pacientes); $i++) {
                         printf("
-                        <a href='' class='info2'>
+                        <a href='adminView_Paciente_Interno.php?idCliente=%s' class='info2'>
                         <div>
                             <img src='https://picsum.photos/150' alt=''>
                             <h4>%s</h4>
                         </div>
                     </a>
-                            ", $setPacientes[$i]);
+                            ",$setPacientes[$i+1], $setPacientes[$i]);
                     }
                     ?>
                 </div>
