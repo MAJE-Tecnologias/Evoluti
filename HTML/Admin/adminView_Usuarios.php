@@ -28,52 +28,27 @@ for ($setFunc; $rowEstagio = $funcsEstagio->fetch_assoc(); $setFunc[] = $rowEsta
 $numRows = (mysqli_num_rows($funcsAdmin) + mysqli_num_rows($funcsEstagio) + mysqli_num_rows($funcsFisio)) * 2;
 
 if (isset($_GET['enviarFiltro'])) {
-
     $filtroNome = $_GET['filtroNome'];
+    $filtroCat = $_GET['filtroCat'];
 
-    if (!empty($filtroNome)) {
-        for ($i = 0; $i < $numRows; $i = $i + 2) {
-            if (str_contains($setFunc[$i], $filtroNome) !== true) {
-                array_splice($setFunc, $i);
-                array_splice($setFunc, $i + 1);
-                $numRows = $numRows - 2;
-            }
+    $filteredFunc = array();
+
+    for ($i = 0; $i < $numRows; $i = $i + 2) {
+        $nome = $setFunc[$i];
+        $categoria = $setFunc[$i + 1];
+
+        // Aplicar filtros
+        if ((empty($filtroNome) || stripos($nome, $filtroNome) !== false) &&
+            ($filtroCat == 0 || $filtroCat == 1 && $categoria == 'Admin' || $filtroCat == 2 && $categoria == 'Fisio' || $filtroCat == 3 && $categoria == 'Estagiario')) {
+            $filteredFunc[] = $nome;
+            $filteredFunc[] = $categoria;
         }
     }
 
-    $filtroCat = $_GET['filtroCat'];
-
-    switch ($filtroCat) {
-        case 1:
-            for ($i = 1; $i < $numRows; $i = $i + 2) {
-                if (str_contains($setFunc[$i], 'Admin') !== true) {
-                    array_splice($setFunc, $i);
-                    array_splice($setFunc, $i + 1);
-                    $numRows = $numRows - 2;
-                }
-            }
-            break;
-        case 2:
-            for ($i = 1; $i < $numRows; $i = $i + 2) {
-                if (str_contains($setFunc[$i], 'Fisio') !== true) {
-                    array_splice($setFunc, $i);
-                    array_splice($setFunc, $i + 1);
-                    $numRows = $numRows - 2;
-                }
-            }
-            break;
-
-        case 3:
-            for ($i = 1; $i < $numRows; $i = $i + 2) {
-                if (str_contains($setFunc[$i], 'Estagiario') !== true) {
-                    array_splice($setFunc, $i);
-                    array_splice($setFunc, $i + 1);
-                    $numRows = $numRows - 2;
-                }
-            }
-            break;
-    }
+    $setFunc = $filteredFunc;
+    $numRows = count($setFunc);
 }
+
 
 if ($_SESSION['nivel'] == 0) {
     $selectNome = $conn->query("SELECT nome FROM admin WHERE id_admin = '" . $_SESSION['id'] . "'");
@@ -147,13 +122,13 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                 <div class="container_Modal">
                     <form method="get">
                         <div class="TituloESubtitulo">
-                        <div class="titulo">
-                            <i class='bx bx-filter-alt'></i>
-                            <p>Filtrar</p>
-                        </div>
-                        <div class="subTitulo">
-                            <p>Filtre os usuários do sistema para encontrar exatamente quem você procura!</p>
-                        </div>
+                            <div class="titulo">
+                                <i class='bx bx-filter-alt'></i>
+                                <p>Filtrar</p>
+                            </div>
+                            <div class="subTitulo">
+                                <p>Filtre os usuários do sistema para encontrar exatamente quem você procura!</p>
+                            </div>
                         </div>
                         <div class="container_Modal_Interno">
                             <select name="filtroCat" class="dropdownFiltro">
@@ -173,12 +148,12 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                             <input type="text" placeholder="Pesquise um usuário" name="filtroNome">
                         </div>
                         <div class="modal_botoes">
-                        <button type="submit" name="enviarFiltro" value="1" class="estiloBotao">
-                            Aplicar filtro
-                        </button>
-                        <button type="button" class="estiloBotao botao-fechar">
-                            Voltar
-                        </button>
+                            <button type="submit" name="enviarFiltro" value="1" class="estiloBotao">
+                                Aplicar filtro
+                            </button>
+                            <button type="button" class="estiloBotao botao-fechar">
+                                Voltar
+                            </button>
                         </div>
                     </form>
 

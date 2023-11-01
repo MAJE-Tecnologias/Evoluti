@@ -17,19 +17,28 @@ if ($_SESSION['nivel'] == 0) {
 
 $pacientes = $conn->query("SELECT * FROM paciente;");
 
+$setPacientes = array();
+
 for ($setPacientes = array(); $rowPacientes = $pacientes->fetch_assoc(); $setPacientes[] = $rowPacientes['nome'], $setPacientes[] = $rowPacientes['id_paciente']);
 
 $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
+$numRows = (mysqli_num_rows($pacientes));
 
-if (isset($_GET['nice'])) {
 
-    $filtrar = $_GET['poggers'];
+if (isset($_GET['enviarFiltro'])) {
 
-    if (!empty($filtrar)) {
-        $pacientes = $conn->query("SELECT * FROM paciente where (`nome` like '" . $filtrar . '%' . "');");
+    $filtroNome = $_GET['filtroNome'];
 
-        for ($setPacientes = array(); $rowPacientes = $pacientes->fetch_assoc(); $setPacientes[] = $rowPacientes['nome']);
+    if (!empty($filtroNome)) {
+        for ($i = 0; $i < $numRows; $i = $i + 2) {
+            if (str_starts_with($setPacientes[$i], $filtroNome) !== true) {
+                unset($setPacientes[$i+1]);
+                unset($setPacientes[$i]);
+                $setPacientes = array_values($setPacientes);
+                $numRows = $numRows - 1;
+            }
+        }
     }
 }
 ?>
@@ -73,25 +82,47 @@ if (isset($_GET['nice'])) {
 
     <div class="container_usuarios">
         <div class="container_view">
-            <div class="container_pesquisa">
-                <div class="grid_pesquisa">
-                    <div class="pesquisa linha">
 
-                        <form method="_GET">
-                            <input type="text" placeholder="Pesquise um paciente" name="poggers">
-                            <button type="submit" name="nice">
-                                <i class='bx bxs-user-rectangle iconepesquisa'> </i>
+
+            <dialog class="modal" id="modal">
+                <div class="container_Modal">
+                    <form method="get">
+                        <div class="TituloESubtitulo">
+                            <div class="titulo">
+                                <i class='bx bx-filter-alt'></i>
+                                <p>Filtrar</p>
+                            </div>
+                            <div class="subTitulo">
+                                <p>Filtre os usuários do sistema para encontrar exatamente quem você procura!</p>
+                            </div>
+                        </div>
+                        <div class="container_Modal_Interno">
+                            <input type="text" placeholder="Pesquise um usuário" name="filtroNome">
+                        </div>
+                        <div class="modal_botoes">
+                            <button type="submit" name="enviarFiltro" value="1" class="estiloBotao">
+                                Aplicar filtro
                             </button>
-                        </form>
+                            <button type="button" class="estiloBotao botao-fechar">
+                                Voltar
+                            </button>
+                        </div>
+                    </form>
 
-                    </div>
                 </div>
+            </dialog>
+
+            <div class="filtro_Container">
+                <button type="button" class="botao-abrir">
+                    <i class='bx bx-filter-alt'></i>
+                    <p class="filtrarTexto">Filtrar</p>
+                </button>
             </div>
 
             <div class="container_form">
                 <div class="container_card">
                     <?php
-                    for ($i = 0; $i < mysqli_num_rows($pacientes); $i++) {
+                    for ($i = 0; $i < mysqli_num_rows($pacientes); $i = $i + 2) {
                         printf("
                         <a href='adminView_Paciente_Interno.php?idCliente=%s' class='info2'>
                         <div>
