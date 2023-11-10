@@ -180,6 +180,7 @@ include '../MySQL/conecta.php';
                 <div class="bloco">
 
                     <div class="proposito_container_blocos">
+                    <div class="bloco_principal_container_0">
                         <div class="bloco_principal_container">
                             <p class="proposito_titulo">Muito além da fisioterapia...</p>
                             <p class="proposito_titulo2" id="animacao">a autonomia</p>
@@ -190,6 +191,7 @@ include '../MySQL/conecta.php';
                                 Tudo isso, a qualquer momento e em qualquer lugar, proporcionando maior 
                                 flexibilidade e conveniência.</p>
                         </div>
+                    </div>
 
 
                         <div class="bloco_1_container">
@@ -222,14 +224,17 @@ include '../MySQL/conecta.php';
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="bloco_2_container">
+
                             <div class="bloco1">
-
+                            <div class="bloco_interno_container">
+                                    
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
+                        </div>
+
+                            
+                        </div>
 
 
                 </div>

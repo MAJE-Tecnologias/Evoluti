@@ -44,7 +44,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 100px;
+    padding: 10px 50px;
     box-shadow: 0 0.1rem 0.5rem #ccc;
     width: 100%;
     background: var(--white);
@@ -395,53 +395,55 @@ footer {
 .proposito_container {
     width: 100%;
     position: relative;
-    height: 100%;
-    padding-top: 10%;
-    padding-bottom: 10%;
+    height: fit-content;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 5%;
 }
 
 .proposito_container_blocos {
-    padding-right: 10%;
-    display: grid;
+    display: flex;
+    column-gap: 20px;
     height: 100%;
-    grid-template-columns: 2fr repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 10px;
-    grid-row-gap: 0px;
-    align-items: end;
-}
-
-.bloco_container {
-    grid-area: 1 / 1 / 2 / 2;
-}
-
-.bloco_1_container {
-    grid-area: 1 / 2 / 2 / 3;
-}
-
-.bloco_2_container {
-    grid-area: 1 / 3 / 2 / 4;
 }
 
 .bloco {
     position: relative;
-    margin-left: 10%;
-    width: 90%;
     height: fit-content;
     border-radius: 9.16px;
     background: #45D496;
 
 }
 
+.bloco_principal_container_0{
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4%;
+}
+
 .bloco_principal_container {
     width: 100%;
-    height: 100%;
-    padding: 10%;
+    height: fit-content;
+}
+
+.bloco_principal_container2{
+    justify-content: center;
+    align-items: center;
+}
+
+.bloco_1_container{
+    display: flex;
+    column-gap: 15px;
+    max-width: 100%;
+    padding-right: 4%;
 }
 
 .proposito_titulo {
     color: #F1F1F1;
-    font-size: 35px;
+    font-size: 30px;
     font-weight: 700;
     width: max-content;
 
@@ -503,7 +505,6 @@ footer {
     position: relative;
     width: 100%;
     margin-top: 20px;
-    height: fit-content;
     bottom: 0px;
     border-radius: 9.16px 9.16px 0 0;
     background: #DEDFA4;
@@ -513,12 +514,10 @@ footer {
 }
 
 .bloco_interno_container {
-    display: grid;
-    width: 100%;
+    width: 270px;
     height: 100%;
     padding: 20px;
     border-radius: 9.16px;
-    align-items: center;
 }
 
 .bloco_interno {
@@ -537,7 +536,7 @@ footer {
 
 #bloco_interno_2,
 #bloco_interno_3 {
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 /* --------------------------------------------------------- */
@@ -821,6 +820,33 @@ button:hover {
 
 .barrinha_rodape2{
     display: none;
+}
+
+@media screen and (max-width: 1280px) {
+    .bloco_interno_container{
+        width: 250px;
+    }
+    .proposito_container_blocos{
+        column-gap: 0;
+    }
+    .bloco_principal_container_0 {
+        padding: 2%;
+    }
+    .proposito_titulo2{
+        font-size: 30px;
+    }
+    .bloco_principal_text {
+        font-size: 16px;
+    }
+    .bloco_1_container{
+        padding-right: 2%;
+    }
+}
+
+@media screen and (max-width: 1065px) {
+    .bloco_interno_container{
+        width: 230px;
+    }
 }
 
 /* --------------------------------------------------------- */
