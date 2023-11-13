@@ -281,6 +281,64 @@ body {
     box-shadow: 0px 0px 20px 0px rgba(255,255,255,0.75);
 }
 
+.botao-fechar2{
+    border-radius: 5px;
+    border: 2px solid #45D496;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08), 0px 6px 24px 0px rgba(0, 0, 0, 0.05);
+    margin: 8px 0;
+    width: auto;
+    font-weight: 700;
+    padding: 7px 26px;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.botao-fechar2:hover{
+    border: 2px solid transparent;
+    background: #45D496;
+}
+
+.modalEscuro .botao-fechar2{
+    background: #242526;
+    color: var(--white);
+}
+
+.modalEscuro .botao-fechar2:hover{
+    background: #45D496;
+    color: black;
+}
+
+.botao-fechar3{
+    border-radius: 5px;
+    border: 2px solid #45D496;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08), 0px 6px 24px 0px rgba(0, 0, 0, 0.05);
+    margin: 8px 0;
+    width: auto;
+    font-weight: 700;
+    padding: 7px 26px;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.botao-fechar3:hover{
+    border: 2px solid transparent;
+    background: #45D496;
+}
+
+.modalEscuro .botao-fechar3{
+    background: #242526;
+    color: var(--white);
+}
+
+.modalEscuro .botao-fechar3:hover{
+    background: #45D496;
+    color: black;
+}
+
 
 
 .containerModal{
@@ -356,6 +414,145 @@ body {
 .containerModal2 .modal_texto {
     margin-bottom: auto;
 }
+
+/* MODAL 2 - CADASTRO DE PACIENTE */
+
+
+.modal3{
+
+    width: 70%;
+    height: 70%;
+    margin: auto;
+    border-radius: 20px;
+    padding: 3em;
+    text-align: justify;
+
+}
+
+.modal3::backdrop{
+    background: none;
+}
+
+.modal3_texto3{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    margin-top: 20px;
+    align-items: flex-start;
+}
+
+.containerModal3{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    margin: 0;
+}
+
+.containerModal3 h2{
+    justify-content: center;
+    text-align: center;
+    color: #46D794;
+    margin-bottom: auto;
+}
+
+.containerModal3 .modal_texto {
+    margin-bottom: auto;
+}
+
+.img_menu_superior{
+    width: 100%;
+    margin-bottom: auto;
+}
+
+.menu_superior_titulo{
+    width: 100%;
+    font-weight: 700;
+    color: #46D794;
+}
+
+/* ---------------------------------------------- */
+
+/* MODAL 4 - FILTRO DE USUÁRIOS */
+
+.botao-fechar4{
+    border-radius: 5px;
+    border: 2px solid #45D496;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08), 0px 6px 24px 0px rgba(0, 0, 0, 0.05);
+    margin: 8px 0;
+    width: auto;
+    font-weight: 700;
+    padding: 7px 26px;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.botao-fechar4:hover{
+    border: 2px solid transparent;
+    background: #45D496;
+}
+
+.modalEscuro .botao-fechar4{
+    background: #242526;
+    color: var(--white);
+}
+
+.modalEscuro .botao-fechar4:hover{
+    background: #45D496;
+    color: black;
+}
+
+.modal4{
+
+    width: 70%;
+    height: 70%;
+    margin: auto;
+    border-radius: 20px;
+    padding: 3em;
+    text-align: justify;
+
+}
+
+.modal4::backdrop{
+    background: none;
+}
+
+.modal4_texto4{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    margin-top: 20px;
+    align-items: flex-start;
+}
+
+.containerModal4{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    margin: 0;
+}
+
+.containerModal4 h2{
+    justify-content: center;
+    text-align: center;
+    color: #46D794;
+    margin-bottom: auto;
+}
+
+.containerModal4 .modal_texto {
+    margin-bottom: auto;
+}
+
+/* ---------------------------------------------- */
 
 @keyframes flutuar {
     0% { transform: translate(0,  0px); }

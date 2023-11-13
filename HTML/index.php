@@ -74,7 +74,7 @@ include '../MySQL/conecta.php';
                 <p>Analise o progresso dos seus pacientes mergulhando em gráficos e dados que revelam insights
                     valiosos.
                 </p>
-                <a href="#" class="home-btn">Começar</a>
+                <a href="login.php" class="home-btn">Começar</a>
             </div>
             </div>
             <div class="teste">
@@ -96,7 +96,7 @@ include '../MySQL/conecta.php';
             <div class="servicos_conteudo">
                 <div class="slides">
                     <div id="itens">
-                    <img id="slide1" src="/Imagens/Serviços/Card_Img.png" alt="carousel1" class="img_slide">
+                    <img id="slide1" src="/Imagens/Serviços/Card_Img.png" alt="carousel1" class="img_slide first">
                     <img id="slide2" src="/Imagens/Serviços/Card_Img2.png" alt="carousel1" class="img_slide">
                     <img id="slide3" src="/Imagens/Serviços/Card_Img3.png" alt="carousel1" class="img_slide">
                     </div>
@@ -104,7 +104,7 @@ include '../MySQL/conecta.php';
                 <div class="botoes_slides">
 
                     <div class="servicos_text">
-                        <h1><a href="#slide1" class="botao_slide"><i class="bx bxs-circle"></a></i> Prontuário eletrônico
+                        <h1><input type="radio" class="botao_slide" id="radio1" name="grupoRadio1" value="1" checked="checked"></input></i> Prontuário eletrônico
                         </h1>
                         <p>Nosso software de evolução fisioterapêutica prioriza a organização e o acesso rápido às informações clínicas. 
                             Os prontuários eletrônicos fornecem uma solução digital e segura para armazenar e gerenciar todas as informações 
@@ -112,7 +112,7 @@ include '../MySQL/conecta.php';
                     </div>
 
                     <div class="servicos_text">
-                        <h1><a href="#slide2" class="botao_slide"><i class="bx bxs-circle"></a></i> Marcação de pontos de
+                        <h1><input type="radio" class="botao_slide" id="radio2" name="grupoRadio1" value="2"></input></i> Marcação de pontos de
                             dor
                         </h1>
                         <p>Nossa plataforma oferece uma ferramenta de marcação de pontos de dor, permitindo que os fisioterapeutas registrem 
@@ -120,14 +120,14 @@ include '../MySQL/conecta.php';
                     </div>
 
                     <div class="servicos_text">
-                        <h1><a href="#slide3" class="botao_slide"><i class="bx bxs-circle"></a></i> Documentação</h1>
+                        <h1><input type="radio" class="botao_slide" id="radio3" name="grupoRadio1" value="3"></input></i> Documentação</h1>
                         <p>O software de evolução fisioterapêutica simplifica a documentação clínica. Os fisioterapeutas podem registrar o 
                             progresso do paciente, anotar observações importantes, detalhar os exercícios recomendados e acompanhar as respostas 
                             aos tratamentos.</p>
                     </div>
 
                     <div class="servicos_text">
-                        <h1><a href="#slide1" class="botao_slide"><i class="bx bxs-circle"></a></i> Relatórios</h1>
+                        <h1><input type="radio" class="botao_slide" id="radio4" name="grupoRadio1" value="4"></input></i> Relatórios</h1>
                         <p>Nossos relatórios são projetados para serem claros e informativos, contribuindo para uma melhor tomada de decisões clínicas 
                             e uma experiência mais envolvente para os pacientes.</p>
                     </div>

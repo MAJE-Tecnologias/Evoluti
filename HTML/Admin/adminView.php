@@ -74,11 +74,11 @@ include '../Componentes Gerais/NavPerfil.php'
                 </div>
                 <div class="label_botao">
                     <label>Cadastro de Usuários</label>
-                    <button type="button" class="botaoModalSelecao"><i class='bx bxs-user-plus' ></i></button>
+                    <button type="button" class="botaoModalSelecao botao-abrir3"><i class='bx bxs-user-plus' ></i></button>
                 </div>
                 <div class="label_botao">
-                    <label>Busca de Usuários</label>
-                    <button type="button" class="botaoModalSelecao"><i class='bx bx-search-alt-2' ></i></button>
+                    <label>Filtro de Usuários</label>
+                    <button type="button" class="botaoModalSelecao botao-abrir4"><i class='bx bx-filter-alt' ></i></button>
                 </div>
             </div>
 
@@ -111,6 +111,61 @@ include '../Componentes Gerais/NavPerfil.php'
 
             <div class="botaoFechar">
             <button class="botao-fechar2">Voltar</button>
+            </div>
+            </div>
+        </dialog>
+
+        <dialog class="modal3" id="modal3">
+            <div class="containerModal3">
+            <h2>Cadastro de Usuários</h2>
+            <div class="modal_texto">
+            <p>Para cadastrar um usuário é necessário: </p>
+
+            <div class="modal3_texto3">
+
+            <p>1. Selecionar a aba cadastros no menu lateral;</p>
+            <p>2. Selecionar novo usuário;</p>
+            <p>3. No menu superior, escolha que tipo de usuário deseja cadastrar.</p>
+            <div class="barrinha"> </div>
+            <div class="menu_superior_titulo">
+            <h2>Menu Superior</h2>
+            </div>
+            <img src="../../Imagens/barra.png" alt="Menu Superior" class="img_menu_superior">
+
+            </div>
+
+            </div>
+
+
+            <div class="botaoFechar">
+            <button class="botao-fechar3">Voltar</button>
+            </div>
+            </div>
+        </dialog>
+
+        <dialog class="modal4" id="modal4">
+            <div class="containerModal4">
+            <h2>Filtro de Usuários</h2>
+            <div class="modal_texto">
+            <p>Para filtrar usuários é necessário: </p>
+
+            <div class="modal4_texto4">
+
+            <p>1. Selecionar a aba usuários no menu lateral;</p>
+            <p>2. Clicar no ícone de filtagram;</p>
+            <p>3. Na janela que abrir, você poderá filtrar os usuários por tipo e por nome.</p>
+            <div class="barrinha"> </div>
+
+            <img src="../../Imagens/filtro.png" alt="Filtro" class="img_menu_superior">
+            
+
+            </div>
+
+            </div>
+
+
+            <div class="botaoFechar">
+            <button class="botao-fechar4">Voltar</button>
             </div>
             </div>
         </dialog>
