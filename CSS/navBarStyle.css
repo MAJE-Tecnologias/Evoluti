@@ -186,3 +186,25 @@ body{
     font-size: 22px;
     cursor: pointer;
 }
+
+.menuLateral li a button{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    transition: var(--transicao-1);
+
+    color: var(--white);
+    font-size: 18px;
+
+}
+
+.menuLateral li a button:hover{
+    background: #57d8a0;
+}
+
+.menuLateral li a button:hover .icone,
+.menuLateral li a button:hover .menu_texto{
+    color: black;
+}

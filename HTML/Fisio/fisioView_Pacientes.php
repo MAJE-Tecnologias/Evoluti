@@ -18,7 +18,7 @@ if ($_SESSION['nivel'] == 0) {
 
 $pacientes = $conn->query("SELECT * FROM paciente;");
 
-for ($setPacientes = array(); $rowPacientes = $pacientes->fetch_assoc(); $setPacientes[] = $rowPacientes['nome']);
+for ($setPacientes = array(); $rowPacientes = $pacientes->fetch_assoc(); $setPacientes[] = $rowPacientes['nome'], $setPacientes[] = $rowPacientes['id_paciente']);
 
 $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
@@ -71,7 +71,13 @@ if (isset($_GET['nice'])) {
 
     <?php
 
-    include '../Componentes Gerais/NavPerfil.php'
+    include '../Componentes Gerais/NavPerfil.php';
+
+    $id = $_GET['idCliente'];
+
+    $result = $conn->query("SELECT * from paciente where (`id_paciente` = '" . $id . "') LIMIT 1");
+
+    $rowPaciente = mysqli_fetch_assoc($result);
 
     ?>
 
@@ -107,15 +113,15 @@ if (isset($_GET['nice'])) {
             <div class="container_form">
                 <div class="container_card">
                     <?php
-                    for ($i = 0; $i < mysqli_num_rows($pacientes); $i++) {
+                    for ($i = 0; $i < mysqli_num_rows($pacientes) * 2; $i = $i + 2) {
                         printf("
-                        <a href='' class='info2'>
+                        <a href='fisioView_ProntuarioEletronico.php?idCliente=%s' class='info2'>
                         <div>
                             <img src='https://picsum.photos/150' alt=''>
                             <h4>%s</h4>
                         </div>
                     </a>
-                            ", $setPacientes[$i]);
+                            ", $setPacientes[$i + 1], $setPacientes[$i]);
                     }
                     ?>
                 </div>

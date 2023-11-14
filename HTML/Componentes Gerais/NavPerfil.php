@@ -11,3 +11,22 @@
         ?>
 
     </nav>
+
+
+    <dialog class="modalConfig" id="modalConfig">
+            <div class="containerModalConfig">
+            <div class="titulo">
+            <i class='bx bx-cog icone icone'></i>
+            <h2>Configurações</h2>
+            </div>
+            
+            <button class="btn_Logoff">Deslogar</button>
+
+            </div>
+
+
+            <div class="botaoFecharConfig">
+            <button class="botao-fecharConfig">Voltar</button>
+            </div>
+            </div>
+        </dialog>

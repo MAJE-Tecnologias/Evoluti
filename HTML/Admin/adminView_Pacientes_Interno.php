@@ -52,7 +52,15 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
     <?php
 
-    include '../Componentes Gerais/NavPerfil.php'
+    include '../Componentes Gerais/NavPerfil.php';
+
+    $id = $_GET['idCliente'];
+
+    $result = $conn->query("SELECT * from paciente where (`id_paciente` = '" . $id . "') LIMIT 1");
+
+    $rowPaciente = mysqli_fetch_assoc($result);
+
+
 
     ?>
 
@@ -66,15 +74,15 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
 
                 <form action="" method="POST" enctype="multipart/form-data" class="forms">
-                <div class="container_voltar">
-                    
-                        <a href="adminView_Pacientes.php" class="botao_voltar"><i class='bx bx-left-arrow-circle' ></i> Voltar</a>
+                    <div class="container_voltar">
+
+                        <a href="adminView_Pacientes.php" class="botao_voltar"><i class='bx bx-left-arrow-circle'></i> Voltar</a>
                     </div>
-                <div class="container_foto_forms">
-                    <div class="foto_forms"></div>
-                    <p class="nomePaciente">Nome completo</p>
-                </div>
-                
+                    <div class="container_foto_forms">
+                        <div class="foto_forms"></div>
+                        <?php echo "<p class='nomePaciente'>$rowPaciente[nome]</p>" ?>
+                    </div>
+
 
                     <div class="titulo1"><label class="labelTitulos">Dados pessoais</label></div>
                     <div class="linhas">
@@ -82,20 +90,20 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
                             <div class="campos">
                                 <label class="labelForms">Data de nascimento</label>
-                                <p>Data de Nascimento</p>
+                                <?php echo "<p>$rowPaciente[datanasc]</p>" ?>
                             </div>
 
                             <div class="campos">
                                 <label class="labelForms">CPF</label>
-                                <p>CPF</p>
+                                <?php echo "<p>$rowPaciente[cpf]</p>" ?>
                             </div>
                             <div class="campos">
                                 <label class="labelForms">RG</label>
-                                <p>RG</p>
+                                <?php echo "<p>$rowPaciente[rg]</p>" ?>
                             </div>
                             <div class="campos">
                                 <label class="labelForms">Gênero</label>
-                                <p>Gênero</p>
+                                <?php echo "<p>$rowPaciente[genero]</p>" ?>
                             </div>
                         </div>
 
@@ -110,13 +118,13 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
                             <div class="campos">
                                 <label class="labelForms">E-mail</label>
-                                    <p>E-mail</p>
+                                <?php echo "<p>$rowPaciente[email]</p>" ?>
                             </div>
 
 
                             <div class="campos">
                                 <label class="labelForms">Telefone</label>
-                                <p>Telefone</p>
+                                <?php echo "<p>$rowPaciente[telefone]</p>" ?>
                             </div>
                         </div>
 
@@ -128,17 +136,24 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                     <div class="linhas">
                         <div class="linha1">
 
+                            <?php
+                            $resultEndereco = $conn->query("SELECT * from endereco where (`id_endereco` = '" . $rowPaciente['fk_endereco'] . "') LIMIT 1");
+
+                            $rowEndereco = mysqli_fetch_assoc($resultEndereco);
+
+                            ?>
+
                             <div class="campos">
                                 <label class="labelForms">CEP</label>
-                                <p>CEP</p>
+                                <?php echo "<p>$rowEndereco[cep]</p>" ?>
                             </div>
                             <div class="campos">
                                 <label class="labelForms">Rua</label>
-                                <p>Rua</p>
+                                <?php echo "<p>$rowEndereco[rua]</p>" ?>
                             </div>
                             <div class="campos">
                                 <label class="labelForms">Bairro</label>
-                                <p>Bairro</p>
+                                <?php echo "<p>$rowEndereco[bairro]</p>" ?>
                             </div>
 
                         </div>
@@ -146,7 +161,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
                             <div class="campos">
                                 <label class="labelForms">Número</label>
-                                <p>Número</p>
+                                <?php echo "<p>$rowEndereco[numero]</p>" ?>
                             </div>
                             <div class="campos">
                                 <label class="labelForms">Complemento</label>
@@ -155,7 +170,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
                             <div class="campos">
                                 <label class="labelForms">Cidade</label>
-                                <p>Cidade</p>
+                                <?php echo "<p>$rowEndereco[cidade]</p>" ?>
                             </div>
                         </div>
 
@@ -165,12 +180,12 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
                         <div class="linha4">
 
-                                <div class="Selecionar_Arquivo">
-                                    <div class="container_TextoArquivo">
+                            <div class="Selecionar_Arquivo">
+                                <div class="container_TextoArquivo">
                                     <i class='bx bxs-file icone_Arquivo'></i>
                                     <span class="texto_Arquivo">Documentos</span>
-                                    </div>
                                 </div>
+                            </div>
 
                         </div>
 

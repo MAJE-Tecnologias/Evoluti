@@ -5,13 +5,13 @@ include '../../MySql/conecta.php';
 session_start();
 
 if ($_SESSION['nivel'] == 0) {
-    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ADMIN = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT nome FROM admin WHERE id_admin = '" . $_SESSION['id'] . "'");
     $prof = "Administrador";
 } elseif ($_SESSION['nivel'] == 1) {
-    $selectNome = $conn->query("SELECT NOME FROM fisio WHERE ID_FISIO = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT nome FROM fisio WHERE id_fisio = '" . $_SESSION['id'] . "'");
     $prof = "Fisioterapia";
 } else {
-    $selectNome = $conn->query("SELECT NOME FROM estagiario WHERE ID_ESTAGIARIO = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT nome FROM estagiario WHERE id_estagiario = '" . $_SESSION['id'] . "'");
     $prof = "Estagiario";
 }
 
@@ -35,7 +35,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     <link rel="stylesheet" href="../../CSS/navBarStyle.css">
     <link rel="stylesheet" href="../../CSS/fisioAtendimentoInterno.css">
     <link rel="stylesheet" href="../../CSS/fisio_ProntuarioEletronicoStyle.css">
-    
+
 
     <!-- -------------------------------------- -->
 
@@ -56,7 +56,13 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
     <?php
 
-    include '../Componentes Gerais/NavPerfil.php'
+    include '../Componentes Gerais/NavPerfil.php';
+
+    $id = $_GET['idCliente'];
+
+    $result = $conn->query("SELECT * from paciente where (`id_paciente` = '" . $id . "') LIMIT 1");
+
+    $rowPaciente = mysqli_fetch_assoc($result);
 
     ?>
 
@@ -69,8 +75,11 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                             <img src="https://picsum.photos/150" alt="foto_perfil_paciente" class="foto_paciente">
                             <div class="formulario_paciente">
                                 <h1>Nome</h1>
+                                <?php echo "<h1>$rowPaciente[nome]</h1>" ?>
                                 <span>Data de Nascimento: </span>
-                                <span>Cpf: </span>
+                                <?php echo "<span>$rowPaciente[datanasc]</span>" ?>
+                                <span>CPF: </span>
+                                <?php echo "<p>$rowPaciente[cpf]</p>" ?>
                             </div>
                         </div>
                         <div class="Dropdowns">
@@ -211,3 +220,13 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 </body>
 
 </html>
+
+<?php
+
+
+
+
+
+
+
+?>
