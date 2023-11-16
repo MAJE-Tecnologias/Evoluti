@@ -31,8 +31,10 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../CSS/modalConfigStyle.css">
     <link rel="stylesheet" href="../../CSS/adminStyle.css">
     <link rel="stylesheet" href="../../CSS/navBarStyle.css">
+    <link rel="stylesheet" href="../../CSS/modalConfigStyle.css">
     <link rel="stylesheet" href="../../CSS/fisioAtendimentoInterno.css">
 
     <!-- -------------------------------------- -->
@@ -103,18 +105,12 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                             </details>
                         </div>
                         <div class="Avaliacoes">
-                            <button>03/10/2023</button>
-                            <button>03/10/2023</button>
-                            <button>03/10/2023</button>
-                            <button>03/10/2023</button>
-                            <button>03/10/2023</button>
-                            <button>03/10/2023</button>
-                            <button>03/10/2023</button>
-                            <button>03/10/2023</button>
-                            <button>03/10/2023</button>
-                            <button>03/10/2023</button>
-                            <button>03/10/2023</button>
-                            <button>03/10/2023</button>
+                            <?php 
+                            $selectAvaliacoes = $conn->query("SELECT * FROM atendimento WHERE fk_paciente = '".$id."' AND tipo_atendimento = 'Evolucao'");
+
+                            
+                            
+                            ?>
                         </div>
                     </div>
 
@@ -124,69 +120,73 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
                     <div class="formulario_direita">
                         <div class="faixa_escolha">
-                            <span class="texto_escolha selecionado">Avaliação</span>
-                            <span class="texto_escolha">Evolução</span>
+                            <button onclick="ava()" id="ava" class="texto_escolha selecionado">Avaliação</button>
+                            <button onclick="evo()" id="evo" class="texto_escolha">Evolução</button>
                         </div>
                         <div class="dia_avaliacao">
-                            <p id="dia"></p>
+                            <p id="dia">
+                                <?php
+                                $data =  date("d-m-Y h:i");
+                                echo date("d-m-Y h:i");
+                                ?>
+                            </p>
                         </div>
 
-                    <form action="/fisioView_AtendimentoInterno.php" method="post">
+                        <form method="post">
+                            <div>
+                                <textarea name="textArea" id="textarea" cols="100" rows="30" class="textArea_Form"></textarea>
+                            </div>
+                            <div class="container_parte_inferior">
+                                <div class="container_texto_anexos">
+                                    <p class="texto_anexos">Selecione qual arquivo deseja anexar:</p>
+                                </div>
 
-                        <div>
-                            <textarea name="" id="textarea" cols="100" rows="30" class="textArea_Form"></textarea>
-                        </div>
-                    <div class="container_parte_inferior">
-                        <div class="container_texto_anexos"> 
-                            <p class="texto_anexos">Selecione qual arquivo deseja anexar:</p>
-                        </div>
+                                <div class="container_anexoArquivos">
+                                    <label for="anexarReceitas" class="anexoItem">
 
-                        <div class="container_anexoArquivos">
-                            <label for="anexarReceitas" class="anexoItem">
+                                        <input type="file" id="anexarReceitas">
+                                        <i class='bx bxs-capsule'></i>
+                                        <p class="anexoItemText">Receitas</p>
+                                        </input>
 
-                                <input type="file" id="anexarReceitas">
-                                    <i class='bx bxs-capsule'></i>
-                                    <p class="anexoItemText">Receitas</p>
-                                </input>
+                                    </label>
 
-                            </label>
+                                    <label for="anexarExames" class="anexoItem">
+                                        <input type="file" id="anexarExames">
+                                        <i class="fa-solid fa-stethoscope"></i>
+                                        <p class="anexoItemText">Exames</p>
+                                        </input>
+                                    </label>
 
-                            <label for="anexarExames" class="anexoItem">
-                                <input type="file" id="anexarExames">
-                                    <i class="fa-solid fa-stethoscope"></i>
-                                    <p class="anexoItemText">Exames</p>
-                                </input>
-                            </label>
+                                    <label for="anexarAtestados" class="anexoItem">
+                                        <input type="file" id="anexarAtestados">
+                                        <i class="fa-regular fa-clipboard"></i>
+                                        <p class="anexoItemText">Atestados</p>
+                                        </input>
+                                    </label>
 
-                            <label for="anexarAtestados" class="anexoItem">
-                                <input type="file" id="anexarAtestados">
-                                    <i class="fa-regular fa-clipboard"></i>
-                                    <p class="anexoItemText">Atestados</p>
-                                </input>
-                            </label>
+                                    <label for="anexarOutros" class="anexoItem">
+                                        <input type="file" id="anexarOutros">
+                                        <i class="fa-solid fa-paperclip"></i>
+                                        <p class="anexoItemText">Outros</p>
+                                        </input>
+                                    </label>
 
-                            <label for="anexarOutros" class="anexoItem">
-                                <input type="file" id="anexarOutros">
-                                    <i class="fa-solid fa-paperclip"></i>
-                                    <p class="anexoItemText">Outros</p>
-                                </input>
-                            </label>
-                            
-                        </div>
-                        <div class="container_BarraPesquisa">
-                        <input type="text" placeholder="Diagnóstico" class="barraPesquisa"></input>
-                        </div>
+                                </div>
+                                <div class="container_BarraPesquisa">
+                                    <input type="text" placeholder="Diagnóstico" class="barraPesquisa"></input>
+                                </div>
 
-                        <div class="btn_salvar_container">
-                            <input type="submit" name="btn_salvar" value="Salvar" id="btn_salvar"></input>
-                        </div>
-
-                    </form>
-                    </div>
+                                <div class="btn_salvar_container">
+                                    <input type="submit" name="btn_salvar" id="btn_salvar"></input>
+                                </div>
+                                <input type="text" name="flag" id="flag" style="display: none;" value="1">
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <nav class="menuLateral fecharMenu">
@@ -241,9 +241,11 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                     </a>
                 </li>
                 <li class="">
-                    <a href="#">
+                    <a>
+                    <button type="button" class="botaoConfig botao-abrirConfig">
                         <i class='bx bx-cog icone'></i>
                         <span class="menu_texto">Configurações</span>
+                    </button>
                     </a>
                 </li>
 
@@ -261,19 +263,33 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     </footer>
 
     <!-- Javascript -->
+    <script src="/Javascript/scriptModalConfig.js"></script>
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="/Javascript/scriptAdm.js"></script>
-
-    <script>
-
-    var tempoAtual = new Date();
-    var dataAtual = tempoAtual.toLocaleString();
-
-
-    document.getElementById("dia").innerHTML = dataAtual;
-    </script>
+    <script src="../../Javascript/interno.js"></script>
     <!-- -------------------------------------- -->
 
 </body>
 
 </html>
+
+<?php
+
+if (isset($_POST['btn_salvar'])) {
+    $flag = $_POST['flag'];
+
+    echo $flag;
+
+    if ($flag == 1) {
+        //Avaliação
+        $textArea = $_POST['textArea'];
+        $insertAvaliacao = $conn->query("INSERT INTO atendimento(tipo_atendimento, hd, anexo, dataatendimento, descricao, fk_paciente, fk_fisio, fk_estagiario) VALUES('Avaliacao', '', '', '" . $data . "', '" . $textArea . "','" . $id . "', '" . $_SESSION['id'] . "', 1)");
+    } else {
+        //Evolução
+        $textArea = $_POST['textArea'];
+        $insertEvolucao = $conn->query("INSERT INTO atendimento(tipo_atendimento, hd, anexo, dataatendimento, descricao, fk_paciente, fk_fisio, fk_estagiario) VALUES('Evolucao', '', '', '" . $data . "', '" . $textArea . "','" . $id . "', '" . $_SESSION['id'] . "', 1)");
+    }
+}
+
+
+?>

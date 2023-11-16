@@ -55,6 +55,7 @@ if (isset($_GET['enviarFiltro'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../CSS/modalConfigStyle.css">
     <link rel="stylesheet" href="/CSS/navBarStyle.css">
     <link rel="stylesheet" href="/CSS/adminUsuarioStyle.css">
     <link rel="stylesheet" href="/CSS/adminPacientesStyle.css">
@@ -122,7 +123,7 @@ if (isset($_GET['enviarFiltro'])) {
             <div class="container_form">
                 <div class="container_card">
                     <?php
-                    for ($i = 0; $i < mysqli_num_rows($pacientes); $i = $i + 2) {
+                    for ($i = 0; $i < mysqli_num_rows($pacientes)*2; $i = $i + 2) {
                         printf("
                         <a href='adminView_Paciente_Interno.php?idCliente=%s' class='info2'>
                         <div>
@@ -202,9 +203,11 @@ if (isset($_GET['enviarFiltro'])) {
                     </a>
                 </li>
                 <li class="">
-                    <a href="#">
+                    <a>
+                    <button type="button" class="botaoConfig botao-abrirConfig">
                         <i class='bx bx-cog icone'></i>
                         <span class="menu_texto">Configurações</span>
+                    </button>
                     </a>
                 </li>
 
@@ -218,6 +221,7 @@ if (isset($_GET['enviarFiltro'])) {
     </footer>
 
     <!-- Javascript -->
+    <script src="/Javascript/scriptModalConfig.js"></script>
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="/Javascript/scriptAdm.js"></script>
     <!-- -------------------------------------- -->

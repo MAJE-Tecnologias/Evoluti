@@ -33,6 +33,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../CSS/adminStyle.css">
     <link rel="stylesheet" href="../../CSS/navBarStyle.css">
+    <link rel="stylesheet" href="../../CSS/modalConfigStyle.css">
 
     <!-- -------------------------------------- -->
 
@@ -153,9 +154,11 @@ include '../Componentes Gerais/NavPerfil.php'
                     </a>
                 </li>
                 <li class="">
-                    <a href="#">
+                    <a>
+                    <button type="button" class="botaoConfig botao-abrirConfig">
                         <i class='bx bx-cog icone'></i>
                         <span class="menu_texto">Configurações</span>
+                    </button>
                     </a>
                 </li>
 

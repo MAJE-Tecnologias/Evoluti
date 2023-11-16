@@ -263,9 +263,11 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                     </a>
                 </li>
                 <li class="">
-                    <a href="#">
+                    <a>
+                    <button type="button" class="botaoConfig botao-abrirConfig">
                         <i class='bx bx-cog icone'></i>
                         <span class="menu_texto">Configurações</span>
+                    </button>
                     </a>
                 </li>
 

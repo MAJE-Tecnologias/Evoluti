@@ -62,9 +62,9 @@ session_start();
 include '../MySQL/conecta.php';
 
 if (isset($_POST['btn'])) {
-	$selectAdm = $conn->query("SELECT * FROM admin WHERE EMAIL = '" . $_POST['email'] . "' AND senha = '" . $_POST['senha'] . "'");
-	$selectFisio = $conn->query("SELECT * FROM fisio WHERE EMAIL = '" . $_POST['email'] . "' AND senha = '" . $_POST['senha'] . "'");
-	$selectEsta = $conn->query("SELECT * FROM estagiario WHERE EMAIL = '" . $_POST['email'] . "' AND senha = '" . $_POST['senha'] . "'");
+	$selectAdm = $conn->query("SELECT * FROM admin WHERE email = '" . $_POST['email'] . "' AND senha = '" . $_POST['senha'] . "'");
+	$selectFisio = $conn->query("SELECT * FROM fisio WHERE email = '" . $_POST['email'] . "' AND senha = '" . $_POST['senha'] . "'");
+	$selectEsta = $conn->query("SELECT * FROM estagiario WHERE email = '" . $_POST['email'] . "' AND senha = '" . $_POST['senha'] . "'");
 
 
 	for ($i = 0; $i < 3; $i++) {

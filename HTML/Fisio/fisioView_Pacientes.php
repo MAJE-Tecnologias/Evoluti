@@ -47,8 +47,10 @@ if (isset($_GET['nice'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../CSS/adminStyle.css">
+<link rel="stylesheet" href="../../CSS/modalConfigStyle.css">
+<link rel="stylesheet" href="../../CSS/adminStyle.css">
     <link rel="stylesheet" href="../../CSS/navBarStyle.css">
+    <link rel="stylesheet" href="../../CSS/modalConfigStyle.css">
     <link rel="stylesheet" href="/CSS/adminUsuarioStyle.css">
     <link rel="stylesheet" href="../../CSS/fisioAtendimento.css">
 
@@ -181,9 +183,11 @@ if (isset($_GET['nice'])) {
                     </a>
                 </li>
                 <li class="">
-                    <a href="#">
+                    <a>
+                    <button type="button" class="botaoConfig botao-abrirConfig">
                         <i class='bx bx-cog icone'></i>
                         <span class="menu_texto">Configurações</span>
+                    </button>
                     </a>
                 </li>
 
@@ -202,6 +206,7 @@ if (isset($_GET['nice'])) {
     </footer>
 
     <!-- Javascript -->
+    <script src="/Javascript/scriptModalConfig.js"></script>
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="/Javascript/scriptAdm.js"></script>
     <!-- -------------------------------------- -->

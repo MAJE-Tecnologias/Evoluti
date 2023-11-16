@@ -166,30 +166,6 @@ BEGIN
 END$$
 DELIMITER ;
 
--- Busca de funcionarios da clinica
-
-DELIMITER //
-
-CREATE FUNCTION BuscarFuncionariosPorClinica(
-    p_fk_clinica INT
-)
-RETURNS TABLE (
-    FuncionarioID INT,
-    Nome VARCHAR(255),
-    Tipo VARCHAR(255)
-)
-BEGIN
-    RETURN (
-        SELECT ID_ADMIN, NOME, 'ADMIN' AS Tipo FROM ADMIN WHERE FK_CLINICA = p_fk_clinica
-        UNION ALL
-        SELECT ID_ESTAGIARIO, NOME, 'ESTAGIARIO' AS Tipo FROM ESTAGIARIO WHERE FK_CLINICA = p_fk_clinica
-        UNION ALL
-        SELECT ID_ESTAGIARIO, NOME, 'FISIO' AS Tipo FROM FISIO WHERE FK_CLINICA = p_fk_clinica
-    );
-END//
-
-DELIMITER ;
-
 DELIMITER //
 
 CREATE FUNCTION INSERIR_PACIENTE(

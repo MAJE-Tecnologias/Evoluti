@@ -20,13 +20,17 @@
             <h2>Configurações</h2>
             </div>
             
-            <button class="btn_Logoff">Deslogar</button>
+            <button class="btn_Logoff">Deslogar <i class='bx bx-log-out'></i></button>
 
-            </div>
-
+            <div class="teste">
 
             <div class="botaoFecharConfig">
             <button class="botao-fecharConfig">Voltar</button>
             </div>
+            </div>
+            </div>
+
+
+
             </div>
         </dialog>
