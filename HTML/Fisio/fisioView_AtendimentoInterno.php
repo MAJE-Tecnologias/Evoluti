@@ -15,6 +15,8 @@ if ($_SESSION['nivel'] == 0) {
     $prof = "Estagiario";
 }
 
+$_POST = '';
+
 $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 ?>
 
@@ -85,31 +87,107 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                         <div class="Dropdowns">
                             <details>
                                 <summary>Receitas <i class='bx bx-chevron-down'> </i><i class='bx bxs-capsule right'></i></summary>
-                                <p class="texto_summary">O paciente não possui nenhuma receita anexada!</p>
+                                <?php
+                                // Mostrar todas as receitas que estão no banco de dados
+                                $selectReceitas = $conn->query("SELECT * FROM arquivos WHERE fk_paciente = '" . $id . "' AND tipo = 'Receitas'");
+
+                                if (mysqli_num_rows($selectReceitas) <= 0) {
+                                    printf("<p class='texto_summary'>O paciente não possui nenhuma receita anexada!</p>");
+                                }
+
+                                for ($setReceitas = array(); $rowReceitas = $selectReceitas->fetch_assoc(); $setReceitas[] = $rowReceitas['path']);
+
+                                for ($i  = 0; $i < mysqli_num_rows($selectReceitas); $i++) {
+                                    printf("<a href='%s' download>%s° Receita</a> <br>", $setReceitas[$i],  $i + 1);
+                                }
+                                ?>
                             </details>
                             <details>
                                 <summary>Pedido de exame <i class='bx bx-chevron-down'></i><i class="fa-solid fa-stethoscope right"></i></summary>
-                                <p class="texto_summary">O paciente não possui nenhum pedido de exame anexado!</p>
+                                <?php
+                                // Mostrar todas os Exames que estão no banco de dados
+                                $selectExame = $conn->query("SELECT * FROM arquivos WHERE fk_paciente = '" . $id . "' AND tipo = 'Exames'");
+
+                                if (mysqli_num_rows($selectExame) <= 0) {
+                                    printf("<p class='texto_summary'>O paciente não possui nenhum pedido de exame anexado!</p>");
+                                }
+
+                                for ($setExame = array(); $rowExame = $selectExame->fetch_assoc(); $setExame[] = $rowExame['path']);
+
+                                for ($i  = 0; $i < mysqli_num_rows($selectExame); $i++) {
+                                    printf("<a href='%s' download>%s° Exame</a> <br>", $setExame[$i],  $i + 1);
+                                }
+                                ?>
+
                             </details>
                             <details>
                                 <summary>Atestados <i class='bx bx-chevron-down'></i><i class="fa-regular fa-clipboard right"></i></summary>
-                                <p class="texto_summary">O paciente não possui nenhum atestado anexado!</p>
+                                <?php
+                                // Mostrar todas os Exames que estão no banco de dados
+                                $selectAtestados = $conn->query("SELECT * FROM arquivos WHERE fk_paciente = '" . $id . "' AND tipo = 'Atestados'");
+
+                                if (mysqli_num_rows($selectAtestados) <= 0) {
+                                    printf("<p class='texto_summary'>O paciente não possui nenhum atestado anexado!</p>");
+                                }
+
+                                for ($setAtestados = array(); $rowAtestados = $selectAtestados->fetch_assoc(); $setAtestados[] = $rowAtestados['path']);
+
+                                for ($i  = 0; $i < mysqli_num_rows($selectAtestados); $i++) {
+                                    printf("<a href='%s' download>%s° Atestados</a> <br>", $setAtestados[$i],  $i + 1);
+                                }
+                                ?>
                             </details>
                             <details>
                                 <summary>Diagnosticos <i class='bx bx-chevron-down'></i></summary>
-                                <p class="texto_summary">O paciente não possui nenhum diagnóstico anexado!</p>
+                                <?php
+                                // Mostrar todas os Exames que estão no banco de dados
+                                $selectDiagnosticos = $conn->query("SELECT * FROM arquivos WHERE fk_paciente = '" . $id . "' AND tipo = 'Diagnosticos'");
+
+                                if (mysqli_num_rows($selectDiagnosticos) <= 0) {
+                                    printf("<p class='texto_summary'>O paciente não possui nenhum diagnóstico anexado!</p>");
+                                }
+
+                                for ($setDiagnosticos = array(); $rowDiagnosticos = $selectDiagnosticos->fetch_assoc(); $setDiagnosticos[] = $rowDiagnosticos['path']);
+
+                                for ($i  = 0; $i < mysqli_num_rows($selectDiagnosticos); $i++) {
+                                    printf("<h3>%s° Diagnostico</h3> <br> <p>%s</p>", $i + 1, $setDiagnosticos[$i]);
+                                }
+                                ?>
+
                             </details>
                             <details>
                                 <summary>Arquivos atrelados <i class='bx bx-chevron-down'></i><i class="fa-solid fa-paperclip right"></i></summary>
-                                <p class="texto_summary">O paciente não possui nenhum arquivo adicional anexado!</p>
+                                
+                                <?php
+                                // Mostrar todas os Exames que estão no banco de dados
+                                $selectOutros = $conn->query("SELECT * FROM arquivos WHERE fk_paciente = '" . $id . "' AND tipo = 'Outros'");
+
+                                if (mysqli_num_rows($selectOutros) <= 0) {
+                                    printf("<p class='texto_summary'>O paciente não possui nenhum arquivo adicional anexado!</p>");
+                                }
+
+                                for ($setOutros = array(); $rowOutros = $selectOutros->fetch_assoc(); $setOutros[] = $rowOutros['path']);
+
+                                for ($i  = 0; $i < mysqli_num_rows($selectOutros); $i++) {
+                                    printf("<a href='%s' download>%s° Arquivo diverso</a> <br>", $setOutros[$i],  $i + 1);
+                                }
+                                ?>
                             </details>
                         </div>
                         <div class="Avaliacoes">
-                            <?php 
-                            $selectAvaliacoes = $conn->query("SELECT * FROM atendimento WHERE fk_paciente = '".$id."' AND tipo_atendimento = 'Evolucao'");
+                            <?php
+                            $selectAvaliacoes = $conn->query("SELECT * FROM atendimento WHERE fk_paciente = '" . $id . "' AND tipo_atendimento = 'Evolucao'");
 
-                            
-                            
+                            if (mysqli_num_rows($selectAvaliacoes) <= 0) {
+                                printf("<p>O usuario não possui atendimentos</p>");
+                            }
+
+                            for ($setAtendimentos = array(); $rowAtendimentos = $selectAvaliacoes->fetch_assoc(); $setAtendimentos[] = $rowAtendimentos['dataatendimento']);
+
+                            for ($i  = 0; $i < mysqli_num_rows($selectAvaliacoes); $i++) {
+                                printf("<button>%s</button>", $setAtendimentos[$i]);
+                            }
+
                             ?>
                         </div>
                     </div>
@@ -132,7 +210,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                             </p>
                         </div>
 
-                        <form method="post">
+                        <form method="post" enctype="multipart/form-data">
                             <div>
                                 <textarea name="textArea" id="textarea" cols="100" rows="30" class="textArea_Form"></textarea>
                             </div>
@@ -143,8 +221,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
                                 <div class="container_anexoArquivos">
                                     <label for="anexarReceitas" class="anexoItem">
-
-                                        <input type="file" id="anexarReceitas">
+                                        <input type="file" name="Receita" id="anexarReceitas">
                                         <i class='bx bxs-capsule'></i>
                                         <p class="anexoItemText">Receitas</p>
                                         </input>
@@ -152,21 +229,21 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                                     </label>
 
                                     <label for="anexarExames" class="anexoItem">
-                                        <input type="file" id="anexarExames">
+                                        <input type="file" name="Exames" id="anexarExames">
                                         <i class="fa-solid fa-stethoscope"></i>
                                         <p class="anexoItemText">Exames</p>
                                         </input>
                                     </label>
 
                                     <label for="anexarAtestados" class="anexoItem">
-                                        <input type="file" id="anexarAtestados">
+                                        <input type="file" name="Atestados" id="anexarAtestados">
                                         <i class="fa-regular fa-clipboard"></i>
                                         <p class="anexoItemText">Atestados</p>
                                         </input>
                                     </label>
 
                                     <label for="anexarOutros" class="anexoItem">
-                                        <input type="file" id="anexarOutros">
+                                        <input type="file" name="Outros" id="anexarOutros">
                                         <i class="fa-solid fa-paperclip"></i>
                                         <p class="anexoItemText">Outros</p>
                                         </input>
@@ -174,7 +251,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
                                 </div>
                                 <div class="container_BarraPesquisa">
-                                    <input type="text" placeholder="Diagnóstico" class="barraPesquisa"></input>
+                                    <input type="text" placeholder="Diagnóstico" name='Diagnosticos' class="barraPesquisa"></input>
                                 </div>
 
                                 <div class="btn_salvar_container">
@@ -242,10 +319,10 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                 </li>
                 <li class="">
                     <a>
-                    <button type="button" class="botaoConfig botao-abrirConfig">
-                        <i class='bx bx-cog icone'></i>
-                        <span class="menu_texto">Configurações</span>
-                    </button>
+                        <button type="button" class="botaoConfig botao-abrirConfig">
+                            <i class='bx bx-cog icone'></i>
+                            <span class="menu_texto">Configurações</span>
+                        </button>
                     </a>
                 </li>
 
@@ -277,8 +354,140 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
 if (isset($_POST['btn_salvar'])) {
     $flag = $_POST['flag'];
+    $target_dir = "../../Imagens/imagensBd/";
 
-    echo $flag;
+    if ($_FILES["Receita"]["name"] != 0) {
+        $target_file = $target_dir . basename($_FILES["Receita"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        $allowTypes = array('docx', 'png', 'jpeg', 'xlxs', 'txt', 'pdf');
+
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            echo "Sorry, file already exists.";
+            $uploadOk = 0;
+        }
+
+        // Check file size
+        if ($_FILES["Receita"]["size"] > 500000) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+            // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["Receita"]["tmp_name"], $target_file)) {
+                echo "The file " . htmlspecialchars(basename($_FILES["Receita"]["name"])) . " has been uploaded.";
+                $insertEvolucao = $conn->query("INSERT INTO arquivos(path, tipo, fk_paciente) VALUES('" . $target_file . "', 'Receitas', '" . $id . "')");
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+    }
+
+    if ($_FILES["Exames"]["name"] != 0) {
+        $target_file = $target_dir . basename($_FILES["Exames"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        $allowTypes = array('docx', 'png', 'jpeg', 'xlxs', 'txt', 'pdf');
+
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            echo "Sorry, file already exists.";
+            $uploadOk = 0;
+        }
+
+        // Check file size
+        if ($_FILES["Exames"]["size"] > 500000) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+            // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["Exames"]["tmp_name"], $target_file)) {
+                echo "The file " . htmlspecialchars(basename($_FILES["Exames"]["name"])) . " has been uploaded.";
+                $insertEvolucao = $conn->query("INSERT INTO arquivos(path, tipo, fk_paciente) VALUES('" . $target_file . "', 'Exames', '" . $id . "')");
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+    }
+
+    if ($_FILES["Atestados"]["name"] != 0) {
+        $target_file = $target_dir . basename($_FILES["Atestados"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        $allowTypes = array('docx', 'png', 'jpeg', 'xlxs', 'txt', 'pdf');
+
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            echo "Sorry, file already exists.";
+            $uploadOk = 0;
+        }
+
+        // Check file size
+        if ($_FILES["Atestados"]["size"] > 500000) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+            // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["Atestados"]["tmp_name"], $target_file)) {
+                echo "The file " . htmlspecialchars(basename($_FILES["Atestados"]["name"])) . " has been uploaded.";
+                $insertEvolucao = $conn->query("INSERT INTO arquivos(path, tipo, fk_paciente) VALUES('" . $target_file . "', 'Atestados', '" . $id . "')");
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+    }
+
+    if ($_FILES["Outros"]["name"] != 0) {
+        $target_file = $target_dir . basename($_FILES["Outros"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        $allowTypes = array('docx', 'png', 'jpeg', 'xlxs', 'txt', 'pdf');
+
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            echo "Sorry, file already exists.";
+            $uploadOk = 0;
+        }
+
+        // Check file size
+        if ($_FILES["Outros"]["size"] > 500000) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+            // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["Outros"]["tmp_name"], $target_file)) {
+                echo "The file " . htmlspecialchars(basename($_FILES["Outros"]["name"])) . " has been uploaded.";
+                $insertEvolucao = $conn->query("INSERT INTO arquivos(path, tipo, fk_paciente) VALUES('" . $target_file . "', 'Outros', '" . $id . "')");
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+    }
+
+    if ($_POST['Diagnosticos'] != ''){
+        $insertEvolucao = $conn->query("INSERT INTO arquivos(path, tipo, fk_paciente) VALUES('" . $_POST['Diagnosticos'] . "', 'Diagnosticos', '" . $id . "')");
+    }
+
 
     if ($flag == 1) {
         //Avaliação
@@ -290,6 +499,5 @@ if (isset($_POST['btn_salvar'])) {
         $insertEvolucao = $conn->query("INSERT INTO atendimento(tipo_atendimento, hd, anexo, dataatendimento, descricao, fk_paciente, fk_fisio, fk_estagiario) VALUES('Evolucao', '', '', '" . $data . "', '" . $textArea . "','" . $id . "', '" . $_SESSION['id'] . "', 1)");
     }
 }
-
 
 ?>
