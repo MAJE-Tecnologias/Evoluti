@@ -26,12 +26,13 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/Imagens/Icon.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../CSS/modalConfigStyle.css">
+    <link rel="stylesheet" href="../../CSS/modalConfigStyle.css">
     <link rel="stylesheet" href="../../CSS/adminStyle.css">
     <link rel="stylesheet" href="../../CSS/navBarStyle.css">
     <link rel="stylesheet" href="../../CSS/modalConfigStyle.css">
@@ -66,6 +67,9 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
     $rowPaciente = mysqli_fetch_assoc($result);
 
+    $data = array();
+    $sql = "SELECT * FROM avaliacoes_dor WHERE fk_paciente = $id";
+    $result = $conn->query($sql);
     ?>
 
     <div class="container_principal">
@@ -87,38 +91,107 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                         <div class="Dropdowns">
                             <details>
                                 <summary>Receitas <i class='bx bx-chevron-down'> </i><i class='bx bxs-capsule right'></i></summary>
-                                <p class="texto_summary">O paciente não possui nenhuma receita anexada!</p>
+                                <?php
+                                // Mostrar todas as receitas que estão no banco de dados
+                                $selectReceitas = $conn->query("SELECT * FROM arquivos WHERE fk_paciente = '" . $id . "' AND tipo = 'Receitas'");
+
+                                if (mysqli_num_rows($selectReceitas) <= 0) {
+                                    printf("<p class='texto_summary'>O paciente não possui nenhuma receita anexada!</p>");
+                                }
+
+                                for ($setReceitas = array(); $rowReceitas = $selectReceitas->fetch_assoc(); $setReceitas[] = $rowReceitas['path']);
+
+                                for ($i  = 0; $i < mysqli_num_rows($selectReceitas); $i++) {
+                                    printf("<a href='%s' download>%s° Receita</a> <br>", $setReceitas[$i],  $i + 1);
+                                }
+                                ?>
                             </details>
                             <details>
                                 <summary>Pedido de exame <i class='bx bx-chevron-down'></i><i class="fa-solid fa-stethoscope right"></i></summary>
-                                <p class="texto_summary">O paciente não possui nenhum pedido de exame anexado!</p>
+                                <?php
+                                // Mostrar todas os Exames que estão no banco de dados
+                                $selectExame = $conn->query("SELECT * FROM arquivos WHERE fk_paciente = '" . $id . "' AND tipo = 'Exames'");
+
+                                if (mysqli_num_rows($selectExame) <= 0) {
+                                    printf("<p class='texto_summary'>O paciente não possui nenhum pedido de exame anexado!</p>");
+                                }
+
+                                for ($setExame = array(); $rowExame = $selectExame->fetch_assoc(); $setExame[] = $rowExame['path']);
+
+                                for ($i  = 0; $i < mysqli_num_rows($selectExame); $i++) {
+                                    printf("<a href='%s' download>%s° Exame</a> <br>", $setExame[$i],  $i + 1);
+                                }
+                                ?>
+
                             </details>
                             <details>
                                 <summary>Atestados <i class='bx bx-chevron-down'></i><i class="fa-regular fa-clipboard right"></i></summary>
-                                <p class="texto_summary">O paciente não possui nenhum atestado anexado!</p>
+                                <?php
+                                // Mostrar todas os Exames que estão no banco de dados
+                                $selectAtestados = $conn->query("SELECT * FROM arquivos WHERE fk_paciente = '" . $id . "' AND tipo = 'Atestados'");
+
+                                if (mysqli_num_rows($selectAtestados) <= 0) {
+                                    printf("<p class='texto_summary'>O paciente não possui nenhum atestado anexado!</p>");
+                                }
+
+                                for ($setAtestados = array(); $rowAtestados = $selectAtestados->fetch_assoc(); $setAtestados[] = $rowAtestados['path']);
+
+                                for ($i  = 0; $i < mysqli_num_rows($selectAtestados); $i++) {
+                                    printf("<a href='%s' download>%s° Atestados</a> <br>", $setAtestados[$i],  $i + 1);
+                                }
+                                ?>
                             </details>
                             <details>
                                 <summary>Diagnosticos <i class='bx bx-chevron-down'></i></summary>
-                                <p class="texto_summary">O paciente não possui nenhum diagnóstico anexado!</p>
+                                <?php
+                                // Mostrar todas os Exames que estão no banco de dados
+                                $selectDiagnosticos = $conn->query("SELECT * FROM arquivos WHERE fk_paciente = '" . $id . "' AND tipo = 'Diagnosticos'");
+
+                                if (mysqli_num_rows($selectDiagnosticos) <= 0) {
+                                    printf("<p class='texto_summary'>O paciente não possui nenhum diagnóstico anexado!</p>");
+                                }
+
+                                for ($setDiagnosticos = array(); $rowDiagnosticos = $selectDiagnosticos->fetch_assoc(); $setDiagnosticos[] = $rowDiagnosticos['path']);
+
+                                for ($i  = 0; $i < mysqli_num_rows($selectDiagnosticos); $i++) {
+                                    printf("<h3>%s° Diagnostico</h3> <br> <p>%s</p>", $i + 1, $setDiagnosticos[$i]);
+                                }
+                                ?>
+
                             </details>
                             <details>
                                 <summary>Arquivos atrelados <i class='bx bx-chevron-down'></i><i class="fa-solid fa-paperclip right"></i></summary>
-                                <p class="texto_summary">O paciente não possui nenhum arquivo adicional anexado!</p>
+
+                                <?php
+                                // Mostrar todas os Exames que estão no banco de dados
+                                $selectOutros = $conn->query("SELECT * FROM arquivos WHERE fk_paciente = '" . $id . "' AND tipo = 'Outros'");
+
+                                if (mysqli_num_rows($selectOutros) <= 0) {
+                                    printf("<p class='texto_summary'>O paciente não possui nenhum arquivo adicional anexado!</p>");
+                                }
+
+                                for ($setOutros = array(); $rowOutros = $selectOutros->fetch_assoc(); $setOutros[] = $rowOutros['path']);
+
+                                for ($i  = 0; $i < mysqli_num_rows($selectOutros); $i++) {
+                                    printf("<a href='%s' download>%s° Arquivo diverso</a> <br>", $setOutros[$i],  $i + 1);
+                                }
+                                ?>
                             </details>
                         </div>
                         <div class="Avaliacoes">
-                            <button>03/10/2023</button>
-                            <button>03/10/2023</button>
-                            <button>03/10/2023</button>
-                            <button>03/10/2023</button>
-                            <button>03/10/2023</button>
-                            <button>03/10/2023</button>
-                            <button>03/10/2023</button>
-                            <button>03/10/2023</button>
-                            <button>03/10/2023</button>
-                            <button>03/10/2023</button>
-                            <button>03/10/2023</button>
-                            <button>03/10/2023</button>
+                            <?php
+                            $selectAvaliacoes = $conn->query("SELECT * FROM atendimento WHERE fk_paciente = '" . $id . "' AND tipo_atendimento = 'Evolucao'");
+
+                            if (mysqli_num_rows($selectAvaliacoes) <= 0) {
+                                printf("<p>O usuario não possui atendimentos</p>");
+                            }
+
+                            for ($setAtendimentos = array(); $rowAtendimentos = $selectAvaliacoes->fetch_assoc(); $setAtendimentos[] = $rowAtendimentos['dataatendimento']);
+
+                            for ($i  = 0; $i < mysqli_num_rows($selectAvaliacoes); $i++) {
+                                printf("<button>%s</button>", $setAtendimentos[$i]);
+                            }
+                            ?>
                         </div>
                     </div>
 
@@ -127,7 +200,72 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                     </div>
 
                     <div class="formulario_direita">
-                        <img src="/Imagens/musculaturaFront.png" alt="pontosDor1" type="image/webp"></img>
+
+                        <h1>Gráfico de Dor</h1>
+                        <?php
+                        if (mysqli_num_rows($result) == 0) {
+                            printf("Nenhum ponto de dor");
+                            $flag = 0;
+                        } else {
+                            $flag = 1;
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    $data[] = $row;
+                                }
+                            }
+                        }
+                        ?>
+                        <canvas id="dorCanva" width="400" height="250"></canvas>
+                        <?php
+                        if ($flag == 1) {
+                            printf("<script>
+        const dadosPHP = %s;
+
+        const datas = Array.from(new Set(dadosPHP.map(item => item.data_avaliacao)));
+        const local = Array.from(new Set(dadosPHP.map(item => item.dor_local)));
+        const intensidade = [];
+
+        for (let i = 0; i < datas.length; i++) {
+            intensidade[i] = new Array(local.length).fill(0);
+        }
+
+        dadosPHP.forEach(item => {
+            const dataIndex = datas.indexOf(item.data_avaliacao);
+            const localIndex = local.indexOf(item.dor_local);
+            intensidade[dataIndex][localIndex] = item.dor_intensidade;
+        });
+
+        const datasets = local.map((local, index) => {
+            return {
+                label: local,
+                data: intensidade.map(intensity => intensity[index]),
+                backgroundColor: `#ff56`,
+            };
+        });
+
+        const ctx = document.getElementById('dorCanva').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: datas,
+                datasets: datasets,
+            },
+            options: {
+                responsive: false,
+                scales: {
+                    x: {
+                        stacked: true,
+                    },
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                    },
+                },
+            },
+        });
+    </script>", json_encode($data));
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -187,11 +325,9 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                     </a>
                 </li>
                 <li class="">
-                    <a>
-                    <button type="button" class="botaoConfig botao-abrirConfig">
+                    <a href="#">
                         <i class='bx bx-cog icone'></i>
                         <span class="menu_texto">Configurações</span>
-                    </button>
                     </a>
                 </li>
 
@@ -209,12 +345,12 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     </footer>
 
     <!-- Javascript -->
-    <script src="/Javascript/scriptModalConfig.js"></script>
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="/Javascript/scriptAdm.js"></script>
 
+
     <script>
-        var tempoAtual = new Date();
+        var tempoAtual = new date();
         var dataAtual = tempoAtual.toLocaleString();
 
 
@@ -225,13 +361,3 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 </body>
 
 </html>
-
-<?php
-
-
-
-
-
-
-
-?>

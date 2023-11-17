@@ -15,8 +15,6 @@ if ($_SESSION['nivel'] == 0) {
     $prof = "Estagiario";
 }
 
-$_POST = '';
-
 $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 ?>
 
@@ -493,6 +491,8 @@ if (isset($_POST['btn_salvar'])) {
         //Avaliação
         $textArea = $_POST['textArea'];
         $insertAvaliacao = $conn->query("INSERT INTO atendimento(tipo_atendimento, hd, anexo, dataatendimento, descricao, fk_paciente, fk_fisio, fk_estagiario) VALUES('Avaliacao', '', '', '" . $data . "', '" . $textArea . "','" . $id . "', '" . $_SESSION['id'] . "', 1)");
+        var_dump($insertAvaliacao );
+
     } else {
         //Evolução
         $textArea = $_POST['textArea'];
