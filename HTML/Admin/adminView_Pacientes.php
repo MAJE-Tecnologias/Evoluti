@@ -125,7 +125,7 @@ if (isset($_GET['enviarFiltro'])) {
                     <?php
                     for ($i = 0; $i < mysqli_num_rows($pacientes)*2; $i = $i + 2) {
                         printf("
-                        <a href='adminView_Paciente_Interno.php?idCliente=%s' class='info2'>
+                        <a href='adminView_Pacientes_Interno.php?idCliente=%s' class='info2'>
                         <div>
                             <img src='https://picsum.photos/150' alt=''>
                             <h4>%s</h4>

@@ -55,7 +55,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
     include '../Componentes Gerais/NavPerfil.php';
 
-    $id = $_GET['idCliente'];
+    $id = $_GET['idPaciente'];
 
     $result = $conn->query("SELECT * from paciente where (`id_paciente` = '" . $id . "') LIMIT 1");
 
@@ -81,7 +81,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                     </div>
                     <div class="container_foto_forms">
                         <div class="foto_forms"></div>
-                        <?php echo "<p class='nomePaciente'>$rowPaciente[nome]</p>" ?>
+                        <?php echo "<input type='text' name='nome' value='$rowPaciente[nome]' class='nomePaciente'>" ?>
                     </div>
 
 
@@ -91,20 +91,20 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
                             <div class="campos">
                                 <label class="labelForms">Data de nascimento</label>
-                                <?php echo "<p>$rowPaciente[datanasc]</p>" ?>
+                                <?php echo "<input type='date' name='datanasc' value='$rowPaciente[datanasc]'>" ?>
                             </div>
 
                             <div class="campos">
                                 <label class="labelForms">CPF</label>
-                                <?php echo "<p>$rowPaciente[cpf]</p>" ?>
+                                <?php echo "<input type='number' name='cpf' value='$rowPaciente[cpf]'>" ?>
                             </div>
                             <div class="campos">
                                 <label class="labelForms">RG</label>
-                                <?php echo "<p>$rowPaciente[rg]</p>" ?>
+                                <?php echo "<input type='number' name='rg' value='$rowPaciente[rg]'>" ?>
                             </div>
                             <div class="campos">
                                 <label class="labelForms">Gênero</label>
-                                <?php echo "<p>$rowPaciente[genero]</p>" ?>
+                                <?php echo "<input type='text'' name='genero' value='$rowPaciente[genero]'>" ?>
                             </div>
                         </div>
 
@@ -119,13 +119,13 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
                             <div class="campos">
                                 <label class="labelForms">E-mail</label>
-                                <?php echo "<p>$rowPaciente[email]</p>" ?>
+                                <?php echo "<input type='email' name='email' value='$rowPaciente[email]'>" ?>
                             </div>
 
 
                             <div class="campos">
                                 <label class="labelForms">Telefone</label>
-                                <?php echo "<p>$rowPaciente[telefone]</p>" ?>
+                                <?php echo "<input type='number' name='telefone' value='$rowPaciente[telefone]'>" ?>
                             </div>
                         </div>
 
@@ -146,15 +146,15 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
                             <div class="campos">
                                 <label class="labelForms">CEP</label>
-                                <?php echo "<p>$rowEndereco[cep]</p>" ?>
+                                <?php echo "<input type='text' name='cep' value='$rowEndereco[cep]'>" ?>
                             </div>
                             <div class="campos">
                                 <label class="labelForms">Rua</label>
-                                <?php echo "<p>$rowEndereco[rua]</p>" ?>
+                                <?php echo "<input type='text' name='rua' value='$rowEndereco[rua]'>" ?>
                             </div>
                             <div class="campos">
                                 <label class="labelForms">Bairro</label>
-                                <?php echo "<p>$rowEndereco[bairro]</p>" ?>
+                                <?php echo "<input type='text' name='bairro' value='$rowEndereco[bairro]'>" ?>
                             </div>
 
                         </div>
@@ -162,16 +162,12 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
                             <div class="campos">
                                 <label class="labelForms">Número</label>
-                                <?php echo "<p>$rowEndereco[numero]</p>" ?>
-                            </div>
-                            <div class="campos">
-                                <label class="labelForms">Complemento</label>
-                                <p>Complemento</p>
+                                <?php echo "<input type='number' name='numero' value='$rowEndereco[numero]'>" ?>
                             </div>
 
                             <div class="campos">
                                 <label class="labelForms">Cidade</label>
-                                <?php echo "<p>$rowEndereco[cidade]</p>" ?>
+                                <?php echo "<input type='text' name='cidade' value='$rowEndereco[cidade]'>" ?>
                             </div>
                         </div>
 
@@ -240,10 +236,51 @@ function redirect($url)
         die();
     }
 }
-if (isset($_POST['Editar'])) {
-    $url = 'adminView_Paciente_editar.php?idPaciente=' . $id . '';
+
+if (isset($_POST['Editar'])){
+    $nome = $_POST['nome'];
+    $datanasc = $_POST['datanasc'];
+    $cpf = $_POST['cpf'];
+    $rg = $_POST['rg'];
+    $genero = $_POST['genero'];
+    $email = $_POST['email'];
+    $telefone = $_POST['telefone'];
+    $cep = $_POST['cep'];
+    $rua = $_POST['rua'];
+    $bairro = $_POST['bairro'];
+    $numero = $_POST['numero'];
+    $cidade = $_POST['cidade'];
+
+    // Example update query for the paciente table
+    $updatePacienteQuery = "UPDATE paciente SET 
+                            nome = '$nome',
+                            datanasc = '$datanasc',
+                            cpf = '$cpf',
+                            rg = '$rg',
+                            genero = '$genero',
+                            email = '$email',
+                            telefone = '$telefone'
+                            WHERE id_paciente = $id";
+
+    // Execute the update query
+    $conn->query($updatePacienteQuery);
+
+    // Example update query for the endereco table
+    $updateEnderecoQuery = "UPDATE endereco SET 
+                            cep = '$cep',
+                            rua = '$rua',
+                            bairro = '$bairro',
+                            numero = '$numero',
+                            cidade = '$cidade'
+                            WHERE id_endereco = $rowPaciente[fk_endereco]";
+
+    // Execute the update query for the endereco table
+    $conn->query($updateEnderecoQuery);
+
+
+    // After updating, you may want to redirect the user to the view page or show a success message
+    $url = 'adminView_Pacientes_Interno.php?idCliente=' . $id . '';
     redirect($url);
 }
-
 
 ?>
