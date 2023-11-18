@@ -1,10 +1,8 @@
 <?php
-session_start();
-
-$_SESSION['clinica'] = 1;
 
 include '../../MySQL/conecta.php';
 
+session_start();
 
 if ($_SESSION['nivel'] == 0) {
     $selectNome = $conn->query("SELECT nome FROM admin WHERE id_admin = '" . $_SESSION['id'] . "'");
@@ -17,8 +15,13 @@ if ($_SESSION['nivel'] == 0) {
     $prof = "Estagiario";
 }
 
+$pacientes = $conn->query("SELECT * FROM paciente;");
+
+for ($setPacientes = array(); $rowPacientes = $pacientes->fetch_assoc(); $setPacientes[] = $rowPacientes['nome'], $setPacientes[] = $rowPacientes['id_paciente']);
+
 $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 ?>
+
 <!DOCTYPE html>
 <html lang="Pt-br">
 
@@ -33,9 +36,13 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../../CSS/modalConfigStyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/CSS/navBarStyle.css">
-    <link rel="stylesheet" href="/CSS/adminCadastroInicialStyle.css">
+    <link rel="stylesheet" href="../../CSS/adminStyle.css">
+    <link rel="stylesheet" href="../../CSS/navBarStyle.css">
+    <link rel="stylesheet" href="/CSS/adminUsuarioStyle.css">
+    <link rel="stylesheet" href="../../CSS/fisioAtendimento.css">
+
     <!-- -------------------------------------- -->
+
 
 
     <!-- ÍCONES -->
@@ -57,73 +64,86 @@ include '../Componentes Gerais/NavPerfil.php'
 
 ?>
 
-    <div id="containerPrincipal" class="container_cadastroEscolha">
-        <div class="container_view">
-            <a href="adminView_Cadastro.php" class="lado_Esquerdo">
-                <p class="texto_CadastroUsuario">Novo Usuário</p>
-                <img src="/Imagens/NovoUsuario_Opac.png" class="imgNovoUser" alt="NovoUsuario">
-            </a>
-            <a href="adminView_Cadastro_Pacientes.php" class="lado_Direito">
-            <p class="texto_CadastroUsuario">Novo Paciente</p>
-                <img src="/Imagens/NovoPaciente_Opac.png" class="imgNovoPaci" alt="NovoPaciente">
-            </a>
+<div class="container_usuarios">
+    <div class="container_view">
+        <div class="container_pesquisa">
+            <div class="grid_pesquisa">
+
+                <div class="vazio2"></div>
+
+
+                <div class="vazio1"></div>
+
+
+                <div class="pesquisa linha"><input type="text" placeholder="Pesquise um usuário"><i
+                        class='bx bxs-user-rectangle iconepesquisa'></i></div>
+
+            </div>
+        </div>
+        <div class="titulo">
+            <i class='bx bx-clipboard'></i>
+            <p>Novo Atendimento</p>
+        </div>
+        <div class="subTitulo">
+            <p>Selecione um paciente para realizar o atendimento:</p>
+        </div>
+        <div class="container_form">
+            <div class="container_card">
+            <?php
+                    for ($i = 0; $i < mysqli_num_rows($pacientes)*2; $i = $i + 2) {
+                        printf("
+                        <a href='estagView_AtendimentoInterno.php?idCliente=%s' class='info2'>
+                        <div>
+                            <img src='https://picsum.photos/150' alt=''>
+                            <h4>%s</h4>
+                        </div>
+                    </a>
+                            ", $setPacientes[$i+1], $setPacientes[$i]);
+                    }
+            ?>
+            </div>
         </div>
     </div>
+</div>
 
-    <!-- Adicioando navbar -->
-
-    <nav class="menuLateral fecharMenu" style="z-index: 2;">
+    <nav class="menuLateral fecharMenu">
         <header>
             <div class="imagem-texto">
                 <span class="imagem">
-                    <img src="/Imagens/LogoBranco.png" class="logotipo"></img>
+                    <img src="../../Imagens/LogoBranco.png" class="logotipo"></img>
                 </span>
             </div>
-    
+
             <i class="bx bx-chevron-right toggle"></i>
         </header>
-    
+
         <div class="menu_container">
             <div class="menu">
                 <ul class="menu_links">
                     <li class="nav_link">
-                        <a href="adminView_Cadastro_Inicio.php" class="active">
+                        <a href="estagView_Atendimento.php" class="active">
                             <i class='bx bxs-plus-circle icone'></i>
-                            <span class="menu_texto">Cadastros</span>
+                            <span class="menu_texto">Atendimentos</span>
                         </a>
                     </li>
-    
+
                     <li class="nav_link">
-                        <a href="adminView_Pacientes.php">
+                        <a href="estagView_Pacientes.php">
                             <i class='bx bxs-group icone'></i>
                             <span class="menu_texto">Pacientes</span>
                         </a>
                     </li>
-    
-                    <li class="nav_link">
-                        <a href="#">
-                            <i class='bx bx-file icone'></i>
-                            <span class="menu_texto">Documentos</span>
-                        </a>
-                    </li>
-    
-                    <li class="nav_link">
-                        <a href="#">
-                            <i class='bx bx-line-chart icone'></i>
-                            <span class="menu_texto">Relatórios</span>
-                        </a>
-                    </li>
-    
-                    <li class="nav_link">
-                        <a href="adminView_Usuarios.php">
-                            <i class='bx bx-user-plus icone'></i>
-                            <span class="menu_texto">Usuários</span>
-                        </a>
-                    </li>
+
                 </ul>
             </div>
-    
+
             <div class="menu_embaixo">
+                <li class="">
+                    <a href="#" class="toggle-switch">
+                        <i class='bx bx-sun icone'></i>
+                        <span class="menu_texto">Alterar Modo</span>
+                    </a>
+                </li>
                 <li class="">
                     <a>
                     <button type="button" class="botaoConfig botao-abrirConfig">
@@ -132,23 +152,14 @@ include '../Componentes Gerais/NavPerfil.php'
                     </button>
                     </a>
                 </li>
-    
+
             </div>
         </div>
-    
+
     </nav>
-    
-    
+
 
     <main>
-        <!-- <nav class="container_nav_func">
-            <ul class="nav_func">
-                <li><a href="">Tudo</a></li>
-                <li><a href="">Fisioterapeuta</a></li>
-                <li><a href="">Administrador</a></li>
-                <li><a href="">Estagiário</a></li>
-            </ul>
-        </nav> -->
 
     </main>
 
@@ -160,7 +171,6 @@ include '../Componentes Gerais/NavPerfil.php'
     <script src="/Javascript/scriptModalConfig.js"></script>
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="/Javascript/scriptAdm.js"></script>
-    <script src="/Javascript/scriptAdmCadastro.js"></script>
     <!-- -------------------------------------- -->
 
 </body>

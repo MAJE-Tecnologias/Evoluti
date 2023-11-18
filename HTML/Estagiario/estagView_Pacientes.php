@@ -92,15 +92,14 @@ if (isset($_GET['nice'])) {
 
                     <div class="vazio1"></div>
 
-
-                    <div class="pesquisa linha">
                         <form method="_GET">
+                            <div style="display:flex; flex-direction:row;">
                             <input type="text" placeholder="Pesquise um paciente" name="poggers">
-                            <button type="submit" name="nice">
+                            <button type="submit" name="nice" style="border:0;">
                                 <i class='bx bxs-user-rectangle iconepesquisa'> </i>
                             </button>
+                            </div>
                         </form>
-                    </div>
 
                 </div>
             </div>
@@ -145,30 +144,16 @@ if (isset($_GET['nice'])) {
             <div class="menu">
                 <ul class="menu_links">
                     <li class="nav_link">
-                        <a href="fisioView_Atendimento.php">
+                        <a href="estagView_Atendimento.php">
                             <i class='bx bxs-plus-circle icone'></i>
-                            <span class="menu_texto">Atendimento</span>
+                            <span class="menu_texto">Atendimentos</span>
                         </a>
                     </li>
 
                     <li class="nav_link">
-                        <a href="fisioView_Pacientes.php" class="active">
+                        <a href="estagView_Pacientes.php" class="active">
                             <i class='bx bxs-group icone'></i>
                             <span class="menu_texto">Pacientes</span>
-                        </a>
-                    </li>
-
-                    <li class="nav_link">
-                        <a href="#">
-                            <i class='bx bx-file icone'></i>
-                            <span class="menu_texto">Documentos</span>
-                        </a>
-                    </li>
-
-                    <li class="nav_link">
-                        <a href="#">
-                            <i class='bx bx-line-chart icone'></i>
-                            <span class="menu_texto">Relatórios</span>
                         </a>
                     </li>
                 </ul>

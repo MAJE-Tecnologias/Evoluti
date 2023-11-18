@@ -26,7 +26,6 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/Imagens/Icon.png">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
         <!-- CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,8 +35,6 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     <link rel="stylesheet" href="../../CSS/adminStyle.css">
     <link rel="stylesheet" href="../../CSS/navBarStyle.css">
     <link rel="stylesheet" href="../../CSS/fisioAtendimentoInterno.css">
-    <link rel="stylesheet" href="../../CSS/fisio_ProntuarioEletronicoStyle.css">
-
 
     <!-- -------------------------------------- -->
 
@@ -66,9 +63,6 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
     $rowPaciente = mysqli_fetch_assoc($result);
 
-    $data = array();
-    $sql = "SELECT * FROM avaliacoes_dor WHERE fk_paciente = $id";
-    $result = $conn->query($sql);
     ?>
 
     <div class="container_principal">
@@ -160,7 +154,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                             </details>
                             <details>
                                 <summary>Arquivos atrelados <i class='bx bx-chevron-down'></i><i class="fa-solid fa-paperclip right"></i></summary>
-
+                                
                                 <?php
                                 // Mostrar todas os Exames que estão no banco de dados
                                 $selectOutros = $conn->query("SELECT * FROM arquivos WHERE fk_paciente = '" . $id . "' AND tipo = 'Outros'");
@@ -190,6 +184,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                             for ($i  = 0; $i < mysqli_num_rows($selectAvaliacoes); $i++) {
                                 printf("<button>%s</button>", $setAtendimentos[$i]);
                             }
+
                             ?>
                         </div>
                     </div>
@@ -199,72 +194,68 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                     </div>
 
                     <div class="formulario_direita">
+                        <div class="faixa_escolha">
+                            <button onclick="ava()" id="ava" class="texto_escolha selecionado">Avaliação</button>
+                            <button onclick="evo()" id="evo" class="texto_escolha">Evolução</button>
+                        </div>
+                        <div class="dia_avaliacao">
+                            <p id="dia">
+                                <?php
+                                $data =  date("d-m-Y h:i");
+                                echo date("d-m-Y h:i");
+                                ?>
+                            </p>
+                        </div>
 
-                        <h1>Gráfico de Dor</h1>
-                        <?php
-                        if (mysqli_num_rows($result) == 0) {
-                            printf("Nenhum ponto de dor");
-                            $flag = 0;
-                        } else {
-                            $flag = 1;
-                            if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                                    $data[] = $row;
-                                }
-                            }
-                        }
-                        ?>
-                        <canvas id="dorCanva" width="400" height="250"></canvas>
-                        <?php
-                        if ($flag == 1) {
-                            printf("<script>
-        const dadosPHP = %s;
+                        <form method="post" enctype="multipart/form-data">
+                            <div>
+                                <textarea name="textArea" id="textarea" cols="100" rows="30" class="textArea_Form"></textarea>
+                            </div>
+                            <div class="container_parte_inferior">
+                                <div class="container_texto_anexos">
+                                    <p class="texto_anexos">Selecione qual arquivo deseja anexar:</p>
+                                </div>
 
-        const datas = Array.from(new Set(dadosPHP.map(item => item.data_avaliacao)));
-        const local = Array.from(new Set(dadosPHP.map(item => item.dor_local)));
-        const intensidade = [];
+                                <div class="container_anexoArquivos">
+                                    <label for="anexarReceitas" class="anexoItem">
+                                        <input type="file" name="Receita" id="anexarReceitas">
+                                        <i class='bx bxs-capsule'></i>
+                                        <p class="anexoItemText">Receitas</p>
+                                        </input>
 
-        for (let i = 0; i < datas.length; i++) {
-            intensidade[i] = new Array(local.length).fill(0);
-        }
+                                    </label>
 
-        dadosPHP.forEach(item => {
-            const dataIndex = datas.indexOf(item.data_avaliacao);
-            const localIndex = local.indexOf(item.dor_local);
-            intensidade[dataIndex][localIndex] = item.dor_intensidade;
-        });
+                                    <label for="anexarExames" class="anexoItem">
+                                        <input type="file" name="Exames" id="anexarExames">
+                                        <i class="fa-solid fa-stethoscope"></i>
+                                        <p class="anexoItemText">Exames</p>
+                                        </input>
+                                    </label>
 
-        const datasets = local.map((local, index) => {
-            return {
-                label: local,
-                data: intensidade.map(intensity => intensity[index]),
-                backgroundColor: `#ff56`,
-            };
-        });
+                                    <label for="anexarAtestados" class="anexoItem">
+                                        <input type="file" name="Atestados" id="anexarAtestados">
+                                        <i class="fa-regular fa-clipboard"></i>
+                                        <p class="anexoItemText">Atestados</p>
+                                        </input>
+                                    </label>
 
-        const ctx = document.getElementById('dorCanva').getContext('2d');
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: datas,
-                datasets: datasets,
-            },
-            options: {
-                responsive: false,
-                scales: {
-                    x: {
-                        stacked: true,
-                    },
-                    y: {
-                        beginAtZero: true,
-                        max: 100,
-                    },
-                },
-            },
-        });
-    </script>", json_encode($data));
-                        }
-                        ?>
+                                    <label for="anexarOutros" class="anexoItem">
+                                        <input type="file" name="Outros" id="anexarOutros">
+                                        <i class="fa-solid fa-paperclip"></i>
+                                        <p class="anexoItemText">Outros</p>
+                                        </input>
+                                    </label>
+
+                                </div>
+                                <div class="container_BarraPesquisa">
+                                    <input type="text" placeholder="Diagnóstico" name='Diagnosticos' class="barraPesquisa"></input>
+                                </div>
+
+                                <div class="btn_salvar_container">
+                                    <input type="submit" name="btn_salvar" id="btn_salvar"></input>
+                                </div>
+                                <input type="text" name="flag" id="flag" style="display: none;" value="1">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -287,32 +278,19 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
             <div class="menu">
                 <ul class="menu_links"></ul>
                 <li class="nav_link">
-                    <a href="fisioView_Atendimento.php" class="active">
+                    <a href="estagView_Atendimento.php" class="active">
                         <i class='bx bxs-plus-circle icone'></i>
                         <span class="menu_texto">Atendimento</span>
                     </a>
                 </li>
 
                 <li class="nav_link">
-                    <a href="fisioView_Pacientes.php">
+                    <a href="estagView_Pacientes.php">
                         <i class='bx bxs-group icone'></i>
                         <span class="menu_texto">Pacientes</span>
                     </a>
                 </li>
 
-                <li class="nav_link">
-                    <a href="#">
-                        <i class='bx bx-file icone'></i>
-                        <span class="menu_texto">Documentos</span>
-                    </a>
-                </li>
-
-                <li class="nav_link">
-                    <a href="#">
-                        <i class='bx bx-line-chart icone'></i>
-                        <span class="menu_texto">Relatórios</span>
-                    </a>
-                </li>
                 </ul>
             </div>
 
@@ -325,10 +303,10 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                 </li>
                 <li class="">
                     <a>
-                    <button type="button" class="botaoConfig botao-abrirConfig">
-                        <i class='bx bx-cog icone'></i>
-                        <span class="menu_texto">Configurações</span>
-                    </button>
+                        <button type="button" class="botaoConfig botao-abrirConfig">
+                            <i class='bx bx-cog icone'></i>
+                            <span class="menu_texto">Configurações</span>
+                        </button>
                     </a>
                 </li>
 
@@ -349,17 +327,161 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     <script src="/Javascript/scriptModalConfig.js"></script>
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="/Javascript/scriptAdm.js"></script>
-
-
-    <script>
-        var tempoAtual = new date();
-        var dataAtual = tempoAtual.toLocaleString();
-
-
-        document.getElementById("dia").innerHTML = dataAtual;
-    </script>
+    <script src="../../Javascript/interno.js"></script>
     <!-- -------------------------------------- -->
 
 </body>
 
 </html>
+
+<?php
+
+if (isset($_POST['btn_salvar'])) {
+    $flag = $_POST['flag'];
+    $target_dir = "../../Imagens/imagensBd/";
+
+    if ($_FILES["Receita"]["name"] != 0) {
+        $target_file = $target_dir . basename($_FILES["Receita"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        $allowTypes = array('docx', 'png', 'jpeg', 'xlxs', 'txt', 'pdf');
+
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            echo "Sorry, file already exists.";
+            $uploadOk = 0;
+        }
+
+        // Check file size
+        if ($_FILES["Receita"]["size"] > 500000) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+            // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["Receita"]["tmp_name"], $target_file)) {
+                echo "The file " . htmlspecialchars(basename($_FILES["Receita"]["name"])) . " has been uploaded.";
+                $insertEvolucao = $conn->query("INSERT INTO arquivos(path, tipo, fk_paciente) VALUES('" . $target_file . "', 'Receitas', '" . $id . "')");
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+    }
+
+    if ($_FILES["Exames"]["name"] != 0) {
+        $target_file = $target_dir . basename($_FILES["Exames"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        $allowTypes = array('docx', 'png', 'jpeg', 'xlxs', 'txt', 'pdf');
+
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            echo "Sorry, file already exists.";
+            $uploadOk = 0;
+        }
+
+        // Check file size
+        if ($_FILES["Exames"]["size"] > 500000) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+            // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["Exames"]["tmp_name"], $target_file)) {
+                echo "The file " . htmlspecialchars(basename($_FILES["Exames"]["name"])) . " has been uploaded.";
+                $insertEvolucao = $conn->query("INSERT INTO arquivos(path, tipo, fk_paciente) VALUES('" . $target_file . "', 'Exames', '" . $id . "')");
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+    }
+
+    if ($_FILES["Atestados"]["name"] != 0) {
+        $target_file = $target_dir . basename($_FILES["Atestados"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        $allowTypes = array('docx', 'png', 'jpeg', 'xlxs', 'txt', 'pdf');
+
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            echo "Sorry, file already exists.";
+            $uploadOk = 0;
+        }
+
+        // Check file size
+        if ($_FILES["Atestados"]["size"] > 500000) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+            // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["Atestados"]["tmp_name"], $target_file)) {
+                echo "The file " . htmlspecialchars(basename($_FILES["Atestados"]["name"])) . " has been uploaded.";
+                $insertEvolucao = $conn->query("INSERT INTO arquivos(path, tipo, fk_paciente) VALUES('" . $target_file . "', 'Atestados', '" . $id . "')");
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+    }
+
+    if ($_FILES["Outros"]["name"] != 0) {
+        $target_file = $target_dir . basename($_FILES["Outros"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        $allowTypes = array('docx', 'png', 'jpeg', 'xlxs', 'txt', 'pdf');
+
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            echo "Sorry, file already exists.";
+            $uploadOk = 0;
+        }
+
+        // Check file size
+        if ($_FILES["Outros"]["size"] > 500000) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+            // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["Outros"]["tmp_name"], $target_file)) {
+                echo "The file " . htmlspecialchars(basename($_FILES["Outros"]["name"])) . " has been uploaded.";
+                $insertEvolucao = $conn->query("INSERT INTO arquivos(path, tipo, fk_paciente) VALUES('" . $target_file . "', 'Outros', '" . $id . "')");
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+    }
+
+    if ($_POST['Diagnosticos'] != ''){
+        $insertEvolucao = $conn->query("INSERT INTO arquivos(path, tipo, fk_paciente) VALUES('" . $_POST['Diagnosticos'] . "', 'Diagnosticos', '" . $id . "')");
+    }
+
+
+    if ($flag == 1) {
+        //Avaliação
+        $textArea = $_POST['textArea'];
+        $insertAvaliacao = $conn->query("INSERT INTO atendimento(tipo_atendimento, hd, anexo, dataatendimento, descricao, fk_paciente, fk_fisio, fk_estagiario) VALUES('Avaliacao', '', '', '" . $data . "', '" . $textArea . "','" . $id . "', '" . $_SESSION['id'] . "', 1)");
+    } else {
+        //Evolução
+        $textArea = $_POST['textArea'];
+        $insertEvolucao = $conn->query("INSERT INTO atendimento(tipo_atendimento, hd, anexo, dataatendimento, descricao, fk_paciente, fk_fisio, fk_estagiario) VALUES('Evolucao', '', '', '" . $data . "', '" . $textArea . "','" . $id . "', '" . $_SESSION['id'] . "', 1)");
+    }
+}
+
+?>

@@ -22,8 +22,6 @@ include '../MySQL/conecta.php';
     <!-- -------------------------------------------------------------------------------------------------------- -->
 
     <!-- Javascript -->
-    <script src="/Javascript/scriptModalConfig.js"></script>
-<script src="/Javascript/scriptModalConfig.js"></script>
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="/Javascript/script.js"></script>
     <!-- -------------------------------------- -->
@@ -144,16 +142,16 @@ include '../MySQL/conecta.php';
         </div>
         <div class="botoes_slides2">
                     <div class="servicos_text">
-                        <a href="#slide3" class="botao_slide"><i class="bx bxs-circle"></a></i>
+                        <h1><input type="radio" class="botao_slide" id="radio1" name="grupoRadio2" value="1"></input></i></h1>
                     </div>
                     <div class="servicos_text">
-                        <a href="#slide3" class="botao_slide"><i class="bx bxs-circle"></a></i>
+                        <h1><input type="radio" class="botao_slide" id="radio2" name="grupoRadio2" value="2"></input></i></h1>
                     </div>
                     <div class="servicos_text">
-                        <a href="#slide3" class="botao_slide"><i class="bx bxs-circle"></a></i>
+                        <h1><input type="radio" class="botao_slide" id="radio3" name="grupoRadio2" value="3"></input></i></h1>
                     </div>
                     <div class="servicos_text">
-                        <a href="#slide3" class="botao_slide"><i class="bx bxs-circle"></a></i>
+                        <h1><input type="radio" class="botao_slide" id="radio4" name="grupoRadio2" value="4"></input></i></h1>
                     </div>
             </div>
     </div>
@@ -178,6 +176,7 @@ include '../MySQL/conecta.php';
             <div class="proposito_container">
 
                 <div class="bloco">
+                    <div class="triangulo_branco"></div>
 
                     <div class="proposito_container_blocos">
                     <div class="bloco_principal_container_0">
@@ -190,12 +189,13 @@ include '../MySQL/conecta.php';
                                 tornando o processo mais prático e adaptado às suas necessidades individuais. 
                                 Tudo isso, a qualquer momento e em qualquer lugar, proporcionando maior 
                                 flexibilidade e conveniência.</p>
+                            <img src="/Imagens/LogoBranco.png" alt="LogoBranco" class="LogoBranco_Proposito">
                         </div>
                     </div>
 
 
                         <div class="bloco_1_container">
-                            <div class="bloco1">
+                            <div class="bloco1" id="bloco_esquerda">
                                 <div class="bloco_interno_container">
                                     <div class="bloco_interno" id="bloco_interno_1">
                                         <p class="bloco_interno_text">Prontuário eletrônico em acordo com as
@@ -225,9 +225,9 @@ include '../MySQL/conecta.php';
                                 </div>
                             </div>
 
-                            <div class="bloco1">
+                            <div class="bloco1" id="bloco_direita">
                             <div class="bloco_interno_container">
-                                    
+                                    <img src="/Imagens/corredor.png" alt="corredor" class="img_corredor">
                                 </div>
                             </div>
 

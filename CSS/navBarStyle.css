@@ -208,3 +208,18 @@ body{
 .menuLateral li a button:hover .menu_texto{
     color: black;
 }
+
+.botaoConfig{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.modalEscuro {
+    background: #242526;
+    color: white;
+}

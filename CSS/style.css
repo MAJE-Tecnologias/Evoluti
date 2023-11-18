@@ -442,9 +442,24 @@ footer {
 .bloco {
     position: relative;
     height: fit-content;
-    border-radius: 9.16px;
+    border-radius: 9.16px 0 9.16px 9.16px;
     background: #45D496;
 
+}
+
+.LogoBranco_Proposito{
+    display: none;
+}
+
+.triangulo_branco{
+    display:inline-block;
+    background:linear-gradient(to bottom right,rgba(255, 255, 255, 0) 50%,white 50%);
+    width: 40%;
+    height: 80%;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: 0;
 }
 
 .bloco_principal_container_0{
@@ -471,6 +486,12 @@ footer {
     column-gap: 15px;
     max-width: 100%;
     padding-right: 4%;
+}
+
+.img_corredor{
+    position: absolute;
+    bottom: -40px;
+    width: 100%;
 }
 
 .proposito_titulo {
@@ -1042,57 +1063,40 @@ button:hover {
 
 /* Section "Propósito */
 
-.proposito {
+.bloco_interno_container {
     width: 100%;
-    height: 111vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: white;
 }
 
-.proposito_container {
-    width: 100%;
-    position: relative;
+.bloco_1_container{
+    
+}
+
+.bloco_principal_container_0 {
+    margin-top: auto;
+    margin-bottom: auto;
+    display: block;
     height: 100%;
-    padding-top: 10%;
-}
-
-.proposito_container_blocos {
-    display: grid;
-    height: 100%;
-    grid-template-columns: 2fr repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 10px;
-    grid-row-gap: 0px;
-    align-items: end;
-}
-
-.bloco_container {
-    grid-area: 1 / 1 / 2 / 2;
-}
-
-.bloco_1_container {
-    grid-area: 1 / 2 / 2 / 3;
-}
-
-.bloco_2_container {
-    grid-area: 1 / 3 / 2 / 4;
-}
-
-.bloco {
-    position: relative;
-    right: 0px;
-    width: 90%;
-    height: 612px;
-    border-radius: 9.16px;
-    background: #45D496;
+    width: min-content;
 }
 
 .bloco_principal_container {
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    align-items: center;
+}
+
+.bloco_principal_text {
     height: 100%;
-    padding: 5%;
+    font-size: 16px;
+    width: 100%;
+}
+
+.img_corredor {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    width: 100%;
 }
 
 .proposito_titulo {
@@ -1100,111 +1104,15 @@ button:hover {
     font-size: 25px;
     font-weight: 700;
     width: max-content;
-
 }
 
 .proposito_titulo2 {
-    position: relative;
-    font-family: 'Source Code Pro', monospace;
-    color: black;
-    font-size: 30px;
-    font-weight: 700;
-    background: #D7D588;
-    width: max-content;
+    font-size: 20px;
 }
 
-.bloco_principal_text {
-    padding-top: 40px;
-    font-size: 18px;
-    font-weight: 300;
-    text-align: justify;
-    color: white;
+.bloco_1_container{
+    width: 60%;
 }
-
-#animacao::before,
-#animacao::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-}
-
-#animacao::before {
-    background: #D7D588;
-    animation: typewriter var(--velocidadeEscrita) steps(11) 1s forwards;
-}
-
-#animacao::after {
-    width: 0.125em;
-    background: black;
-    animation: typewriter var(--velocidadeEscrita) steps(11) 1s forwards,
-        piscar 700ms steps(11) infinite;
-}
-
-@keyframes typewriter {
-    to {
-        left: 100%;
-    }
-}
-
-@keyframes piscar {
-    to {
-        background: transparent;
-    }
-}
-
-.proposito {
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: white;
-}
-
-.bloco{
-    position: relative;
-    height: fit-content;
-}
-
-.bloco1 {
-    position: relative;
-    width: 100%;
-    height: fit-content;
-    bottom: 0px;
-    border-radius: 9.16px;
-    background: #DEDFA4;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-}
-
-.bloco_interno_container {
-    display: grid;
-    width: 100%;
-    height: fit-content;
-    padding: 20px;
-    border-radius: 9.16px;
-    align-items: center;
-    position: relative;
-}
-
-.bloco_interno {
-    background: #D7D588;
-    width: 100%;
-    border-radius: 9.16px;
-    position: relative;
-}
-
-.bloco_interno_text {
-    color: #686868;
-    font-size: 10px;
-    padding: 15px;
-    text-align: justify;
-}
-
 /* --------------------------------------------------------- */
 
 /* SECTION QUEM SOMOS */
@@ -1304,6 +1212,32 @@ button:hover {
 
 }
 
+/* 900px */
+
+@media screen and (max-width: 900px) {
+    #bloco_direita{
+        display: none;
+    }
+
+    .proposito{
+        height: 110dvh;
+    }
+    
+    .bloco_principal_container_0 {
+        width: 100%;
+    }
+
+    .LogoBranco_Proposito{
+        display: block;
+        width: 100%;
+        padding: 30px;
+    }
+
+    .QuemSomos{
+        padding: 50px;
+    }
+}
+
 /* --------------------------------------------------------- */
 
 /* DESIGN RESPONSIVO PARA TABLETS/TELAS PEQUENAS */
@@ -1318,29 +1252,6 @@ button:hover {
     gap: 2rem;
 }
 
-/* SEÇÃO... esqueci o nome :/ (É A QUE TEM O BLOCO VERDE GIGANTE) */
-
-.proposito_container_blocos {
-    display: grid;
-    height: 100%;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 10px;
-    grid-row-gap: 0px;
-    align-items: end;
-}
-
-.bloco1 {
-    position: relative;
-    width: 100%;
-    height: fit-content;
-    bottom: 0px;
-    border-radius: 9.16px;
-    background: #DEDFA4;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-}
 
 /* --------------------------------------------------------- */
 
@@ -1355,6 +1266,10 @@ button:hover {
 .quemS-text p {
     font-size: 13px;
     text-align: justify;
+}
+
+.QuemSomos{
+    padding: 25px;
 }
 
 /* --------------------------------------------------------- */
@@ -1503,6 +1418,10 @@ button:hover {
         height: 100%;
     }
 
+    .servicos_teste{
+        height: fit-content;
+    }
+
     .botoes_slides {
         display: none;
     }
@@ -1518,6 +1437,7 @@ button:hover {
     }
 
     .h1_texto_mobile{
+        margin-top: 20px;
         font-size: 32px;
     }
 
@@ -1537,6 +1457,10 @@ button:hover {
 
     /* SEÇÃO DO BLOCÃO VERDE */
 
+    .proposito{
+        height: fit-content;
+    }
+
     .bloco{
         width: 90%;
         margin-left: 10%;
@@ -1553,6 +1477,7 @@ button:hover {
     .bloco_1_container{
         padding-left: 30px;
         padding-right: 30px;
+        width: 100%;
     }
 
     .bloco_2_container{
@@ -1574,11 +1499,17 @@ button:hover {
         padding: 15px;
     }
 
+    .triangulo_branco{
+        display: none;
+    }
+
     /* SEÇÃO QUEM SOMOS */
 
     .QuemSomos{
         display: flex;
         flex-direction: column;
+        padding-left: 100px;
+        padding-right: 100px;
     }
 
     .center-screen {

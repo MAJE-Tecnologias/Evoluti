@@ -15,7 +15,7 @@
 
     <dialog class="modalConfig" id="modalConfig">
             <div class="containerModalConfig">
-            <div class="titulo">
+            <div class="tituloModalConfig">
             <i class='bx bx-cog icone icone'></i>
             <h2>Configurações</h2>
             </div>

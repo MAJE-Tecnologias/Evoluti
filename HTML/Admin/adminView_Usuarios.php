@@ -75,9 +75,10 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/Imagens/Icon.png">
 
-    <!-- CSS -->
+        <!-- CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../../CSS/modalConfigStyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/CSS/navBarStyle.css">
     <link rel="stylesheet" href="/CSS/adminUsuarioStyle.css">
@@ -281,6 +282,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     </footer>
 
     <!-- Javascript -->
+    <script src="/Javascript/scriptModalConfig.js"></script>
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="/Javascript/scriptAdm.js"></script>
     <!-- -------------------------------------- -->
