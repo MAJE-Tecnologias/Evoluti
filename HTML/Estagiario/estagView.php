@@ -1,17 +1,17 @@
 <?php
 
-include '../../MySql/conecta.php';
+include '../../MySQL/conecta.php';
 
 session_start();
 
 if ($_SESSION['nivel'] == 0) {
-    $selectNome = $conn->query("SELECT NOME FROM admin WHERE ID_ADMIN = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT nome FROM admin WHERE ID_ADMIN = '" . $_SESSION['id'] . "'");
     $prof = "Administrador";
 } elseif ($_SESSION['nivel'] == 1) {
-    $selectNome = $conn->query("SELECT NOME FROM fisio WHERE ID_FISIO = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT nome FROM fisio WHERE ID_FISIO = '" . $_SESSION['id'] . "'");
     $prof = "Fisioterapia";
 } else {
-    $selectNome = $conn->query("SELECT NOME FROM estagiario WHERE ID_ESTAGIARIO = '" . $_SESSION['id'] . "'");
+    $selectNome = $conn->query("SELECT nome FROM estagiario WHERE ID_ESTAGIARIO = '" . $_SESSION['id'] . "'");
     $prof = "Estagiario";
 }
 

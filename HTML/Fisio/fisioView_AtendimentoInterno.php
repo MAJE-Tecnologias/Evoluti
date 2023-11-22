@@ -1,6 +1,6 @@
 <?php
 
-include '../../MySql/conecta.php';
+include '../../MySQL/conecta.php';
 
 session_start();
 
@@ -68,6 +68,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     <div class="container_principal">
         <div class="container_view">
             <div class="container_form">
+                <div>
                 <div class="wrapper_formulario">
                     <div class="formulario_esquerda">
                         <div class="formulario_paciente_container">
@@ -257,7 +258,31 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                                 <input type="text" name="flag" id="flag" style="display: none;" value="1">
                         </form>
                     </div>
+
                 </div>
+                        </div>
+                        <div class="formulario_wrapper2">
+                        <form class="formPontosDor">
+                                <div class="tituloPontosDor">
+                                        <h2>Criar novo Ponto de dor</h2>
+                                    </div>
+                                <div class="container_inputs_pontosDor">
+                                    <div class="inputsPontosDor">
+                                    <label for="Regiâo_da_Dor">Região da dor: </label>
+                                    <input type="text" placeholder="Região da Dor" name='Regiâo_da_Dor' class="inputPontoDor"></input>
+                                    </div>
+
+                                    <div class="inputsPontosDor">
+                                    <label for="Intensidade">Intensidade: </label>
+                                    <input type="text" placeholder="Intensidade" name='Intensidade' class="inputPontoDor"></input>
+                                    </div>
+                                </div>
+
+                                <div class="btn_salvar_container">
+                                    <input type="submit" name="btn_criarPontosDor" id="btn_criarPontosDor" value="Criar"></input>
+                                </div>
+                         </form>
+                    </div>
             </div>
         </div>
     </div>

@@ -115,7 +115,7 @@ if (isset($_GET['nice'])) {
                     <?php
                     for ($i = 0; $i < mysqli_num_rows($pacientes) * 2; $i = $i + 2) {
                         printf("
-                        <a href='fisioView_ProntuarioEletronico.php?idCliente=%s' class='info2'>
+                        <a href='estagView_ProntuarioEletronico.php?idCliente=%s' class='info2'>
                         <div>
                             <img src='https://picsum.photos/150' alt=''>
                             <h4>%s</h4>
