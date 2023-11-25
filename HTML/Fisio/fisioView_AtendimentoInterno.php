@@ -304,7 +304,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                 <ul class="menu_links"></ul>
                 <li class="nav_link">
                     <a href="fisioView_Atendimento.php" class="active">
-                        <i class='bx bxs-plus-circle icone'></i>
+                        <i class='bx bx-clipboard icone'></i>
                         <span class="menu_texto">Atendimento</span>
                     </a>
                 </li>

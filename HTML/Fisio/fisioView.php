@@ -62,7 +62,7 @@ include '../Componentes Gerais/NavPerfil.php'
 
     <dialog class="modal" id="modal">
             <div class="containerModal">
-            <h2>Seja bem-vindo Administrador!</h2>
+            <h2>Seja bem-vindo Fisioterapeuta!</h2>
             <div class="modal_texto">
             <p>Se você clicou nesse botão, é por que precisa de um tutorial sobre a plataforma. </p>
             <p>Selecione uma das opções abaixo para entender mais sobre a tela em questão!</p>
@@ -70,16 +70,12 @@ include '../Componentes Gerais/NavPerfil.php'
 
             <div class="modal_conteudo">
                 <div class="label_botao">
-                    <label>Cadastro de Pacientes</label>
-                    <button type="button" class="botaoModalSelecao"><i class='bx bxs-user-plus' ></i></button>
+                    <label>Novo Atendimento</label>
+                    <button type="button" class="botaoModalSelecao botao-abrir2"><i class='bx bxs-user-plus' ></i></button>
                 </div>
                 <div class="label_botao">
-                    <label>Cadastro de Usuários</label>
-                    <button type="button" class="botaoModalSelecao"><i class='bx bxs-user-plus' ></i></button>
-                </div>
-                <div class="label_botao">
-                    <label>Busca de Usuários</label>
-                    <button type="button" class="botaoModalSelecao"><i class='bx bx-search-alt-2' ></i></button>
+                    <label>Visualizar Prontuários</label>
+                    <button type="button" class="botaoModalSelecao botao-abrir3"><i class='bx bx-search-alt-2' ></i></button>
                 </div>
             </div>
 
@@ -102,6 +98,59 @@ include '../Componentes Gerais/NavPerfil.php'
         </div>
     </div>
 
+    <dialog class="modal2" id="modal2">
+            <div class="containerModal2">
+            <h2>Realizar um novo atendimento</h2>
+            <div class="modal_texto">
+            <p>Para registrar uma avaliação ou evolução, é necessário: </p>
+
+            <div class="modal2_texto2">
+
+            <p>1. Selecionar a aba atendimentos no menu lateral;</p>
+            <p>2. Pesquisar paciente desejado;</p>
+            <p>3. Selecionar tipo de atendimento: <b>avaliação</b> ou <b>evolução</b>;</p>
+            <p>4. Anexar documentos, receitas, pedidos ou outros documentos necessários;</p>
+            <p>5. Adicionar ou checar HD;</p>
+            <p>6. Salvar atendimento.</p>
+
+            <div class="barrinha"> </div>
+
+            <img src="../../Imagens/Exemplo_prontuario.png" alt="Filtro" class="img_menu_superior">
+
+            </div>
+
+            </div>
+
+
+            <div class="botaoFechar">
+            <button class="botao-fechar2">Voltar</button>
+            </div>
+            </div>
+        </dialog>
+
+        <dialog class="modal3" id="modal3">
+            <div class="containerModal3">
+            <h2>Acesso ao prontuário eletrônico</h2>
+            <div class="modal_texto">
+            <p>Para acessar e visualizar o prontuário eletrônico de um paciente é necessário: </p>
+
+            <div class="modal3_texto3">
+
+            <p>1. Selecionar a aba pacientes no menu lateral;</p>
+            <p>2. Buscar o paciente desejado;</p>
+            <p>3. Clicar no paciente.</p>
+
+            </div>
+
+            </div>
+
+
+            <div class="botaoFechar">
+            <button class="botao-fechar3">Voltar</button>
+            </div>
+            </div>
+        </dialog>
+
     <nav class="menuLateral fecharMenu">
         <header>
             <div class="imagem-texto">
@@ -118,7 +167,7 @@ include '../Componentes Gerais/NavPerfil.php'
                 <ul class="menu_links">
                     <li class="nav_link">
                         <a href="fisioView_Atendimento.php">
-                            <i class='bx bxs-plus-circle icone'></i>
+                            <i class='bx bx-clipboard icone'></i>
                             <span class="menu_texto">Atendimento</span>
                         </a>
                     </li>
