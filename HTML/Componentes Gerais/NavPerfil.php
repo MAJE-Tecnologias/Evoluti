@@ -20,7 +20,13 @@
             <h2>Configurações</h2>
             </div>
             
-            <button class="btn_Logoff">Deslogar <i class='bx bx-log-out'></i></button>
+            
+            <button class="btn_Logoff" onclick="logout()">Deslogar <i class='bx bx-log-out'></i></button>
+            <script>
+                function logout(){
+                    window.location.href = '../logout.php'; 
+                }
+            </script>
 
             <div class="teste">
 
