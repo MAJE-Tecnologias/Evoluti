@@ -28,7 +28,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     <link rel="icon" href="/Imagens/Icon.png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        <!-- CSS -->
+    <!-- CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../../CSS/modalConfigStyle.css">
@@ -300,18 +300,6 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                     </a>
                 </li>
 
-                <li class="nav_link">
-                    <a href="#">
-                        <i class='bx bx-file icone'></i>
-                        <span class="menu_texto">Documentos</span>
-                    </a>
-                </li>
-
-                <li class="nav_link">
-                    <a href="#">
-                        <i class='bx bx-line-chart icone'></i>
-                        <span class="menu_texto">Relatórios</span>
-                    </a>
                 </li>
                 </ul>
             </div>
@@ -325,10 +313,10 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                 </li>
                 <li class="">
                     <a>
-                    <button type="button" class="botaoConfig botao-abrirConfig">
-                        <i class='bx bx-cog icone'></i>
-                        <span class="menu_texto">Configurações</span>
-                    </button>
+                        <button type="button" class="botaoConfig botao-abrirConfig">
+                            <i class='bx bx-cog icone'></i>
+                            <span class="menu_texto">Configurações</span>
+                        </button>
                     </a>
                 </li>
 

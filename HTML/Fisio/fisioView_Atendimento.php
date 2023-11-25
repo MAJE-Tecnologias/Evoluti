@@ -134,19 +134,7 @@ include '../Componentes Gerais/NavPerfil.php'
                         </a>
                     </li>
 
-                    <li class="nav_link">
-                        <a href="#">
-                            <i class='bx bx-file icone'></i>
-                            <span class="menu_texto">Documentos</span>
-                        </a>
-                    </li>
-
-                    <li class="nav_link">
-                        <a href="#">
-                            <i class='bx bx-line-chart icone'></i>
-                            <span class="menu_texto">Relatórios</span>
-                        </a>
-                    </li>
+                    
                 </ul>
             </div>
 

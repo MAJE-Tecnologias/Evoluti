@@ -86,7 +86,7 @@ include '../Componentes Gerais/NavPerfil.php'
 
                             <div class="campos">
                                 <label class="labelForms" for="cadastroNome">Nome completo</label>
-                                <input type="text" name="nome" id="cadastroNome" placeholder="Digite o nome completo">
+                                <input type="text" name="nome" id="cadastroNome" placeholder="Digite o nome completo" required>
                             </div>
                             <div class="campos">
                                 <label class="labelForms" for="dtNasc">Data de nascimento</label>
@@ -97,11 +97,11 @@ include '../Componentes Gerais/NavPerfil.php'
                         <div class="linha2">
                             <div class="campos">
                                 <label class="labelForms" for="cadastroCPF">CPF</label>
-                                <input type="text" name="cpf" id="cadastroCPF" placeholder="Digite o CPF">
+                                <input type="text" name="cpf" id="cadastroCPF" placeholder="Digite o CPF" required>
                             </div>
                             <div class="campos">
                                 <label class="labelForms" for="cadastroRG">RG</label>
-                                <input type="text" name="rg" id="cadastroRG" placeholder="Digite o RG">
+                                <input type="text" name="rg" id="cadastroRG" placeholder="Digite o RG" required>
                             </div>
                             <div class="campos">
                                 <label class="labelForms" for="cadastroGenero">Gênero</label>
@@ -125,22 +125,22 @@ include '../Componentes Gerais/NavPerfil.php'
 
                             <div class="campos">
                                 <label class="labelForms" for="cadastroEmail">E-mail</label>
-                                <input type="email" name="email" id="cadastroEmail" placeholder="Digite o e-mail">
+                                <input type="email" name="email" id="cadastroEmail" placeholder="Digite o e-mail" required>
                             </div>
                             <div class="campos">
                                 <label class="labelForms" for="cadastroNomeUser">Nome de usuário</label>
-                                <input type="text" name="nomeUser" id="cadastroNomeUser" placeholder="Crie um nome de usuário">
+                                <input type="text" name="nomeUser" id="cadastroNomeUser" placeholder="Crie um nome de usuário" required>
                             </div>
 
                         </div>
                         <div class="linha2">
                             <div class="campos">
                                 <label class="labelForms" for="cadastroCPF">Telefone</label>
-                                <input type="text" name="telefone" id="cadastroCPF" placeholder="(00) 0000-0000">
+                                <input type="text" name="telefone" id="cadastroCPF" placeholder="(00) 0000-0000" required>
                             </div>
                             <div class="campos">
                                 <label class="labelForms" for="cadastroRG">Senha</label>
-                                <input type="password" name="senha" id="cadastroRG" placeholder="Crie uma senha">
+                                <input type="password" name="senha" id="cadastroRG" placeholder="Crie uma senha" required>
                             </div>
                         </div>
 
@@ -160,36 +160,36 @@ include '../Componentes Gerais/NavPerfil.php'
 
                             <div class="campos">
                                 <label class="labelForms" for="cadastroRua">Rua</label>
-                                <input type="text" id="cadastroRua" name="rua" placeholder="Digite a rua">
+                                <input type="text" id="cadastroRua" name="rua" placeholder="Digite a rua" required>
                             </div>
                             <div class="campos">
                                 <label class="labelForms" for="cadastroCEP">CEP</label>
-                                <input type="text" id="cadastroCEP" name="cep" placeholder="Digite o CEP">
+                                <input type="text" id="cadastroCEP" name="cep" placeholder="Digite o CEP" required>
                             </div>
 
                         </div>
                         <div class="linha2_semMargem">
                             <div class="campos">
                                 <label class="labelForms" for="cadastroNum">Número</label>
-                                <input type="number" id="cadastroNum" name="numero" placeholder="Digite o número da residência">
+                                <input type="number" id="cadastroNum" name="numero" placeholder="Digite o número da residência" required>
                             </div>
                             <div class="campos">
                                 <label class="labelForms" for="cadastroComplemento">Complemento</label>
-                                <input type="text" id="cadastroComplemento" name="complemento" placeholder="Digite o complemento">
+                                <input type="text" id="cadastroComplemento" name="complemento" placeholder="Digite o complemento" required>
                             </div>
                             <div class="campos">
                                 <label class="labelForms" for="cadastroBairro">Bairro</label>
-                                <input type="text" id="cadastroBairro" name="bairro" placeholder="Digite o bairro">
+                                <input type="text" id="cadastroBairro" name="bairro" placeholder="Digite o bairro" required>
                             </div>
                         </div>
                         <div class="linha3">
                             <div class="campos">
                                 <label class="labelForms" for="cadastroCidade">Cidade</label>
-                                <input type="text" id="cadastroCidade" name="cidade" placeholder="Digite a cidade">
+                                <input type="text" id="cadastroCidade" name="cidade" placeholder="Digite a cidade" required>
                             </div>
                         </div>
                         <div style="display: none;" id="div_flag">
-                        <input type="number" name="flag" value="0" id="flag" style="display: none;">
+                        <input type="number" name="flag" value="0" id="flag" style="display: none;" required>
                         </div>
                         <div class="container_btn_cadastro">
                             <div class="linha4">
@@ -231,19 +231,7 @@ include '../Componentes Gerais/NavPerfil.php'
                         </a>
                     </li>
 
-                    <li class="nav_link">
-                        <a href="#">
-                            <i class='bx bx-file icone'></i>
-                            <span class="menu_texto">Documentos</span>
-                        </a>
-                    </li>
-
-                    <li class="nav_link">
-                        <a href="#">
-                            <i class='bx bx-line-chart icone'></i>
-                            <span class="menu_texto">Relatórios</span>
-                        </a>
-                    </li>
+                    
 
                     <li class="nav_link">
                         <a href="adminView_Usuarios.php">
@@ -322,6 +310,8 @@ if (isset($_POST['cadastrar'])) {
     $nomeUser = $_POST['nomeUser'];
     $telefone = $_POST['telefone'];
     $senha = $_POST['senha'];
+
+    
 
     //Dados gerais de endereço
 
