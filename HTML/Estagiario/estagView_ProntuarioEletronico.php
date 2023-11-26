@@ -179,7 +179,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                         </div>
                         <div class="Avaliacoes">
                             <?php
-                            $selectAvaliacoes = $conn->query("SELECT * FROM atendimento WHERE fk_paciente = '" . $id . "' AND tipo_atendimento = 'Evolucao'");
+                            $selectAvaliacoes = $conn->query("SELECT * FROM atendimento WHERE fk_paciente = '" . $id . "' AND tipo_atendimento = 'Avaliacao'");
 
                             if (mysqli_num_rows($selectAvaliacoes) <= 0) {
                                 printf("<p>O usuario não possui atendimentos</p>");
