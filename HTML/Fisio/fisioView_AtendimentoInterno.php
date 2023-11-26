@@ -174,7 +174,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                             </div>
                             <div class="Avaliacoes">
                                 <?php
-                                $selectAvaliacoes = $conn->query("SELECT * FROM atendimento WHERE fk_paciente = '" . $id . "' AND tipo_atendimento = 'Evolucao'");
+                                $selectAvaliacoes = $conn->query("SELECT * FROM atendimento WHERE fk_paciente = '" . $id . "' AND tipo_atendimento = 'Avaliacao'");
 
                                 if (mysqli_num_rows($selectAvaliacoes) <= 0) {
                                     printf("<p>O usuario não possui atendimentos</p>");
@@ -487,7 +487,6 @@ if (isset($_POST['btn_salvar'])) {
 
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
-            echo "Sorry, your file was not uploaded.";
             // if everything is ok, try to upload file
         } else {
             if (move_uploaded_file($_FILES["Outros"]["tmp_name"], $target_file)) {
