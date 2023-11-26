@@ -117,3 +117,13 @@ CREATE TABLE IF NOT EXISTS arquivos (
     PRIMARY KEY (id_arquivo),
     FOREIGN KEY (fk_paciente) REFERENCES paciente(id_paciente)
 );
+
+CREATE TABLE IF NOT EXISTS EVOLUTI.avaliacoes_dor(
+    id_avaliacoesDor INT AUTO_INCREMENT,
+    fk_paciente INT,
+    data_avaliacao DATE,
+    dor_local TEXT,
+    dor_intensidade INT,
+    PRIMARY KEY(id_avaliacoesDor),
+    FOREIGN KEY (fk_paciente) REFERENCES PACIENTE(ID_PACIENTE)
+);

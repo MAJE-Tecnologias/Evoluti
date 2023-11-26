@@ -359,6 +359,10 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
 <?php
 
+if (isset($_POS['btn_criarPontosDor'])) {
+    $insertPontoDeDor = $conn->query("INSERT INTO avaliacoes_dor(data_avaliacao, dor_local, dor_intensidade,  fk_paciente) VALUES('" . $data . "', '" . $_POST['Regiâo_da_Dor'] . "', '" . $_POST['Intensidade'] . "','" . $id . "')");
+}
+
 if (isset($_POST['btn_salvar'])) {
     $flag = $_POST['flag'];
     $target_dir = "../../Imagens/imagensBd/";
