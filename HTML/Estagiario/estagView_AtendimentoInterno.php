@@ -185,10 +185,11 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                             }
 
 
-                            $selectAtendimento = $conn->query("SELECT * FROM atendimento WHERE id_atendimento = '" . $_GET['idAtendimento'] . "'");
+                            if (isset($_GET['idAtendimento'])) {
+                                $selectAtendimento = $conn->query("SELECT * FROM atendimento WHERE id_atendimento = '" . $_GET['idAtendimento'] . "'");
 
-                            for ($setAtendimento = array(); $rowAtendimento = $selectAtendimento->fetch_assoc();$setAtendimento[] = $rowAtendimento['descricao']);
-
+                                for ($setAtendimento = array(); $rowAtendimento = $selectAtendimento->fetch_assoc(); $setAtendimento[] = $rowAtendimento['descricao']);
+                            }
                             ?>
                         </div>
                     </div>
