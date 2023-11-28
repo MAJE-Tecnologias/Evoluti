@@ -185,7 +185,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                                 printf("<p>O usuario não possui atendimentos</p>");
                             }
 
-                            for ($setAtendimentos = array(); $rowAtendimentos = $selectAvaliacoes->fetch_assoc(); $setAtendimentos[] = $rowAtendimentos['dataatendimento']);
+                            for ($setAtendimentos = array(); $rowAtendimentos = $selectAvaliacoes->fetch_assoc(); $setAtendimentos[] = $rowAtendimentos['id_atendimento'],  $setAtendimentos[] = $rowAtendimentos['dataatendimento']);
 
                             for ($i  = 0; $i < mysqli_num_rows($selectAvaliacoes); $i++) {
                                 printf("<button><a href='fisioView_AtendimentoInterno.php?idCliente=%sidAtendimento=%s'>%s</a></button>", $id, $setAtendimentos[$i], $setAtendimentos[$i + 1]);
