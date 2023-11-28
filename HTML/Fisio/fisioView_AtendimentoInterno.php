@@ -183,7 +183,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                                 for ($setAtendimentos = array(); $rowAtendimentos = $selectAvaliacoes->fetch_assoc();$setAtendimentos[] = $rowAtendimentos['id_atendimento'],  $setAtendimentos[] = $rowAtendimentos['dataatendimento']);
 
                                 for ($i  = 0; $i < mysqli_num_rows($selectAvaliacoes); $i = $i +2) {
-                                    printf("<button><a href='fisioView_AtendimentoInterno.php?idAtendimento=%s'>%s</a></button>", $setAtendimentos[$i], $setAtendimentos[$i+1]);
+                                    printf("<button><a href='fisioView_AtendimentoInterno.php?idCliente=%sidAtendimento=%s'>%s</a></button>", $id, $setAtendimentos[$i], $setAtendimentos[$i+1]);
                                 }
 
 

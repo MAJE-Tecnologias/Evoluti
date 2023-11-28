@@ -180,11 +180,14 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                                 printf("<p>O usuario não possui atendimentos</p>");
                             }
 
-                            for ($setAtendimentos = array(); $rowAtendimentos = $selectAvaliacoes->fetch_assoc(); $setAtendimentos[] = $rowAtendimentos['dataatendimento']);
-
-                            for ($i  = 0; $i < mysqli_num_rows($selectAvaliacoes); $i++) {
-                                printf("<button>%s</button>", $setAtendimentos[$i]);
+                            for ($i  = 0; $i < mysqli_num_rows($selectAvaliacoes); $i = $i +2) {
+                                printf("<button><a href='estagViewAtendimentoInterno.php?idCliente=%sidAtendimento=%s'>%s</a></button>", $id, $setAtendimentos[$i], $setAtendimentos[$i+1]);
                             }
+
+
+                            $selectAtendimento = $conn->query("SELECT * FROM atendimento WHERE id_atendimento = '" . $_GET['idAtendimento'] . "'");
+
+                            for ($setAtendimento = array(); $rowAtendimento = $selectAtendimento->fetch_assoc();$setAtendimento[] = $rowAtendimento['descricao']);
 
                             ?>
                         </div>
@@ -196,7 +199,8 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
                     <div class="formulario_direita">
                         <div class="faixa_escolha">
-                            <button onclick="evo()" id="evo" class="texto_escolha selecionado">Evolução</button>
+                            <button onclick="ava()" id="ava" class="texto_escolha selecionado">Avaliação</button>
+                            <button onclick="evo()" id="evo" class="texto_escolha">Evolução</button>
                         </div>
                         <div class="dia_avaliacao">
                             <p id="dia">
@@ -209,7 +213,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
                         <form method="post" enctype="multipart/form-data">
                             <div>
-                                <textarea name="textArea" id="textarea" cols="100" rows="30" class="textArea_Form"></textarea>
+                                <textarea name="textArea" id="textarea" cols="100" rows="30" class="textArea_Form"><?php if (isset($setAtendimento[0])){echo $setAtendimento[0];} ?></textarea>
                             </div>
                             <div class="container_parte_inferior">
                                 <div class="container_texto_anexos">
