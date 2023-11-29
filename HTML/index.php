@@ -136,9 +136,9 @@ include '../MySQL/conecta.php';
 
         </div>
         <div class="texto_mobile">
-        <h1 class="h1_texto_mobile">Lorem ipsum</h1>
-        <p class="p_texto_mobile">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum euismod eros, ut
-                            tristique enim tincidunt ut.</p>
+        <h1 class="h1_texto_mobile">Prontuário eletrônico</h1>
+        <p class="p_texto_mobile">Nosso software de evolução fisioterapêutica prioriza a organização e o acesso rápido às informações clínicas. 
+                            </p>
         </div>
         <div class="botoes_slides2">
                     <div class="servicos_text">

@@ -1236,6 +1236,10 @@ button:hover {
     .QuemSomos{
         padding: 50px;
     }
+
+    .servicos {
+        height: fit-content;
+    }
 }
 
 /* --------------------------------------------------------- */
@@ -1252,6 +1256,20 @@ button:hover {
     gap: 2rem;
 }
 
+
+/* SERVIÇOS */
+
+.serv-titulo{
+    font-size: 22px;
+}
+
+.servicos_text h1{
+    font-size: 16px;
+}
+
+.servicos_text p{
+    font-size: 12px;
+}
 
 /* --------------------------------------------------------- */
 
@@ -1273,6 +1291,26 @@ button:hover {
 }
 
 /* --------------------------------------------------------- */
+
+/* RODAPÉ */
+
+.logotipo_rodape{
+    width: 180px;
+}
+}
+
+@media screen and (max-width: 650px) {
+    .proposito{
+        height: fit-content;
+    }
+
+    .logotipo_rodape{
+        display: none;
+    }
+
+    .teste{
+        display: none;
+    }
 }
 
 /* DESIGN RESPONSIVO PARA DISPOSTIVOS MOBILE */
@@ -1405,6 +1443,10 @@ button:hover {
         background-color: var(--lightgreen);
     }
 
+    .teste{
+        display: block;
+    }
+
 
     /* --------------------------------------------------------- */
 
@@ -1503,6 +1545,10 @@ button:hover {
         display: none;
     }
 
+    .proposito_titulo2{
+        font-size: 30px;
+    }
+
     /* SEÇÃO QUEM SOMOS */
 
     .QuemSomos{
@@ -1579,3 +1625,17 @@ button:hover {
 }
 
 /* --------------------------------------------------------- */
+
+@media screen and (max-width: 450px) {
+    .proposito_titulo{
+        font-size: 20px;
+    }
+
+    .proposito_titulo2{
+        font-size: 18px;
+    }
+
+    .listas_rodape ul {
+        margin: 10px;
+    }
+}
