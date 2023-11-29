@@ -163,7 +163,7 @@ include '../Componentes Gerais/NavPerfil.php';
                 <ul class="menu_links">
                     <li class="nav_link">
                         <a href="estagView_Atendimento.php">
-                            <i class='bx bxs-plus-circle icone'></i>
+                            <i class='bx bx-clipboard icone'></i>
                             <span class="menu_texto">Atendimentos</span>
                         </a>
                     </li>
