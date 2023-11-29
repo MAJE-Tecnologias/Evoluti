@@ -114,6 +114,14 @@ if (isset($_GET['enviarFiltro'])) {
                 </div>
             </dialog>
 
+            <div class="titulo">
+                <i class='bx bxs-group'></i>
+                <p>Pacientes</p>
+            </div>
+            <div class="subTitulo">
+                <p>Visualize e edite os pacientes que existem no sistema</p>
+            </div>
+
             <div class="filtro_Container">
                 <button type="button" class="botao-abrir">
                     <i class='bx bx-filter-alt'></i>
