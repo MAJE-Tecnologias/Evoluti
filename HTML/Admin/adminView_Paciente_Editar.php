@@ -68,8 +68,8 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     <div id="containerPrincipal" class="container_cadastroUser">
         <div class="container_view" data="interno/a.html" id="container_view_pacientes">
             <div class="titulo">
-                <i class='bx bxs-user'></i>
-                <p>Visualização de Paciente</p>
+                <i class='bx bxs-edit-alt' ></i>
+                <p>Edição de Paciente</p>
             </div>
             <div class="container_form">
 
