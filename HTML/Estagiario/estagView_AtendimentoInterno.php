@@ -189,6 +189,8 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                                 $selectAtendimento = $conn->query("SELECT * FROM atendimento WHERE id_atendimento = '" . $_GET['idAtendimento'] . "'");
 
                                 for ($setAtendimento = array(); $rowAtendimento = $selectAtendimento->fetch_assoc(); $setAtendimento[] = $rowAtendimento['descricao']);
+
+                                var_dump($setAtendimento);
                             }
                             ?>
                         </div>
@@ -200,7 +202,8 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
                     <div class="formulario_direita">
                         <div class="faixa_escolha">
-                            <button onclick="evo()" id="evo" class="texto_escolha selecionado">Evolução</button>
+                            <button onclick="ava()" id="ava" class="texto_escolha selecionado">Avaliação</button>
+                            <button onclick="evo()" id="evo" class="texto_escolha">Evolução</button>
                         </div>
                         <div class="dia_avaliacao">
                             <p id="dia">
@@ -213,7 +216,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
                         <form method="post" enctype="multipart/form-data">
                             <div>
-                                <textarea name="textArea" id="textarea" cols="100" rows="30" class="textArea_Form"><?php if (isset($setAtendimento[0])){echo $setAtendimento[0];} ?></textarea>
+                                <textarea name="textArea" id="textarea" cols="100" rows="30" class="textArea_Form" placeholder="Insira aqui o seu atendimento..."><?php if (isset($setAtendimento[0])){echo $setAtendimento[0];} ?></textarea>
                             </div>
                             <div class="container_parte_inferior">
                                 <div class="container_texto_anexos">
@@ -251,6 +254,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                                     </label>
 
                                 </div>
+                                <p class="texto_anexos" style="display:flex; justify-content: center; align-items: center">Escreva aqui o seu diagnóstico:</p>
                                 <div class="container_BarraPesquisa">
                                     <input type="text" placeholder="Diagnóstico" name='Diagnosticos' class="barraPesquisa"></input>
                                 </div>
@@ -258,7 +262,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                                 <div class="btn_salvar_container">
                                     <input type="submit" name="btn_salvar" id="btn_salvar"></input>
                                 </div>
-                                <input type="text" name="flag" id="flag" style="display: none;" value="0">
+                                <input type="text" name="flag" id="flag" style="display: none;" value="1">
                         </form>
                     </div>
                 </div>
@@ -306,7 +310,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                 <ul class="menu_links"></ul>
                 <li class="nav_link">
                     <a href="estagView_Atendimento.php" class="active">
-                        <i class='bx bx-clipboard icone'></i>
+                        <i class='bx bxs-plus-circle icone'></i>
                         <span class="menu_texto">Atendimento</span>
                     </a>
                 </li>
@@ -367,11 +371,13 @@ if (isset($_POS['btn_criarPontosDor'])) {
     $insertPontoDeDor = $conn->query("INSERT INTO avaliacoes_dor(data_avaliacao, dor_local, dor_intensidade,  fk_paciente) VALUES('" . $data . "', '" . $_POST['Regiâo_da_Dor'] . "', '" . $_POST['Intensidade'] . "','" . $id . "')");
 }
 
+var_dump($_FILES);
+
 if (isset($_POST['btn_salvar'])) {
     $flag = $_POST['flag'];
     $target_dir = "../../Imagens/imagensBd/";
 
-    if ($_FILES["Receita"]["name"] != 0) {
+    if ($_FILES["Receita"]["name"] != null) {
         $target_file = $target_dir . basename($_FILES["Receita"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -403,7 +409,7 @@ if (isset($_POST['btn_salvar'])) {
         }
     }
 
-    if ($_FILES["Exames"]["name"] != 0) {
+    if ($_FILES["Exames"]["name"] != null) {
         $target_file = $target_dir . basename($_FILES["Exames"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -435,7 +441,7 @@ if (isset($_POST['btn_salvar'])) {
         }
     }
 
-    if ($_FILES["Atestados"]["name"] != 0) {
+    if ($_FILES["Atestados"]["name"] != null) {
         $target_file = $target_dir . basename($_FILES["Atestados"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -467,7 +473,7 @@ if (isset($_POST['btn_salvar'])) {
         }
     }
 
-    if ($_FILES["Outros"]["name"] != 0) {
+    if ($_FILES["Outros"]["name"] != null) {
         $target_file = $target_dir . basename($_FILES["Outros"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));

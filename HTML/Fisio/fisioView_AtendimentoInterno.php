@@ -183,7 +183,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                                 for ($setAtendimentos = array(); $rowAtendimentos = $selectAvaliacoes->fetch_assoc(); $setAtendimentos[] = $rowAtendimentos['id_atendimento'],  $setAtendimentos[] = $rowAtendimentos['dataatendimento']);
 
                                 for ($i  = 0; $i < mysqli_num_rows($selectAvaliacoes); $i = $i + 2) {
-                                    printf("<button><a href='fisioView_AtendimentoInterno.php?idCliente=%sidAtendimento=%s'>%s</a></button>", $id, $setAtendimentos[$i], $setAtendimentos[$i + 1]);
+                                    printf("<button><a href='fisioView_AtendimentoInterno.php?idCliente=%s&idAtendimento=%s'>%s</a></button>", $id, $setAtendimentos[$i], $setAtendimentos[$i + 1]);
                                 }
 
 
@@ -216,9 +216,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
                             <form method="post" enctype="multipart/form-data">
                                 <div>
-                                    <textarea name="textArea" id="textarea" cols="100" rows="30" class="textArea_Form"><?php if (isset($setAtendimento[0])) {
-                                                                                                                            echo $setAtendimento[0];
-                                                                                                                        } ?></textarea>
+                                <textarea name="textArea" id="textarea" cols="100" rows="30" class="textArea_Form" placeholder="Insira aqui o seu atendimento..."><?php if (isset($_GET['idAtendimento'])) {echo $setAtendimento[0];} ?></textarea>
                                 </div>
                                 <div class="container_parte_inferior">
                                     <div class="container_texto_anexos">
@@ -256,6 +254,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                                         </label>
 
                                     </div>
+                                    <p class="texto_anexos" style="display:flex; justify-content: center; align-items: center">Escreva aqui o seu diagnóstico:</p>
                                     <div class="container_BarraPesquisa">
                                         <input type="text" placeholder="Diagnóstico" name='Diagnosticos' class="barraPesquisa"></input>
                                     </div>
@@ -263,7 +262,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                                     <div class="btn_salvar_container">
                                         <input type="submit" name="btn_salvar" id="btn_salvar"></input>
                                     </div>
-                                    <input type="text" name="flag" id="flag" style="display: none;" value="1">
+                                    <input type="text" name="flag" id="flag" style="display: none;" value="0">
                             </form>
                         </div>
 
@@ -374,7 +373,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
 $data = date('Y-m-d');
 
-if (isset($_POS['btn_criarPontosDor'])) {
+if (isset($_POST['btn_criarPontosDor'])) {
     $insertPontoDeDor = $conn->query("INSERT INTO avaliacoes_dor(data_avaliacao, dor_local, dor_intensidade,  fk_paciente) VALUES('" . $data . "', '" . $_POST['Regiâo_da_Dor'] . "', '" . $_POST['Intensidade'] . "','" . $id . "')");
 }
 
@@ -382,7 +381,7 @@ if (isset($_POST['btn_salvar'])) {
     $flag = $_POST['flag'];
     $target_dir = "../../Imagens/imagensBd/";
 
-    if ($_FILES["Receita"]["name"] != 0) {
+    if ($_FILES["Receita"]["name"] != '') {
         $target_file = $target_dir . basename($_FILES["Receita"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -413,7 +412,7 @@ if (isset($_POST['btn_salvar'])) {
         }
     }
 
-    if ($_FILES["Exames"]["name"] != 0) {
+    if ($_FILES["Exames"]["name"] != '') {
         $target_file = $target_dir . basename($_FILES["Exames"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -444,7 +443,7 @@ if (isset($_POST['btn_salvar'])) {
         }
     }
 
-    if ($_FILES["Atestados"]["name"] != 0) {
+    if ($_FILES["Atestados"]["name"] != '') {
         $target_file = $target_dir . basename($_FILES["Atestados"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -475,7 +474,7 @@ if (isset($_POST['btn_salvar'])) {
         }
     }
 
-    if ($_FILES["Outros"]["name"] != 0) {
+    if ($_FILES["Outros"]["name"] != '') {
         $target_file = $target_dir . basename($_FILES["Outros"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
