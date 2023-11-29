@@ -64,7 +64,7 @@ if (isset($_POST['btn'])) {
 	$insert = "INSERT INTO clinica (clinica, nome, email, senha)
 				VALUES ('" . $_POST['adm'] . "', '" . $_POST['clinica'] . "', '" . $_POST['email'] . "', '" . $_POST['senha'] . "');";
 	if ($conn->query($insert) === TRUE) {
-		header("Location: Admin/adminView.html");
+		header("Location: /HTML/cadastroClinica.php");
 	} else {
 		echo "Erro de conexão";
 	};

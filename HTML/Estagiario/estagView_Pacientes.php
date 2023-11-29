@@ -86,19 +86,9 @@ if (isset($_GET['nice'])) {
         <div class="container_view">
             <div class="container_pesquisa">
                 <div class="grid_pesquisa">
-
-                    <div class="vazio2"></div>
-
-
-                    <div class="vazio1"></div>
-
-                        <form method="_GET">
-                            <div style="display:flex; flex-direction:row;">
+                    <form method="_GET" class="form_pesquisar">
                             <input type="text" placeholder="Pesquise um paciente" name="poggers">
-                            <button type="submit" name="nice" style="border:0;">
-                                <i class='bx bxs-user-rectangle iconepesquisa'> </i>
-                            </button>
-                            </div>
+                            <button type="submit" name="nice" class="btn_pesquisar"><i class='bx bx-search'></i></button>
                         </form>
 
                 </div>
@@ -145,7 +135,7 @@ if (isset($_GET['nice'])) {
                 <ul class="menu_links">
                     <li class="nav_link">
                         <a href="estagView_Atendimento.php">
-                            <i class='bx bxs-plus-circle icone'></i>
+                            <i class='bx bx-clipboard icone'></i>
                             <span class="menu_texto">Atendimentos</span>
                         </a>
                     </li>

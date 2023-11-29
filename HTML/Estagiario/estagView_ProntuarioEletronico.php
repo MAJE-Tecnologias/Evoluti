@@ -287,14 +287,14 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
             <div class="menu">
                 <ul class="menu_links"></ul>
                 <li class="nav_link">
-                    <a href="estagView_Atendimento.php" class="active">
-                        <i class='bx bxs-plus-circle icone'></i>
+                    <a href="estagView_Atendimento.php" >
+                        <i class='bx bx-clipboard icone'></i>
                         <span class="menu_texto">Atendimento</span>
                     </a>
                 </li>
 
                 <li class="nav_link">
-                    <a href="estagView_Pacientes.php">
+                    <a href="estagView_Pacientes.php" class="active">
                         <i class='bx bxs-group icone'></i>
                         <span class="menu_texto">Pacientes</span>
                     </a>
