@@ -200,8 +200,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
                     <div class="formulario_direita">
                         <div class="faixa_escolha">
-                            <button onclick="ava()" id="ava" class="texto_escolha selecionado">Avaliação</button>
-                            <button onclick="evo()" id="evo" class="texto_escolha">Evolução</button>
+                            <button onclick="evo()" id="evo" class="texto_escolha selecionado">Evolução</button>
                         </div>
                         <div class="dia_avaliacao">
                             <p id="dia">
@@ -259,7 +258,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                                 <div class="btn_salvar_container">
                                     <input type="submit" name="btn_salvar" id="btn_salvar"></input>
                                 </div>
-                                <input type="text" name="flag" id="flag" style="display: none;" value="1">
+                                <input type="text" name="flag" id="flag" style="display: none;" value="0">
                         </form>
                     </div>
                 </div>
