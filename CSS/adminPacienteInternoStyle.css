@@ -1,0 +1,105 @@
+.container_view{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.linhas{
+    row-gap: 20px;
+}
+
+.container_foto_forms {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+}
+
+.nomePaciente{
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.container_form {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container_TextoArquivo{
+    display: flex;
+    flex-direction: column;
+}
+
+.linha4{
+    align-items: center;
+    justify-content: center;
+}
+
+.Selecionar_Arquivo {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.forms{
+    width: 100%;
+}
+
+.barrinha{
+    margin-bottom: 10px;
+}
+
+.container_editar{
+    display: flex;
+    width: 100%;
+    justify-content: right;
+    align-items: center;
+}
+
+.botaoEditar{
+    border: 0;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    transition: 0.3s;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.botaoEditar:hover{
+    color: #45D496;
+}
+
+.botaoEditar:hover .iconeEditar{
+    border-color: #45D496;
+}
+
+.iconeEditar{
+    border: 1px solid black;
+    border-radius: 100%;
+    padding: 5px;
+    margin-left: 10px;
+    user-select: none;
+}
+
+.container_voltar{
+    width: fit-content;
+    align-items: center;
+}
+
+.botao_voltar{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: black;
+    transition: 0.3s;
+}
+
+.botao_voltar:hover{
+    color: #45D496;
+}

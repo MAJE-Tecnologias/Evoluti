@@ -1,0 +1,1641 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* INÍCIO + NAVBAR */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    list-style: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --green: #51f680;
+    --white: #fff;
+    --dark: #1e1c2a;
+    --lightgreen: #95ffb3;
+    --blue: #3AB1FD;
+    --lightblue: #46FADF;
+
+    --velocidadeEscrita: 2s;
+}
+
+.separacao {
+    display: block;
+}
+
+.menuResponsivoIcone {
+    display: none;
+}
+
+.menuResponsivoItens {
+    display: none;
+}
+
+body {
+    color: var(--dark);
+    background: var(--white);
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 50px;
+    box-shadow: 0 0.1rem 0.5rem #ccc;
+    width: 100%;
+    background: var(--white);
+    transition: 0.5s;
+    position: fixed;
+    z-index: 4;
+}
+
+/* RESTO DA NAVBAR E LOGOTIPO */
+.logotipo {
+    position: relative;
+    width: 100px;
+    left: 15px;
+    background-size: contain;
+}
+
+.logo {
+    color: var(--dark);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.logo span {
+    color: var(--green);
+}
+
+.navigation ul {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
+
+.navigation ul li a {
+    color: var(--dark);
+    font-size: 17px;
+    font-weight: 500;
+    transition: all 0.5s;
+}
+
+.navigation ul li a:hover,
+nav a.ativo {
+    color: var(--green);
+}
+
+.navigation i {
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+/* --------------------------------------------------------- */
+
+/* SECTION HOME */
+.home {
+    width: 100%;
+    padding-top: 79.41px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-text {
+    width: 100%;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.home_container1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    box-shadow: 25px 0 10px 0 rgba(255, 255, 255, 0.5);
+    clip-path: inset(0px -100px 0px 0px);
+}
+
+.home-text .text-h4 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--green);
+    margin-bottom: 0.50rem;
+}
+
+.home-text .text-h1 {
+    font-size: 3.20rem;
+    margin-bottom: 1rem;
+    line-height: 3.25rem;
+}
+
+.home-text p {
+    font-weight: 400;
+    font-size: 1.00rem;
+    margin-bottom: 2.75rem;
+    max-width: 35rem;
+}
+
+.home-btn {
+    padding: 10px 115px;
+    background-color: var(--green);
+    color: var(--white);
+    border-radius: 10px;
+    font-weight: 700;
+    transition: all 0.5s;
+}
+
+.home-btn:hover {
+    background-color: var(--lightgreen);
+}
+
+.nav-btn {
+    padding: 5px 20px;
+    background-color: var(--green);
+    color: var(--white);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.5s;
+}
+
+.nav-btn:hover {
+    background-color: var(--lightgreen);
+}
+
+.teste{
+    width: 100%;
+    height: 100%;
+
+}
+
+.home-img{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    position: relative;
+    z-index: -2;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/* --------------------------------------------------------- */
+
+/* Section "Serviços" */
+
+.servicos {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 111vh;
+    background: linear-gradient(93deg, #51F680 -57.5%, #1A334E 102.88%);
+}
+
+.serv-titulo {
+    width: 100%;
+    text-align: center;
+    display: block;
+    color: #F1F1F1;
+    font-size: 32px;
+    font-weight: 400;
+}
+
+#barrinha_serv {
+    content: '';
+    width: 200px;
+    height: 2px;
+    display: block;
+    margin: 11px auto 34px;
+    background: white;
+}
+
+.barrinha {
+    content: '';
+    width: 70px;
+    height: 2px;
+    display: block;
+    margin: 11px auto 34px;
+    background: black;
+}
+
+.servicos_wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+}
+
+.servicos_teste{
+    position: relative;
+    height: 100%;
+}
+
+.servicos_conteudo {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: fit-content;
+    column-gap: 100px;
+}
+
+.slides {
+    display: flex;
+    width: 420px;
+    height: 540px;
+    padding: 20px;
+
+    border-radius: 9px;
+    background: rgba(217, 217, 217, 0.10);
+    box-shadow: -25.07836151123047px 25.07836151123047px 25.07836151123047px 0px rgba(255, 255, 255, 0.10) inset, 25.07836151123047px -25.07836151123047px 25.07836151123047px 0px rgba(165, 165, 165, 0.10) inset;
+    backdrop-filter: blur(25.07836151123047px);
+}
+
+#itens{
+    overflow-x: hidden;
+    display: flex;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    aspect-ratio: 16/9;
+    border-radius: 0.5rem;
+}
+
+#itens img{
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+    transition: 2s;
+}
+
+.botoes_slides {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    width: 50%;
+}
+
+.botoes_slides2{
+    display: none;
+}
+
+.texto_mobile{
+    display: none;
+}
+
+.botao_slide {
+    color: white;
+    opacity: 0.75;
+    transition: opacity ease 250ms;
+}
+
+.servicos_text input[type='radio']{
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    outline: none;
+    box-shadow: 0 0 5px var(--white);
+}
+
+.servicos_text input[type='radio']:before {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 60%;
+    margin: 20% auto;
+    border-radius: 50%;
+  }
+  
+  .servicos_text input[type='radio']:checked:before {
+    background: var(--white);
+    box-shadow: 0 0 5px var(--green);
+  }
+
+  .servicos_text h1{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+  }
+
+.botao_slide:hover {
+    opacity: 1;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.servicos_text {
+    color: white;
+}
+
+/* --------------------------------------------------------- */
+
+/* Section "Login" */
+
+.Login {
+    /* width: 100%; */
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    padding: 0px 20%;
+    background-image: url("/Imagens/Idoso.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* .login-img{
+    position: relative;
+    top: 65px;
+    width: 500px;
+    display: flex;
+    z-index: 0;
+    vertical-align: bottom;
+
+} */
+
+.login-text {
+    position: relative;
+    color: #F1F1F1;
+    top: 50%;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 9.164px;
+    background: rgba(217, 217, 217, 0.10);
+    box-shadow: -10.53841px 10.53841px 10.53841px 0px rgba(255, 255, 255, 0.10) inset, 10.53841px -10.53841px 10.53841px 0px rgba(165, 165, 165, 0.10) inset;
+    backdrop-filter: blur(10.538409233093262px);
+    backdrop-filter: blur(8px);
+    font-weight: 700;
+}
+
+#barrinha_login {
+    background: #F1F1F1;
+}
+
+.login-titulo {
+    font-size: 1.6rem;
+}
+
+.divLoginBtn {
+    align-items: center;
+    display: inline-block;
+    justify-content: space-evenly;
+    padding-top: 10vh;
+}
+
+.login-btn {
+
+    padding: 15px 100px;
+    background-color: var(--dark);
+    color: var(--white);
+    border-radius: 10px;
+    font-weight: 700;
+    transition: all 0.5s;
+    margin: 20px;
+}
+
+.login-btn:hover {
+    background-color: darkblue;
+}
+
+/* --------------------------------------------------------- */
+
+/* Section "Propósito */
+
+.proposito {
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    align-items: center;
+    background: white;
+}
+
+.proposito_container {
+    width: 100%;
+    position: relative;
+    height: fit-content;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 5%;
+}
+
+.proposito_container_blocos {
+    display: flex;
+    column-gap: 20px;
+    height: 100%;
+}
+
+.bloco {
+    position: relative;
+    height: fit-content;
+    border-radius: 9.16px 0 9.16px 9.16px;
+    background: #45D496;
+
+}
+
+.LogoBranco_Proposito{
+    display: none;
+}
+
+.triangulo_branco{
+    display:inline-block;
+    background:linear-gradient(to bottom right,rgba(255, 255, 255, 0) 50%,white 50%);
+    width: 40%;
+    height: 80%;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: 0;
+}
+
+.bloco_principal_container_0{
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4%;
+}
+
+.bloco_principal_container {
+    width: 100%;
+    height: fit-content;
+}
+
+.bloco_principal_container2{
+    justify-content: center;
+    align-items: center;
+}
+
+.bloco_1_container{
+    display: flex;
+    column-gap: 15px;
+    max-width: 100%;
+    padding-right: 4%;
+}
+
+.img_corredor{
+    position: absolute;
+    bottom: -40px;
+    width: 100%;
+}
+
+.proposito_titulo {
+    color: #F1F1F1;
+    font-size: 30px;
+    font-weight: 700;
+    width: max-content;
+
+}
+
+.proposito_titulo2 {
+    position: relative;
+    font-family: 'Source Code Pro', monospace;
+    color: black;
+    font-size: 40px;
+    font-weight: 700;
+    background: #D7D588;
+    width: max-content;
+}
+
+.bloco_principal_text {
+    padding-top: 40px;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: justify;
+    color: white;
+}
+
+#animacao::before,
+#animacao::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+#animacao::before {
+    background: #D7D588;
+    animation: typewriter var(--velocidadeEscrita) steps(11) 1s forwards;
+}
+
+#animacao::after {
+    width: 0.125em;
+    background: black;
+    animation: typewriter var(--velocidadeEscrita) steps(11) 1s forwards,
+        piscar 700ms steps(11) infinite;
+}
+
+@keyframes typewriter {
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes piscar {
+    to {
+        background: transparent;
+    }
+}
+
+.bloco1 {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    bottom: 0px;
+    border-radius: 9.16px 9.16px 0 0;
+    background: #DEDFA4;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}
+
+.bloco_interno_container {
+    width: 270px;
+    height: 100%;
+    padding: 20px;
+    border-radius: 9.16px;
+}
+
+.bloco_interno {
+    background: #D7D588;
+    width: 100%;
+    border-radius: 9.16px;
+    position: relative;
+}
+
+.bloco_interno_text {
+    color: #686868;
+    font-size: 14px;
+    padding: 15px;
+    text-align: justify;
+}
+
+#bloco_interno_2,
+#bloco_interno_3 {
+    margin-top: 20px;
+}
+
+/* --------------------------------------------------------- */
+
+/* Section "Quem Somos?" */
+
+.colunas_container_QS {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 50px;
+    grid-row-gap: 0px;
+}
+
+.coluna1 {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.coluna2 {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.coluna3 {
+    grid-area: 1 / 3 / 2 / 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coluna4 {
+    grid-area: 2 / 1 / 3 / 2;
+    position: relative;
+}
+
+.coluna5 { grid-area: 2 / 2 / 3 / 3; }
+.coluna6 { grid-area: 2 / 3 / 3 / 4; }
+
+.QuemSomos {
+    width: 100%;
+    position: relative;
+    height: fit-content;
+    display: inline-block;
+    align-items: center;
+    justify-content: space-between;
+    background: #132941;
+    padding: 100px;
+}
+
+.quemS-text {
+    width: 100%;
+    display: block;
+    color: var(--white);
+}
+
+.quemS-text h1{
+    text-align: right;
+    color: #45D496;
+    font-size: 40px;
+}
+
+.quemS-text p{
+    text-align: justify;
+}
+
+.barrinhaQS {
+    content: '';
+    width: 70px;
+    height: 2px;
+    display: block;
+    margin: 11px auto 34px;
+    background: var(--white);
+}
+
+h1 {
+    margin-top: 2px;
+}
+
+.center-screen {
+    margin-top: 20px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#icones {
+    font-size: 40px;
+    color: #D7D588;
+    margin: 10px;
+}
+
+
+.card1 {
+    width: 75%;
+}
+
+.textoCard1{
+    color: var(--white);
+}
+
+.textoCard1 h1 {
+    font-size: 19px;
+}
+
+.textoCard1 p {
+    font-size: 14px;
+}
+
+.card2 {
+    position: relative;
+    width: 75%;
+}
+
+.textoCard2 {
+    position: relative;
+    color: var(--white);
+}
+
+.textoCard2 h1 {
+    font-size: 19px;
+}
+
+.textoCard2 p {
+    font-size: 14px;
+}
+
+.card3 {
+    position: relative;
+    width: 75%;
+}
+
+.textoCard3 {
+    position: relative;
+    color: var(--white);
+}
+
+.textoCard3 h1 {
+    font-size: 19px;
+}
+
+.textoCard3 p {
+    font-size: 14px;
+}
+
+.card4 {
+    position: relative;
+    width: 75%;
+}
+
+.textoCard4 {
+    position: relative;
+    color: var(--white);
+}
+
+.textoCard4 h1 {
+    font-size: 19px;
+}
+
+.textoCard4 p {
+    font-size: 14px;
+}
+
+.title {
+    color: gray;
+    font-size: 18px;
+}
+
+.coluna_mobile{
+    display: none;
+}
+
+/* --------------------------------------------------------- */
+
+/* RODAPÉ" */
+
+.rodape {
+    height: 35px;
+    background: var(--green);
+    width: 100%;
+}
+
+.rodape2 {
+    height: 50vh;
+    width: 100%;
+}
+
+.rodape2_conteudo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+    overflow: hidden;
+}
+
+.logotipo_rodape {
+    width: 300px;
+}
+
+.listas_rodape {
+    display: flex;
+    justify-content: center;
+}
+
+.listas_rodape ul {
+    margin: 20px;
+}
+
+.listas_rodape {}
+
+.listas_rodape ul {
+    margin: 40px;
+}
+
+.listas_rodape h1 {
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.listas_rodape ul li a {
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.barrinha_rodape {
+    content: '';
+    width: 90%;
+    height: 3px;
+    display: block;
+    margin: 0 auto 34px;
+    border-radius: 500px;
+    background: #45D496;
+}
+
+.redes_rodape {
+    width: 100%;
+    justify-content: space-evenly;
+    text-align: center;
+
+}
+
+#iconesRodape {
+    font-size: 40px;
+    color: #45D496;
+    margin: 10px;
+    padding: 0 50px;
+}
+
+.trademark_rodape {
+
+    text-align: center;
+    padding-top: 34px;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
+
+a:hover,
+button:hover {
+    opacity: 0.6;
+}
+
+.logo_rodape2{
+    display: none;
+}
+
+.barrinha_rodape2{
+    display: none;
+}
+
+@media screen and (max-width: 1280px) {
+    .bloco_interno_container{
+        width: 250px;
+    }
+    .proposito_container_blocos{
+        column-gap: 0;
+    }
+    .bloco_principal_container_0 {
+        padding: 2%;
+    }
+    .proposito_titulo2{
+        font-size: 30px;
+    }
+    .bloco_principal_text {
+        font-size: 16px;
+    }
+    .bloco_1_container{
+        padding-right: 2%;
+    }
+}
+
+@media screen and (max-width: 1065px) {
+    .bloco_interno_container{
+        width: 230px;
+    }
+}
+
+/* --------------------------------------------------------- */
+
+@media screen and (max-width: 1024px) {
+    .navigation {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 30px;
+        box-shadow: 0 0.1rem 0.5rem #ccc;
+        width: 100%;
+        background: var(--white);
+        transition: 0.5s;
+        position: fixed;
+        z-index: 4;
+    }
+
+    /* RESTO DA NAVBAR E LOGOTIPO */
+    .logotipo {
+        display: flex;
+        width: 100px;
+        left: 0px;
+        background-size: contain;
+    }
+
+    .logo {
+        color: var(--dark);
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    /* --------------------------------------------------------- */
+
+    /* SECTION HOME */
+    .home {
+        width: 100%;
+        padding-top: 69.42px;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .home-text {
+        width: 100%;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    
+    .home_container1{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        box-shadow: 25px 0 10px 0 rgba(255, 255, 255, 0.5);
+        clip-path: inset(0px -100px 0px 0px);
+    }
+    
+    .home-text .text-h4 {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--green);
+        margin-bottom: 0.50rem;
+    }
+    
+    .home-text .text-h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        line-height: 3.25rem;
+    }
+    
+    .home-text p {
+        font-weight: 400;
+        font-size: 1.00rem;
+        margin-bottom: 2.75rem;
+        max-width: 35rem;
+    }
+    
+    .home-btn {
+        padding: 10px 115px;
+        background-color: var(--green);
+        color: var(--white);
+        border-radius: 10px;
+        font-weight: 700;
+        transition: all 0.5s;
+    }
+    
+    .home-btn:hover {
+        background-color: var(--lightgreen);
+    }
+    
+    .nav-btn {
+        padding: 5px 20px;
+        background-color: var(--green);
+        color: var(--white);
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: all 0.5s;
+    }
+    
+    .nav-btn:hover {
+        background-color: var(--lightgreen);
+    }
+    
+    .teste{
+        width: 100%;
+        height: 100%;
+    
+    }
+    
+    .home-img{
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+        position: relative;
+        z-index: -2;
+    }
+
+
+/* --------------------------------------------------------- */
+
+/* --------------------------------------------------------- */
+
+    /* SECTION SERVIÇOS */
+    .servicos_wrapper{
+        padding: 30px;
+    }
+
+    #barrinha_serv {
+        content: '';
+        width: 100px;
+        height: 2px;
+        display: block;
+        margin: 11px auto 34px;
+        background: white;
+    }
+
+    .botoes_slides {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        width: 50%;
+    }
+
+    .slides {
+        display: flex;
+        width: 320px;
+        height: 440px;
+        padding: 20px;
+    
+        border-radius: 9px;
+        background: rgba(217, 217, 217, 0.10);
+        box-shadow: -25.07836151123047px 25.07836151123047px 25.07836151123047px 0px rgba(255, 255, 255, 0.10) inset, 25.07836151123047px -25.07836151123047px 25.07836151123047px 0px rgba(165, 165, 165, 0.10) inset;
+        backdrop-filter: blur(25.07836151123047px);
+    }
+
+/* --------------------------------------------------------- */
+
+/* Section "Propósito */
+
+.bloco_interno_container {
+    width: 100%;
+}
+
+.bloco_1_container{
+    
+}
+
+.bloco_principal_container_0 {
+    margin-top: auto;
+    margin-bottom: auto;
+    display: block;
+    height: 100%;
+    width: min-content;
+}
+
+.bloco_principal_container {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    align-items: center;
+}
+
+.bloco_principal_text {
+    height: 100%;
+    font-size: 16px;
+    width: 100%;
+}
+
+.img_corredor {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    width: 100%;
+}
+
+.proposito_titulo {
+    color: #F1F1F1;
+    font-size: 25px;
+    font-weight: 700;
+    width: max-content;
+}
+
+.proposito_titulo2 {
+    font-size: 20px;
+}
+
+.bloco_1_container{
+    width: 60%;
+}
+/* --------------------------------------------------------- */
+
+/* SECTION QUEM SOMOS */
+
+.colunas_container_QS {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 50px;
+    grid-row-gap: 0px;
+}
+
+.coluna1 {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.coluna2 {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.coluna3 {
+    grid-area: 1 / 3 / 2 / 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coluna4 {
+    grid-area: 2 / 1 / 3 / 2;
+    position: relative;
+}
+
+.coluna5 { grid-area: 2 / 2 / 3 / 3; }
+.coluna6 { grid-area: 2 / 3 / 3 / 4; }
+
+.QuemSomos {
+    width: 100%;
+    position: relative;
+    height: fit-content;
+    display: inline-block;
+    align-items: center;
+    justify-content: space-between;
+    background: #132941;
+    padding: 100px;
+}
+
+.quemS-text {
+    width: 100%;
+    display: block;
+    color: var(--white);
+}
+
+.quemS-text h1{
+    text-align: right;
+    color: #45D496;
+    font-size: 30px;
+}
+
+.quemS-text p{
+    font-size: 15px;
+    text-align: justify;
+}
+
+.card1 {
+    width: 100%;
+}
+
+.card2 {
+    position: relative;
+    width: 100%;
+}
+
+.card3 {
+    position: relative;
+    width: 100%;
+}
+
+.card4 {
+    position: relative;
+    width: 100%;
+}
+
+/* FOOTER */
+
+.rodape2_conteudo {
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.logotipo_rodape {
+    width: 250px;
+}
+
+.listas_rodape ul {
+    margin: 20px;
+}
+
+}
+
+/* 900px */
+
+@media screen and (max-width: 900px) {
+    #bloco_direita{
+        display: none;
+    }
+
+    .proposito{
+        height: 110dvh;
+    }
+    
+    .bloco_principal_container_0 {
+        width: 100%;
+    }
+
+    .LogoBranco_Proposito{
+        display: block;
+        width: 100%;
+        padding: 30px;
+    }
+
+    .QuemSomos{
+        padding: 50px;
+    }
+
+    .servicos {
+        height: fit-content;
+    }
+}
+
+/* --------------------------------------------------------- */
+
+/* DESIGN RESPONSIVO PARA TABLETS/TELAS PEQUENAS */
+
+@media screen and (max-width: 768px) {
+
+/* --------------------------------------------------------- */
+
+/* NAVIGATION */
+
+.navigation ul{
+    gap: 2rem;
+}
+
+
+/* SERVIÇOS */
+
+.serv-titulo{
+    font-size: 22px;
+}
+
+.servicos_text h1{
+    font-size: 16px;
+}
+
+.servicos_text p{
+    font-size: 12px;
+}
+
+/* --------------------------------------------------------- */
+
+/* SEÇÃO QUEM SOMOS */
+
+.quemS-text h1 {
+    text-align: right;
+    color: #45D496;
+    font-size: 20px;
+}
+
+.quemS-text p {
+    font-size: 13px;
+    text-align: justify;
+}
+
+.QuemSomos{
+    padding: 25px;
+}
+
+/* --------------------------------------------------------- */
+
+/* RODAPÉ */
+
+.logotipo_rodape{
+    width: 180px;
+}
+}
+
+@media screen and (max-width: 650px) {
+    .proposito{
+        height: fit-content;
+    }
+
+    .logotipo_rodape{
+        display: none;
+    }
+
+    .teste{
+        display: none;
+    }
+}
+
+/* DESIGN RESPONSIVO PARA DISPOSTIVOS MOBILE */
+@media screen and (max-width: 600px) {
+
+    .navigation {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 15px;
+        box-shadow: 0 0.1rem 0.5rem #ccc;
+        width: 100%;
+        background: var(--white);
+        transition: 0.5s;
+        position: fixed;
+        z-index: 4;
+    }
+
+    .logotipo {
+        position: relative;
+        width: 100px;
+        left: 5px;
+        background-size: contain;
+    }
+
+    .menuResponsivoIcone {
+        display: block;
+    }
+
+    .menuResponsivoIcone button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .menuResponsivoItens ul {
+        display: block;
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 1rem;
+        background: white;
+
+    }
+
+    .menuResponsivoItens .nav-item2 {
+        display: block;
+        padding-top: 1.2rem;
+
+    }
+
+    .abrir {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 58px;
+        left: 0;
+    }
+
+    .navigation .navDesktop {
+        display: none;
+    }
+
+    /* SEÇÃO HOME */
+
+    .home {
+        display: flex;
+        flex-direction: column;
+        padding-top: 59.42px;
+        height: 100vh;
+    }
+
+    .home_container1{
+        box-shadow: none;
+        clip-path: none;
+    }
+
+    .home-img img {
+        width: 100%;
+    }
+
+    .home-img:after {
+        display: none;
+    }
+
+    .nav-btn {
+        display: none;
+    }
+
+    .home-text {
+        align-items: center;
+    }
+
+    .home-text .text-h4 {
+        font-size: 0.75rem;
+        color: var(--green);
+        margin-bottom: 0.50rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home-text .text-h1 {
+        font-size: 1.60rem;
+        margin-bottom: 1rem;
+        line-height: 2rem;
+        text-align: center;
+
+    }
+
+    .home-text p {
+        font-size: 0.80rem;
+        margin-bottom: 1.00rem;
+        max-width: 35rem;
+        text-align: center;
+    }
+
+    .home-btn {
+        padding: 15px 45px;
+        background-color: var(--green);
+        color: var(--white);
+        border-radius: 10px;
+        font-weight: 700;
+        transition: all 0.5s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home-btn:hover {
+        background-color: var(--lightgreen);
+    }
+
+    .teste{
+        display: block;
+    }
+
+
+    /* --------------------------------------------------------- */
+
+    /* Section Servicos */
+
+    .servicos{
+        height: 100vh;
+    }
+
+    .servicos_wrapper{
+        height: 100%;
+    }
+
+    .servicos_teste{
+        height: fit-content;
+    }
+
+    .botoes_slides {
+        display: none;
+    }
+
+    .texto_mobile{
+        display: flex;
+        text-align: center;
+        width: 100%;
+        flex-direction: column;
+        color: var(--white);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .h1_texto_mobile{
+        margin-top: 20px;
+        font-size: 32px;
+    }
+
+    .botoes_slides2{
+        display: flex;
+        margin-top: 20px;
+        justify-content: center;
+        column-gap: 50px;
+        width: 100%;
+        bottom: 0;
+        align-self: flex-end;
+
+    }
+
+
+    /* --------------------------------------------------------- */
+
+    /* SEÇÃO DO BLOCÃO VERDE */
+
+    .proposito{
+        height: fit-content;
+    }
+
+    .bloco{
+        width: 90%;
+        margin-left: 10%;
+    }
+
+    .proposito_container_blocos {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        width: 100%;
+
+    }
+
+    .bloco_1_container{
+        padding-left: 30px;
+        padding-right: 30px;
+        width: 100%;
+    }
+
+    .bloco_2_container{
+        display: none;
+    }
+
+    .bloco_interno_container {
+        display: grid;
+        width: 100%;
+        height: fit-content;
+        padding: 20px;
+        border-radius: 9.16px;
+        align-items: center;
+        position: relative;
+    }
+
+    .bloco_interno_text {
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    .triangulo_branco{
+        display: none;
+    }
+
+    .proposito_titulo2{
+        font-size: 30px;
+    }
+
+    /* SEÇÃO QUEM SOMOS */
+
+    .QuemSomos{
+        display: flex;
+        flex-direction: column;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+    .center-screen {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .colunas_container_QS {
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+    }
+
+    .coluna_mobile{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .coluna_mobile h1{
+        color: #45D496;
+        font-size: 50px;
+        text-align: right;
+    }
+
+    .coluna_mobile p{
+        color: var(--white);
+        font-size: 15px;
+        text-align: justify;
+    }
+
+    .coluna3{
+        display: none;
+    }
+
+    /* FOOTER */
+
+    .logo_rodape{
+        display: none;
+    }
+
+    .logo_rodape2{
+        display: flex;
+        justify-content: center;
+    }
+
+    .logotipo_rodape2{
+        width: 250px;
+    }
+
+    .barrinha_rodape{
+        margin: 0 auto 17px;
+    }
+
+    .barrinha_rodape2{
+        content: '';
+        width: 90%;
+        height: 3px;
+        display: block;
+        margin: 17px auto 17px;
+        border-radius: 500px;
+        background: #45D496;
+    }
+}
+
+/* --------------------------------------------------------- */
+
+@media screen and (max-width: 450px) {
+    .proposito_titulo{
+        font-size: 20px;
+    }
+
+    .proposito_titulo2{
+        font-size: 18px;
+    }
+
+    .listas_rodape ul {
+        margin: 10px;
+    }
+}
