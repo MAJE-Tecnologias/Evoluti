@@ -202,8 +202,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
                     <div class="formulario_direita">
                         <div class="faixa_escolha">
-                            <button onclick="ava()" id="ava" class="texto_escolha selecionado">Avaliação</button>
-                            <button onclick="evo()" id="evo" class="texto_escolha">Evolução</button>
+                            <button onclick="evo()" id="evo" class="texto_escolha selecionado">Evolução</button>
                         </div>
                         <div class="dia_avaliacao">
                             <p id="dia">
@@ -310,7 +309,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                 <ul class="menu_links"></ul>
                 <li class="nav_link">
                     <a href="estagView_Atendimento.php" class="active">
-                        <i class='bx bxs-plus-circle icone'></i>
+                        <i class='bx bx-clipboard icone'></i>
                         <span class="menu_texto">Atendimento</span>
                     </a>
                 </li>
