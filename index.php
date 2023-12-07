@@ -1,5 +1,5 @@
 <?php
-include '../MySQL/conecta.php';
+include 'MySQL/conecta.php';
 ?>
 <!DOCTYPE html>
 <html lang="Pt-br">
@@ -11,7 +11,7 @@ include '../MySQL/conecta.php';
     <link rel="icon" href="/Imagens/Icon.png">
 
 
-<link rel="stylesheet" href="../../CSS/modalConfigStyle.css">
+<link rel="stylesheet" href="CSS/modalConfigStyle.css">
     <link rel="stylesheet" href="/CSS/style.css">
     <!-- -------------------------------------- -->
 
@@ -41,7 +41,7 @@ include '../MySQL/conecta.php';
                 <li class="nav-item"><a href="#Sobre">Quem somos?</a></li>
 
             </ul>
-            <a href="login.php" class="nav-btn">Entrar</a>
+            <a href="HTML/login.php" class="nav-btn">Entrar</a>
             <div class="menuResponsivoIcone">
                 <button onclick="mostrarMenu()"><i class="fa fa-bars"></i></button>
             </div>
@@ -72,7 +72,7 @@ include '../MySQL/conecta.php';
                 <p>Analise o progresso dos seus pacientes mergulhando em gráficos e dados que revelam insights
                     valiosos.
                 </p>
-                <a href="login.php" class="home-btn">Começar</a>
+                <a href="HTML/login.php" class="home-btn">Começar</a>
             </div>
             </div>
             <div class="teste">

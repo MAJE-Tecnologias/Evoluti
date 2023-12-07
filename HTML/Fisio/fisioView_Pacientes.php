@@ -16,9 +16,9 @@ if ($_SESSION['nivel'] == 0) {
     $prof = "Estagiario";
 }
 
-$pacientes = $conn->query("SELECT * FROM paciente;");
+$pacientes = $conn->query("SELECT LEFT(nome, 1) AS first_letra, id_paciente, nome FROM paciente ORDER BY first_letra, nome;");
 
-for ($setPacientes = array(); $rowPacientes = $pacientes->fetch_assoc(); $setPacientes[] = $rowPacientes['nome'], $setPacientes[] = $rowPacientes['id_paciente']);
+for ($setPacientes = array(); $rowPacientes = $pacientes->fetch_assoc(); $setPacientes[] = $rowPacientes['first_letra'], $setPacientes[] = $rowPacientes['nome'], $setPacientes[] = $rowPacientes['id_paciente']);
 
 $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
@@ -43,14 +43,14 @@ if (isset($_GET['nice'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/Imagens/Icon.png">
 
-        <!-- CSS -->
+    <!-- CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../../CSS/modalConfigStyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../CSS/adminStyle.css">
     <link rel="stylesheet" href="../../CSS/navBarStyle.css">
-    <link rel="stylesheet" href="/CSS/adminUsuarioStyle.css">
+    <link rel="stylesheet" href="../../CSS/adminUsuarioStyle.css">
     <link rel="stylesheet" href="../../CSS/fisioAtendimento.css">
 
     <!-- -------------------------------------- -->
@@ -105,7 +105,17 @@ if (isset($_GET['nice'])) {
             <div class="container_form">
                 <div class="container_card">
                     <?php
-                    for ($i = 0; $i < mysqli_num_rows($pacientes) * 2; $i = $i + 2) {
+                    $letraAtual = null;
+                    for ($i = 0; $i < mysqli_num_rows($pacientes) * 3; $i = $i + 3) {
+                        $letra = $setPacientes[$i];
+                        if ($letra != $letraAtual) {
+                            printf("
+                            <div class='letra'>
+                                <h2>%s</h2>
+                                <div class='linhaLetra'></div>
+                            </div>", $letra);
+                            $letraAtual = $letra;
+                        }
                         printf("
                         <a href='fisioView_ProntuarioEletronico.php?idCliente=%s' class='info2'>
                         <div>
@@ -113,7 +123,7 @@ if (isset($_GET['nice'])) {
                             <h4>%s</h4>
                         </div>
                     </a>
-                            ", $setPacientes[$i + 1], $setPacientes[$i]);
+                            ", $setPacientes[$i + 2], $setPacientes[$i + 1]);
                     }
                     ?>
                 </div>
@@ -149,7 +159,7 @@ if (isset($_GET['nice'])) {
                         </a>
                     </li>
 
-                    
+
                 </ul>
             </div>
 
@@ -162,10 +172,10 @@ if (isset($_GET['nice'])) {
                 </li>
                 <li class="">
                     <a>
-                    <button type="button" class="botaoConfig botao-abrirConfig">
-                        <i class='bx bx-cog icone'></i>
-                        <span class="menu_texto">Configurações</span>
-                    </button>
+                        <button type="button" class="botaoConfig botao-abrirConfig">
+                            <i class='bx bx-cog icone'></i>
+                            <span class="menu_texto">Configurações</span>
+                        </button>
                     </a>
                 </li>
 

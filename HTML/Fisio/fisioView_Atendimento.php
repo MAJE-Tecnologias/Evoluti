@@ -15,9 +15,9 @@ if ($_SESSION['nivel'] == 0) {
     $prof = "Estagiario";
 }
 
-$pacientes = $conn->query("SELECT * FROM paciente;");
+$pacientes = $conn->query("SELECT LEFT(nome, 1) AS first_letra, id_paciente, nome FROM paciente ORDER BY first_letra, nome;");
 
-for ($setPacientes = array(); $rowPacientes = $pacientes->fetch_assoc(); $setPacientes[] = $rowPacientes['nome'], $setPacientes[] = $rowPacientes['id_paciente']);
+for ($setPacientes = array(); $rowPacientes = $pacientes->fetch_assoc(); $setPacientes[] = $rowPacientes['first_letra'], $setPacientes[] = $rowPacientes['nome'], $setPacientes[] = $rowPacientes['id_paciente']);
 
 $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 ?>
@@ -87,7 +87,17 @@ include '../Componentes Gerais/NavPerfil.php'
         <div class="container_form">
             <div class="container_card">
             <?php
-                    for ($i = 0; $i < mysqli_num_rows($pacientes)*2; $i = $i + 2) {
+                    $letraAtual = null;
+                    for ($i = 0; $i < mysqli_num_rows($pacientes) * 3; $i = $i + 3) {
+                        $letra = $setPacientes[$i];
+                        if ($letra != $letraAtual) {
+                            printf("
+                            <div class='letra'>
+                                <h2>%s</h2>
+                                <div class='linhaLetra'></div>
+                            </div>", $letra);
+                            $letraAtual = $letra;
+                        }
                         printf("
                         <a href='fisioView_AtendimentoInterno.php?idCliente=%s' class='info2'>
                         <div>
@@ -95,7 +105,7 @@ include '../Componentes Gerais/NavPerfil.php'
                             <h4>%s</h4>
                         </div>
                     </a>
-                            ", $setPacientes[$i+1], $setPacientes[$i]);
+                            ", $setPacientes[$i + 2], $setPacientes[$i + 1]);
                     }
             ?>
             </div>

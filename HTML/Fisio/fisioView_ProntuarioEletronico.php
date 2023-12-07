@@ -1,6 +1,6 @@
 <?php
 
-include '../../MySql/conecta.php';
+include '../../MySQL/conecta.php';
 
 session_start();
 
@@ -188,7 +188,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                             for ($setAtendimentos = array(); $rowAtendimentos = $selectAvaliacoes->fetch_assoc(); $setAtendimentos[] = $rowAtendimentos['id_atendimento'],  $setAtendimentos[] = $rowAtendimentos['dataatendimento']);
 
                             for ($i  = 0; $i < mysqli_num_rows($selectAvaliacoes); $i = $i + 2) {
-                                printf("<button><a href='fisioView_AtendimentoInterno.php?idCliente=%sidAtendimento=%s'>%s</a></button>", $id, $setAtendimentos[$i], $setAtendimentos[$i + 1]);
+                                printf("<button><a href='fisioView_AtendimentoInterno.php?idCliente=%s&idAtendimento=%s'>%s</a></button>", $id, $setAtendimentos[$i], $setAtendimentos[$i + 1]);
                             }
                             ?>
                         </div>
@@ -233,12 +233,28 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
             const localIndex = local.indexOf(item.dor_local);
             intensidade[dataIndex][localIndex] = item.dor_intensidade;
         });
+        
+        function generateColor() {
+          const letters = '0123456789ABCDEF';
+          let color = '#';
+          
+          for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+          }
+          
+          return color;
+          
+        }
 
         const datasets = local.map((local, index) => {
+            var bgCor = ''
+            for (let i = 0; i < local.lenght; i++){
+                bgCor[i] = generateColor()
+            }
             return {
                 label: local,
                 data: intensidade.map(intensity => intensity[index]),
-                backgroundColor: `#ff56`,
+                backgroundColor: bgCor,
             };
         });
 
@@ -265,7 +281,9 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     </script>", json_encode($data));
                         }
                         ?>
+                        <img src="../../Imagens/musculaturaFront.png" alt="pontosDor1" type="image/webp" style="width: 50%; padding-top: 20px"></img>
                     </div>
+
                 </div>
             </div>
         </div>
