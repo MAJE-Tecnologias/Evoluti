@@ -1,7 +1,8 @@
 <?php
 
-include '../../MySQL/conecta.php';
 
+include '../../MySQL/conecta.php';
+error_reporting(E_ERROR | E_PARSE);
 session_start();
 
 if ($_SESSION['nivel'] == 0) {
@@ -20,6 +21,17 @@ $pacientes = $conn->query("SELECT LEFT(nome, 1) AS first_letra, id_paciente, nom
 for ($setPacientes = array(); $rowPacientes = $pacientes->fetch_assoc(); $setPacientes[] = $rowPacientes['first_letra'], $setPacientes[] = $rowPacientes['nome'], $setPacientes[] = $rowPacientes['id_paciente']);
 
 $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
+
+if (isset($_GET['nice'])) {
+
+    $filtrar = $_GET['poggers'];
+
+    if (!empty($filtrar)) {
+        $pacientes = $conn->query("SELECT * FROM paciente where (`nome` like '" . $filtrar . '%' . "');");
+
+        for ($setPacientes = array(); $rowPacientes = $pacientes->fetch_assoc(); $setPacientes[] = $rowPacientes['nome']);
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -31,15 +43,16 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/Imagens/Icon.png">
 
-        <!-- CSS -->
+    <!-- CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../../CSS/modalConfigStyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../CSS/adminStyle.css">
     <link rel="stylesheet" href="../../CSS/navBarStyle.css">
-    <link rel="stylesheet" href="/CSS/adminUsuarioStyle.css">
+    <link rel="stylesheet" href="../../CSS/adminUsuarioStyle.css">
     <link rel="stylesheet" href="../../CSS/fisioAtendimento.css">
+    <link rel="stylesheet" href="../../CSS/PacientesBuscaStyle.css">
 
     <!-- -------------------------------------- -->
 
@@ -58,60 +71,37 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
 
 <body>
 
-<?php
+    <?php
 
-include '../Componentes Gerais/NavPerfil.php'
+    include '../Componentes Gerais/NavPerfil.php';
 
-?>
+    $id = $_GET['idCliente'];
 
-<div class="container_usuarios">
-    <div class="container_view">
-        <div class="container_pesquisa">
-            <div class="grid_pesquisa">
+    $result = $conn->query("SELECT * from paciente where (`id_paciente` = '" . $id . "') LIMIT 1");
 
-            <div class="pesquisa linha">
-                        <form method="_GET" class="form_pesquisar">
+    $rowPaciente = mysqli_fetch_assoc($result);
+
+    ?>
+
+    <div class="container_usuarios">
+        <div class="container_view">
+            <div class="titulo">
+                <i class='bx bxs-user'></i>
+                <p>Busca de Pacientes</p>
+            </div>
+            <div class="subTitulo">
+                <p>Busque por um paciente cadastrado no sistema:</p>
+            </div>
+
+
+            <div class="container_pesquisar">
+            <form method="_GET" class="form_pesquisar">
                             <input type="text" placeholder="Pesquise um paciente" name="poggers">
                             <button type="submit" name="nice" class="btn_pesquisar"><i class='bx bx-search'></i></button>
                         </form>
-                    </div>
-            </div>
-        </div>
-        <div class="titulo">
-            <i class='bx bx-clipboard'></i>
-            <p>Novo Atendimento</p>
-        </div>
-        <div class="subTitulo">
-            <p>Selecione um paciente para realizar o atendimento:</p>
-        </div>
-        <div class="container_form">
-            <div class="container_card">
-            <?php
-                    $letraAtual = null;
-                    for ($i = 0; $i < mysqli_num_rows($pacientes) * 3; $i = $i + 3) {
-                        $letra = $setPacientes[$i];
-                        if ($letra != $letraAtual) {
-                            printf("
-                            <div class='letra'>
-                                <h2>%s</h2>
-                                <div class='linhaLetra'></div>
-                            </div>", $letra);
-                            $letraAtual = $letra;
-                        }
-                        printf("
-                        <a href='fisioView_AtendimentoInterno.php?idCliente=%s' class='info2'>
-                        <div>
-                            <img src='https://picsum.photos/150' alt=''>
-                            <h4>%s</h4>
-                        </div>
-                    </a>
-                            ", $setPacientes[$i + 2], $setPacientes[$i + 1]);
-                    }
-            ?>
             </div>
         </div>
     </div>
-</div>
 
     <nav class="menuLateral fecharMenu">
         <header>
@@ -128,20 +118,20 @@ include '../Componentes Gerais/NavPerfil.php'
             <div class="menu">
                 <ul class="menu_links">
                     <li class="nav_link">
-                        <a href="fisioView_Atendimento.php" class="active">
+                        <a href="fisioView_Atendimento.php">
                             <i class='bx bx-clipboard icone'></i>
                             <span class="menu_texto">Atendimento</span>
                         </a>
                     </li>
 
                     <li class="nav_link">
-                        <a href="fisioView_PacientesBusca.php">
+                        <a href="fisioView_PacientesBusca.php" class="active">
                             <i class='bx bxs-group icone'></i>
                             <span class="menu_texto">Pacientes</span>
                         </a>
                     </li>
 
-                    
+
                 </ul>
             </div>
 
@@ -154,10 +144,10 @@ include '../Componentes Gerais/NavPerfil.php'
                 </li>
                 <li class="">
                     <a>
-                    <button type="button" class="botaoConfig botao-abrirConfig">
-                        <i class='bx bx-cog icone'></i>
-                        <span class="menu_texto">Configurações</span>
-                    </button>
+                        <button type="button" class="botaoConfig botao-abrirConfig">
+                            <i class='bx bx-cog icone'></i>
+                            <span class="menu_texto">Configurações</span>
+                        </button>
                     </a>
                 </li>
 

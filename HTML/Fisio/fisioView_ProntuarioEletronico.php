@@ -312,7 +312,7 @@ $nomeArray = $selectNome->fetch_array(MYSQLI_ASSOC);
                 </li>
 
                 <li class="nav_link">
-                    <a href="fisioView_Pacientes.php" class="active">
+                    <a href="fisioView_PacientesBusca.php" class="active">
                         <i class='bx bxs-group icone'></i>
                         <span class="menu_texto">Pacientes</span>
                     </a>
